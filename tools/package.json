@@ -1,0 +1,12 @@
+{
+  "name": "tools",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "highlight.js": "^9.15.9",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.9"
+  }
+}
