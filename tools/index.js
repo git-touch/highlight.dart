@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const _ = require("lodash");
-const { execSync } = require("child_process");
-const hljs = require("highlight.js");
+import fs from "fs";
+import path from "path";
+import { camelCase } from "lodash-es";
+import { execSync } from "child_process";
+import hljs from "highlight.js";
 
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 
@@ -12,7 +12,7 @@ function normalizeLanguageName(name) {
   if (/^\d/.test(name)) {
     name = "lang" + name;
   }
-  return _.camelCase(name);
+  return camelCase(name);
 }
 
 fs.readdirSync(dir).forEach(file => {
