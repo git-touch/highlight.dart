@@ -28,8 +28,12 @@ Mode _$ModeFromJson(Map<String, dynamic> json) {
     ..endsParent = json['endsParent'] as bool ?? false
     ..endsWithParent = json['endsWithParent'] as bool ?? false
     ..relevance = json['relevance'] as int
+    ..subLanguage = json['subLanguage'] as String
     ..excludeBegin = json['excludeBegin'] as bool ?? false
-    ..excludeEnd = json['excludeEnd'] as bool ?? false;
+    ..excludeEnd = json['excludeEnd'] as bool ?? false
+    ..skip = json['skip'] as bool ?? false
+    ..returnBegin = json['returnBegin'] as bool ?? false
+    ..returnEnd = json['returnEnd'] as bool ?? false;
 }
 
 Map<String, dynamic> _$ModeToJson(Mode instance) {
@@ -59,7 +63,11 @@ Map<String, dynamic> _$ModeToJson(Mode instance) {
   writeNotNull('endsParent', instance.endsParent);
   writeNotNull('endsWithParent', instance.endsWithParent);
   writeNotNull('relevance', instance.relevance);
+  writeNotNull('subLanguage', instance.subLanguage);
   writeNotNull('excludeBegin', instance.excludeBegin);
   writeNotNull('excludeEnd', instance.excludeEnd);
+  writeNotNull('skip', instance.skip);
+  writeNotNull('returnBegin', instance.returnBegin);
+  writeNotNull('returnEnd', instance.returnEnd);
   return val;
 }

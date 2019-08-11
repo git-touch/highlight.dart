@@ -1,5 +1,9 @@
+import 'dart:developer';
 import 'package:json_annotation/json_annotation.dart';
+import 'utils.dart';
 part 'highlight.g.dart';
+
+var spanEndTag = '</span>';
 
 @JsonSerializable(includeIfNull: false, explicitToJson: true)
 class Mode {
@@ -25,10 +29,17 @@ class Mode {
   @JsonKey(defaultValue: false)
   bool endsWithParent;
   int relevance;
+  String subLanguage;
   @JsonKey(defaultValue: false)
   bool excludeBegin;
   @JsonKey(defaultValue: false)
   bool excludeEnd;
+  @JsonKey(defaultValue: false)
+  bool skip;
+  @JsonKey(defaultValue: false)
+  bool returnBegin;
+  @JsonKey(defaultValue: false)
+  bool returnEnd;
 
   @JsonKey(ignore: true)
   bool compiled = false;
@@ -68,12 +79,41 @@ class Mode {
   Map<String, dynamic> toJson() => _$ModeToJson(this);
 
   static Mode inherit(Mode a, [Mode b]) {
-    Map<String, dynamic> merged = {
-      ...a.toJson(),
-      'variants': null,
-      ...(b == null ? {} : b.toJson()),
-    };
-    return Mode.fromJson(merged);
+    if (b == null) b = Mode();
+    return Mode()
+      ..aliases = b.aliases ?? a.aliases
+      ..keywords = b.keywords ?? a.keywords
+      ..illegal = b.illegal ?? a.illegal
+      ..case_insensitive = b.case_insensitive ?? a.case_insensitive
+      ..contains = b.contains ?? a.contains
+      ..variants = b.variants ?? a.variants
+      ..starts = b.starts ?? a.starts
+      ..className = b.className ?? a.className
+      ..begin = b.begin ?? a.begin
+      ..beginKeywords = b.beginKeywords ?? a.beginKeywords
+      ..end = b.end ?? a.end
+      ..lexemes = b.lexemes ?? a.lexemes
+      ..endSameAsBegin = b.endSameAsBegin ?? a.endSameAsBegin
+      ..endsParent = b.endsParent ?? a.endsParent
+      ..endsWithParent = b.endsWithParent ?? a.endsWithParent
+      ..relevance = b.relevance ?? a.relevance
+      ..subLanguage = b.subLanguage ?? a.subLanguage
+      ..excludeBegin = b.excludeBegin ?? a.excludeBegin
+      ..excludeEnd = b.excludeEnd ?? a.excludeEnd
+      ..skip = b.skip ?? a.skip
+      ..returnBegin = b.returnBegin ?? a.returnBegin
+      ..returnEnd = b.returnEnd ?? a.returnEnd
+
+      //
+      ..compiled = b.compiled ?? a.compiled
+      ..parent = b.parent ?? a.parent
+      ..lexemesRe = b.lexemesRe ?? a.lexemesRe
+      ..beginRe = b.beginRe ?? a.beginRe
+      ..endRe = b.endRe ?? a.endRe
+      ..illegalRe = b.illegalRe ?? a.illegalRe
+      ..terminator_end = b.terminator_end ?? a.terminator_end
+      ..cached_variants = b.cached_variants ?? a.cached_variants
+      ..terminators = b.terminators ?? a.terminators;
   }
 }
 
@@ -85,7 +125,7 @@ class Highlight {
   List<Mode> expand_mode(Mode mode) {
     if (mode.variants != null && mode.cached_variants == null) {
       mode.cached_variants = mode.variants.map((variant) {
-        return Mode.inherit(mode, variant);
+        return Mode.inherit(mode, variant)..variants = null;
       }).toList();
     }
     return mode.cached_variants ??
@@ -109,7 +149,7 @@ class Highlight {
       reStr(value),
       multiLine: true,
       caseSensitive: !language.case_insensitive,
-      // TODO: global tag
+      // FIXME: global tag
     );
   }
 
@@ -130,8 +170,8 @@ class Highlight {
           ret += re;
           break;
         }
-        ret += re.substring(0, match.start);
-        re = re.substring(match.start + match[0].length);
+        ret += substring(re, 0, match.start);
+        re = substring(re, match.start + match[0].length);
         if (match[0][0] == '\\' && match.groupCount > 1) {
           ret += '\\' + (int.parse(match[1]) + offset).toString();
         } else {
@@ -216,7 +256,227 @@ class Highlight {
         .map(reStr)
         .where((x) => x != null)
         .toList();
+
     mode.terminators =
         terminators.length > 0 ? langRe(joinRe(terminators, '|'), true) : null;
+  }
+
+  buildSpan(String classname, String insideSpan,
+      [bool leaveOpen = false, bool noPrefix = false]) {
+    var classPrefix = noPrefix ? '' : 'hljs-',
+        openSpan = '<span class="' + classPrefix,
+        closeSpan = leaveOpen ? '' : spanEndTag;
+
+    openSpan += classname + '">';
+
+    if (classname == null || classname.isEmpty) return insideSpan;
+    return openSpan + insideSpan + closeSpan;
+  }
+
+  bool testRe(RegExp re, String lexeme) {
+    if (re != null) {
+      for (var match in re.allMatches(lexeme)) {
+        return match.start == 0;
+      }
+    }
+    return false;
+  }
+
+  RegExp escapeRe(String value) {
+    return RegExp(value.replaceAll(RegExp(r'[-\/\\^$*+?.()|[\]{}]'), r'\$&'),
+        multiLine: true);
+  }
+
+  Mode subMode(String lexeme, Mode mode) {
+    for (var i = 0; i < mode.contains.length; i++) {
+      if (testRe(mode.contains[i].beginRe, lexeme)) {
+        if (mode.contains[i].endSameAsBegin) {
+          mode.contains[i].endRe =
+              escapeRe(mode.contains[i].beginRe.firstMatch(lexeme)[0]);
+        }
+
+        return mode.contains[i];
+      }
+    }
+    return null;
+  }
+
+  Mode endOfMode(Mode mode, String lexeme) {
+    if (testRe(mode.endRe, lexeme)) {
+      while (mode.endsParent && mode.parent != null) {
+        mode = mode.parent;
+      }
+      return mode;
+    }
+    if (mode.endsWithParent) {
+      return endOfMode(mode.parent, lexeme);
+    }
+    return null;
+  }
+
+  String escape(String value) {
+    return value
+        .replaceAll(RegExp(r'&'), '&amp;')
+        .replaceAll(RegExp(r'<'), '&lt;')
+        .replaceAll(RegExp(r'>'), '&gt;');
+  }
+
+  keywordMatch(Mode mode, RegExpMatch match) {
+    var match_str =
+        language.case_insensitive ? match[0].toLowerCase() : match[0];
+    return mode.keywords[match_str];
+  }
+
+  void highlight(String name, String value,
+      [bool ignore_illegals = false, Mode continuation]) {
+    compileMode(language);
+
+    var top = continuation ?? language;
+    // var continuations = {};
+    var result = '';
+    Mode current;
+    for (current = top; current != language; current = current.parent) {
+      if (current.className != null) {
+        result = buildSpan(current.className, '', true) + result;
+      }
+    }
+    var mode_buffer = '';
+    var relevance = 0;
+
+    bool isIllegal(String lexeme, Mode mode) {
+      return !ignore_illegals && testRe(mode.illegalRe, lexeme);
+    }
+
+    void startNewMode(Mode mode) {
+      result +=
+          mode.className != null ? buildSpan(mode.className, '', true) : '';
+      top = Mode.inherit(mode, Mode()..parent = top); // FIXME:
+    }
+
+    String processKeywords() {
+      if (top.keywords == null) return escape(mode_buffer);
+
+      var keyword_match;
+      RegExpMatch match;
+      String result = '';
+      int last_index = 0;
+
+      match = top.lexemesRe.firstMatch(mode_buffer);
+
+      while (match != null) {
+        // var offset = last_index + match.start;
+        result += escape(substring(mode_buffer, last_index, match.start));
+        keyword_match = keywordMatch(top, match);
+        if (keyword_match != null) {
+          relevance += keyword_match[1];
+          result += buildSpan(keyword_match[0], escape(match[0]));
+        } else {
+          result += escape(match[0]);
+        }
+        last_index += match.start + match[0].length;
+        match = top.lexemesRe.firstMatch(substring(mode_buffer, last_index));
+      }
+      return result + escape(substring(mode_buffer, last_index));
+    }
+
+    void processBuffer() {
+      result += processKeywords(); // FIXME: sub language
+      mode_buffer = '';
+    }
+
+    int processLexeme(String buffer, [String lexeme]) {
+      mode_buffer += buffer;
+
+      if (lexeme == null) {
+        processBuffer();
+        return 0;
+      }
+
+      var new_mode = subMode(lexeme, top);
+
+      if (new_mode != null) {
+        if (new_mode.skip) {
+          mode_buffer += lexeme;
+        } else {
+          if (new_mode.excludeBegin) {
+            mode_buffer += lexeme;
+          }
+          processBuffer();
+          if (!new_mode.returnBegin && !new_mode.excludeBegin) {
+            mode_buffer = lexeme;
+          }
+        }
+        startNewMode(new_mode);
+        return new_mode.returnBegin ? 0 : lexeme.length;
+      }
+
+      var end_mode = endOfMode(top, lexeme);
+      if (end_mode != null) {
+        var origin = top;
+        if (origin.skip) {
+          mode_buffer += lexeme;
+        } else {
+          if (!(origin.returnEnd || origin.excludeEnd)) {
+            mode_buffer += lexeme;
+          }
+          processBuffer();
+          if (origin.excludeEnd) {
+            mode_buffer = lexeme;
+          }
+        }
+        do {
+          if (top.className != null) {
+            result += spanEndTag;
+          }
+          if (!top.skip && top.subLanguage == null) {
+            relevance += top.relevance;
+          }
+          top = top.parent;
+        } while (top != end_mode.parent);
+        if (end_mode.starts != null) {
+          if (end_mode.endSameAsBegin) {
+            end_mode.starts.endRe = end_mode.endRe;
+          }
+          startNewMode(end_mode.starts);
+        }
+        return origin.returnEnd ? 0 : lexeme.length;
+      }
+
+      if (isIllegal(lexeme, top))
+        throw 'Illegal lexeme "' +
+            lexeme +
+            '" for mode "' +
+            (top.className ?? '<unnamed>') +
+            '"';
+
+      mode_buffer += lexeme;
+      return lexeme.length == 0 ? 1 : lexeme.length;
+    }
+
+    try {
+      RegExpMatch match;
+      int count;
+      int index = 0;
+      while (true) {
+        match = top.terminators.firstMatch(substring(value, index));
+        if (match == null) break;
+
+        var offset = match.start + index;
+        count = processLexeme(substring(value, index, offset), match[0]);
+        index = offset + count;
+        print('${match[0]} $count $index');
+      }
+      processLexeme(substring(value, index));
+      for (current = top; current.parent != null; current = current.parent) {
+        if (current.className != null) {
+          result += spanEndTag;
+        }
+      }
+      print(relevance);
+      print(result);
+      // return {relevance: relevance, value: result, language: name, top: top};
+    } catch (e) {
+      print(e);
+    }
   }
 }
