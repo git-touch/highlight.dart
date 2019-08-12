@@ -327,7 +327,7 @@ class Highlight {
     return mode.keywords[match_str];
   }
 
-  void highlight(String name, String value,
+  String highlight(String name, String value,
       [bool ignore_illegals = false, Mode continuation]) {
     compileMode(language);
 
@@ -442,12 +442,13 @@ class Highlight {
         return origin.returnEnd ? 0 : lexeme.length;
       }
 
-      if (isIllegal(lexeme, top))
+      if (isIllegal(lexeme, top)) {
         throw 'Illegal lexeme "' +
             lexeme +
             '" for mode "' +
             (top.className ?? '<unnamed>') +
             '"';
+      }
 
       mode_buffer += lexeme;
       return lexeme.length == 0 ? 1 : lexeme.length;
@@ -464,7 +465,7 @@ class Highlight {
         var offset = match.start + index;
         count = processLexeme(substring(value, index, offset), match[0]);
         index = offset + count;
-        print('${match[0]} $count $index');
+        // print('${match[0]} $count $index');
       }
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {
@@ -472,11 +473,13 @@ class Highlight {
           result += spanEndTag;
         }
       }
-      print(relevance);
-      print(result);
+      // print(relevance);
+      // print(result);
+      return result;
       // return {relevance: relevance, value: result, language: name, top: top};
     } catch (e) {
       print(e);
+      return null;
     }
   }
 }

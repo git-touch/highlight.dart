@@ -8,6 +8,7 @@ import hljs from "highlight.js";
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 
 let code = `import 'highlight.dart';`;
+let all = "var all = {";
 
 function normalizeLanguageName(name) {
   if (/^\d/.test(name)) {
@@ -16,7 +17,9 @@ function normalizeLanguageName(name) {
   return camelCase(name);
 }
 
-fs.readdirSync(dir).forEach(file => {
+const files = fs.readdirSync(dir);
+
+files.forEach(file => {
   const item = require(path.resolve(dir, file))(hljs);
   let lang = normalizeLanguageName(path.basename(file, path.extname(file)));
 
@@ -28,6 +31,7 @@ fs.readdirSync(dir).forEach(file => {
       return v;
     });
     code += `var ${lang} = ${data};`;
+    all += `'${lang}': ${lang},`;
   } catch (err) {
     console.error(err);
   }
@@ -36,7 +40,8 @@ fs.readdirSync(dir).forEach(file => {
 const destFile = path.resolve(__dirname, "../highlight/lib/languages.dart");
 
 code = code.replace(/\$/g, "\\$"); // $ -> \$
+all += "};";
 
-fs.writeFileSync(destFile, code);
+fs.writeFileSync(destFile, code + all);
 
 execSync("dartfmt --overwrite " + destFile) && 0;

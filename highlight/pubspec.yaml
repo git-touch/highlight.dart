@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   json_annotation: ^3.0.0
-#  path: ^1.6.0
+  path: ^1.6.4
 
 dev_dependencies:
   pedantic: ^1.7.0
