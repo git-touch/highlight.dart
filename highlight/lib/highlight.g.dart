@@ -28,7 +28,7 @@ Mode _$ModeFromJson(Map<String, dynamic> json) {
     ..endsParent = json['endsParent'] as bool ?? false
     ..endsWithParent = json['endsWithParent'] as bool ?? false
     ..relevance = json['relevance'] as int
-    ..subLanguage = json['subLanguage'] as String
+    ..subLanguage = json['subLanguage']
     ..excludeBegin = json['excludeBegin'] as bool ?? false
     ..excludeEnd = json['excludeEnd'] as bool ?? false
     ..skip = json['skip'] as bool ?? false
