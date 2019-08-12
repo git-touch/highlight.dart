@@ -27,10 +27,12 @@ void main() {
             var code = File(entity.path).readAsStringSync();
             var expected =
                 File(entity.path.replaceFirst(RegExp(r'\.txt$'), '.expect.txt'))
-                    .readAsStringSync();
+                    .readAsStringSync()
+                    .trim();
 
-            var highlighted =
-                Highlight(Mode.fromJson(all[lang])).highlight(lang, code);
+            var highlighted = Highlight(Mode.fromJson(all[lang]))
+                .highlight(lang, code)
+                .trim();
 
             expect(highlighted, expected);
           });

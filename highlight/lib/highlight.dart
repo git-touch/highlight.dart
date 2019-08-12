@@ -164,7 +164,7 @@ class Highlight {
         ret += separator;
       }
 
-      while (re.length > 0) {
+      while (re.isNotEmpty) {
         var match = RegExp(backreferenceRe).firstMatch(re);
         if (match == null) {
           ret += re;
@@ -258,7 +258,7 @@ class Highlight {
         .toList();
 
     mode.terminators =
-        terminators.length > 0 ? langRe(joinRe(terminators, '|'), true) : null;
+        terminators.isNotEmpty ? langRe(joinRe(terminators, '|'), true) : null;
   }
 
   buildSpan(String classname, String insideSpan,
@@ -364,8 +364,8 @@ class Highlight {
       match = top.lexemesRe.firstMatch(mode_buffer);
 
       while (match != null) {
-        // var offset = last_index + match.start;
-        result += escape(substring(mode_buffer, last_index, match.start));
+        result += escape(
+            substring(mode_buffer, last_index, match.start + last_index));
         keyword_match = keywordMatch(top, match);
         if (keyword_match != null) {
           relevance += keyword_match[1];
@@ -451,7 +451,7 @@ class Highlight {
       }
 
       mode_buffer += lexeme;
-      return lexeme.length == 0 ? 1 : lexeme.length;
+      return lexeme.isEmpty ? 1 : lexeme.length;
     }
 
     try {
@@ -461,11 +461,9 @@ class Highlight {
       while (true) {
         match = top.terminators.firstMatch(substring(value, index));
         if (match == null) break;
-
-        var offset = match.start + index;
-        count = processLexeme(substring(value, index, offset), match[0]);
-        index = offset + count;
-        // print('${match[0]} $count $index');
+        count = processLexeme(
+            substring(value, index, index + match.start), match[0]);
+        index += count + match.start;
       }
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {
