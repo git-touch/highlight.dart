@@ -7,7 +7,7 @@ import hljs from "highlight.js";
 
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 
-let code = `import 'flutter_highlight.dart';`;
+let code = `import 'highlight.dart';`;
 
 function normalizeLanguageName(name) {
   if (/^\d/.test(name)) {
@@ -33,10 +33,7 @@ fs.readdirSync(dir).forEach(file => {
   }
 });
 
-const destFile = path.resolve(
-  __dirname,
-  "../flutter_highlight/lib/languages.dart"
-);
+const destFile = path.resolve(__dirname, "../highlight/lib/languages.dart");
 
 code = code.replace(/\$/g, "\\$"); // $ -> \$
 
