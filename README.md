@@ -1,1 +1,1 @@
-flutter_highlight/README.md
+highlight/README.md
