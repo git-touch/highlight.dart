@@ -365,8 +365,7 @@ class Highlight {
       match = top.lexemesRe.firstMatch(mode_buffer);
 
       while (match != null) {
-        result += escape(
-            substring(mode_buffer, last_index, match.start + last_index));
+        result += escape(substring(mode_buffer, last_index, match.start));
         keyword_match = keywordMatch(top, match);
         if (keyword_match != null) {
           relevance += keyword_match[1];
@@ -374,8 +373,10 @@ class Highlight {
         } else {
           result += escape(match[0]);
         }
-        last_index += match.start + match[0].length;
-        match = top.lexemesRe.firstMatch(substring(mode_buffer, last_index));
+        last_index = match.start + match[0].length;
+        match = top.lexemesRe
+            .allMatches(mode_buffer, last_index)
+            .firstWhere((m) => true, orElse: () => null);
       }
       return result + escape(substring(mode_buffer, last_index));
     }
@@ -461,16 +462,17 @@ class Highlight {
       int index = 0;
       // print(value);
       while (true) {
-        // print(top.terminators);
+        match = top.terminators
+            .allMatches(value, index)
+            .firstWhere((m) => true, orElse: () => null);
 
-        match = top.terminators.firstMatch(substring(value, index));
         if (match == null) break;
-        count = processLexeme(
-            substring(value, index, index + match.start), match[0]);
-        index += count + match.start;
         // print('$index, ${match.start}');
         // print(match[0].replaceAll(RegExp(r'\s'), '*'));
         // print('');
+
+        count = processLexeme(substring(value, index, match.start), match[0]);
+        index = count + match.start;
       }
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {
