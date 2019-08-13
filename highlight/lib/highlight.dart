@@ -30,8 +30,7 @@ class Mode {
   bool endsWithParent;
   int relevance;
 
-  /// `String | List<String>`
-  dynamic subLanguage;
+  List<String> subLanguage;
   @JsonKey(defaultValue: false)
   bool excludeBegin;
   @JsonKey(defaultValue: false)

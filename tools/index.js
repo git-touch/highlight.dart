@@ -29,6 +29,17 @@ files.forEach(file => {
       if (v instanceof RegExp) {
         return v.source;
       }
+
+      // end: boolean -> string
+      if (k === "end") {
+        return v.toString();
+      }
+
+      // string -> string[]
+      if (k === "subLanguage" && typeof v === "string") {
+        return [v];
+      }
+
       return v;
     });
     code += `var ${lang} = ${data};`;
