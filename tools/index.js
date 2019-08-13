@@ -7,7 +7,8 @@ import hljs from "highlight.js";
 
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 
-let code = `import 'highlight.dart';`;
+let common = `import 'highlight.dart';`;
+let code = "";
 let all = "var all = {";
 
 function normalizeLanguageName(name) {
@@ -17,6 +18,8 @@ function normalizeLanguageName(name) {
   return camelCase(name);
 }
 
+const hljsKeys = Object.keys(hljs);
+const usedKeyMap = {};
 const files = fs.readdirSync(dir);
 
 files.forEach(file => {
@@ -40,20 +43,51 @@ files.forEach(file => {
         return [v];
       }
 
+      // Reuse common values
+      for (const key of hljsKeys) {
+        if (v === hljs[key]) {
+          usedKeyMap[key] = true;
+          return `hljs.${key}`;
+        }
+      }
+
       return v;
     });
+
     code += `var ${lang} = ${data};`;
     all += `'${originalLang}': ${lang},`;
   } catch (err) {
-    console.error(err);
+    // console.error(err);
   }
 });
 
 const destFile = path.resolve(__dirname, "../highlight/lib/languages.dart");
 
-code = code.replace(/\$/g, "\\$"); // $ -> \$
+Object.keys(usedKeyMap).forEach(key => {
+  common += `var ${key}=${JSON.stringify(hljs[key], (k, v) => {
+    if (v instanceof RegExp) {
+      return v.source;
+    }
+
+    // end: boolean -> string
+    if (k === "end") {
+      return v.toString();
+    }
+
+    // string -> string[]
+    if (k === "subLanguage" && typeof v === "string") {
+      return [v];
+    }
+
+    return v;
+  })};`;
+});
 all += "};";
 
-fs.writeFileSync(destFile, code + all);
+let result = common + code + all;
+result = result.replace(/"hljs\.(.*?)"/g, "$1");
+result = result.replace(/\$/g, "\\$"); // $ -> \$
+
+fs.writeFileSync(destFile, result);
 
 execSync("dartfmt --overwrite " + destFile) && 0;
