@@ -460,12 +460,18 @@ class Highlight {
       RegExpMatch match;
       int count;
       int index = 0;
+      // print(value);
       while (true) {
+        // print(top.terminators);
+
         match = top.terminators.firstMatch(substring(value, index));
         if (match == null) break;
         count = processLexeme(
             substring(value, index, index + match.start), match[0]);
         index += count + match.start;
+        // print('$index, ${match.start}');
+        // print(match[0].replaceAll(RegExp(r'\s'), '*'));
+        // print('');
       }
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {

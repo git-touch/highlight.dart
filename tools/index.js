@@ -21,7 +21,8 @@ const files = fs.readdirSync(dir);
 
 files.forEach(file => {
   const item = require(path.resolve(dir, file))(hljs);
-  let lang = normalizeLanguageName(path.basename(file, path.extname(file)));
+  let originalLang = path.basename(file, path.extname(file));
+  let lang = normalizeLanguageName(originalLang);
 
   try {
     const data = JSON.stringify(item, (k, v) => {
@@ -31,7 +32,7 @@ files.forEach(file => {
       return v;
     });
     code += `var ${lang} = ${data};`;
-    all += `'${lang}': ${lang},`;
+    all += `'${originalLang}': ${lang},`;
   } catch (err) {
     console.error(err);
   }
