@@ -73,6 +73,8 @@ class Mode {
     } else if (map is Map<String, dynamic>) {
       return _$ModeFromJson(map);
     } else {
+      print(map);
+      print(map.toJson());
       throw 'invalid map';
     }
   }
@@ -364,7 +366,8 @@ class Highlight {
       match = top.lexemesRe.firstMatch(mode_buffer);
 
       while (match != null) {
-        result += escape(substring(mode_buffer, last_index, match.start));
+        result += escape(
+            substring(mode_buffer, last_index, match.start + last_index));
         keyword_match = keywordMatch(top, match);
         if (keyword_match != null) {
           relevance += keyword_match[1];
@@ -372,10 +375,8 @@ class Highlight {
         } else {
           result += escape(match[0]);
         }
-        last_index = match.start + match[0].length;
-        match = top.lexemesRe
-            .allMatches(mode_buffer)
-            .firstWhere((m) => m.start > last_index, orElse: () => null);
+        last_index += match.start + match[0].length;
+        match = top.lexemesRe.firstMatch(substring(mode_buffer, last_index));
       }
       return result + escape(substring(mode_buffer, last_index));
     }
@@ -460,14 +461,11 @@ class Highlight {
       int count;
       int index = 0;
       while (true) {
-        // firstMatch does not work here when including something like ^\s* with multiline flag
-        match = top.terminators
-            .allMatches(value)
-            .firstWhere((m) => m.start >= index, orElse: () => null);
+        match = top.terminators.firstMatch(substring(value, index));
         if (match == null) break;
-
-        count = processLexeme(substring(value, index, match.start), match[0]);
-        index = count + match.start;
+        count = processLexeme(
+            substring(value, index, index + match.start), match[0]);
+        index += count + match.start;
       }
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {
