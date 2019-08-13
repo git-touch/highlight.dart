@@ -19,7 +19,7 @@ void main() {
       }
       if (lang.contains('index.js')) return;
 
-      group('language: $lang', () {
+      group(lang, () {
         Directory('test/markup/$lang').listSync().forEach((entity) {
           if (entity.path.contains('expect')) return;
 
