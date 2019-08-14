@@ -7,10 +7,6 @@ import hljs from "highlight.js";
 
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 
-let common = `import 'highlight.dart';`;
-let code = "";
-let all = "var all = {";
-
 function normalizeLanguageName(name) {
   if (/^\d/.test(name)) {
     name = "lang" + name;
@@ -20,9 +16,10 @@ function normalizeLanguageName(name) {
 
 const hljsKeys = Object.keys(hljs);
 const usedKeyMap = {};
-const files = fs.readdirSync(dir);
 
-files.forEach(file => {
+let all = "var all = {";
+
+fs.readdirSync(dir).forEach(file => {
   const item = require(path.resolve(dir, file))(hljs);
   let originalLang = path.basename(file, path.extname(file));
   let lang = normalizeLanguageName(originalLang);
@@ -54,15 +51,32 @@ files.forEach(file => {
       return v;
     });
 
-    code += `var ${lang} = ${data};`;
+    fs.writeFileSync(
+      path.resolve(
+        __dirname,
+        `../highlight/lib/languages/${originalLang}.dart`
+      ),
+      `import 'package:highlight/common.dart'; var ${lang}=${data};`
+        .replace(/"hljs\.(.*?)"/g, "$1")
+        .replace(/\$/g, "\\$")
+    );
+
+    all = `import 'languages/${originalLang}.dart';` + all;
     all += `'${originalLang}': ${lang},`;
   } catch (err) {
     // console.error(err);
   }
 });
 
-const destFile = path.resolve(__dirname, "../highlight/lib/languages.dart");
+// all.dart
+all += "};";
+fs.writeFileSync(
+  path.resolve(__dirname, `../highlight/lib/all.dart`),
+  all.replace(/\$/g, "\\$")
+);
 
+// common.dart
+let common = `import 'highlight.dart';`;
 Object.keys(usedKeyMap).forEach(key => {
   common += `var ${key}=${JSON.stringify(hljs[key], (k, v) => {
     if (v instanceof RegExp) {
@@ -82,12 +96,12 @@ Object.keys(usedKeyMap).forEach(key => {
     return v;
   })};`;
 });
-all += "};";
+fs.writeFileSync(
+  path.resolve(__dirname, `../highlight/lib/common.dart`),
+  common.replace(/\$/g, "\\$")
+);
 
-let result = common + code + all;
-result = result.replace(/"hljs\.(.*?)"/g, "$1");
-result = result.replace(/\$/g, "\\$"); // $ -> \$
-
-fs.writeFileSync(destFile, result);
-
-execSync("dartfmt --overwrite " + destFile) && 0;
+// format
+execSync(
+  `dartfmt --overwrite ${path.resolve(__dirname, "../highlight/lib/**/*")}`
+);
