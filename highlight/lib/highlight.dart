@@ -12,7 +12,6 @@ class Mode {
   /// `String | Map<String, [String, int]>`
   dynamic keywords;
   String illegal;
-  @JsonKey(defaultValue: false)
   bool case_insensitive;
   List<Mode> contains;
   List<Mode> variants;
@@ -22,28 +21,20 @@ class Mode {
   String beginKeywords;
   String end;
   String lexemes;
-  @JsonKey(defaultValue: false)
   bool endSameAsBegin;
-  @JsonKey(defaultValue: false)
   bool endsParent;
-  @JsonKey(defaultValue: false)
   bool endsWithParent;
   int relevance;
 
   List<String> subLanguage;
-  @JsonKey(defaultValue: false)
   bool excludeBegin;
-  @JsonKey(defaultValue: false)
   bool excludeEnd;
-  @JsonKey(defaultValue: false)
   bool skip;
-  @JsonKey(defaultValue: false)
   bool returnBegin;
-  @JsonKey(defaultValue: false)
   bool returnEnd;
 
   @JsonKey(ignore: true)
-  bool compiled = false;
+  bool compiled;
   @JsonKey(ignore: true)
   Mode parent;
   @JsonKey(ignore: true)
@@ -62,13 +53,41 @@ class Mode {
   RegExp terminators;
 
   @JsonKey(ignore: true)
-  bool isSelf = false;
+  bool self;
+  @JsonKey(ignore: true)
+  bool disableAutodetect;
 
-  Mode();
+  Mode({
+    this.aliases,
+    this.keywords,
+    this.illegal,
+    this.case_insensitive,
+    this.contains,
+    this.variants,
+    this.starts,
+    this.className,
+    this.begin,
+    this.beginKeywords,
+    this.end,
+    this.lexemes,
+    this.endSameAsBegin,
+    this.endsParent,
+    this.endsWithParent,
+    this.relevance,
+    this.subLanguage,
+    this.excludeBegin,
+    this.excludeEnd,
+    this.skip,
+    this.returnBegin,
+    this.returnEnd,
+    //
+    this.self,
+    this.disableAutodetect,
+  });
 
   factory Mode.fromJson(map) {
     if (map == 'self') {
-      return Mode()..isSelf = true;
+      return Mode(self: true);
     } else if (map is Map<String, dynamic>) {
       return _$ModeFromJson(map);
     } else {
@@ -130,7 +149,7 @@ class Highlight {
       }).toList();
     }
     return mode.cached_variants ??
-        (mode.endsWithParent ? [Mode.inherit(mode)] : [mode]);
+        (mode.endsWithParent == true ? [Mode.inherit(mode)] : [mode]);
   }
 
   String reStr(re) {
@@ -149,8 +168,7 @@ class Highlight {
     return RegExp(
       reStr(value),
       multiLine: true,
-      caseSensitive: !language.case_insensitive,
-      // FIXME: global tag
+      caseSensitive: language.case_insensitive != true,
     );
   }
 
@@ -187,7 +205,7 @@ class Highlight {
   }
 
   void compileMode(Mode mode, [Mode parent]) {
-    if (mode.compiled) return;
+    if (mode.compiled == true) return;
     mode.compiled = true;
 
     mode.keywords = mode.keywords ?? mode.beginKeywords;
@@ -196,7 +214,7 @@ class Highlight {
       Map<String, dynamic> compiled_keywords = {};
 
       void flatten(String className, String str) {
-        if (language.case_insensitive) {
+        if (language.case_insensitive == true) {
           str = str.toLowerCase();
         }
         str.split(' ').forEach((kw) {
@@ -224,11 +242,11 @@ class Highlight {
       }
       if (mode.begin == null) mode.begin = r'\B|\b';
       mode.beginRe = langRe(mode.begin);
-      if (mode.endSameAsBegin) mode.end = mode.begin;
-      if (mode.end == null && !mode.endsWithParent) mode.end = r'\B|\b';
+      if (mode.endSameAsBegin == true) mode.end = mode.begin;
+      if (mode.end == null && mode.endsWithParent != true) mode.end = r'\B|\b';
       if (mode.end != null) mode.endRe = langRe(mode.end);
       mode.terminator_end = reStr(mode.end) ?? '';
-      if (mode.endsWithParent && parent.terminator_end != null)
+      if (mode.endsWithParent == true && parent.terminator_end != null)
         mode.terminator_end +=
             (mode.end != null ? '|' : '') + parent.terminator_end;
     }
@@ -239,7 +257,7 @@ class Highlight {
     }
     List<Mode> contains = [];
     mode.contains.forEach((c) {
-      contains.addAll(expand_mode(c.isSelf ? mode : c));
+      contains.addAll(expand_mode(c.self == true ? mode : c));
     });
     mode.contains = contains;
     mode.contains.forEach((c) {
@@ -291,7 +309,7 @@ class Highlight {
   Mode subMode(String lexeme, Mode mode) {
     for (var i = 0; i < mode.contains.length; i++) {
       if (testRe(mode.contains[i].beginRe, lexeme)) {
-        if (mode.contains[i].endSameAsBegin) {
+        if (mode.contains[i].endSameAsBegin == true) {
           mode.contains[i].endRe =
               escapeRe(mode.contains[i].beginRe.firstMatch(lexeme)[0]);
         }
@@ -304,12 +322,12 @@ class Highlight {
 
   Mode endOfMode(Mode mode, String lexeme) {
     if (testRe(mode.endRe, lexeme)) {
-      while (mode.endsParent && mode.parent != null) {
+      while (mode.endsParent == true && mode.parent != null) {
         mode = mode.parent;
       }
       return mode;
     }
-    if (mode.endsWithParent) {
+    if (mode.endsWithParent == true) {
       return endOfMode(mode.parent, lexeme);
     }
     return null;
@@ -324,7 +342,7 @@ class Highlight {
 
   keywordMatch(Mode mode, RegExpMatch match) {
     var match_str =
-        language.case_insensitive ? match[0].toLowerCase() : match[0];
+        language.case_insensitive == true ? match[0].toLowerCase() : match[0];
     return mode.keywords[match_str];
   }
 
@@ -397,32 +415,32 @@ class Highlight {
       var new_mode = subMode(lexeme, top);
 
       if (new_mode != null) {
-        if (new_mode.skip) {
+        if (new_mode.skip == true) {
           mode_buffer += lexeme;
         } else {
-          if (new_mode.excludeBegin) {
+          if (new_mode.excludeBegin == true) {
             mode_buffer += lexeme;
           }
           processBuffer();
-          if (!new_mode.returnBegin && !new_mode.excludeBegin) {
+          if (new_mode.returnBegin != true && new_mode.excludeBegin != true) {
             mode_buffer = lexeme;
           }
         }
         startNewMode(new_mode);
-        return new_mode.returnBegin ? 0 : lexeme.length;
+        return new_mode.returnBegin == true ? 0 : lexeme.length;
       }
 
       var end_mode = endOfMode(top, lexeme);
       if (end_mode != null) {
         var origin = top;
-        if (origin.skip) {
+        if (origin.skip == true) {
           mode_buffer += lexeme;
         } else {
-          if (!(origin.returnEnd || origin.excludeEnd)) {
+          if (!(origin.returnEnd == true || origin.excludeEnd == true)) {
             mode_buffer += lexeme;
           }
           processBuffer();
-          if (origin.excludeEnd) {
+          if (origin.excludeEnd == true) {
             mode_buffer = lexeme;
           }
         }
@@ -430,18 +448,18 @@ class Highlight {
           if (top.className != null) {
             result += spanEndTag;
           }
-          if (!top.skip && top.subLanguage == null) {
+          if (top.skip != true && top.subLanguage == null) {
             relevance += top.relevance;
           }
           top = top.parent;
         } while (top != end_mode.parent);
         if (end_mode.starts != null) {
-          if (end_mode.endSameAsBegin) {
+          if (end_mode.endSameAsBegin == true) {
             end_mode.starts.endRe = end_mode.endRe;
           }
           startNewMode(end_mode.starts);
         }
-        return origin.returnEnd ? 0 : lexeme.length;
+        return origin.returnEnd == true ? 0 : lexeme.length;
       }
 
       if (isIllegal(lexeme, top)) {
@@ -467,8 +485,10 @@ class Highlight {
             .firstWhere((m) => true, orElse: () => null);
 
         if (match == null) break;
+        // print(top.terminators);
         // print('$index, ${match.start}');
         // print(match[0].replaceAll(RegExp(r'\s'), '*'));
+        // print(result);
         // print('');
 
         count = processLexeme(substring(value, index, match.start), match[0]);

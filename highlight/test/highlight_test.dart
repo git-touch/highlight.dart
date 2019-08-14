@@ -20,9 +20,6 @@ void main() {
       }
       if (lang.contains('index.js')) return;
 
-      // FIXME: Infinite loop
-      if (lang == 'http') return;
-
       group(lang, () {
         Directory('test/markup/$lang').listSync().forEach((entity) {
           if (entity.path.contains('expect')) return;
@@ -34,9 +31,7 @@ void main() {
                     .readAsStringSync()
                     .trim();
 
-            var highlighted = Highlight(Mode.fromJson(all[lang]))
-                .highlight(lang, code)
-                .trim();
+            var highlighted = Highlight(all[lang]).highlight(lang, code).trim();
 
             expect(highlighted, expected);
           });

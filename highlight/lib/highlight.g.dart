@@ -7,34 +7,35 @@ part of 'highlight.dart';
 // **************************************************************************
 
 Mode _$ModeFromJson(Map<String, dynamic> json) {
-  return Mode()
-    ..aliases = (json['aliases'] as List)?.map((e) => e as String)?.toList()
-    ..keywords = json['keywords']
-    ..illegal = json['illegal'] as String
-    ..case_insensitive = json['case_insensitive'] as bool ?? false
-    ..contains = (json['contains'] as List)
+  return Mode(
+    aliases: (json['aliases'] as List)?.map((e) => e as String)?.toList(),
+    keywords: json['keywords'],
+    illegal: json['illegal'] as String,
+    case_insensitive: json['case_insensitive'] as bool,
+    contains: (json['contains'] as List)
         ?.map((e) => e == null ? null : Mode.fromJson(e))
-        ?.toList()
-    ..variants = (json['variants'] as List)
+        ?.toList(),
+    variants: (json['variants'] as List)
         ?.map((e) => e == null ? null : Mode.fromJson(e))
-        ?.toList()
-    ..starts = json['starts'] == null ? null : Mode.fromJson(json['starts'])
-    ..className = json['className'] as String
-    ..begin = json['begin'] as String
-    ..beginKeywords = json['beginKeywords'] as String
-    ..end = json['end'] as String
-    ..lexemes = json['lexemes'] as String
-    ..endSameAsBegin = json['endSameAsBegin'] as bool ?? false
-    ..endsParent = json['endsParent'] as bool ?? false
-    ..endsWithParent = json['endsWithParent'] as bool ?? false
-    ..relevance = json['relevance'] as int
-    ..subLanguage =
-        (json['subLanguage'] as List)?.map((e) => e as String)?.toList()
-    ..excludeBegin = json['excludeBegin'] as bool ?? false
-    ..excludeEnd = json['excludeEnd'] as bool ?? false
-    ..skip = json['skip'] as bool ?? false
-    ..returnBegin = json['returnBegin'] as bool ?? false
-    ..returnEnd = json['returnEnd'] as bool ?? false;
+        ?.toList(),
+    starts: json['starts'] == null ? null : Mode.fromJson(json['starts']),
+    className: json['className'] as String,
+    begin: json['begin'] as String,
+    beginKeywords: json['beginKeywords'] as String,
+    end: json['end'] as String,
+    lexemes: json['lexemes'] as String,
+    endSameAsBegin: json['endSameAsBegin'] as bool,
+    endsParent: json['endsParent'] as bool,
+    endsWithParent: json['endsWithParent'] as bool,
+    relevance: json['relevance'] as int,
+    subLanguage:
+        (json['subLanguage'] as List)?.map((e) => e as String)?.toList(),
+    excludeBegin: json['excludeBegin'] as bool,
+    excludeEnd: json['excludeEnd'] as bool,
+    skip: json['skip'] as bool,
+    returnBegin: json['returnBegin'] as bool,
+    returnEnd: json['returnEnd'] as bool,
+  );
 }
 
 Map<String, dynamic> _$ModeToJson(Mode instance) {

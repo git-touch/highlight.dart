@@ -14,6 +14,48 @@ function normalizeLanguageName(name) {
   return camelCase(name);
 }
 
+function generateMode(obj) {
+  let code = "Mode(";
+  Object.entries(obj).forEach(([k, v], i, arr) => {
+    if (k === "exports") return; // CPP
+
+    if (k === "containts") k = "contains"; // Seems be a typo
+    if (v instanceof RegExp) v = v.source;
+    if (k === "end" && typeof v === "boolean") v = v.toString();
+    if (k === "subLanguage" && typeof v === "string") {
+      v = [v];
+    }
+
+    switch (k) {
+      case "starts":
+        code += `${k}: ${generateMode(v)}`;
+        break;
+      case "contains":
+      case "variants":
+        if (v == null) {
+          code += `${k}: null`;
+        } else {
+          const arr = v.map(m => {
+            if (m === "self") {
+              return "Mode(self:true)";
+            }
+            return generateMode(m);
+          });
+          code += `${k}: [${arr.join(",")}]`;
+        }
+        break;
+      default:
+        code += `${k}: ${JSON.stringify(v)}`;
+    }
+
+    if (i < arr.length - 1) {
+      code += ",";
+    }
+  });
+  code += ")";
+  return code;
+}
+
 const hljsKeys = Object.keys(hljs);
 const usedKeyMap = {};
 
@@ -25,38 +67,14 @@ fs.readdirSync(dir).forEach(file => {
   let lang = normalizeLanguageName(originalLang);
 
   try {
-    const data = JSON.stringify(item, (k, v) => {
-      if (v instanceof RegExp) {
-        return v.source;
-      }
-
-      // end: boolean -> string
-      if (k === "end") {
-        return v.toString();
-      }
-
-      // string -> string[]
-      if (k === "subLanguage" && typeof v === "string") {
-        return [v];
-      }
-
-      // Reuse common values
-      for (const key of hljsKeys) {
-        if (v === hljs[key]) {
-          usedKeyMap[key] = true;
-          return `hljs.${key}`;
-        }
-      }
-
-      return v;
-    });
+    const data = generateMode(item);
 
     fs.writeFileSync(
       path.resolve(
         __dirname,
         `../highlight/lib/languages/${originalLang}.dart`
       ),
-      `import 'package:highlight/common.dart'; var ${lang}=${data};`
+      `import '../common.dart'; import '../highlight.dart'; var ${lang}=${data};`
         .replace(/"hljs\.(.*?)"/g, "$1")
         .replace(/\$/g, "\\$")
     );
@@ -64,7 +82,7 @@ fs.readdirSync(dir).forEach(file => {
     all = `import 'languages/${originalLang}.dart';` + all;
     all += `'${originalLang}': ${lang},`;
   } catch (err) {
-    // console.error(err);
+    console.error(err);
   }
 });
 
