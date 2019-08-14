@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:json_annotation/json_annotation.dart';
 import 'utils.dart';
@@ -273,7 +274,7 @@ class Highlight {
     }).toList()
           ..addAll([mode.terminator_end, mode.illegal]))
         .map(reStr)
-        .where((x) => x != null)
+        .where((x) => x != null && x.isNotEmpty)
         .toList();
 
     mode.terminators =
@@ -369,7 +370,7 @@ class Highlight {
     void startNewMode(Mode mode) {
       result +=
           mode.className != null ? buildSpan(mode.className, '', true) : '';
-      top = Mode.inherit(mode, Mode()..parent = top); // FIXME:
+      top = Mode.inherit(mode)..parent = top;
     }
 
     String processKeywords() {
@@ -481,8 +482,8 @@ class Highlight {
       // print(value);
       while (true) {
         match = top.terminators
-            .allMatches(value, index)
-            .firstWhere((m) => true, orElse: () => null);
+            ?.allMatches(value, index)
+            ?.firstWhere((m) => true, orElse: () => null);
 
         if (match == null) break;
         // print(top.terminators);
