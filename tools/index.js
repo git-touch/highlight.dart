@@ -7,14 +7,15 @@ import hljs from "highlight.js";
 
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 
-function normalizeLanguageName(name) {
-  if (/^\d/.test(name)) {
-    name = "lang" + name;
+function generateMode(obj, matchCommonKey = true) {
+  if (matchCommonKey) {
+    for (const modeKey of modeKeys) {
+      if (hljs[modeKey] === obj) {
+        return modeKey;
+      }
+    }
   }
-  return camelCase(name);
-}
 
-function generateMode(obj) {
   let code = "Mode(";
   Object.entries(obj).forEach(([k, v], i, arr) => {
     if (k === "exports") return; // CPP
@@ -56,8 +57,26 @@ function generateMode(obj) {
   return code;
 }
 
-const hljsKeys = Object.keys(hljs);
-const usedKeyMap = {};
+// common.dart
+const modeKeys = Object.keys(hljs).filter(
+  k => /^[A-Z]/.test(k) && !k.endsWith("_RE") && typeof hljs[k] !== "function"
+);
+
+let common = `import 'highlight.dart';`;
+modeKeys.forEach(key => {
+  common += `var ${key}=${generateMode(hljs[key], false)};`;
+});
+fs.writeFileSync(
+  path.resolve(__dirname, `../highlight/lib/common.dart`),
+  common.replace(/\$/g, "\\$")
+);
+
+function normalizeLanguageName(name) {
+  if (/^\d/.test(name)) {
+    name = "lang" + name;
+  }
+  return camelCase(name);
+}
 
 let all = "var all = {";
 
@@ -91,32 +110,6 @@ all += "};";
 fs.writeFileSync(
   path.resolve(__dirname, `../highlight/lib/all.dart`),
   all.replace(/\$/g, "\\$")
-);
-
-// common.dart
-let common = `import 'highlight.dart';`;
-Object.keys(usedKeyMap).forEach(key => {
-  common += `var ${key}=${JSON.stringify(hljs[key], (k, v) => {
-    if (v instanceof RegExp) {
-      return v.source;
-    }
-
-    // end: boolean -> string
-    if (k === "end") {
-      return v.toString();
-    }
-
-    // string -> string[]
-    if (k === "subLanguage" && typeof v === "string") {
-      return [v];
-    }
-
-    return v;
-  })};`;
-});
-fs.writeFileSync(
-  path.resolve(__dirname, `../highlight/lib/common.dart`),
-  common.replace(/\$/g, "\\$")
 );
 
 // format
