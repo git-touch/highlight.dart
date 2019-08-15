@@ -31,8 +31,12 @@ void main() {
                     .readAsStringSync()
                     .trim();
 
-            var highlighted = Highlight(all[lang]).highlight(lang, code).trim();
+            var h = Highlight(all[lang]);
+            all.forEach(h.registerLanguage);
+            // h.registerLanguage('http', all['http']);
+            // h.registerLanguage('json', all['json']);
 
+            var highlighted = h.highlight(lang, code).value.trim();
             expect(highlighted, expected);
           });
         });

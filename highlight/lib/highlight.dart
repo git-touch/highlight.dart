@@ -92,8 +92,6 @@ class Mode {
     } else if (map is Map<String, dynamic>) {
       return _$ModeFromJson(map);
     } else {
-      print(map);
-      print(map.toJson());
       throw 'invalid map';
     }
   }
@@ -138,7 +136,24 @@ class Mode {
   }
 }
 
+class Result {
+  int relevance;
+  String value;
+  String language;
+  Mode top;
+  Result second_best;
+
+  Result({
+    this.relevance,
+    this.value,
+    this.language,
+    this.top,
+    this.second_best,
+  });
+}
+
 class Highlight {
+  Map<String, Mode> languages = {};
   Mode language;
 
   Highlight(this.language);
@@ -283,13 +298,15 @@ class Highlight {
 
   buildSpan(String classname, String insideSpan,
       [bool leaveOpen = false, bool noPrefix = false]) {
+    if (classname == null || classname.isEmpty) {
+      return insideSpan;
+    }
+
     var classPrefix = noPrefix ? '' : 'hljs-',
         openSpan = '<span class="' + classPrefix,
         closeSpan = leaveOpen ? '' : spanEndTag;
 
     openSpan += classname + '">';
-
-    if (classname == null || classname.isEmpty) return insideSpan;
     return openSpan + insideSpan + closeSpan;
   }
 
@@ -347,12 +364,12 @@ class Highlight {
     return mode.keywords[match_str];
   }
 
-  String highlight(String name, String value,
+  Result highlight(String name, String value,
       [bool ignore_illegals = false, Mode continuation]) {
     compileMode(language);
 
     var top = continuation ?? language;
-    // var continuations = {};
+    Map<String, Mode> continuations = {};
     var result = '';
     Mode current;
     for (current = top; current != language; current = current.parent) {
@@ -400,8 +417,30 @@ class Highlight {
       return result + escape(substring(mode_buffer, last_index));
     }
 
+    String processSubLanguage() {
+      var explicit = top.subLanguage.length == 1;
+      if (explicit && languages[top.subLanguage.first] == null) {
+        return escape(mode_buffer);
+      }
+
+      var result = explicit
+          ? highlight(top.subLanguage.first, mode_buffer, true,
+              continuations[top.subLanguage.first])
+          : highlightAuto(
+              mode_buffer, top.subLanguage.isNotEmpty ? top.subLanguage : null);
+
+      if (top.relevance > 0) {
+        relevance += result.relevance;
+      }
+      if (explicit) {
+        continuations[top.subLanguage.first] = result.top;
+      }
+      return buildSpan(result.language, result.value, false, true);
+    }
+
     void processBuffer() {
-      result += processKeywords(); // FIXME: sub language
+      result +=
+          top.subLanguage != null ? processSubLanguage() : processKeywords();
       mode_buffer = '';
     }
 
@@ -503,11 +542,52 @@ class Highlight {
       }
       // print(relevance);
       // print(result);
-      return result;
-      // return {relevance: relevance, value: result, language: name, top: top};
+      return Result(
+          language: name, relevance: relevance, value: result, top: top);
     } catch (e) {
-      print(e);
-      return null;
+      if (e is String && e.startsWith('Illegal')) {
+        return Result(relevance: 0, value: escape(value));
+      } else {
+        rethrow;
+      }
     }
+  }
+
+  Mode getLanguage(String name) {
+    name = (name ?? '').toLowerCase();
+    return languages[name];
+//     ?? languages[aliases[name]]; FIXME: alias
+  }
+
+  void registerLanguage(String name, Mode language) {
+    languages[name] = language;
+  }
+
+  Result highlightAuto(String text, List<String> languageSubset) {
+    languageSubset = languageSubset ?? languages.keys.toList(); // TODO: options
+    var result = Result(
+      relevance: 0,
+      value: escape(text),
+    );
+    var second_best = result;
+    // languageSubset = ['json'];
+    languageSubset.forEach((name) {
+      var lang = getLanguage(name);
+      if (lang == null || lang.disableAutodetect == true) return;
+
+      var current = highlight(name, text, false);
+      current.language = name;
+      if (current.relevance > second_best.relevance) {
+        second_best = current;
+      }
+      if (current.relevance > result.relevance) {
+        second_best = result;
+        result = current;
+      }
+    });
+    if (second_best.language != null) {
+      result.second_best = second_best;
+    }
+    return result;
   }
 }
