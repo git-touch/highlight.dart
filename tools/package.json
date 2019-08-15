@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "circular-json": "^0.5.9",
     "esm": "^3.2.25",
     "highlight.js": "^9.15.9",
     "lodash-es": "^4.17.15"
