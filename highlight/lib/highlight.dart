@@ -8,6 +8,9 @@ var spanEndTag = '</span>';
 
 @JsonSerializable(includeIfNull: false, explicitToJson: true)
 class Mode {
+  String ref;
+  Map<String, Mode> refs;
+
   List<String> aliases;
 
   /// `String | Map<String, [String, int]>`
@@ -59,6 +62,9 @@ class Mode {
   bool disableAutodetect;
 
   Mode({
+    this.ref,
+    this.refs,
+    //
     this.aliases,
     this.keywords,
     this.illegal,
@@ -161,6 +167,9 @@ class Highlight {
   List<Mode> expand_mode(Mode mode) {
     if (mode.variants != null && mode.cached_variants == null) {
       mode.cached_variants = mode.variants.map((variant) {
+        if (variant.ref != null) {
+          variant = language.refs[variant.ref];
+        }
         return Mode.inherit(mode, variant)..variants = null;
       }).toList();
     }
@@ -221,6 +230,8 @@ class Highlight {
   }
 
   void compileMode(Mode mode, [Mode parent]) {
+    // debugger();
+
     if (mode.compiled == true) return;
     mode.compiled = true;
 
@@ -271,10 +282,29 @@ class Highlight {
     if (mode.contains == null) {
       mode.contains = [];
     }
+
+    Mode pointToRef(Mode m) {
+      if (m.ref != null) {
+        return language.refs[m.ref];
+      }
+      return m;
+    }
+
+    if (mode.contains != null) {
+      mode.contains = mode.contains.map(pointToRef).toList();
+    }
+    if (mode.variants != null) {
+      mode.variants = mode.variants.map(pointToRef).toList();
+    }
+    if (mode.starts != null) {
+      mode.starts = pointToRef(mode.starts);
+    }
+
     List<Mode> contains = [];
     mode.contains.forEach((c) {
       contains.addAll(expand_mode(c.self == true ? mode : c));
     });
+
     mode.contains = contains;
     mode.contains.forEach((c) {
       compileMode(c, mode);
@@ -530,6 +560,7 @@ class Highlight {
         // print(match[0].replaceAll(RegExp(r'\s'), '*'));
         // print(result);
         // print('');
+        // debugger();
 
         count = processLexeme(substring(value, index, match.start), match[0]);
         index = count + match.start;
