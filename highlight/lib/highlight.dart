@@ -138,6 +138,10 @@ class Highlight {
 
   Highlight();
 
+  bool _classNameExists(String className) {
+    return className != null && className.isNotEmpty;
+  }
+
   List<Mode> expand_mode(Mode mode) {
     if (mode.variants != null && mode.cached_variants == null) {
       mode.cached_variants = mode.variants.map((variant) {
@@ -308,7 +312,7 @@ class Highlight {
 
   buildSpan(String classname, String insideSpan,
       [bool leaveOpen = false, bool noPrefix = false]) {
-    if (classname == null || classname.isEmpty) {
+    if (!_classNameExists(classname)) {
       return insideSpan;
     }
 
@@ -389,7 +393,7 @@ class Highlight {
     var result = '';
     Mode current;
     for (current = top; current != language; current = current.parent) {
-      if (current.className != null) {
+      if (_classNameExists(current.className)) {
         result = buildSpan(current.className, '', true) + result;
       }
     }
@@ -401,8 +405,9 @@ class Highlight {
     }
 
     void startNewMode(Mode mode) {
-      result +=
-          mode.className != null ? buildSpan(mode.className, '', true) : '';
+      result += _classNameExists(mode.className)
+          ? buildSpan(mode.className, '', true)
+          : '';
       top = Mode.inherit(mode)..parent = top;
     }
 
@@ -501,7 +506,7 @@ class Highlight {
           }
         }
         do {
-          if (top.className != null) {
+          if (_classNameExists(top.className)) {
             result += spanEndTag;
           }
           if (top.skip != true && top.subLanguage == null) {
@@ -553,7 +558,7 @@ class Highlight {
       }
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {
-        if (current.className != null) {
+        if (_classNameExists(current.className)) {
           result += spanEndTag;
         }
       }
