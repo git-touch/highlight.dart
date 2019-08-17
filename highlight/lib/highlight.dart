@@ -368,17 +368,18 @@ class Highlight {
         .replaceAll(RegExp(r'>'), '&gt;');
   }
 
-  keywordMatch(Mode mode, RegExpMatch match) {
-    var match_str =
-        language.case_insensitive == true ? match[0].toLowerCase() : match[0];
-    return mode.keywords[match_str];
-  }
-
   Result highlight(String name, String value,
       [bool ignore_illegals = false, Mode continuation]) {
-    language = getLanguage(name);
+    var lang = language = getLanguage(name);
     if (language == null) {
       throw 'Unknown language: "' + name + '"';
+    }
+
+    // FIXME: Move inside highlight to use lang reference
+    keywordMatch(Mode mode, RegExpMatch match) {
+      var match_str =
+          lang.case_insensitive == true ? match[0].toLowerCase() : match[0];
+      return mode.keywords[match_str];
     }
 
     compileMode(language);
@@ -545,7 +546,7 @@ class Highlight {
         // print(match[0].replaceAll(RegExp(r'\s'), '*'));
         // print(result);
         // print('');
-        // debugger();
+        // debugger(when: index >= 97);
 
         count = processLexeme(substring(value, index, match.start), match[0]);
         index = count + match.start;
@@ -588,7 +589,6 @@ class Highlight {
     var second_best = result;
     // languageSubset = ['json'];
     languageSubset.forEach((name) {
-      // debugger(when: name == 'json');
       var lang = getLanguage(name);
       if (lang == null || lang.disableAutodetect == true) return;
 
