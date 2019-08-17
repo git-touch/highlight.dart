@@ -1,12 +1,8 @@
-import 'dart:convert';
 import 'dart:developer';
-import 'package:json_annotation/json_annotation.dart';
 import 'utils.dart';
-part 'highlight.g.dart';
 
 var spanEndTag = '</span>';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class Mode {
   String ref;
   Map<String, Mode> refs;
@@ -37,28 +33,17 @@ class Mode {
   bool returnBegin;
   bool returnEnd;
 
-  @JsonKey(ignore: true)
   bool compiled;
-  @JsonKey(ignore: true)
   Mode parent;
-  @JsonKey(ignore: true)
   RegExp lexemesRe;
-  @JsonKey(ignore: true)
   RegExp beginRe;
-  @JsonKey(ignore: true)
   RegExp endRe;
-  @JsonKey(ignore: true)
   RegExp illegalRe;
-  @JsonKey(ignore: true)
   String terminator_end;
-  @JsonKey(ignore: true)
   List<Mode> cached_variants;
-  @JsonKey(ignore: true)
   RegExp terminators;
 
-  @JsonKey(ignore: true)
   bool self;
-  @JsonKey(ignore: true)
   bool disableAutodetect;
 
   Mode({
@@ -91,17 +76,6 @@ class Mode {
     this.self,
     this.disableAutodetect,
   });
-
-  factory Mode.fromJson(map) {
-    if (map == 'self') {
-      return Mode(self: true);
-    } else if (map is Map<String, dynamic>) {
-      return _$ModeFromJson(map);
-    } else {
-      throw 'invalid map';
-    }
-  }
-  Map<String, dynamic> toJson() => _$ModeToJson(this);
 
   static Mode inherit(Mode a, [Mode b]) {
     if (b == null) b = Mode();
@@ -278,9 +252,10 @@ class Highlight {
       if (mode.end == null && mode.endsWithParent != true) mode.end = r'\B|\b';
       if (mode.end != null) mode.endRe = langRe(mode.end);
       mode.terminator_end = reStr(mode.end) ?? '';
-      if (mode.endsWithParent == true && parent.terminator_end != null)
+      if (mode.endsWithParent == true && parent.terminator_end != null) {
         mode.terminator_end +=
             (mode.end != null ? '|' : '') + parent.terminator_end;
+      }
     }
     if (mode.illegal != null) mode.illegalRe = langRe(mode.illegal);
     if (mode.relevance == null) mode.relevance = 1;

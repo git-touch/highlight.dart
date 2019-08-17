@@ -12,12 +12,6 @@ void main() {
 
     Directory('test/markup').listSync().forEach((entity) {
       var lang = path.basename(entity.path);
-
-      // FIXME:
-      if (all[lang] == null) {
-        print('lang not found: $lang');
-        return;
-      }
       if (lang.contains('index.js')) return;
 
       group(lang, () {
@@ -31,7 +25,7 @@ void main() {
                     .readAsStringSync()
                     .trim();
 
-            var h = Highlight(all[lang]);
+            var h = Highlight();
             all.forEach(h.registerLanguage);
             // h.registerLanguage('http', all['http']);
             // h.registerLanguage('json', all['json']);
