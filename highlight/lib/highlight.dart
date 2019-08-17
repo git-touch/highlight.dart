@@ -246,10 +246,15 @@ class Highlight {
         }
         str.split(' ').forEach((kw) {
           var pair = kw.split('|');
-          compiled_keywords[pair[0]] = [
-            className,
-            pair.length > 1 ? int.parse(pair[1]) : 1
-          ];
+          try {
+            compiled_keywords[pair[0]] = [
+              className,
+              pair.length > 1 ? int.parse(pair[1]) : 1
+            ];
+          } catch (err) {
+            print(err);
+            // FIXME:
+          }
         });
       }
 
