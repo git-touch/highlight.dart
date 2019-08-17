@@ -162,7 +162,7 @@ class Highlight {
   Map<String, Mode> languages = {};
   Mode language;
 
-  Highlight(this.language);
+  Highlight();
 
   List<Mode> expand_mode(Mode mode) {
     if (mode.variants != null && mode.cached_variants == null) {
@@ -396,6 +396,11 @@ class Highlight {
 
   Result highlight(String name, String value,
       [bool ignore_illegals = false, Mode continuation]) {
+    language = getLanguage(name);
+    if (language == null) {
+      throw 'Unknown language: "' + name + '"';
+    }
+
     compileMode(language);
 
     var top = continuation ?? language;
@@ -603,6 +608,7 @@ class Highlight {
     var second_best = result;
     // languageSubset = ['json'];
     languageSubset.forEach((name) {
+      // debugger(when: name == 'json');
       var lang = getLanguage(name);
       if (lang == null || lang.disableAutodetect == true) return;
 
