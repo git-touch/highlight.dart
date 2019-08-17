@@ -4,14 +4,13 @@
   "private": true,
   "dependencies": {
     "circular-json": "^0.5.9",
-    "esm": "^3.2.25",
     "highlight.js": "^9.15.9",
-    "lodash-es": "^4.17.15"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/node": "^12.6.9"
   },
   "scripts": {
-    "start": "node --require=esm index.js"
+    "start": "node index.js"
   }
 }

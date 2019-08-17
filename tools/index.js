@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
-import * as _ from "lodash-es";
-import { execSync } from "child_process";
-import hljs from "highlight.js/lib/highlight"; // TODO: Do not register languages
-import CircularJSON from "circular-json";
+const fs = require("fs");
+const path = require("path");
+const _ = require("lodash");
+const { execSync } = require("child_process");
+const hljs = require("highlight.js/lib/highlight"); // TODO: Do not register languages
+const CircularJSON = require("circular-json");
 
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 hljs.registerLanguage("cpp", require(path.resolve(dir, "cpp"))); // exports
