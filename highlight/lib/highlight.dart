@@ -155,21 +155,9 @@ class Highlight {
         (mode.endsWithParent == true ? [Mode.inherit(mode)] : [mode]);
   }
 
-  String reStr(re) {
-    if (re is RegExp) {
-      return re.pattern;
-    } else if (re is String) {
-      return re;
-    } else if (re == null) {
-      return null;
-    } else {
-      throw 're invalid';
-    }
-  }
-
-  RegExp langRe(value, [bool global]) {
+  RegExp langRe(String value, [bool global]) {
     return RegExp(
-      reStr(value),
+      value,
       multiLine: true,
       caseSensitive: language.case_insensitive != true,
     );
@@ -181,7 +169,7 @@ class Highlight {
     var ret = '';
     for (var i = 0; i < regexps.length; i++) {
       var offset = numCaptures;
-      var re = reStr(regexps[i]);
+      var re = regexps[i];
       if (i > 0) {
         ret += separator;
       }
@@ -255,7 +243,7 @@ class Highlight {
       if (mode.endSameAsBegin == true) mode.end = mode.begin;
       if (mode.end == null && mode.endsWithParent != true) mode.end = r'\B|\b';
       if (mode.end != null) mode.endRe = langRe(mode.end);
-      mode.terminator_end = reStr(mode.end) ?? '';
+      mode.terminator_end = mode.end ?? '';
       if (mode.endsWithParent == true && parent.terminator_end != null) {
         mode.terminator_end +=
             (mode.end != null ? '|' : '') + parent.terminator_end;
@@ -302,7 +290,6 @@ class Highlight {
       return c.beginKeywords != null ? '\\.?(?:' + c.begin + ')\\.?' : c.begin;
     }).toList()
           ..addAll([mode.terminator_end, mode.illegal]))
-        .map(reStr)
         .where((x) => x != null && x.isNotEmpty)
         .toList();
 
