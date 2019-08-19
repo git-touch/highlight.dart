@@ -81,12 +81,12 @@ const modeEntries = Object.entries(hljs).filter(
     /^[A-Z]/.test(k) && !k.endsWith("_RE") && typeof hljs[k] !== "function"
 );
 
-let common = `import 'highlight.dart';`;
+let common = `import '../highlight.dart';`;
 modeEntries.forEach(([k, v]) => {
   common += `var ${k}=${generateMode(v, false)};`;
 });
 fs.writeFileSync(
-  path.resolve(__dirname, `../highlight/lib/common.dart`),
+  path.resolve(__dirname, `../highlight/lib/languages/common.dart`),
   common.replace(/\$/g, "\\$")
 );
 
@@ -172,14 +172,14 @@ fs.readdirSync(dir).forEach(file => {
         __dirname,
         `../highlight/lib/languages/${originalLang}.dart`
       ),
-      `import '../common.dart'; import '../highlight.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
+      `import 'common.dart'; import '../highlight.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
         5
       )};`
         .replace(/"hljs\.(.*?)"/g, "$1")
         .replace(/\$/g, "\\$")
     );
 
-    all = `import 'languages/${originalLang}.dart';` + all;
+    all = `import '${originalLang}.dart';` + all;
     all += `'${originalLang}': ${lang},`;
   } catch (err) {
     console.error(err);
@@ -189,7 +189,7 @@ fs.readdirSync(dir).forEach(file => {
 // all.dart
 all += "};";
 fs.writeFileSync(
-  path.resolve(__dirname, `../highlight/lib/all.dart`),
+  path.resolve(__dirname, `../highlight/lib/languages/all.dart`),
   all.replace(/\$/g, "\\$")
 );
 

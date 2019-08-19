@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:path/path.dart' as path;
 import 'package:highlight/highlight.dart';
-import 'package:highlight/all.dart';
+import 'package:highlight/languages/all.dart';
 import 'package:test/test.dart';
 
 void main() {
