@@ -6,13 +6,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('markup', () {
-    setUp(() {
-      //
-    });
-
     Directory('test/markup').listSync().forEach((entity) {
       var lang = path.basename(entity.path);
-      if (lang.contains('index.js')) return;
 
       group(lang, () {
         Directory('test/markup/$lang').listSync().forEach((entity) {
