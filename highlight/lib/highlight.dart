@@ -182,7 +182,7 @@ class Highlight {
         }
         ret += substring(re, 0, match.start);
         re = substring(re, match.start + match[0].length);
-        if (match[0][0] == '\\' && match.groupCount > 1) {
+        if (match[0][0] == '\\' && match[1] != null) {
           ret += '\\' + (int.parse(match[1]) + offset).toString();
         } else {
           ret += match[0];
@@ -196,8 +196,6 @@ class Highlight {
   }
 
   void compileMode(Mode mode, [Mode parent]) {
-    // debugger();
-
     if (mode.compiled == true) return;
     mode.compiled = true;
 
@@ -538,7 +536,6 @@ class Highlight {
         // print(match[0].replaceAll(RegExp(r'\s'), '*'));
         // print(result);
         // print('');
-        // debugger(when: index >= 97);
 
         count = processLexeme(substring(value, index, match.start), match[0]);
         index = count + match.start;
