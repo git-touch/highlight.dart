@@ -22,11 +22,28 @@ void main() {
 
             var h = Highlight();
             all.forEach(h.registerLanguage);
-            // h.registerLanguage('http', all['http']);
-            // h.registerLanguage('json', all['json']);
 
             var highlighted = h.highlight(lang, code).value.trim();
             expect(highlighted, expected);
+          });
+        });
+      });
+    });
+  });
+
+  group('detect', () {
+    Directory('test/detect').listSync().forEach((entity) {
+      var lang = path.basename(entity.path);
+
+      group(lang, () {
+        Directory('test/detect/$lang').listSync().forEach((entity) {
+          test(path.basename(entity.path), () {
+            var code = File(entity.path).readAsStringSync();
+
+            var h = Highlight();
+            all.forEach(h.registerLanguage);
+
+            expect(lang, h.highlight(lang, code).language);
           });
         });
       });
