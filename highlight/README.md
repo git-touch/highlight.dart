@@ -1,22 +1,27 @@
-A library for Dart developers.
+# highlight
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+Syntax highlighter for Dart developers.
+
+If you are looking for syntax highlighter works with Flutter, try [flutter-highlight](https://github.com/pd4d10/flutter-highlight).
 
 ## Usage
-
-A simple usage example:
 
 ```dart
 import 'package:highlight/highlight.dart';
 
 main() {
-  var awesome = new Awesome();
+  var input = '''main() {
+  print("Hello, World!");
 }
+''';
+  var h = Highlight();
+  var result = h.highlight(input);
+
+  result.toHtml();
+}
+
 ```
 
-## Features and bugs
+## License
 
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
+MIT
