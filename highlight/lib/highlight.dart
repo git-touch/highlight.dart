@@ -118,7 +118,7 @@ class Mode {
 
 class Result {
   int relevance;
-  String value;
+  List<Node> value;
   String language;
   Mode top;
   Result second_best;
@@ -130,6 +130,46 @@ class Result {
     this.top,
     this.second_best,
   });
+
+  String escape(String value) {
+    return value
+        .replaceAll(RegExp(r'&'), '&amp;')
+        .replaceAll(RegExp(r'<'), '&lt;')
+        .replaceAll(RegExp(r'>'), '&gt;');
+  }
+
+  String toHtml() {
+    var str = '';
+
+    traverse(Node node) {
+      if (node.className != null) {
+        var prefix = node.noPrefix ? '' : 'hljs-';
+        str += '<span class="${prefix + node.className}">';
+      }
+
+      if (node.value != null) {
+        str += escape(node.value);
+      } else if (node.children != null) {
+        node.children.forEach(traverse);
+      }
+
+      if (node.className != null) {
+        str += '</span>';
+      }
+    }
+
+    value.forEach(traverse);
+    return str;
+  }
+}
+
+class Node {
+  String className;
+  String value;
+  List<Node> children;
+  bool noPrefix;
+
+  Node({this.className, this.value, this.children, this.noPrefix = false});
 }
 
 class Highlight {
@@ -295,18 +335,15 @@ class Highlight {
         terminators.isNotEmpty ? langRe(joinRe(terminators, '|'), true) : null;
   }
 
-  buildSpan(String classname, String insideSpan,
+  List<Node> buildSpan(String className, List<Node> insideSpan,
       [bool leaveOpen = false, bool noPrefix = false]) {
-    if (!_classNameExists(classname)) {
+    if (!_classNameExists(className)) {
       return insideSpan;
     }
 
-    var classPrefix = noPrefix ? '' : 'hljs-',
-        openSpan = '<span class="' + classPrefix,
-        closeSpan = leaveOpen ? '' : spanEndTag;
-
-    openSpan += classname + '">';
-    return openSpan + insideSpan + closeSpan;
+    return [
+      Node(noPrefix: noPrefix, className: className, children: insideSpan)
+    ];
   }
 
   bool testRe(RegExp re, String lexeme) {
@@ -350,11 +387,20 @@ class Highlight {
     return null;
   }
 
-  String escape(String value) {
-    return value
-        .replaceAll(RegExp(r'&'), '&amp;')
-        .replaceAll(RegExp(r'<'), '&lt;')
-        .replaceAll(RegExp(r'>'), '&gt;');
+  void addNodes(List<Node> nodes, List<Node> result) {
+    nodes.forEach((node) {
+      if (result.isEmpty ||
+          result.last.children != null ||
+          node.className != null) {
+        result.add(node);
+      } else {
+        result.last.value += node.value;
+      }
+    });
+  }
+
+  void addText(String text, List<Node> result) {
+    addNodes([Node(value: text)], result);
   }
 
   Result highlight(String name, String value,
@@ -375,11 +421,20 @@ class Highlight {
 
     var top = continuation ?? language;
     Map<String, Mode> continuations = {};
-    var result = '';
+    List<Node> children = [];
+    var currentChildren = children;
+    List<List<Node>> stack = [];
+
+    void pop() {
+      currentChildren = stack.isEmpty ? children : stack.removeLast();
+    }
+
     Mode current;
     for (current = top; current != language; current = current.parent) {
       if (_classNameExists(current.className)) {
-        result = buildSpan(current.className, '', true) + result;
+        currentChildren.add(Node(className: current.className, children: []));
+        stack.add(currentChildren);
+        currentChildren = currentChildren.last.children;
       }
     }
     var mode_buffer = '';
@@ -390,43 +445,48 @@ class Highlight {
     }
 
     void startNewMode(Mode mode) {
-      result += _classNameExists(mode.className)
-          ? buildSpan(mode.className, '', true)
-          : '';
+      if (_classNameExists(mode.className)) {
+        currentChildren.add(Node(className: mode.className, children: []));
+        stack.add(currentChildren);
+        currentChildren = currentChildren.last.children;
+      }
       top = Mode.inherit(mode)..parent = top;
     }
 
-    String processKeywords() {
-      if (top.keywords == null) return escape(mode_buffer);
+    List<Node> processKeywords() {
+      if (top.keywords == null) return [Node(value: mode_buffer)];
 
       var keyword_match;
       RegExpMatch match;
-      String result = '';
+      List<Node> result = [];
       int last_index = 0;
 
       match = top.lexemesRe.firstMatch(mode_buffer);
 
       while (match != null) {
-        result += escape(substring(mode_buffer, last_index, match.start));
+        addText(substring(mode_buffer, last_index, match.start), result);
         keyword_match = keywordMatch(top, match);
         if (keyword_match != null) {
           relevance += keyword_match[1];
-          result += buildSpan(keyword_match[0], escape(match[0]));
+          addNodes(
+              buildSpan(keyword_match[0], [Node(value: match[0])]), result);
         } else {
-          result += escape(match[0]);
+          addText(match[0], result);
         }
         last_index = match.start + match[0].length;
         match = top.lexemesRe
             .allMatches(mode_buffer, last_index)
             .firstWhere((m) => true, orElse: () => null);
       }
-      return result + escape(substring(mode_buffer, last_index));
+
+      addText(substring(mode_buffer, last_index), result);
+      return result;
     }
 
-    String processSubLanguage() {
+    List<Node> processSubLanguage() {
       var explicit = top.subLanguage.length == 1;
       if (explicit && languages[top.subLanguage.first] == null) {
-        return escape(mode_buffer);
+        return [Node(value: mode_buffer)];
       }
 
       var result = explicit
@@ -445,8 +505,9 @@ class Highlight {
     }
 
     void processBuffer() {
-      result +=
-          top.subLanguage != null ? processSubLanguage() : processKeywords();
+      addNodes(
+          top.subLanguage != null ? processSubLanguage() : processKeywords(),
+          currentChildren);
       mode_buffer = '';
     }
 
@@ -492,7 +553,7 @@ class Highlight {
         }
         do {
           if (_classNameExists(top.className)) {
-            result += spanEndTag;
+            pop();
           }
           if (top.skip != true && top.subLanguage == null) {
             relevance += top.relevance;
@@ -543,16 +604,20 @@ class Highlight {
       processLexeme(substring(value, index));
       for (current = top; current.parent != null; current = current.parent) {
         if (_classNameExists(current.className)) {
-          result += spanEndTag;
+          pop();
         }
       }
       // print(relevance);
       // print(result);
       return Result(
-          language: name, relevance: relevance, value: result, top: top);
+        language: name,
+        relevance: relevance,
+        value: currentChildren,
+        top: top,
+      );
     } catch (e) {
       if (e is String && e.startsWith('Illegal')) {
-        return Result(relevance: 0, value: escape(value));
+        return Result(relevance: 0, value: [Node(value: value)]);
       } else {
         rethrow;
       }
@@ -573,7 +638,7 @@ class Highlight {
     languageSubset = languageSubset ?? languages.keys.toList(); // TODO: options
     var result = Result(
       relevance: 0,
-      value: escape(text),
+      value: [Node(value: text)],
     );
     var second_best = result;
     // languageSubset = ['json'];

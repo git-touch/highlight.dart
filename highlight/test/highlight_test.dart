@@ -23,8 +23,8 @@ void main() {
             var h = Highlight();
             all.forEach(h.registerLanguage);
 
-            var highlighted = h.highlight(lang, code).value.trim();
-            expect(highlighted, expected);
+            var highlighted = h.highlight(lang, code);
+            expect(highlighted.toHtml().trim(), expected);
           });
         });
       });
