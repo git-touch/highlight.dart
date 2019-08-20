@@ -1,7 +1,4 @@
-import 'dart:developer';
 import 'utils.dart';
-
-var spanEndTag = '</span>';
 
 class Mode {
   String ref;
@@ -174,7 +171,7 @@ class Node {
 
 class Highlight {
   Map<String, Mode> languages = {};
-  Mode language;
+  Mode _languageMode;
 
   Highlight();
 
@@ -186,7 +183,7 @@ class Highlight {
     if (mode.variants != null && mode.cached_variants == null) {
       mode.cached_variants = mode.variants.map((variant) {
         if (variant.ref != null) {
-          variant = language.refs[variant.ref];
+          variant = _languageMode.refs[variant.ref];
         }
         return Mode.inherit(mode, variant)..variants = null;
       }).toList();
@@ -199,7 +196,7 @@ class Highlight {
     return RegExp(
       value,
       multiLine: true,
-      caseSensitive: language.case_insensitive != true,
+      caseSensitive: _languageMode.case_insensitive != true,
     );
   }
 
@@ -245,7 +242,7 @@ class Highlight {
       Map<String, dynamic> compiled_keywords = {};
 
       void flatten(String className, String str) {
-        if (language.case_insensitive == true) {
+        if (_languageMode.case_insensitive == true) {
           str = str.toLowerCase();
         }
         str.split(' ').forEach((kw) {
@@ -295,7 +292,7 @@ class Highlight {
 
     Mode pointToRef(Mode m) {
       if (m.ref != null) {
-        return language.refs[m.ref];
+        return _languageMode.refs[m.ref];
       }
       return m;
     }
@@ -403,23 +400,27 @@ class Highlight {
     addNodes([Node(value: text)], result);
   }
 
-  Result highlight(String name, String value,
-      [bool ignore_illegals = false, Mode continuation]) {
-    var lang = language = getLanguage(name);
+  Result highlight(String input,
+      {String language, bool ignoreIllegals = false, Mode continuation}) {
     if (language == null) {
-      throw 'Unknown language: "' + name + '"';
+      return _highlightAuto(input);
+    }
+
+    var langMode = _languageMode = _getLanguage(language);
+    if (_languageMode == null) {
+      throw 'Unknown language: "' + language + '"';
     }
 
     // FIXME: Move inside highlight to use lang reference
     keywordMatch(Mode mode, RegExpMatch match) {
       var match_str =
-          lang.case_insensitive == true ? match[0].toLowerCase() : match[0];
+          langMode.case_insensitive == true ? match[0].toLowerCase() : match[0];
       return mode.keywords[match_str];
     }
 
-    compileMode(language);
+    compileMode(_languageMode);
 
-    var top = continuation ?? language;
+    var top = continuation ?? _languageMode;
     Map<String, Mode> continuations = {};
     List<Node> children = [];
     var currentChildren = children;
@@ -430,7 +431,7 @@ class Highlight {
     }
 
     Mode current;
-    for (current = top; current != language; current = current.parent) {
+    for (current = top; current != _languageMode; current = current.parent) {
       if (_classNameExists(current.className)) {
         currentChildren.add(Node(className: current.className, children: []));
         stack.add(currentChildren);
@@ -441,7 +442,7 @@ class Highlight {
     var relevance = 0;
 
     bool isIllegal(String lexeme, Mode mode) {
-      return !ignore_illegals && testRe(mode.illegalRe, lexeme);
+      return !ignoreIllegals && testRe(mode.illegalRe, lexeme);
     }
 
     void startNewMode(Mode mode) {
@@ -490,10 +491,13 @@ class Highlight {
       }
 
       var result = explicit
-          ? highlight(top.subLanguage.first, mode_buffer, true,
-              continuations[top.subLanguage.first])
-          : highlightAuto(
-              mode_buffer, top.subLanguage.isNotEmpty ? top.subLanguage : null);
+          ? highlight(mode_buffer,
+              language: top.subLanguage.first,
+              ignoreIllegals: true,
+              continuation: continuations[top.subLanguage.first])
+          : _highlightAuto(mode_buffer,
+              languageSubset:
+                  top.subLanguage.isNotEmpty ? top.subLanguage : null);
 
       if (top.relevance > 0) {
         relevance += result.relevance;
@@ -588,7 +592,7 @@ class Highlight {
       // print(value);
       while (true) {
         match = top.terminators
-            ?.allMatches(value, index)
+            ?.allMatches(input, index)
             ?.firstWhere((m) => true, orElse: () => null);
 
         if (match == null) break;
@@ -598,10 +602,10 @@ class Highlight {
         // print(result);
         // print('');
 
-        count = processLexeme(substring(value, index, match.start), match[0]);
+        count = processLexeme(substring(input, index, match.start), match[0]);
         index = count + match.start;
       }
-      processLexeme(substring(value, index));
+      processLexeme(substring(input, index));
       for (current = top; current.parent != null; current = current.parent) {
         if (_classNameExists(current.className)) {
           pop();
@@ -610,44 +614,44 @@ class Highlight {
       // print(relevance);
       // print(result);
       return Result(
-        language: name,
+        language: language,
         relevance: relevance,
         value: currentChildren,
         top: top,
       );
     } catch (e) {
       if (e is String && e.startsWith('Illegal')) {
-        return Result(relevance: 0, value: [Node(value: value)]);
+        return Result(relevance: 0, value: [Node(value: input)]);
       } else {
         rethrow;
       }
     }
   }
 
-  Mode getLanguage(String name) {
+  Mode _getLanguage(String name) {
     name = (name ?? '').toLowerCase();
     return languages[name];
 //     ?? languages[aliases[name]]; FIXME: alias
   }
 
-  void registerLanguage(String name, Mode language) {
-    languages[name] = language;
+  void registerLanguage(String name, Mode languageMode) {
+    languages[name] = languageMode;
   }
 
-  Result highlightAuto(String text, List<String> languageSubset) {
+  Result _highlightAuto(String input, {List<String> languageSubset}) {
     languageSubset = languageSubset ?? languages.keys.toList(); // TODO: options
     var result = Result(
       relevance: 0,
-      value: [Node(value: text)],
+      value: [Node(value: input)],
     );
     var second_best = result;
     // languageSubset = ['json'];
-    languageSubset.forEach((name) {
-      var lang = getLanguage(name);
+    languageSubset.forEach((language) {
+      var lang = _getLanguage(language);
       if (lang == null || lang.disableAutodetect == true) return;
 
-      var current = highlight(name, text, false);
-      current.language = name;
+      var current = highlight(input, language: language, ignoreIllegals: false);
+      current.language = language;
       if (current.relevance > second_best.relevance) {
         second_best = current;
       }
