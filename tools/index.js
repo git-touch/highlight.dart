@@ -108,13 +108,6 @@ fs.readdirSync(dir).forEach(file => {
   try {
     // Handle circular object
     const str = CircularJSON.stringify(langObj, (k, v) => {
-      // Seems be a typo
-      if (typeof v === "object" && v !== null && v.containts) {
-        v.contains = v.containts;
-        delete v.containts;
-        return v;
-      }
-
       // console.log(v);
       // RegExp -> string
       if (v instanceof RegExp) {

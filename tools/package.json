@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "circular-json": "^0.5.9",
-    "highlight.js": "^9.15.9",
+    "highlight.js": "9.15.10",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
