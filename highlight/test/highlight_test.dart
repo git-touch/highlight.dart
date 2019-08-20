@@ -23,7 +23,7 @@ void main() {
             var h = Highlight();
             all.forEach(h.registerLanguage);
 
-            var highlighted = h.highlight(lang, code);
+            var highlighted = h.highlight(code, language: lang);
             expect(highlighted.toHtml().trim(), expected);
           });
         });
@@ -43,7 +43,7 @@ void main() {
             var h = Highlight();
             all.forEach(h.registerLanguage);
 
-            expect(lang, h.highlight(lang, code).language);
+            expect(lang, h.highlight(code, language: lang).language);
           });
         });
       });
