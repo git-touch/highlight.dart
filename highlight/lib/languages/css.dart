@@ -33,7 +33,7 @@ var css = Mode(
       Mode(begin: "{", end: "}", illegal: "\\S", contains: [
         C_BLOCK_COMMENT_MODE,
         Mode(
-            begin: "[A-Z\\_\\.\\-]+\\s*:",
+            begin: "(?:[A-Z\\_\\.\\-]+|--[a-zA-Z0-9_-]+)\\s*:",
             returnBegin: true,
             end: ";",
             endsWithParent: true,

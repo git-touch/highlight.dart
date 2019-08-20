@@ -7,6 +7,13 @@ var kotlin = Mode(refs: {
     Mode(ref: '~contains~6~contains~0~contains~0~variants~1'),
     Mode(ref: '~contains~6~contains~0~contains~0~variants~2')
   ]),
+  '~contains~7~contains~2~contains~0~contains~0': Mode(variants: [
+    Mode(className: "type", begin: "[a-zA-Z_]\\w*"),
+    Mode(
+        begin: "\\(",
+        end: "\\)",
+        contains: [Mode(ref: '~contains~7~contains~2~contains~0~contains~0')])
+  ]),
   '~contains~6~contains~0~contains~0~variants~2':
       Mode(begin: "\"", end: "\"", illegal: "\\n", contains: [
     BACKSLASH_ESCAPE,
@@ -40,6 +47,15 @@ var kotlin = Mode(refs: {
       className: "meta",
       begin:
           "@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*[a-zA-Z_]\\w*)?"),
+  '~contains~2':
+      Mode(className: "comment", begin: "/\\*", end: "\\*/", contains: [
+    C_BLOCK_COMMENT_MODE,
+    PHRASAL_WORDS_MODE,
+    Mode(
+        className: "doctag",
+        begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
+        relevance: 0)
+  ]),
 }, aliases: [
   "kt"
 ], keywords: {
@@ -62,7 +78,7 @@ var kotlin = Mode(refs: {
       ],
       relevance: 0),
   C_LINE_COMMENT_MODE,
-  C_BLOCK_COMMENT_MODE,
+  Mode(ref: '~contains~2'),
   Mode(
       className: "keyword",
       begin: "\\b(break|continue|return|this)\\b",
@@ -116,19 +132,19 @@ var kotlin = Mode(refs: {
                   end: "[=,\\/]",
                   endsWithParent: true,
                   contains: [
-                    Mode(className: "type", begin: "[a-zA-Z_]\\w*"),
+                    Mode(ref: '~contains~7~contains~2~contains~0~contains~0'),
                     C_LINE_COMMENT_MODE,
-                    C_BLOCK_COMMENT_MODE
+                    Mode(ref: '~contains~2')
                   ],
                   relevance: 0),
               C_LINE_COMMENT_MODE,
-              C_BLOCK_COMMENT_MODE,
+              Mode(ref: '~contains~2'),
               Mode(ref: '~contains~5'),
               Mode(ref: '~contains~6'),
               Mode(ref: '~contains~7~contains~2~contains~5'),
               C_NUMBER_MODE
             ]),
-        C_BLOCK_COMMENT_MODE
+        Mode(ref: '~contains~2')
       ]),
   Mode(
       className: "class",

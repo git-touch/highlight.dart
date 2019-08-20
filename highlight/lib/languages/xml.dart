@@ -15,7 +15,17 @@ var xml = Mode(
         ])
       ]),
     },
-    aliases: ["html", "xhtml", "rss", "atom", "xjb", "xsd", "xsl", "plist"],
+    aliases: [
+      "html",
+      "xhtml",
+      "rss",
+      "atom",
+      "xjb",
+      "xsd",
+      "xsl",
+      "plist",
+      "wsf"
+    ],
     case_insensitive: true,
     contains: [
       Mode(
@@ -77,7 +87,8 @@ var xml = Mode(
             "actionscript",
             "javascript",
             "handlebars",
-            "xml"
+            "xml",
+            "vbscript"
           ])),
       Mode(className: "tag", begin: "</?", end: "/?>", contains: [
         Mode(className: "name", begin: "[^\\/><\\s]+", relevance: 0),

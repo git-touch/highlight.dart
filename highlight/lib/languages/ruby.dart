@@ -194,7 +194,16 @@ var ruby = Mode(
         Mode(
             begin:
                 "\\B\\?(\\\\\\d{1,3}|\\\\x[A-Fa-f0-9]{1,2}|\\\\u[A-Fa-f0-9]{4}|\\\\?\\S)\\b"),
-        Mode(begin: "<<(-?)\\w+\$", end: "^\\s*\\w+\$")
+        Mode(
+            begin: "<<[-\\x7e]?'?(\\w+)(?:.|\\n)*?\\n\\s*\\1\\b",
+            returnBegin: true,
+            contains: [
+              Mode(begin: "<<[-\\x7e]?'?"),
+              Mode(begin: "\\w+", endSameAsBegin: true, contains: [
+                BACKSLASH_ESCAPE,
+                Mode(ref: '~contains~3~starts~contains~0~contains~1')
+              ])
+            ])
       ]),
       '~contains~2': Mode(
           className: "comment",
