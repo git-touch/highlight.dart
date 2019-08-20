@@ -128,7 +128,7 @@ class Result {
     this.second_best,
   });
 
-  String escape(String value) {
+  String _escape(String value) {
     return value
         .replaceAll(RegExp(r'&'), '&amp;')
         .replaceAll(RegExp(r'<'), '&lt;')
@@ -138,16 +138,16 @@ class Result {
   String toHtml() {
     var str = '';
 
-    traverse(Node node) {
+    _traverse(Node node) {
       if (node.className != null) {
         var prefix = node.noPrefix ? '' : 'hljs-';
         str += '<span class="${prefix + node.className}">';
       }
 
       if (node.value != null) {
-        str += escape(node.value);
+        str += _escape(node.value);
       } else if (node.children != null) {
-        node.children.forEach(traverse);
+        node.children.forEach(_traverse);
       }
 
       if (node.className != null) {
@@ -155,7 +155,7 @@ class Result {
       }
     }
 
-    value.forEach(traverse);
+    value.forEach(_traverse);
     return str;
   }
 }
@@ -170,7 +170,7 @@ class Node {
 }
 
 class Highlight {
-  Map<String, Mode> languages = {};
+  Map<String, Mode> _languages = {};
   Mode _languageMode;
 
   Highlight();
@@ -179,7 +179,7 @@ class Highlight {
     return className != null && className.isNotEmpty;
   }
 
-  List<Mode> expand_mode(Mode mode) {
+  List<Mode> _expandMode(Mode mode) {
     if (mode.variants != null && mode.cached_variants == null) {
       mode.cached_variants = mode.variants.map((variant) {
         if (variant.ref != null) {
@@ -192,7 +192,7 @@ class Highlight {
         (mode.endsWithParent == true ? [Mode.inherit(mode)] : [mode]);
   }
 
-  RegExp langRe(String value, [bool global]) {
+  RegExp _langRe(String value, [bool global]) {
     return RegExp(
       value,
       multiLine: true,
@@ -200,7 +200,7 @@ class Highlight {
     );
   }
 
-  joinRe(List<String> regexps, String separator) {
+  _joinRe(List<String> regexps, String separator) {
     var backreferenceRe = r'\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\.';
     var numCaptures = 0;
     var ret = '';
@@ -232,23 +232,23 @@ class Highlight {
     return ret;
   }
 
-  void compileMode(Mode mode, [Mode parent]) {
+  void _compileMode(Mode mode, [Mode parent]) {
     if (mode.compiled == true) return;
     mode.compiled = true;
 
     mode.keywords = mode.keywords ?? mode.beginKeywords;
 
     if (mode.keywords != null) {
-      Map<String, dynamic> compiled_keywords = {};
+      Map<String, dynamic> compiledKeywords = {};
 
-      void flatten(String className, String str) {
+      void _flatten(String className, String str) {
         if (_languageMode.case_insensitive == true) {
           str = str.toLowerCase();
         }
         str.split(' ').forEach((kw) {
           var pair = kw.split('|');
           try {
-            compiled_keywords[pair[0]] = [
+            compiledKeywords[pair[0]] = [
               className,
               pair.length > 1 ? int.parse(pair[1]) : 1
             ];
@@ -260,37 +260,37 @@ class Highlight {
       }
 
       if (mode.keywords is String) {
-        flatten('keyword', mode.keywords);
+        _flatten('keyword', mode.keywords);
       } else if (mode.keywords is Map<String, String>) {
-        (mode.keywords as Map<String, String>).forEach(flatten);
+        (mode.keywords as Map<String, String>).forEach(_flatten);
       }
-      mode.keywords = compiled_keywords;
+      mode.keywords = compiledKeywords;
     }
 
-    mode.lexemesRe = langRe(mode.lexemes ?? r'\w+', true);
+    mode.lexemesRe = _langRe(mode.lexemes ?? r'\w+', true);
 
     if (parent != null) {
       if (mode.beginKeywords != null) {
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')\\b';
       }
       if (mode.begin == null) mode.begin = r'\B|\b';
-      mode.beginRe = langRe(mode.begin);
+      mode.beginRe = _langRe(mode.begin);
       if (mode.endSameAsBegin == true) mode.end = mode.begin;
       if (mode.end == null && mode.endsWithParent != true) mode.end = r'\B|\b';
-      if (mode.end != null) mode.endRe = langRe(mode.end);
+      if (mode.end != null) mode.endRe = _langRe(mode.end);
       mode.terminator_end = mode.end ?? '';
       if (mode.endsWithParent == true && parent.terminator_end != null) {
         mode.terminator_end +=
             (mode.end != null ? '|' : '') + parent.terminator_end;
       }
     }
-    if (mode.illegal != null) mode.illegalRe = langRe(mode.illegal);
+    if (mode.illegal != null) mode.illegalRe = _langRe(mode.illegal);
     if (mode.relevance == null) mode.relevance = 1;
     if (mode.contains == null) {
       mode.contains = [];
     }
 
-    Mode pointToRef(Mode m) {
+    Mode _pointToRef(Mode m) {
       if (m.ref != null) {
         return _languageMode.refs[m.ref];
       }
@@ -298,27 +298,27 @@ class Highlight {
     }
 
     if (mode.contains != null) {
-      mode.contains = mode.contains.map(pointToRef).toList();
+      mode.contains = mode.contains.map(_pointToRef).toList();
     }
     if (mode.variants != null) {
-      mode.variants = mode.variants.map(pointToRef).toList();
+      mode.variants = mode.variants.map(_pointToRef).toList();
     }
     if (mode.starts != null) {
-      mode.starts = pointToRef(mode.starts);
+      mode.starts = _pointToRef(mode.starts);
     }
 
     List<Mode> contains = [];
     mode.contains.forEach((c) {
-      contains.addAll(expand_mode(c.self == true ? mode : c));
+      contains.addAll(_expandMode(c.self == true ? mode : c));
     });
 
     mode.contains = contains;
     mode.contains.forEach((c) {
-      compileMode(c, mode);
+      _compileMode(c, mode);
     });
 
     if (mode.starts != null) {
-      compileMode(mode.starts, parent);
+      _compileMode(mode.starts, parent);
     }
 
     var terminators = (mode.contains.map((c) {
@@ -328,11 +328,12 @@ class Highlight {
         .where((x) => x != null && x.isNotEmpty)
         .toList();
 
-    mode.terminators =
-        terminators.isNotEmpty ? langRe(joinRe(terminators, '|'), true) : null;
+    mode.terminators = terminators.isNotEmpty
+        ? _langRe(_joinRe(terminators, '|'), true)
+        : null;
   }
 
-  List<Node> buildSpan(String className, List<Node> insideSpan,
+  List<Node> _buildSpan(String className, List<Node> insideSpan,
       [bool leaveOpen = false, bool noPrefix = false]) {
     if (!_classNameExists(className)) {
       return insideSpan;
@@ -343,7 +344,7 @@ class Highlight {
     ];
   }
 
-  bool testRe(RegExp re, String lexeme) {
+  bool _testRe(RegExp re, String lexeme) {
     if (re != null) {
       for (var match in re.allMatches(lexeme)) {
         return match.start == 0;
@@ -352,17 +353,17 @@ class Highlight {
     return false;
   }
 
-  RegExp escapeRe(String value) {
+  RegExp _escapeRe(String value) {
     return RegExp(value.replaceAll(RegExp(r'[-\/\\^$*+?.()|[\]{}]'), r'\$&'),
         multiLine: true);
   }
 
-  Mode subMode(String lexeme, Mode mode) {
+  Mode _subMode(String lexeme, Mode mode) {
     for (var i = 0; i < mode.contains.length; i++) {
-      if (testRe(mode.contains[i].beginRe, lexeme)) {
+      if (_testRe(mode.contains[i].beginRe, lexeme)) {
         if (mode.contains[i].endSameAsBegin == true) {
           mode.contains[i].endRe =
-              escapeRe(mode.contains[i].beginRe.firstMatch(lexeme)[0]);
+              _escapeRe(mode.contains[i].beginRe.firstMatch(lexeme)[0]);
         }
 
         return mode.contains[i];
@@ -371,20 +372,20 @@ class Highlight {
     return null;
   }
 
-  Mode endOfMode(Mode mode, String lexeme) {
-    if (testRe(mode.endRe, lexeme)) {
+  Mode _endOfMode(Mode mode, String lexeme) {
+    if (_testRe(mode.endRe, lexeme)) {
       while (mode.endsParent == true && mode.parent != null) {
         mode = mode.parent;
       }
       return mode;
     }
     if (mode.endsWithParent == true) {
-      return endOfMode(mode.parent, lexeme);
+      return _endOfMode(mode.parent, lexeme);
     }
     return null;
   }
 
-  void addNodes(List<Node> nodes, List<Node> result) {
+  void _addNodes(List<Node> nodes, List<Node> result) {
     nodes.forEach((node) {
       if (result.isEmpty ||
           result.last.children != null ||
@@ -396,8 +397,8 @@ class Highlight {
     });
   }
 
-  void addText(String text, List<Node> result) {
-    addNodes([Node(value: text)], result);
+  void _addText(String text, List<Node> result) {
+    _addNodes([Node(value: text)], result);
   }
 
   Result highlight(String input,
@@ -412,13 +413,13 @@ class Highlight {
     }
 
     // FIXME: Move inside highlight to use lang reference
-    keywordMatch(Mode mode, RegExpMatch match) {
+    _keywordMatch(Mode mode, RegExpMatch match) {
       var match_str =
           langMode.case_insensitive == true ? match[0].toLowerCase() : match[0];
       return mode.keywords[match_str];
     }
 
-    compileMode(_languageMode);
+    _compileMode(_languageMode);
 
     var top = continuation ?? _languageMode;
     Map<String, Mode> continuations = {};
@@ -426,7 +427,7 @@ class Highlight {
     var currentChildren = children;
     List<List<Node>> stack = [];
 
-    void pop() {
+    void _pop() {
       currentChildren = stack.isEmpty ? children : stack.removeLast();
     }
 
@@ -441,11 +442,11 @@ class Highlight {
     var mode_buffer = '';
     var relevance = 0;
 
-    bool isIllegal(String lexeme, Mode mode) {
-      return !ignoreIllegals && testRe(mode.illegalRe, lexeme);
+    bool _isIllegal(String lexeme, Mode mode) {
+      return !ignoreIllegals && _testRe(mode.illegalRe, lexeme);
     }
 
-    void startNewMode(Mode mode) {
+    void _startNewMode(Mode mode) {
       if (_classNameExists(mode.className)) {
         currentChildren.add(Node(className: mode.className, children: []));
         stack.add(currentChildren);
@@ -454,7 +455,7 @@ class Highlight {
       top = Mode.inherit(mode)..parent = top;
     }
 
-    List<Node> processKeywords() {
+    List<Node> _processKeywords() {
       if (top.keywords == null) return [Node(value: mode_buffer)];
 
       var keyword_match;
@@ -465,14 +466,14 @@ class Highlight {
       match = top.lexemesRe.firstMatch(mode_buffer);
 
       while (match != null) {
-        addText(substring(mode_buffer, last_index, match.start), result);
-        keyword_match = keywordMatch(top, match);
+        _addText(substring(mode_buffer, last_index, match.start), result);
+        keyword_match = _keywordMatch(top, match);
         if (keyword_match != null) {
           relevance += keyword_match[1];
-          addNodes(
-              buildSpan(keyword_match[0], [Node(value: match[0])]), result);
+          _addNodes(
+              _buildSpan(keyword_match[0], [Node(value: match[0])]), result);
         } else {
-          addText(match[0], result);
+          _addText(match[0], result);
         }
         last_index = match.start + match[0].length;
         match = top.lexemesRe
@@ -480,13 +481,13 @@ class Highlight {
             .firstWhere((m) => true, orElse: () => null);
       }
 
-      addText(substring(mode_buffer, last_index), result);
+      _addText(substring(mode_buffer, last_index), result);
       return result;
     }
 
-    List<Node> processSubLanguage() {
+    List<Node> _processSubLanguage() {
       var explicit = top.subLanguage.length == 1;
-      if (explicit && languages[top.subLanguage.first] == null) {
+      if (explicit && _languages[top.subLanguage.first] == null) {
         return [Node(value: mode_buffer)];
       }
 
@@ -505,25 +506,25 @@ class Highlight {
       if (explicit) {
         continuations[top.subLanguage.first] = result.top;
       }
-      return buildSpan(result.language, result.value, false, true);
+      return _buildSpan(result.language, result.value, false, true);
     }
 
-    void processBuffer() {
-      addNodes(
-          top.subLanguage != null ? processSubLanguage() : processKeywords(),
+    void _processBuffer() {
+      _addNodes(
+          top.subLanguage != null ? _processSubLanguage() : _processKeywords(),
           currentChildren);
       mode_buffer = '';
     }
 
-    int processLexeme(String buffer, [String lexeme]) {
+    int _processLexeme(String buffer, [String lexeme]) {
       mode_buffer += buffer;
 
       if (lexeme == null) {
-        processBuffer();
+        _processBuffer();
         return 0;
       }
 
-      var new_mode = subMode(lexeme, top);
+      var new_mode = _subMode(lexeme, top);
 
       if (new_mode != null) {
         if (new_mode.skip == true) {
@@ -532,16 +533,16 @@ class Highlight {
           if (new_mode.excludeBegin == true) {
             mode_buffer += lexeme;
           }
-          processBuffer();
+          _processBuffer();
           if (new_mode.returnBegin != true && new_mode.excludeBegin != true) {
             mode_buffer = lexeme;
           }
         }
-        startNewMode(new_mode);
+        _startNewMode(new_mode);
         return new_mode.returnBegin == true ? 0 : lexeme.length;
       }
 
-      var end_mode = endOfMode(top, lexeme);
+      var end_mode = _endOfMode(top, lexeme);
       if (end_mode != null) {
         var origin = top;
         if (origin.skip == true) {
@@ -550,14 +551,14 @@ class Highlight {
           if (!(origin.returnEnd == true || origin.excludeEnd == true)) {
             mode_buffer += lexeme;
           }
-          processBuffer();
+          _processBuffer();
           if (origin.excludeEnd == true) {
             mode_buffer = lexeme;
           }
         }
         do {
           if (_classNameExists(top.className)) {
-            pop();
+            _pop();
           }
           if (top.skip != true && top.subLanguage == null) {
             relevance += top.relevance;
@@ -568,12 +569,12 @@ class Highlight {
           if (end_mode.endSameAsBegin == true) {
             end_mode.starts.endRe = end_mode.endRe;
           }
-          startNewMode(end_mode.starts);
+          _startNewMode(end_mode.starts);
         }
         return origin.returnEnd == true ? 0 : lexeme.length;
       }
 
-      if (isIllegal(lexeme, top)) {
+      if (_isIllegal(lexeme, top)) {
         throw 'Illegal lexeme "' +
             lexeme +
             '" for mode "' +
@@ -602,13 +603,13 @@ class Highlight {
         // print(result);
         // print('');
 
-        count = processLexeme(substring(input, index, match.start), match[0]);
+        count = _processLexeme(substring(input, index, match.start), match[0]);
         index = count + match.start;
       }
-      processLexeme(substring(input, index));
+      _processLexeme(substring(input, index));
       for (current = top; current.parent != null; current = current.parent) {
         if (_classNameExists(current.className)) {
-          pop();
+          _pop();
         }
       }
       // print(relevance);
@@ -630,16 +631,17 @@ class Highlight {
 
   Mode _getLanguage(String name) {
     name = (name ?? '').toLowerCase();
-    return languages[name];
+    return _languages[name];
 //     ?? languages[aliases[name]]; FIXME: alias
   }
 
   void registerLanguage(String name, Mode languageMode) {
-    languages[name] = languageMode;
+    _languages[name] = languageMode;
   }
 
   Result _highlightAuto(String input, {List<String> languageSubset}) {
-    languageSubset = languageSubset ?? languages.keys.toList(); // TODO: options
+    languageSubset =
+        languageSubset ?? _languages.keys.toList(); // TODO: options
     var result = Result(
       relevance: 0,
       value: [Node(value: input)],
