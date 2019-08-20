@@ -5,7 +5,8 @@
   "dependencies": {
     "circular-json": "^0.5.9",
     "highlight.js": "9.15.10",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "postcss": "^7.0.17"
   },
   "devDependencies": {
     "@types/node": "^12.6.9"
