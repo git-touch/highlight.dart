@@ -2,8 +2,6 @@
 
 Syntax highlighter for Dart developers.
 
-If you are looking for syntax highlighter works with Flutter, try [flutter-highlight](https://github.com/pd4d10/flutter-highlight).
-
 ## Usage
 
 ```dart
