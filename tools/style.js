@@ -75,14 +75,14 @@ fs.readdirSync(rootDir).forEach(file => {
       }
       selector = selector.replace(".hljs-", "").replace(".hljs", "container");
 
-      const styles = [];
+      const style = {};
       rule.nodes.forEach(item => {
         if (item.type === "decl") {
           switch (item.prop) {
             case "color": {
               const flutterColor = covertColor(item.value);
               if (flutterColor) {
-                styles.push(`color: ${flutterColor}`);
+                style.color = flutterColor;
               }
               break;
             }
@@ -90,18 +90,18 @@ fs.readdirSync(rootDir).forEach(file => {
             case "background-color": {
               const flutterColor = covertColor(item.value);
               if (flutterColor) {
-                styles.push(`backgroundColor: ${flutterColor}`);
+                style.backgroundColor = flutterColor;
               }
               break;
             }
             case "font-style":
-              styles.push(`fontStyle: FontStyle.${item.value}`);
+              style.fontStyle = `FontStyle.${item.value}`;
               break;
             case "font-weight":
               if (item.value === "bolder") {
                 item.value = "bold"; // FIXME:
               }
-              styles.push(`fontWeight: FontWeight.${item.value}`);
+              style.fontWeight = `FontWeight.${item.value}`;
               break;
           }
         } else {
@@ -109,8 +109,11 @@ fs.readdirSync(rootDir).forEach(file => {
         }
       });
 
-      if (styles.length) {
-        code += `'${selector}': TextStyle(${styles.join(",")}),`;
+      const styleEntries = Object.entries(style);
+      if (styleEntries.length) {
+        code += `'${selector}': TextStyle(${styleEntries
+          .map(([k, v]) => `${k}:${v}`)
+          .join(",")}),`;
       }
     });
   });
