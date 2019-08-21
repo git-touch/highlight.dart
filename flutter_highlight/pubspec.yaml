@@ -10,15 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  highlight: ^0.0.1
+  highlight:
+    path: ../highlight
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-dependency_overrides:
-  highlight:
-    path: ../highlight
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
