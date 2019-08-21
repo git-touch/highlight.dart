@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'package:path/path.dart' as path;
 import 'package:highlight/highlight.dart';
-import 'package:highlight/languages/all.dart';
 import 'package:test/test.dart';
 
 void main() {
+  var hl = Highlight();
+
   group('markup', () {
     Directory('test/markup').listSync().forEach((entity) {
       var lang = path.basename(entity.path);
@@ -20,11 +21,8 @@ void main() {
                     .readAsStringSync()
                     .trim();
 
-            var h = Highlight();
-            all.forEach(h.registerLanguage);
-
-            var highlighted = h.highlight(code, language: lang);
-            expect(highlighted.toHtml().trim(), expected);
+            var actual = hl.highlight(code, language: lang).toHtml().trim();
+            expect(actual, expected);
           });
         });
       });
@@ -39,11 +37,7 @@ void main() {
         Directory('test/detect/$lang').listSync().forEach((entity) {
           test(path.basename(entity.path), () {
             var code = File(entity.path).readAsStringSync();
-
-            var h = Highlight();
-            all.forEach(h.registerLanguage);
-
-            expect(lang, h.highlight(code, language: lang).language);
+            expect(lang, hl.highlight(code, language: lang).language);
           });
         });
       });

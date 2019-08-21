@@ -8,11 +8,10 @@ class Highlight {
   Map<String, Mode> _languages = {};
   Mode _languageMode;
 
-  factory Highlight() {
-    var hl = Highlight();
-    all.forEach(hl.registerLanguage);
-    return hl;
-  }
+  /// Create a syntax highlight instance
+  ///
+  /// Note that all languages are registered by default.
+  Highlight() : _languages = all;
 
   bool _classNameExists(String className) {
     return className != null && className.isNotEmpty;
