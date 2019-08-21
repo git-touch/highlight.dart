@@ -6,7 +6,9 @@
     "circular-json": "^0.5.9",
     "highlight.js": "9.15.10",
     "lodash": "^4.17.15",
-    "postcss": "^7.0.17"
+    "map-stream": "^0.0.7",
+    "postcss": "^7.0.17",
+    "vinyl-fs": "^3.0.3"
   },
   "devDependencies": {
     "@types/node": "^12.6.9"
