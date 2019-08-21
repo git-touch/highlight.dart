@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const assert = require("assert");
+const _ = require("lodash");
 const { execSync } = require("child_process");
 const path = require("path");
 const postcss = require("postcss");
@@ -53,9 +54,19 @@ const covertColor = color => {
   }
 };
 
+let all = "var allStyles = {";
+
 // ["github.css"]
 fs.readdirSync(rootDir).forEach(file => {
   if (path.extname(file) != ".css") return;
+  const fileName = path.basename(file, ".css");
+  let varName = _.snakeCase(fileName);
+  if (varName === "default") {
+    varName = "def";
+  }
+
+  all = `import 'styles/${fileName}.dart' as ${varName}; ` + all;
+  all += `'${fileName}': ${varName}.style,`;
 
   const ast = postcss.parse(fs.readFileSync(path.resolve(rootDir, file)));
   // console.log(ast);
@@ -120,11 +131,14 @@ fs.readdirSync(rootDir).forEach(file => {
 
   code += "};";
 
-  fs.writeFileSync(
-    path.resolve(destDir, `${path.basename(file, ".css")}.dart`),
-    code
-  );
+  fs.writeFileSync(path.resolve(destDir, `${fileName}.dart`), code);
 });
+
+all += "};";
+fs.writeFileSync(
+  path.resolve(__dirname, "../flutter_highlight_gallery/lib/all_styles.dart"),
+  all
+);
 
 // format
 execSync(`dartfmt --overwrite ${path.resolve(destDir, "*.dart")}`);

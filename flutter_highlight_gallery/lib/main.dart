@@ -1,6 +1,38 @@
 import 'package:flutter_web/material.dart';
+import 'flutter_highlight.dart';
+import 'all_styles.dart';
 
 void main() => runApp(MyApp());
+
+var code = r'''class Spacecraft {
+  String name;
+  DateTime launchDate;
+
+  // Constructor, with syntactic sugar for assignment to members.
+  Spacecraft(this.name, this.launchDate) {
+    // Initialization code goes here.
+  }
+
+  // Named constructor that forwards to the default one.
+  Spacecraft.unlaunched(String name) : this(name, null);
+
+  int get launchYear =>
+      launchDate?.year; // read-only non-final property
+
+  // Method.
+  void describe() {
+    print('Spacecraft: $name');
+    if (launchDate != null) {
+      int years =
+          DateTime.now().difference(launchDate).inDays ~/
+              365;
+      print('Launched: $launchYear ($years years ago)');
+    } else {
+      print('Unlaunched');
+    }
+  }
+}
+''';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -11,51 +43,52 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
 
-  final String title;
+class _MyHomePageState extends State<MyHomePage> {
+  String theme = 'github';
 
   @override
   Widget build(BuildContext context) {
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('Flutter Demo'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.language),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.style),
+            onPressed: () async {
+              var selected = await showMenu(
+                  context: context,
+                  items: allStyles.keys.map((key) {
+                    return PopupMenuItem(value: key, child: Text(key));
+                  }).toList());
+              setState(() {
+                theme = selected;
+              });
+            },
+          ),
+        ],
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (choose the "Toggle Debug Paint" action
-          // from the Flutter Inspector in Android Studio, or the "Toggle Debug
-          // Paint" command in Visual Studio Code) to see the wireframe for each
-          // widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Hello, World!',
-            ),
+            Highlighter(code, language: 'dart', style: allStyles[theme])
           ],
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
