@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var stan = Mode(refs: {}, contains: [
   HASH_COMMENT_MODE,

@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var prolog = Mode(refs: {
   '~contains~2~contains~4~contains~9': Mode(

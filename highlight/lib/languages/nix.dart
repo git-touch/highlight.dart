@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var nix = Mode(refs: {
   '~contains~3~contains~0~contains~4': Mode(

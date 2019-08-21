@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var profile = Mode(refs: {}, contains: [
   C_NUMBER_MODE,

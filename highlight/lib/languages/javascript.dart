@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var javascript = Mode(refs: {
   '~contains~4~starts~contains~1~contains~5': Mode(

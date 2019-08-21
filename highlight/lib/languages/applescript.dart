@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var applescript = Mode(refs: {
   '~contains~6': Mode(className: "comment", begin: "--", end: "\$", contains: [

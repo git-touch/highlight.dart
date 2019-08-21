@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var arcade = Mode(refs: {
   '~contains~2~contains~1~contains~3': Mode(

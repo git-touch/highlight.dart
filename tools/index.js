@@ -75,18 +75,18 @@ function generateMode(obj, matchCommonKey = true, commonSet = new Set()) {
   return code;
 }
 
-// common.dart
+// src/common_modes.dart
 const modeEntries = Object.entries(hljs).filter(
   ([k]) =>
     /^[A-Z]/.test(k) && !k.endsWith("_RE") && typeof hljs[k] !== "function"
 );
 
-let common = `import '../highlight.dart';`;
+let common = `import 'mode.dart';`;
 modeEntries.forEach(([k, v]) => {
   common += `var ${k}=${generateMode(v, false)};`;
 });
 fs.writeFileSync(
-  path.resolve(__dirname, `../highlight/lib/languages/common.dart`),
+  path.resolve(__dirname, `../highlight/lib/src/common_modes.dart`),
   common.replace(/\$/g, "\\$")
 );
 
@@ -165,7 +165,7 @@ fs.readdirSync(dir).forEach(file => {
         __dirname,
         `../highlight/lib/languages/${originalLang}.dart`
       ),
-      `import 'common.dart'; import '../highlight.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
+      `import '../src/mode.dart'; import '../src/common_modes.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
         5
       )};`
         .replace(/"hljs\.(.*?)"/g, "$1")

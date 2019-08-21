@@ -1,4 +1,4 @@
-import '../highlight.dart';
+import 'mode.dart';
 
 var BACKSLASH_ESCAPE = Mode(begin: "\\\\[\\s\\S]", relevance: 0);
 var APOS_STRING_MODE = Mode(

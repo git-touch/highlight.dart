@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var bnf = Mode(refs: {}, contains: [
   Mode(className: "attribute", begin: "<", end: ">"),

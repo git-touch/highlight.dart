@@ -1,5 +1,5 @@
-import 'common.dart';
-import '../highlight.dart';
+import '../src/mode.dart';
+import '../src/common_modes.dart';
 
 var kotlin = Mode(refs: {
   '~contains~7~contains~2~contains~5': Mode(className: "string", variants: [
