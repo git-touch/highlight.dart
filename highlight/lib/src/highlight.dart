@@ -469,13 +469,17 @@ class Highlight {
   }
 
   Mode _getLanguage(String name) {
-    name = (name ?? '').toLowerCase();
-    return _languages[name];
-//     ?? languages[aliases[name]]; FIXME: alias
+    if (name == null) return null;
+    return _languages[name.toLowerCase()];
   }
 
   void registerLanguage(String name, Mode languageMode) {
     _languages[name] = languageMode;
+    if (languageMode.aliases != null) {
+      languageMode.aliases.forEach((name) {
+        _languages[name] = languageMode;
+      });
+    }
   }
 
   Result _highlightAuto(String input, {List<String> languageSubset}) {
