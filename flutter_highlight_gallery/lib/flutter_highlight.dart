@@ -1,9 +1,8 @@
 import 'package:flutter_web/widgets.dart';
 import 'package:highlight/highlight.dart';
-import 'package:highlight/languages/all.dart';
 
 class Highlighter extends StatelessWidget {
-  static final _h = Highlight();
+  static final _hl = Highlight();
 
   final String code;
   final String language;
@@ -11,7 +10,7 @@ class Highlighter extends StatelessWidget {
 
   Highlighter(this.code, {this.language, this.style = const {}});
 
-  List<TextSpan> convert(List<Node> nodes) {
+  List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
     var currentSpans = spans;
     List<List<TextSpan>> stack = [];
@@ -45,12 +44,10 @@ class Highlighter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    all.forEach(_h.registerLanguage); // FIXME:
-
-    var nodes = _h.highlight(code, language: language).value;
+    var nodes = _hl.highlight(code, language: language).value;
     return RichText(
         text: TextSpan(
-            children: convert(nodes),
+            children: _convert(nodes),
             style: TextStyle(color: Color(0xff000000), fontFamily: 'Menlo')));
   }
 }

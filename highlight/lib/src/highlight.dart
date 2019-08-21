@@ -2,12 +2,17 @@ import 'utils.dart';
 import 'node.dart';
 import 'mode.dart';
 import 'result.dart';
+import '../languages/all.dart';
 
 class Highlight {
   Map<String, Mode> _languages = {};
   Mode _languageMode;
 
-  Highlight();
+  factory Highlight() {
+    var hl = Highlight();
+    all.forEach(hl.registerLanguage);
+    return hl;
+  }
 
   bool _classNameExists(String className) {
     return className != null && className.isNotEmpty;
