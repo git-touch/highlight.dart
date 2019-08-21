@@ -45,10 +45,16 @@ class Highlighter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var nodes = _hl.highlight(code, language: language).value;
-    return RichText(
-      text: TextSpan(
-        children: _convert(nodes),
-        style: TextStyle(color: Color(0xff000000), fontFamily: 'Menlo'),
+    return Container(
+      color: style['container']?.backgroundColor,
+      child: RichText(
+        text: TextSpan(
+          children: _convert(nodes),
+          style: TextStyle(
+            fontFamily: 'Menlo',
+            color: style['container']?.color ?? Color(0xff000000),
+          ),
+        ),
       ),
     );
   }
