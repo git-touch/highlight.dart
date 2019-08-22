@@ -4,6 +4,8 @@ import 'all_styles.dart';
 
 void main() => runApp(MyApp());
 
+final title = 'Flutter Highlight Gallery';
+
 var code = r'''class Spacecraft {
   String name;
   DateTime launchDate;
@@ -35,14 +37,12 @@ var code = r'''class Spacecraft {
 ''';
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      title: title,
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: MyHomePage(),
     );
   }
@@ -56,27 +56,45 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String theme = 'github';
 
+  Widget _buildMenuContent(String text) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12),
+      child: Row(children: <Widget>[
+        Text(text, style: TextStyle(fontSize: 16)),
+        Icon(Icons.arrow_drop_down)
+      ]),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Demo'),
+        title: Text(title),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.language),
-            onPressed: () {},
+          PopupMenuButton(
+            child: _buildMenuContent('dart'),
+            itemBuilder: (context) => [],
           ),
-          IconButton(
-            icon: Icon(Icons.style),
-            onPressed: () async {
-              var selected = await showMenu(
-                  context: context,
-                  items: allStyles.keys.map((key) {
-                    return PopupMenuItem(value: key, child: Text(key));
-                  }).toList());
-              setState(() {
-                theme = selected;
-              });
+          PopupMenuButton<String>(
+            // padding: const EdgeInsets.all(0),
+            child: _buildMenuContent(theme),
+            // icon: Icon(Icons.style),
+            itemBuilder: (context) {
+              return allStyles.keys.map((key) {
+                return CheckedPopupMenuItem(
+                  value: key,
+                  child: Text(key),
+                  checked: theme == key,
+                );
+              }).toList();
+            },
+            onSelected: (selected) {
+              if (selected != null) {
+                setState(() {
+                  theme = selected;
+                });
+              }
             },
           ),
         ],
