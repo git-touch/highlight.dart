@@ -1,40 +1,11 @@
 import 'package:flutter_web/material.dart';
 import 'flutter_highlight.dart';
 import 'all_styles.dart';
+import 'example.dart';
 
 void main() => runApp(MyApp());
 
 final title = 'Flutter Highlight Gallery';
-
-var code = r'''class Spacecraft {
-  String name;
-  DateTime launchDate;
-
-  // Constructor, with syntactic sugar for assignment to members.
-  Spacecraft(this.name, this.launchDate) {
-    // Initialization code goes here.
-  }
-
-  // Named constructor that forwards to the default one.
-  Spacecraft.unlaunched(String name) : this(name, null);
-
-  int get launchYear =>
-      launchDate?.year; // read-only non-final property
-
-  // Method.
-  void describe() {
-    print('Spacecraft: $name');
-    if (launchDate != null) {
-      int years =
-          DateTime.now().difference(launchDate).inDays ~/
-              365;
-      print('Launched: $launchYear ($years years ago)');
-    } else {
-      print('Unlaunched');
-    }
-  }
-}
-''';
 
 class MyApp extends StatelessWidget {
   @override
@@ -54,6 +25,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String language = 'dart';
   String theme = 'github';
 
   Widget _buildMenuContent(String text) {
@@ -73,8 +45,23 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(title),
         actions: <Widget>[
           PopupMenuButton(
-            child: _buildMenuContent('dart'),
-            itemBuilder: (context) => [],
+            child: _buildMenuContent(language),
+            itemBuilder: (context) {
+              return exampleMap.keys.map((key) {
+                return CheckedPopupMenuItem(
+                  value: key,
+                  child: Text(key),
+                  checked: language == key,
+                );
+              }).toList();
+            },
+            onSelected: (selected) {
+              if (selected != null) {
+                setState(() {
+                  language = selected;
+                });
+              }
+            },
           ),
           PopupMenuButton<String>(
             // padding: const EdgeInsets.all(0),
@@ -103,7 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Highlighter(code, language: 'dart', style: allStyles[theme])
+            Highlighter(exampleMap[language],
+                language: 'dart', style: allStyles[theme])
           ],
         ),
       ),
