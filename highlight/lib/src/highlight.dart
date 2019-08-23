@@ -6,12 +6,19 @@ import '../languages/all.dart';
 
 class Highlight {
   Map<String, Mode> _languages = {};
+  Map<String, String> _aliases = {};
   Mode _languageMode;
 
   /// Create a syntax highlight instance
   ///
   /// Note that all languages are registered by default.
-  Highlight() : _languages = all;
+  factory Highlight() {
+    var hl = Highlight._init();
+    all.forEach(hl.registerLanguage);
+    return hl;
+  }
+
+  Highlight._init();
 
   bool _classNameExists(String className) {
     return className != null && className.isNotEmpty;
@@ -469,14 +476,15 @@ class Highlight {
 
   Mode _getLanguage(String name) {
     if (name == null) return null;
-    return _languages[name.toLowerCase()];
+    name = name.toLowerCase();
+    return _languages[name] ?? _languages[_aliases[name] ?? ''];
   }
 
   void registerLanguage(String name, Mode languageMode) {
     _languages[name] = languageMode;
     if (languageMode.aliases != null) {
-      languageMode.aliases.forEach((name) {
-        _languages[name] = languageMode;
+      languageMode.aliases.forEach((a) {
+        _aliases[a] = name;
       });
     }
   }
