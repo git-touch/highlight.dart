@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart';
 import 'styles/default.dart' as def;
@@ -43,18 +44,31 @@ class Highlighter extends StatelessWidget {
     return spans;
   }
 
+  static const defaultFontColor = Color(0xff000000);
+  static const defaultBackgroundColor = Color(0xffffffff);
+  static String get defaultFontFamily {
+    // FIXME: Platform API is not available at web
+    if (Platform.isIOS || Platform.isMacOS) {
+      return 'Menlo';
+    } else if (Platform.isAndroid) {
+      return 'Roboto Mono';
+    } else {
+      return 'monospace';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var nodes = _hl.parse(code, language: language).value;
     return Container(
-      color: style['container']?.backgroundColor,
+      color: style['container']?.backgroundColor ?? defaultBackgroundColor,
       child: RichText(
         text: TextSpan(
-          children: _convert(nodes),
           style: TextStyle(
-            fontFamily: 'Menlo',
-            color: style['container']?.color ?? Color(0xff000000),
+            fontFamily: defaultFontFamily,
+            color: style['container']?.color ?? defaultFontColor,
           ),
+          children: _convert(nodes),
         ),
       ),
     );
