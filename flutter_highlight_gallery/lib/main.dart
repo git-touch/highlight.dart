@@ -1,6 +1,6 @@
 import 'package:flutter_web/material.dart';
-import 'flutter_highlight.dart';
-import 'all_styles.dart';
+import 'flutter_highlight/flutter_highlight.dart';
+import 'flutter_highlight/all_styles.dart';
 import 'example.dart';
 
 void main() => runApp(MyApp());

@@ -59,7 +59,7 @@ function adaptForWeb() {
         cb(null, file);
       })
     )
-    .pipe(dest("../flutter_highlight_gallery/lib"));
+    .pipe(dest("../flutter_highlight_gallery/lib/flutter_highlight"));
 }
 
 exports.default = () => {

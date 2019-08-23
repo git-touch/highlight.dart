@@ -143,7 +143,10 @@ fs.readdirSync(rootDir).forEach(file => {
 
 all += "};";
 fs.writeFileSync(
-  path.resolve(__dirname, "../flutter_highlight_gallery/lib/all_styles.dart"),
+  path.resolve(
+    __dirname,
+    "../flutter_highlight_gallery/lib/flutter_highlight/all_styles.dart"
+  ),
   all
 );
 
