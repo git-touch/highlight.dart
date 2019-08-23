@@ -10,7 +10,6 @@ var style = {
   'name': TextStyle(color: Color(0xffc94922)),
   'regexp': TextStyle(color: Color(0xffc94922)),
   'link': TextStyle(color: Color(0xffc94922)),
-  'name': TextStyle(color: Color(0xffc94922)),
   'selector-id': TextStyle(color: Color(0xffc94922)),
   'selector-class': TextStyle(color: Color(0xffc94922)),
   'number': TextStyle(color: Color(0xffc76b29)),

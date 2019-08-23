@@ -8,7 +8,7 @@ var style = {
   'keyword': TextStyle(color: Color(0xff333333), fontWeight: FontWeight.bold),
   'selector-tag':
       TextStyle(color: Color(0xff333333), fontWeight: FontWeight.bold),
-  'subst': TextStyle(color: Color(0xff333333), fontWeight: FontWeight.bold),
+  'subst': TextStyle(color: Color(0xff333333), fontWeight: FontWeight.normal),
   'number': TextStyle(color: Color(0xff008080)),
   'literal': TextStyle(color: Color(0xff008080)),
   'variable': TextStyle(color: Color(0xff008080)),
@@ -16,13 +16,11 @@ var style = {
   'attr': TextStyle(color: Color(0xff008080)),
   'string': TextStyle(color: Color(0xffdd1144)),
   'doctag': TextStyle(color: Color(0xffdd1144)),
-  'title': TextStyle(color: Color(0xff990000), fontWeight: FontWeight.bold),
+  'title': TextStyle(color: Color(0xff445588), fontWeight: FontWeight.bold),
   'section': TextStyle(color: Color(0xff990000), fontWeight: FontWeight.bold),
   'selector-id':
       TextStyle(color: Color(0xff990000), fontWeight: FontWeight.bold),
-  'subst': TextStyle(fontWeight: FontWeight.normal),
   'type': TextStyle(color: Color(0xff445588), fontWeight: FontWeight.bold),
-  'title': TextStyle(color: Color(0xff445588), fontWeight: FontWeight.bold),
   'tag': TextStyle(color: Color(0xff000080), fontWeight: FontWeight.normal),
   'name': TextStyle(color: Color(0xff000080), fontWeight: FontWeight.normal),
   'attribute':

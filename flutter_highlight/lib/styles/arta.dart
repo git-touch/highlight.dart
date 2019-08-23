@@ -1,10 +1,10 @@
 import 'package:flutter/painting.dart';
 
 var style = {
-  'container': TextStyle(backgroundColor: Color(0xff222222)),
-  'container': TextStyle(color: Color(0xffaaaaaa)),
+  'container':
+      TextStyle(backgroundColor: Color(0xff222222), color: Color(0xffaaaaaa)),
   'subst': TextStyle(color: Color(0xffaaaaaa)),
-  'section': TextStyle(color: Color(0xffffffff)),
+  'section': TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
   'comment': TextStyle(color: Color(0xff444444)),
   'quote': TextStyle(color: Color(0xff444444)),
   'meta': TextStyle(color: Color(0xff444444)),
@@ -30,7 +30,6 @@ var style = {
   'variable': TextStyle(color: Color(0xffbb1166)),
   'deletion': TextStyle(color: Color(0xffbb1166)),
   'template-tag': TextStyle(color: Color(0xffbb1166)),
-  'section': TextStyle(fontWeight: FontWeight.bold),
   'doctag': TextStyle(fontWeight: FontWeight.bold),
   'strong': TextStyle(fontWeight: FontWeight.bold),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),

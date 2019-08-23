@@ -2,7 +2,7 @@ import 'package:flutter_web/painting.dart';
 
 var style = {
   'container': TextStyle(backgroundColor: Color(0xffffffff)),
-  'meta': TextStyle(color: Color(0xffc0c0c0)),
+  'meta': TextStyle(color: Color(0xff643820)),
   'comment': TextStyle(color: Color(0xff007400)),
   'quote': TextStyle(color: Color(0xff007400)),
   'tag': TextStyle(color: Color(0xffaa0d91)),
@@ -18,13 +18,11 @@ var style = {
   'meta-string': TextStyle(color: Color(0xffc41a16)),
   'regexp': TextStyle(color: Color(0xff0E0EFF)),
   'link': TextStyle(color: Color(0xff0E0EFF)),
-  'title': TextStyle(color: Color(0xff1c00cf)),
+  'title': TextStyle(color: Color(0xff5c2699)),
   'symbol': TextStyle(color: Color(0xff1c00cf)),
   'bullet': TextStyle(color: Color(0xff1c00cf)),
   'number': TextStyle(color: Color(0xff1c00cf)),
   'section': TextStyle(color: Color(0xff643820)),
-  'meta': TextStyle(color: Color(0xff643820)),
-  'title': TextStyle(color: Color(0xff5c2699)),
   'type': TextStyle(color: Color(0xff5c2699)),
   'built_in': TextStyle(color: Color(0xff5c2699)),
   'builtin-name': TextStyle(color: Color(0xff5c2699)),

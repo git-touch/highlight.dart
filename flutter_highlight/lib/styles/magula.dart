@@ -3,7 +3,7 @@ import 'package:flutter/painting.dart';
 var style = {
   'container': TextStyle(backgroundColor: Color(0xfff4f4f4)),
   'string': TextStyle(color: Color(0xff005500)),
-  'title': TextStyle(color: Color(0xff005500)),
+  'title': TextStyle(color: Color(0xff005500), fontWeight: FontWeight.bold),
   'symbol': TextStyle(color: Color(0xff005500)),
   'bullet': TextStyle(color: Color(0xff005500)),
   'attribute': TextStyle(color: Color(0xff005500)),
@@ -23,7 +23,6 @@ var style = {
   'keyword': TextStyle(fontWeight: FontWeight.bold),
   'selector-tag': TextStyle(fontWeight: FontWeight.bold),
   'doctag': TextStyle(fontWeight: FontWeight.bold),
-  'title': TextStyle(fontWeight: FontWeight.bold),
   'section': TextStyle(fontWeight: FontWeight.bold),
   'built_in': TextStyle(fontWeight: FontWeight.bold),
   'tag': TextStyle(fontWeight: FontWeight.bold),

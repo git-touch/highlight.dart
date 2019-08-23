@@ -1,10 +1,10 @@
 import 'package:flutter_web/painting.dart';
 
 var style = {
-  'container': TextStyle(backgroundColor: Color(0xff2b2b2b)),
-  'container': TextStyle(color: Color(0xffbababa)),
+  'container':
+      TextStyle(backgroundColor: Color(0xff2b2b2b), color: Color(0xffbababa)),
   'strong': TextStyle(color: Color(0xffa8a8a2)),
-  'emphasis': TextStyle(color: Color(0xffa8a8a2)),
+  'emphasis': TextStyle(color: Color(0xffa8a8a2), fontStyle: FontStyle.italic),
   'bullet': TextStyle(color: Color(0xff6896ba)),
   'quote': TextStyle(color: Color(0xff6896ba)),
   'link': TextStyle(color: Color(0xff6896ba)),
@@ -13,7 +13,6 @@ var style = {
   'literal': TextStyle(color: Color(0xff6896ba)),
   'code': TextStyle(color: Color(0xffa6e22e)),
   'selector-class': TextStyle(color: Color(0xffa6e22e)),
-  'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'keyword': TextStyle(color: Color(0xffcb7832)),
   'selector-tag': TextStyle(color: Color(0xffcb7832)),
   'section': TextStyle(color: Color(0xffcb7832)),

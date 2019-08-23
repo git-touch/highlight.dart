@@ -19,7 +19,7 @@ var style = {
   'literal': TextStyle(color: Color(0xfffd8b19)),
   'type': TextStyle(color: Color(0xfffd8b19)),
   'params': TextStyle(color: Color(0xfffd8b19)),
-  'title': TextStyle(color: Color(0xfffdcc59)),
+  'title': TextStyle(color: Color(0xff1290bf)),
   'string': TextStyle(color: Color(0xff8fc13e)),
   'symbol': TextStyle(color: Color(0xff8fc13e)),
   'bullet': TextStyle(color: Color(0xff8fc13e)),
@@ -27,7 +27,6 @@ var style = {
   'meta': TextStyle(color: Color(0xff149b93)),
   'function': TextStyle(color: Color(0xff1290bf)),
   'section': TextStyle(color: Color(0xff1290bf)),
-  'title': TextStyle(color: Color(0xff1290bf)),
   'keyword': TextStyle(color: Color(0xffc85e7c)),
   'selector-tag': TextStyle(color: Color(0xffc85e7c)),
   'container':

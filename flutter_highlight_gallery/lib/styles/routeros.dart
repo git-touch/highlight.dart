@@ -1,8 +1,8 @@
 import 'package:flutter_web/painting.dart';
 
 var style = {
-  'container': TextStyle(backgroundColor: Color(0xffF0F0F0)),
-  'container': TextStyle(color: Color(0xff444444)),
+  'container':
+      TextStyle(backgroundColor: Color(0xffF0F0F0), color: Color(0xff444444)),
   'subst': TextStyle(color: Color(0xff444444)),
   'comment': TextStyle(color: Color(0xff888888)),
   'keyword': TextStyle(fontWeight: FontWeight.bold),

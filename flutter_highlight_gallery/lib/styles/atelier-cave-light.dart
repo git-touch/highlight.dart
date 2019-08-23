@@ -10,8 +10,6 @@ var style = {
   'name': TextStyle(color: Color(0xffbe4678)),
   'regexp': TextStyle(color: Color(0xffbe4678)),
   'link': TextStyle(color: Color(0xffbe4678)),
-  'name': TextStyle(color: Color(0xffbe4678)),
-  'name': TextStyle(color: Color(0xffbe4678)),
   'selector-id': TextStyle(color: Color(0xffbe4678)),
   'selector-class': TextStyle(color: Color(0xffbe4678)),
   'number': TextStyle(color: Color(0xffaa573c)),
@@ -28,10 +26,10 @@ var style = {
   'section': TextStyle(color: Color(0xff576ddb)),
   'keyword': TextStyle(color: Color(0xff955ae7)),
   'selector-tag': TextStyle(color: Color(0xff955ae7)),
-  'deletion': TextStyle(color: Color(0xff19171c)),
-  'addition': TextStyle(color: Color(0xff19171c)),
-  'deletion': TextStyle(backgroundColor: Color(0xffbe4678)),
-  'addition': TextStyle(backgroundColor: Color(0xff2a9292)),
+  'deletion':
+      TextStyle(color: Color(0xff19171c), backgroundColor: Color(0xffbe4678)),
+  'addition':
+      TextStyle(color: Color(0xff19171c), backgroundColor: Color(0xff2a9292)),
   'container':
       TextStyle(backgroundColor: Color(0xffefecf4), color: Color(0xff585260)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),

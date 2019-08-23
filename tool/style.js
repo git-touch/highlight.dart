@@ -71,8 +71,7 @@ fs.readdirSync(rootDir).forEach(file => {
   const ast = postcss.parse(fs.readFileSync(path.resolve(rootDir, file)));
   // console.log(ast);
 
-  let code = "import 'package:flutter/painting.dart'; var style = {";
-
+  const obj = {};
   ast.walkRules((rule, index) => {
     // FIXME: a11y media query
     if (rule.parent.type === "atrule" && rule.parent.name === "media") {
@@ -122,13 +121,21 @@ fs.readdirSync(rootDir).forEach(file => {
 
       const styleEntries = Object.entries(style);
       if (styleEntries.length) {
-        code += `'${selector}': TextStyle(${styleEntries
-          .map(([k, v]) => `${k}:${v}`)
-          .join(",")}),`;
+        if (!obj[selector]) {
+          obj[selector] = style;
+        } else {
+          Object.assign(obj[selector], style);
+        }
       }
     });
   });
 
+  let code = "import 'package:flutter/painting.dart'; var style = {";
+  Object.entries(obj).forEach(([selector, v]) => {
+    code += `'${selector}': TextStyle(${Object.entries(v)
+      .map(([k, v]) => `${k}:${v}`)
+      .join(",")}),`;
+  });
   code += "};";
 
   fs.writeFileSync(path.resolve(destDir, `${fileName}.dart`), code);

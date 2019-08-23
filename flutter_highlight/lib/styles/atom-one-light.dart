@@ -20,7 +20,7 @@ var style = {
   'attribute': TextStyle(color: Color(0xff50a14f)),
   'meta-string': TextStyle(color: Color(0xff50a14f)),
   'built_in': TextStyle(color: Color(0xffc18401)),
-  'title': TextStyle(color: Color(0xffc18401)),
+  'title': TextStyle(color: Color(0xff4078f2)),
   'attr': TextStyle(color: Color(0xff986801)),
   'variable': TextStyle(color: Color(0xff986801)),
   'template-variable': TextStyle(color: Color(0xff986801)),
@@ -34,7 +34,6 @@ var style = {
   'link': TextStyle(color: Color(0xff4078f2)),
   'meta': TextStyle(color: Color(0xff4078f2)),
   'selector-id': TextStyle(color: Color(0xff4078f2)),
-  'title': TextStyle(color: Color(0xff4078f2)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),
 };

@@ -3,7 +3,6 @@ import 'package:flutter/painting.dart';
 var style = {
   'container':
       TextStyle(backgroundColor: Color(0xff404040), color: Color(0xfff0f0f0)),
-  'container': TextStyle(color: Color(0xfff0f0f0)),
   'subst': TextStyle(color: Color(0xfff0f0f0)),
   'comment': TextStyle(color: Color(0xffb5b5b5), fontStyle: FontStyle.italic),
   'keyword': TextStyle(color: Color(0xfff0f0f0), fontWeight: FontWeight.bold),

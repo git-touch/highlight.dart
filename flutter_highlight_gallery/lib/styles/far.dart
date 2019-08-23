@@ -1,8 +1,8 @@
 import 'package:flutter_web/painting.dart';
 
 var style = {
-  'container': TextStyle(backgroundColor: Color(0xff000080)),
-  'container': TextStyle(color: Color(0xff00ffff)),
+  'container':
+      TextStyle(backgroundColor: Color(0xff000080), color: Color(0xff00ffff)),
   'subst': TextStyle(color: Color(0xff00ffff)),
   'string': TextStyle(color: Color(0xffffff00)),
   'attribute': TextStyle(color: Color(0xffffff00)),
@@ -13,11 +13,12 @@ var style = {
   'template-tag': TextStyle(color: Color(0xffffff00)),
   'template-variable': TextStyle(color: Color(0xffffff00)),
   'addition': TextStyle(color: Color(0xffffff00)),
-  'keyword': TextStyle(color: Color(0xffffffff)),
-  'selector-tag': TextStyle(color: Color(0xffffffff)),
-  'section': TextStyle(color: Color(0xffffffff)),
+  'keyword': TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
+  'selector-tag':
+      TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
+  'section': TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
   'type': TextStyle(color: Color(0xffffffff)),
-  'name': TextStyle(color: Color(0xffffffff)),
+  'name': TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
   'selector-id': TextStyle(color: Color(0xffffffff)),
   'selector-class': TextStyle(color: Color(0xffffffff)),
   'variable': TextStyle(color: Color(0xffffffff)),
@@ -30,11 +31,7 @@ var style = {
   'literal': TextStyle(color: Color(0xff00ff00)),
   'link': TextStyle(color: Color(0xff00ff00)),
   'meta': TextStyle(color: Color(0xff008080)),
-  'keyword': TextStyle(fontWeight: FontWeight.bold),
-  'selector-tag': TextStyle(fontWeight: FontWeight.bold),
   'title': TextStyle(fontWeight: FontWeight.bold),
-  'section': TextStyle(fontWeight: FontWeight.bold),
-  'name': TextStyle(fontWeight: FontWeight.bold),
   'strong': TextStyle(fontWeight: FontWeight.bold),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
 };

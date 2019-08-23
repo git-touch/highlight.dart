@@ -21,12 +21,9 @@ var style = {
   'selector-class':
       TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
   'attribute': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff0000ff)),
-  'number': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff0000ff)),
-  'regexp': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff0000ff)),
-  'link': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff0000ff)),
-  'number': TextStyle(fontWeight: FontWeight.normal),
-  'regexp': TextStyle(fontWeight: FontWeight.normal),
-  'link': TextStyle(fontWeight: FontWeight.normal),
+  'number': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff0000ff)),
+  'regexp': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff0000ff)),
+  'link': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff0000ff)),
   'string': TextStyle(color: Color(0xff008000), fontWeight: FontWeight.bold),
   'symbol': TextStyle(
       color: Color(0xff000000),

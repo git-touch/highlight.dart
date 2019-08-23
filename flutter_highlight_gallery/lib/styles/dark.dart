@@ -1,13 +1,13 @@
 import 'package:flutter_web/painting.dart';
 
 var style = {
-  'container': TextStyle(backgroundColor: Color(0xff444444)),
-  'container': TextStyle(color: Color(0xffdddddd)),
+  'container':
+      TextStyle(backgroundColor: Color(0xff444444), color: Color(0xffdddddd)),
   'subst': TextStyle(color: Color(0xffdddddd)),
   'string': TextStyle(color: Color(0xffdd8888)),
-  'title': TextStyle(color: Color(0xffdd8888)),
-  'name': TextStyle(color: Color(0xffdd8888)),
-  'type': TextStyle(color: Color(0xffdd8888)),
+  'title': TextStyle(color: Color(0xffdd8888), fontWeight: FontWeight.bold),
+  'name': TextStyle(color: Color(0xffdd8888), fontWeight: FontWeight.bold),
+  'type': TextStyle(color: Color(0xffdd8888), fontWeight: FontWeight.bold),
   'attribute': TextStyle(color: Color(0xffdd8888)),
   'symbol': TextStyle(color: Color(0xffdd8888)),
   'bullet': TextStyle(color: Color(0xffdd8888)),
@@ -23,11 +23,8 @@ var style = {
   'keyword': TextStyle(fontWeight: FontWeight.bold),
   'selector-tag': TextStyle(fontWeight: FontWeight.bold),
   'literal': TextStyle(fontWeight: FontWeight.bold),
-  'title': TextStyle(fontWeight: FontWeight.bold),
   'section': TextStyle(fontWeight: FontWeight.bold),
   'doctag': TextStyle(fontWeight: FontWeight.bold),
-  'type': TextStyle(fontWeight: FontWeight.bold),
-  'name': TextStyle(fontWeight: FontWeight.bold),
   'strong': TextStyle(fontWeight: FontWeight.bold),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
 };

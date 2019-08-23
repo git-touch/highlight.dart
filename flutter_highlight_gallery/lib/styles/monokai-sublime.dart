@@ -1,12 +1,12 @@
 import 'package:flutter_web/painting.dart';
 
 var style = {
-  'container': TextStyle(backgroundColor: Color(0xff23241f)),
-  'container': TextStyle(color: Color(0xfff8f8f2)),
+  'container':
+      TextStyle(backgroundColor: Color(0xff23241f), color: Color(0xfff8f8f2)),
   'tag': TextStyle(color: Color(0xfff8f8f2)),
   'subst': TextStyle(color: Color(0xfff8f8f2)),
-  'strong': TextStyle(color: Color(0xffa8a8a2)),
-  'emphasis': TextStyle(color: Color(0xffa8a8a2)),
+  'strong': TextStyle(color: Color(0xffa8a8a2), fontWeight: FontWeight.bold),
+  'emphasis': TextStyle(color: Color(0xffa8a8a2), fontStyle: FontStyle.italic),
   'bullet': TextStyle(color: Color(0xffae81ff)),
   'quote': TextStyle(color: Color(0xffae81ff)),
   'number': TextStyle(color: Color(0xffae81ff)),
@@ -14,11 +14,9 @@ var style = {
   'literal': TextStyle(color: Color(0xffae81ff)),
   'link': TextStyle(color: Color(0xffae81ff)),
   'code': TextStyle(color: Color(0xffa6e22e)),
-  'title': TextStyle(color: Color(0xffa6e22e)),
+  'title': TextStyle(color: Color(0xfff8f8f2)),
   'section': TextStyle(color: Color(0xffa6e22e)),
   'selector-class': TextStyle(color: Color(0xffa6e22e)),
-  'strong': TextStyle(fontWeight: FontWeight.bold),
-  'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'keyword': TextStyle(color: Color(0xfff92672)),
   'selector-tag': TextStyle(color: Color(0xfff92672)),
   'name': TextStyle(color: Color(0xfff92672)),
@@ -26,7 +24,6 @@ var style = {
   'symbol': TextStyle(color: Color(0xff66d9ef)),
   'attribute': TextStyle(color: Color(0xff66d9ef)),
   'params': TextStyle(color: Color(0xfff8f8f2)),
-  'title': TextStyle(color: Color(0xfff8f8f2)),
   'string': TextStyle(color: Color(0xffe6db74)),
   'type': TextStyle(color: Color(0xffe6db74)),
   'built_in': TextStyle(color: Color(0xffe6db74)),

@@ -1,7 +1,7 @@
 import 'package:flutter_web/painting.dart';
 
 var style = {
-  'name': TextStyle(color: Color(0xff01a3a3)),
+  'name': TextStyle(color: Color(0xff01a3a3), fontWeight: FontWeight.bold),
   'tag': TextStyle(color: Color(0xff778899)),
   'meta': TextStyle(color: Color(0xff778899)),
   'container': TextStyle(color: Color(0xff444444)),
@@ -12,7 +12,6 @@ var style = {
   'selector-tag': TextStyle(fontWeight: FontWeight.bold),
   'meta-keyword': TextStyle(fontWeight: FontWeight.bold),
   'doctag': TextStyle(fontWeight: FontWeight.bold),
-  'name': TextStyle(fontWeight: FontWeight.bold),
   'type': TextStyle(color: Color(0xff4286f4)),
   'string': TextStyle(color: Color(0xff4286f4)),
   'number': TextStyle(color: Color(0xff4286f4)),
