@@ -239,10 +239,10 @@ class Highlight {
     _addNodes([Node(value: text)], result);
   }
 
-  Result highlight(String input,
+  Result parse(String input,
       {String language, bool ignoreIllegals = false, Mode continuation}) {
     if (language == null) {
-      return _highlightAuto(input);
+      return _parseAuto(input);
     }
 
     var langMode = _languageMode = _getLanguage(language);
@@ -330,11 +330,11 @@ class Highlight {
       }
 
       var result = explicit
-          ? highlight(mode_buffer,
+          ? parse(mode_buffer,
               language: top.subLanguage.first,
               ignoreIllegals: true,
               continuation: continuations[top.subLanguage.first])
-          : _highlightAuto(mode_buffer,
+          : _parseAuto(mode_buffer,
               languageSubset:
                   top.subLanguage.isNotEmpty ? top.subLanguage : null);
 
@@ -481,7 +481,7 @@ class Highlight {
     }
   }
 
-  Result _highlightAuto(String input, {List<String> languageSubset}) {
+  Result _parseAuto(String input, {List<String> languageSubset}) {
     languageSubset =
         languageSubset ?? _languages.keys.toList(); // TODO: options
     var result = Result(
@@ -494,7 +494,7 @@ class Highlight {
       var lang = _getLanguage(language);
       if (lang == null || lang.disableAutodetect == true) return;
 
-      var current = highlight(input, language: language, ignoreIllegals: false);
+      var current = parse(input, language: language, ignoreIllegals: false);
       current.language = language;
       if (current.relevance > second_best.relevance) {
         second_best = current;

@@ -6,7 +6,7 @@ main() {
 }  
 ''';
   var h = Highlight();
-  var result = h.highlight(input);
+  var result = h.parse(input);
 
   result.toHtml();
 }

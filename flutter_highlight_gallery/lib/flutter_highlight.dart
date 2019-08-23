@@ -44,7 +44,7 @@ class Highlighter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nodes = _hl.highlight(code, language: language).value;
+    var nodes = _hl.parse(code, language: language).value;
     return Container(
       color: style['container']?.backgroundColor,
       child: RichText(

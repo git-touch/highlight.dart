@@ -21,7 +21,7 @@ void main() {
                     .readAsStringSync()
                     .trim();
 
-            var actual = hl.highlight(code, language: lang).toHtml().trim();
+            var actual = hl.parse(code, language: lang).toHtml().trim();
             expect(actual, expected);
           });
         });
@@ -37,7 +37,7 @@ void main() {
         Directory('test/detect/$lang').listSync().forEach((entity) {
           test(path.basename(entity.path), () {
             var code = File(entity.path).readAsStringSync();
-            expect(lang, hl.highlight(code, language: lang).language);
+            expect(lang, hl.parse(code, language: lang).language);
           });
         });
       });
