@@ -1,6 +1,6 @@
 import 'package:flutter/painting.dart';
 
-var style = {
+const style = {
   'name': TextStyle(color: Color(0xff01a3a3), fontWeight: FontWeight.bold),
   'tag': TextStyle(color: Color(0xff778899)),
   'meta': TextStyle(color: Color(0xff778899)),

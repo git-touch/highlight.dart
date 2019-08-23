@@ -54,7 +54,7 @@ const covertColor = color => {
   }
 };
 
-let all = "var allStyles = {";
+let all = "const allStyles = {";
 
 // ["github.css"]
 fs.readdirSync(rootDir).forEach(file => {
@@ -130,7 +130,7 @@ fs.readdirSync(rootDir).forEach(file => {
     });
   });
 
-  let code = "import 'package:flutter/painting.dart'; var style = {";
+  let code = "import 'package:flutter/painting.dart'; const style = {";
   Object.entries(obj).forEach(([selector, v]) => {
     code += `'${selector}': TextStyle(${Object.entries(v)
       .map(([k, v]) => `${k}:${v}`)

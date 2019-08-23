@@ -26,7 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String language = 'dart';
-  String theme = 'github';
+  String theme = 'default';
 
   Widget _buildMenuContent(String text) {
     return Container(

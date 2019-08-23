@@ -1,6 +1,6 @@
 import 'package:flutter_web/painting.dart';
 
-var style = {
+const style = {
   'comment': TextStyle(color: Color(0xff008000)),
   'quote': TextStyle(color: Color(0xff008000)),
   'variable': TextStyle(color: Color(0xff008000)),

@@ -1,5 +1,6 @@
 import 'package:flutter_web/widgets.dart';
 import 'package:highlight/highlight.dart';
+import 'styles/default.dart' as def;
 
 class Highlighter extends StatelessWidget {
   static final _hl = Highlight();
@@ -8,7 +9,7 @@ class Highlighter extends StatelessWidget {
   final String language;
   final Map<String, TextStyle> style;
 
-  Highlighter(this.code, {this.language, this.style = const {}});
+  Highlighter(this.code, {this.language, this.style = def.style});
 
   List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];

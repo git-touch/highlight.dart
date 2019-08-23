@@ -88,7 +88,7 @@ import 'styles/agate.dart' as agate;
 import 'styles/a11y-light.dart' as a_11_y_light;
 import 'styles/a11y-dark.dart' as a_11_y_dark;
 
-var allStyles = {
+const allStyles = {
   'a11y-dark': a_11_y_dark.style,
   'a11y-light': a_11_y_light.style,
   'agate': agate.style,

@@ -1,6 +1,6 @@
 import 'package:flutter_web/painting.dart';
 
-var style = {
+const style = {
   'keyword': TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
   'selector-tag':
       TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),

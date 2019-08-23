@@ -1,6 +1,6 @@
 import 'package:flutter_web/painting.dart';
 
-var style = {
+const style = {
   'container': TextStyle(color: Color(0xff333333)),
   'comment': TextStyle(color: Color(0xff969896)),
   'meta': TextStyle(color: Color(0xff969896)),

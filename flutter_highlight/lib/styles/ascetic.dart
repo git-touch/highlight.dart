@@ -1,6 +1,6 @@
 import 'package:flutter/painting.dart';
 
-var style = {
+const style = {
   'string': TextStyle(color: Color(0xff888888)),
   'variable': TextStyle(color: Color(0xff888888)),
   'template-variable': TextStyle(color: Color(0xff888888)),
