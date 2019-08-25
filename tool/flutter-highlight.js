@@ -147,11 +147,11 @@ export function style() {
   });
 
   all += "};";
+  try {
+    fs.mkdirSync("../flutter_highlight_gallery/lib/flutter_highlight");
+  } catch (err) {}
   fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "../flutter_highlight_gallery/lib/flutter_highlight/all_styles.dart"
-    ),
+    "../flutter_highlight_gallery/lib/flutter_highlight/all_styles.dart",
     all
   );
 
