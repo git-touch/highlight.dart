@@ -4,17 +4,8 @@ const { src, dest, watch } = require("gulp");
 const { execSync } = require("child_process");
 const through2 = require("through2");
 
-const HLJS_VERSION = "9.15.10";
-
-async function cloneRepo() {
-  execSync("rm -rf /tmp/highlight.js");
-  execSync(
-    `git clone --branch ${HLJS_VERSION} --depth 1 https://github.com/highlightjs/highlight.js.git /tmp/highlight.js`
-  );
-}
-
 exports.copyTestFiles = () => {
-  return src("/tmp/highlight.js/test/{detect,markup}/**/*")
+  return src("../vendor/highlight.js/test/{detect,markup}/**/*")
     .pipe(
       through2.obj((file, _, cb) => {
         cb(null, file.path.endsWith(".js") ? null : file);
