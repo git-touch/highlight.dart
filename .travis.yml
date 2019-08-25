@@ -1,0 +1,22 @@
+matrix:
+  include:
+    - language: node_js
+      before_install:
+        - cd tool
+      script:
+        - npm start
+    - language: dart
+      before_deploy:
+        - cd flutter_highlight_gallery
+        - pub get
+        - pub global activate webdev
+        - webdev build
+      deploy:
+        local-dir: flutter_highlight_gallery/build
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN
+        keep-history: true
+        committer-from-gh: true
+        on:
+          branch: master
