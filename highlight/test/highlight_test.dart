@@ -5,13 +5,15 @@ import 'package:test/test.dart';
 
 void main() {
   var hl = Highlight();
+  var fixturesDir = '../vendor/highlight.js/test';
 
   group('markup', () {
-    Directory('test/markup').listSync().forEach((entity) {
+    Directory('$fixturesDir/markup').listSync().forEach((entity) {
+      if (entity.path.endsWith('.js')) return;
       var lang = path.basename(entity.path);
 
       group(lang, () {
-        Directory('test/markup/$lang').listSync().forEach((entity) {
+        Directory('$fixturesDir/markup/$lang').listSync().forEach((entity) {
           if (entity.path.contains('expect')) return;
 
           test(path.basename(entity.path), () {
@@ -30,11 +32,12 @@ void main() {
   });
 
   group('detect', () {
-    Directory('test/detect').listSync().forEach((entity) {
+    Directory('$fixturesDir/detect').listSync().forEach((entity) {
+      if (entity.path.endsWith('.js')) return;
       var lang = path.basename(entity.path);
 
       group(lang, () {
-        Directory('test/detect/$lang').listSync().forEach((entity) {
+        Directory('$fixturesDir/detect/$lang').listSync().forEach((entity) {
           test(path.basename(entity.path), () {
             var code = File(entity.path).readAsStringSync();
             expect(lang, hl.parse(code, language: lang).language);
