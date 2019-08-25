@@ -5,6 +5,8 @@ const { execSync } = require("child_process");
 const hljs = require("highlight.js/lib/highlight"); // TODO: Do not register languages
 const CircularJSON = require("circular-json");
 
+const NOTICE_COMMENT = "// GENERATED CODE - DO NOT MODIFY BY HAND\n\n";
+
 const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
 hljs.registerLanguage("cpp", require(path.resolve(dir, "cpp"))); // exports
 
@@ -81,7 +83,7 @@ const modeEntries = Object.entries(hljs).filter(
     /^[A-Z]/.test(k) && !k.endsWith("_RE") && typeof hljs[k] !== "function"
 );
 
-let common = `import 'mode.dart';`;
+let common = `${NOTICE_COMMENT}import 'mode.dart';`;
 modeEntries.forEach(([k, v]) => {
   common += `var ${k}=${generateMode(v, false)};`;
 });
@@ -165,7 +167,7 @@ fs.readdirSync(dir).forEach(file => {
         __dirname,
         `../highlight/lib/languages/${originalLang}.dart`
       ),
-      `import '../src/mode.dart'; import '../src/common_modes.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
+      `${NOTICE_COMMENT}import '../src/mode.dart'; import '../src/common_modes.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
         5
       )};`
         .replace(/"hljs\.(.*?)"/g, "$1")

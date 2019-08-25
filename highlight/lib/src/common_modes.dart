@@ -1,3 +1,5 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
 import 'mode.dart';
 
 var BACKSLASH_ESCAPE = Mode(begin: "\\\\[\\s\\S]", relevance: 0);

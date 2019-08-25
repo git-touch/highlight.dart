@@ -87,7 +87,9 @@ fs.readdirSync(rootDir).forEach(file => {
 
       const style = {};
       rule.nodes.forEach(item => {
-        if (item.type === "decl") {
+        if (item.type === "comment") {
+          return;
+        } else if (item.type === "decl") {
           switch (item.prop) {
             case "color": {
               const flutterColor = covertColor(item.value);
@@ -130,7 +132,8 @@ fs.readdirSync(rootDir).forEach(file => {
     });
   });
 
-  let code = "import 'package:flutter/painting.dart'; const style = {";
+  let code =
+    "// GENERATED CODE - DO NOT MODIFY BY HAND\n\nimport 'package:flutter/painting.dart'; const style = {";
   Object.entries(obj).forEach(([selector, v]) => {
     code += `'${selector}': TextStyle(${Object.entries(v)
       .map(([k, v]) => `${k}:${v}`)
