@@ -2,6 +2,7 @@ language: dart
 before_deploy:
   - nvm install node
   - cd tool
+  - npm install
   - npm start
   - cd ../flutter_highlight_gallery
   - pub get
