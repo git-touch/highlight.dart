@@ -1,10 +1,10 @@
-const fs = require("fs");
-const path = require("path");
-const { src, dest, watch, series } = require("gulp");
-const { execSync } = require("child_process");
-const through2 = require("through2");
+import fs from "fs";
+import path from "path";
+import gulp from "gulp";
+import { execSync } from "child_process";
+import through2 from "through2";
 
-async function writeCodeExamples() {
+export async function example() {
   // Generate code example dart files
   let code = "var exampleMap = {";
   // ["dart"]
@@ -31,8 +31,9 @@ async function writeCodeExamples() {
   execSync("dartfmt --overwrite ../flutter_highlight_gallery/lib/example.dart");
 }
 
-function adaptForWeb() {
-  return src("../flutter_highlight/lib/**/*")
+export function highlight() {
+  return gulp
+    .src("../flutter_highlight/lib/**/*")
     .pipe(
       through2.obj((file, _, cb) => {
         if (file.isBuffer()) {
@@ -56,21 +57,5 @@ function adaptForWeb() {
         cb(null, file);
       })
     )
-    .pipe(dest("../flutter_highlight_gallery/lib/flutter_highlight"));
+    .pipe(gulp.dest("../flutter_highlight_gallery/lib/flutter_highlight"));
 }
-
-exports.watch = cb => {
-  watch("../flutter_highlight/lib/**/*", { ignoreInitial: false }, adaptForWeb);
-  watch(
-    "../vendor/highlight.js/test/**/*",
-    { ignoreInitial: false },
-    writeCodeExamples
-  );
-  cb();
-};
-
-exports.default = cb => {
-  adaptForWeb();
-  writeCodeExamples();
-  cb();
-};

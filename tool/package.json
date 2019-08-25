@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "circular-json": "^0.5.9",
+    "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "highlight.js": "9.15.10",
     "lodash": "^4.17.15",
