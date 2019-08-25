@@ -1,10 +1,3 @@
-# flutter_highlight
-
-Syntax highlighter for Flutter.
-
-## Usage
-
-```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/styles/github.dart';
@@ -24,8 +17,3 @@ class MyWidget extends StatelessWidget {
     );
   }
 }
-```
-
-## License
-
-MIT
