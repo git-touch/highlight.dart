@@ -36,12 +36,22 @@ function adaptForWeb() {
     .pipe(
       through2.obj((file, _, cb) => {
         if (file.isBuffer()) {
-          file.contents = Buffer.from(
-            file.contents
-              .toString()
-              .replace("package:flutter", "package:flutter_web"),
-            "utf8"
-          );
+          let str = file.contents
+            .toString()
+            .replace("package:flutter", "package:flutter_web");
+
+          // Drop dart:io dependency
+          if (file.path.endsWith("flutter_highlight.dart")) {
+            str = str
+              .split("\n")
+              .filter(line => {
+                return !line.includes("dart:io");
+              })
+              .map(line => line.replace(/Platform\.(\w*)/g, "false"))
+              .join("\n");
+          }
+
+          file.contents = Buffer.from(str, "utf8");
         }
         cb(null, file);
       })

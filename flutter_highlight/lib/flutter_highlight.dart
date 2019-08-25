@@ -47,7 +47,6 @@ class Highlighter extends StatelessWidget {
   static const defaultFontColor = Color(0xff000000);
   static const defaultBackgroundColor = Color(0xffffffff);
   static String get defaultFontFamily {
-    // FIXME: Platform API is not available at web
     if (Platform.isIOS || Platform.isMacOS) {
       return 'Menlo';
     } else if (Platform.isAndroid) {
