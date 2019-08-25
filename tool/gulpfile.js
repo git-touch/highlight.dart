@@ -1,27 +1,23 @@
 const fs = require("fs");
 const path = require("path");
-const { src, dest, watch } = require("gulp");
+const { src, dest, watch, series } = require("gulp");
 const { execSync } = require("child_process");
 const through2 = require("through2");
-
-exports.copyTestFiles = () => {
-  return src("../vendor/highlight.js/test/{detect,markup}/**/*")
-    .pipe(
-      through2.obj((file, _, cb) => {
-        cb(null, file.path.endsWith(".js") ? null : file);
-      })
-    )
-    .pipe(dest(path.resolve(__dirname, "../highlight/test")));
-};
 
 async function writeCodeExamples() {
   // Generate code example dart files
   let code = "var exampleMap = {";
   // ["dart"]
-  fs.readdirSync("../highlight/test/detect").forEach(langName => {
+  fs.readdirSync("../vendor/highlight.js/test/detect").forEach(langName => {
+    if (langName.endsWith(".js")) return;
+
     const content = fs
       .readFileSync(
-        path.resolve("../highlight/test/detect", langName, "default.txt"),
+        path.resolve(
+          "../vendor/highlight.js/test/detect",
+          langName,
+          "default.txt"
+        ),
         "utf8"
       )
       .replace(/\\/g, "\\\\")
@@ -53,8 +49,18 @@ function adaptForWeb() {
     .pipe(dest("../flutter_highlight_gallery/lib/flutter_highlight"));
 }
 
-exports.default = () => {
+exports.watch = cb => {
   watch("../flutter_highlight/lib/**/*", { ignoreInitial: false }, adaptForWeb);
+  watch(
+    "../vendor/highlight.js/test/**/*",
+    { ignoreInitial: false },
+    writeCodeExamples
+  );
+  cb();
+};
 
+exports.default = cb => {
+  adaptForWeb();
   writeCodeExamples();
+  cb();
 };
