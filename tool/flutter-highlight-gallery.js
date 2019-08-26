@@ -26,7 +26,10 @@ export async function example() {
     code += `'${langName}':'${content}',`;
   });
   code += "};";
-  fs.writeFileSync("../flutter_highlight_gallery/lib/example.dart", code);
+  fs.writeFileSync(
+    "../flutter_highlight_gallery/lib/flutter_highlight/example_map.dart",
+    code
+  );
 }
 
 export function highlight() {
