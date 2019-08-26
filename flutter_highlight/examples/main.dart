@@ -13,7 +13,7 @@ class MyWidget extends StatelessWidget {
       code,
       language:
           'dart', // Specify language. It is optional, but recommended for performance
-      style: style, // Specify highlight style
+      theme: githubTheme, // Specify highlight style
     );
   }
 }

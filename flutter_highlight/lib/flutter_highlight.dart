@@ -7,14 +7,14 @@ class Highlighter extends StatelessWidget {
 
   final String code;
   final String language;
-  final Map<String, TextStyle> style;
+  final Map<String, TextStyle> theme;
   final EdgeInsetsGeometry padding;
   final TextStyle textStyle;
 
   Highlighter(
     this.code, {
     this.language,
-    this.style = const {},
+    this.theme = const {},
     this.padding,
     this.textStyle,
   });
@@ -28,10 +28,10 @@ class Highlighter extends StatelessWidget {
       if (node.value != null) {
         currentSpans.add(node.className == null
             ? TextSpan(text: node.value)
-            : TextSpan(text: node.value, style: style[node.className]));
+            : TextSpan(text: node.value, style: theme[node.className]));
       } else if (node.children != null) {
         List<TextSpan> tmp = [];
-        currentSpans.add(TextSpan(children: tmp, style: style[node.className]));
+        currentSpans.add(TextSpan(children: tmp, style: theme[node.className]));
         stack.add(currentSpans);
         currentSpans = tmp;
 
@@ -70,14 +70,14 @@ class Highlighter extends StatelessWidget {
     var nodes = _hl.parse(code, language: language).value;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
-      color: style['container']?.color ?? _defaultFontColor,
+      color: theme['container']?.color ?? _defaultFontColor,
     );
     if (textStyle != null) {
       _textStyle = _textStyle.merge(textStyle);
     }
 
     return Container(
-      color: style['container']?.backgroundColor ?? _defaultBackgroundColor,
+      color: theme['container']?.backgroundColor ?? _defaultBackgroundColor,
       padding: padding,
       child: RichText(
         text: TextSpan(style: _textStyle, children: _convert(nodes)),

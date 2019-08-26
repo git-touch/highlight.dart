@@ -1,6 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'flutter_highlight/flutter_highlight.dart';
-import 'flutter_highlight/all_styles.dart';
+import 'flutter_highlight/theme_map.dart';
 import 'example.dart';
 
 void main() => runApp(MyApp());
@@ -26,7 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String language = 'dart';
-  String theme = 'default';
+  String theme = 'a11y-dark';
 
   Widget _buildMenuContent(String text) {
     return Container(
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: _buildMenuContent(theme),
             // icon: Icon(Icons.style),
             itemBuilder: (context) {
-              return allStyles.keys.map((key) {
+              return themeMap.keys.map((key) {
                 return CheckedPopupMenuItem(
                   value: key,
                   child: Text(key),
@@ -90,8 +90,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Highlighter(exampleMap[language],
-                language: 'dart', style: allStyles[theme])
+            Highlighter(
+              exampleMap[language],
+              language: 'dart',
+              theme: themeMap[theme],
+              padding: EdgeInsets.all(12),
+              textStyle: TextStyle(
+                  fontFamily:
+                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
+            )
           ],
         ),
       ),
