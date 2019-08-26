@@ -1,6 +1,7 @@
 import gulp from "gulp";
-import * as gallery from "./gallery";
+import * as h from "./highlight";
 import * as fh from "./flutter-highlight";
+import * as gallery from "./flutter-highlight-gallery";
 
 export function watch(cb) {
   gulp.watch(
@@ -22,6 +23,8 @@ export function watch(cb) {
 }
 
 export default cb => {
+  h.allModes();
+  h.commonModes();
   gallery.highlight();
   gallery.example();
   fh.style();
