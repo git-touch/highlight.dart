@@ -1,6 +1,6 @@
 name: highlight
-description: Dart syntax highlighter with lots of languages and styles, zero dependencies and automatic language detection.
-version: 0.1.0
+description: Dart syntax highlighter with lots of languages and styles support. Zero dependencies, automatic language detection.
+version: 0.2.0
 author: Rongjian Zhang <pd4d10@gmail.com>
 homepage: https://github.com/pd4d10/highlight
 
