@@ -27,7 +27,7 @@ export function example() {
   });
   code += "};";
   fs.writeFileSync(
-    "../flutter_highlight_gallery/lib/flutter_highlight/example_map.dart",
+    "../flutter_highlight_gallery/lib/generated/example_map.dart",
     code
   );
 }
@@ -58,5 +58,5 @@ export function highlight() {
         cb(null, file);
       })
     )
-    .pipe(gulp.dest("../flutter_highlight_gallery/lib/flutter_highlight"));
+    .pipe(gulp.dest("../flutter_highlight_gallery/lib/generated"));
 }
