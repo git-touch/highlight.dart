@@ -3,7 +3,7 @@ import path from "path";
 import gulp from "gulp";
 import through2 from "through2";
 
-export async function example() {
+export function example() {
   // Generate code example dart files
   let code = "var exampleMap = {";
   // ["dart"]
