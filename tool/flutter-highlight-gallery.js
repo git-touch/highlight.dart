@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import gulp from "gulp";
-import { execSync } from "child_process";
 import through2 from "through2";
 
 export async function example() {
@@ -28,7 +27,6 @@ export async function example() {
   });
   code += "};";
   fs.writeFileSync("../flutter_highlight_gallery/lib/example.dart", code);
-  execSync("dartfmt --overwrite ../flutter_highlight_gallery/lib/example.dart");
 }
 
 export function highlight() {

@@ -1,3 +1,4 @@
+import { execSync } from "child_process";
 import gulp from "gulp";
 import * as h from "./highlight";
 import * as fh from "./flutter-highlight";
@@ -28,5 +29,8 @@ export default cb => {
   gallery.highlight();
   gallery.example();
   fh.style();
+
+  // FIXME: use common used bash
+  execSync(`dartfmt --overwrite ../**/*.dart`, { shell: "/bin/zsh" });
   cb();
 };

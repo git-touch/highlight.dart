@@ -1,13 +1,12 @@
 import fs from "fs";
 import path from "path";
 import _ from "lodash";
-import { execSync } from "child_process";
 import hljs from "highlight.js/lib/highlight"; // TODO: Do not register languages
 import CircularJSON from "circular-json";
 
 const NOTICE_COMMENT = "// GENERATED CODE - DO NOT MODIFY BY HAND\n\n";
 
-const dir = path.resolve(__dirname, "node_modules/highlight.js/lib/languages");
+const dir = "node_modules/highlight.js/lib/languages";
 hljs.registerLanguage("cpp", require(path.resolve(dir, "cpp"))); // exports
 
 const modeEntries = Object.entries(hljs).filter(
@@ -91,7 +90,7 @@ export function commonModes() {
     common += `var ${k}=${generateMode(v, false)};`;
   });
   fs.writeFileSync(
-    path.resolve(__dirname, `../highlight/lib/src/common_modes.dart`),
+    `../highlight/lib/src/common_modes.dart`,
     common.replace(/\$/g, "\\$")
   );
 }
@@ -168,10 +167,7 @@ export function allModes() {
       const data = generateMode(nonCircularObj, true);
 
       fs.writeFileSync(
-        path.resolve(
-          __dirname,
-          `../highlight/lib/languages/${originalLang}.dart`
-        ),
+        `../highlight/lib/languages/${originalLang}.dart`,
         `${NOTICE_COMMENT}import '../src/mode.dart'; import '../src/common_modes.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
           5
         )};`
@@ -189,12 +185,7 @@ export function allModes() {
   // all.dart
   all += "};";
   fs.writeFileSync(
-    path.resolve(__dirname, `../highlight/lib/languages/all.dart`),
+    `../highlight/lib/languages/all.dart`,
     all.replace(/\$/g, "\\$")
-  );
-
-  // format
-  execSync(
-    `dartfmt --overwrite ${path.resolve(__dirname, "../highlight/lib/**/*")}`
   );
 }

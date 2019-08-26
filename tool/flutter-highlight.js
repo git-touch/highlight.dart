@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import _ from "lodash";
-import { execSync } from "child_process";
 import postcss from "postcss";
 import { NOTICE_COMMENT } from "./utils";
 
@@ -145,7 +144,4 @@ export function style() {
 
   all[1] += "};";
   fs.writeFileSync("../flutter_highlight/lib/theme_map.dart", all.join("\n"));
-
-  // format
-  execSync(`dartfmt --overwrite ../flutter_highlight/lib/**/*.dart`);
 }
