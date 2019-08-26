@@ -32,7 +32,7 @@ const atelierEstuaryDarkTheme = {
       TextStyle(color: Color(0xff22221b), backgroundColor: Color(0xffba6236)),
   'addition':
       TextStyle(color: Color(0xff22221b), backgroundColor: Color(0xff7d9726)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff22221b), color: Color(0xff929181)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

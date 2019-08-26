@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const shadesOfPurpleTheme = {
-  'container': TextStyle(
+  'root': TextStyle(
       backgroundColor: Color(0xff2d2b57),
       fontWeight: FontWeight.normal,
       color: Color(0xffe3dfff)),

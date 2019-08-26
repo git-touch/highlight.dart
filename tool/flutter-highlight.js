@@ -82,7 +82,8 @@ export function style() {
           // FIXME: nested selector
           selector = selector.split(/\s+/).slice(-1)[0];
         }
-        selector = selector.replace(".hljs-", "").replace(".hljs", "container");
+        if (selector === ".hljs") selector = "root";
+        selector = selector.replace(".hljs-", "");
 
         const style = {};
         rule.nodes.forEach(item => {

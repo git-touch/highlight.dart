@@ -32,7 +32,7 @@ const atelierPlateauDarkTheme = {
       TextStyle(color: Color(0xff1b1818), backgroundColor: Color(0xffca4949)),
   'addition':
       TextStyle(color: Color(0xff1b1818), backgroundColor: Color(0xff4b8b8b)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff1b1818), color: Color(0xff8a8585)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

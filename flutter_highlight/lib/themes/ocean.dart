@@ -30,7 +30,7 @@ const oceanTheme = {
   'section': TextStyle(color: Color(0xff8fa1b3)),
   'keyword': TextStyle(color: Color(0xffb48ead)),
   'selector-tag': TextStyle(color: Color(0xffb48ead)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff2b303b), color: Color(0xffc0c5ce)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

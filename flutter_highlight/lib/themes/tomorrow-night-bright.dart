@@ -30,7 +30,7 @@ const tomorrowNightBrightTheme = {
   'section': TextStyle(color: Color(0xff7aa6da)),
   'keyword': TextStyle(color: Color(0xffc397d8)),
   'selector-tag': TextStyle(color: Color(0xffc397d8)),
-  'container': TextStyle(color: Color(0xffeaeaea)),
+  'root': TextStyle(color: Color(0xffeaeaea)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),
 };

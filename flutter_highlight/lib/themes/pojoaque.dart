@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const pojoaqueTheme = {
-  'container': TextStyle(color: Color(0xffdccf8f)),
+  'root': TextStyle(color: Color(0xffdccf8f)),
   'comment': TextStyle(color: Color(0xff586e75), fontStyle: FontStyle.italic),
   'quote': TextStyle(color: Color(0xff586e75), fontStyle: FontStyle.italic),
   'keyword': TextStyle(color: Color(0xffb64926)),

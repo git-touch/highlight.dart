@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const zenburnTheme = {
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff3f3f3f), color: Color(0xffdcdcdc)),
   'keyword': TextStyle(color: Color(0xffe3ceab)),
   'selector-tag': TextStyle(color: Color(0xffe3ceab)),

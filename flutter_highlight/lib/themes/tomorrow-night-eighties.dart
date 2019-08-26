@@ -30,7 +30,7 @@ const tomorrowNightEightiesTheme = {
   'section': TextStyle(color: Color(0xff6699cc)),
   'keyword': TextStyle(color: Color(0xffcc99cc)),
   'selector-tag': TextStyle(color: Color(0xffcc99cc)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff2d2d2d), color: Color(0xffcccccc)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

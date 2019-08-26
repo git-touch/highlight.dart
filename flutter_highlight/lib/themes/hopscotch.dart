@@ -31,7 +31,7 @@ const hopscotchTheme = {
   'section': TextStyle(color: Color(0xff1290bf)),
   'keyword': TextStyle(color: Color(0xffc85e7c)),
   'selector-tag': TextStyle(color: Color(0xffc85e7c)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff322931), color: Color(0xffb9b5b8)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

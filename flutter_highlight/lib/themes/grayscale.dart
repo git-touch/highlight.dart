@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const grayscaleTheme = {
-  'container':
+  'root':
       TextStyle(color: Color(0xff333333), backgroundColor: Color(0xffffffff)),
   'comment': TextStyle(color: Color(0xff777777), fontStyle: FontStyle.italic),
   'quote': TextStyle(color: Color(0xff777777), fontStyle: FontStyle.italic),

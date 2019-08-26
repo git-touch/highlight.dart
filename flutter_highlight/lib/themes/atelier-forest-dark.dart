@@ -28,7 +28,7 @@ const atelierForestDarkTheme = {
   'section': TextStyle(color: Color(0xff407ee7)),
   'keyword': TextStyle(color: Color(0xff6666ea)),
   'selector-tag': TextStyle(color: Color(0xff6666ea)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff1b1918), color: Color(0xffa8a19f)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

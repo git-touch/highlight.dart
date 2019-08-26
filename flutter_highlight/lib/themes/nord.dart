@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const nordTheme = {
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff2E3440), color: Color(0xffD8DEE9)),
   'subst': TextStyle(color: Color(0xffD8DEE9)),
   'selector-tag': TextStyle(color: Color(0xff81A1C1)),

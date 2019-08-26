@@ -6,7 +6,7 @@ const lightfairTheme = {
   'name': TextStyle(color: Color(0xff01a3a3), fontWeight: FontWeight.bold),
   'tag': TextStyle(color: Color(0xff778899)),
   'meta': TextStyle(color: Color(0xff778899)),
-  'container': TextStyle(color: Color(0xff444444)),
+  'root': TextStyle(color: Color(0xff444444)),
   'subst': TextStyle(color: Color(0xff444444)),
   'comment': TextStyle(color: Color(0xff888888)),
   'keyword': TextStyle(fontWeight: FontWeight.bold),

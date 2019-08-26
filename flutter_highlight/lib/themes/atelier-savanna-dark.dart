@@ -32,7 +32,7 @@ const atelierSavannaDarkTheme = {
       TextStyle(color: Color(0xff171c19), backgroundColor: Color(0xffb16139)),
   'addition':
       TextStyle(color: Color(0xff171c19), backgroundColor: Color(0xff489963)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff171c19), color: Color(0xff87928a)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

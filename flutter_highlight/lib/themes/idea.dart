@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const ideaTheme = {
-  'container':
+  'root':
       TextStyle(color: Color(0xff000000), backgroundColor: Color(0xffffffff)),
   'subst': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff000000)),
   'title': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff000000)),

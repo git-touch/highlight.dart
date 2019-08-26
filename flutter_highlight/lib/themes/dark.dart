@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const darkTheme = {
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff444444), color: Color(0xffdddddd)),
   'subst': TextStyle(color: Color(0xffdddddd)),
   'string': TextStyle(color: Color(0xffdd8888)),

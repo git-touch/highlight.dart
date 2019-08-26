@@ -32,7 +32,7 @@ const atelierCaveLightTheme = {
       TextStyle(color: Color(0xff19171c), backgroundColor: Color(0xffbe4678)),
   'addition':
       TextStyle(color: Color(0xff19171c), backgroundColor: Color(0xff2a9292)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xffefecf4), color: Color(0xff585260)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

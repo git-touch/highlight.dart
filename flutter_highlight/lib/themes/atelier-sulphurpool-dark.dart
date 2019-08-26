@@ -28,7 +28,7 @@ const atelierSulphurpoolDarkTheme = {
   'section': TextStyle(color: Color(0xff3d8fd1)),
   'keyword': TextStyle(color: Color(0xff6679cc)),
   'selector-tag': TextStyle(color: Color(0xff6679cc)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff202746), color: Color(0xff979db4)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

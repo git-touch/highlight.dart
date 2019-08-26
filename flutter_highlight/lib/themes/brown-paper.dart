@@ -7,7 +7,7 @@ const brownPaperTheme = {
   'selector-tag':
       TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
   'literal': TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
-  'container': TextStyle(color: Color(0xff363c69)),
+  'root': TextStyle(color: Color(0xff363c69)),
   'subst': TextStyle(color: Color(0xff363c69)),
   'string': TextStyle(color: Color(0xff2c009f)),
   'title': TextStyle(color: Color(0xff2c009f), fontWeight: FontWeight.bold),

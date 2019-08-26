@@ -75,6 +75,7 @@ class Highlight extends StatelessWidget {
     return spans;
   }
 
+  static const _rootKey = 'root';
   static const _defaultFontColor = Color(0xff000000);
   static const _defaultBackgroundColor = Color(0xffffffff);
   static String get _defaultFontFamily {
@@ -94,14 +95,14 @@ class Highlight extends StatelessWidget {
     var nodes = _hl.parse(input, language: language).nodes;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
-      color: theme['container']?.color ?? _defaultFontColor,
+      color: theme[_rootKey]?.color ?? _defaultFontColor,
     );
     if (textStyle != null) {
       _textStyle = _textStyle.merge(textStyle);
     }
 
     return Container(
-      color: theme['container']?.backgroundColor ?? _defaultBackgroundColor,
+      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
       padding: padding,
       child: RichText(
         text: TextSpan(style: _textStyle, children: _convert(nodes)),

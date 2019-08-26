@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const githubGistTheme = {
-  'container': TextStyle(color: Color(0xff333333)),
+  'root': TextStyle(color: Color(0xff333333)),
   'comment': TextStyle(color: Color(0xff969896)),
   'meta': TextStyle(color: Color(0xff969896)),
   'variable': TextStyle(color: Color(0xffdf5000)),

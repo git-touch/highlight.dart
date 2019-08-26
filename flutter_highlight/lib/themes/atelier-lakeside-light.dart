@@ -28,7 +28,7 @@ const atelierLakesideLightTheme = {
   'section': TextStyle(color: Color(0xff257fad)),
   'keyword': TextStyle(color: Color(0xff6b6bb8)),
   'selector-tag': TextStyle(color: Color(0xff6b6bb8)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xffebf8ff), color: Color(0xff516d7b)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

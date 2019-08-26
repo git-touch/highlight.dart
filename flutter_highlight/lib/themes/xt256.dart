@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const xt256Theme = {
-  'container':
+  'root':
       TextStyle(color: Color(0xffeaeaea), backgroundColor: Color(0xff000000)),
   'subst': TextStyle(color: Color(0xffeaeaea)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),

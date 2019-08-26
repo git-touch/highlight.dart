@@ -3,7 +3,7 @@
 import 'package:flutter/painting.dart';
 
 const isblEditorLightTheme = {
-  'container': TextStyle(color: Color(0xff000000)),
+  'root': TextStyle(color: Color(0xff000000)),
   'subst': TextStyle(color: Color(0xff000000)),
   'comment': TextStyle(color: Color(0xff555555), fontStyle: FontStyle.italic),
   'keyword': TextStyle(color: Color(0xff000000), fontWeight: FontWeight.bold),
@@ -24,7 +24,7 @@ const isblEditorLightTheme = {
   'deletion': TextStyle(color: Color(0xff000000)),
   'title': TextStyle(color: Color(0xfffb2c00)),
   'section': TextStyle(color: Color(0xfffb2c00)),
-  'title>container-built_in':
+  'title>.hljs-built_in':
       TextStyle(color: Color(0xff008080), fontWeight: FontWeight.normal),
   'regexp': TextStyle(color: Color(0xff5e1700)),
   'symbol': TextStyle(color: Color(0xff5e1700)),

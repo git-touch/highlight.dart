@@ -28,7 +28,7 @@ const atelierSeasideLightTheme = {
   'section': TextStyle(color: Color(0xff3d62f5)),
   'keyword': TextStyle(color: Color(0xffad2bee)),
   'selector-tag': TextStyle(color: Color(0xffad2bee)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xfff4fbf4), color: Color(0xff5e6e5e)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

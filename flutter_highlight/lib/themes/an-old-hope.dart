@@ -30,7 +30,7 @@ const anOldHopeTheme = {
   'section': TextStyle(color: Color(0xff78BB65)),
   'keyword': TextStyle(color: Color(0xffB45EA4)),
   'selector-tag': TextStyle(color: Color(0xffB45EA4)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xff1C1D21), color: Color(0xffc0c5ce)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

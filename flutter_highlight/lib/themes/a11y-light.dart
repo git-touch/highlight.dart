@@ -30,7 +30,7 @@ const a11yLightTheme = {
   'section': TextStyle(color: Color(0xff007faa)),
   'keyword': TextStyle(color: Color(0xff7928a1)),
   'selector-tag': TextStyle(color: Color(0xff7928a1)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xfffefefe), color: Color(0xff545454)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

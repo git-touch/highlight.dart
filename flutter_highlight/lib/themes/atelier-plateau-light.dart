@@ -32,7 +32,7 @@ const atelierPlateauLightTheme = {
       TextStyle(color: Color(0xff1b1818), backgroundColor: Color(0xffca4949)),
   'addition':
       TextStyle(color: Color(0xff1b1818), backgroundColor: Color(0xff4b8b8b)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xfff4ecec), color: Color(0xff585050)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),

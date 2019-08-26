@@ -30,7 +30,7 @@ const paraisoLightTheme = {
   'addition': TextStyle(color: Color(0xff48b685)),
   'keyword': TextStyle(color: Color(0xff815ba4)),
   'selector-tag': TextStyle(color: Color(0xff815ba4)),
-  'container':
+  'root':
       TextStyle(backgroundColor: Color(0xffe7e9db), color: Color(0xff4f424c)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),
