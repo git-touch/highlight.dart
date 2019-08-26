@@ -64,6 +64,8 @@ export function style() {
   // ["agate.css"]
   fs.readdirSync(rootDir).forEach(file => {
     if (path.extname(file) != ".css") return;
+    if (file === "darkula.css") return; // Deprecated
+
     const fileName = path.basename(file, ".css");
     let varName = _.camelCase(fileName + "Theme").replace(/a11y/i, "a11y");
 

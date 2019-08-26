@@ -36,7 +36,6 @@ import 'themes/codepen-embed.dart';
 import 'themes/color-brewer.dart';
 import 'themes/darcula.dart';
 import 'themes/dark.dart';
-import 'themes/darkula.dart';
 import 'themes/default.dart';
 import 'themes/docco.dart';
 import 'themes/dracula.dart';
@@ -127,7 +126,6 @@ const themeMap = {
   'color-brewer': colorBrewerTheme,
   'darcula': darculaTheme,
   'dark': darkTheme,
-  'darkula': darkulaTheme,
   'default': defaultTheme,
   'docco': doccoTheme,
   'dracula': draculaTheme,
