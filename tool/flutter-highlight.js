@@ -13,44 +13,39 @@ const destDir = "../flutter_highlight/lib/themes";
  * @param {string} color
  */
 const convertColor = color => {
-  if (color === "inherit") {
-    // FIXME:
-    return;
-  }
+  if (color === "inherit") return;
+  if (color.startsWith("rgba(")) return `Color.fromRGBO${color.slice(4)}`;
+
+  let rgb = "";
 
   if (color.includes("url(")) {
-    // FIXME:
-    return;
+    // Find the first pattern matches CSS color
+    // FIXME: background image
+    const c = /#[0-9a-fA-F]{3,6}/.exec(color);
+    if (!c) return;
+    rgb = c[0].slice(1);
+  } else if (color === "white") {
+    rgb = "ffffff";
+  } else if (color === "black") {
+    rgb = "000000";
+  } else if (color === "navy") {
+    rgb = "000080";
+  } else if (color === "gold") {
+    rgb = "ffd700";
+  } else if (color.startsWith("#")) {
+    rgb = color.slice(1);
+    if (rgb.length === 3) {
+      rgb = rgb
+        .split("")
+        .map(x => x + x)
+        .join("");
+    }
   }
 
-  if (color.startsWith("rgba(")) {
-    return `Color.fromRGBO${color.slice(4)}`;
+  if (rgb) {
+    return `Color(0xff${rgb})`;
   } else {
-    let rgb = "";
-
-    if (color === "white") {
-      rgb = "ffffff";
-    } else if (color === "black") {
-      rgb = "000000";
-    } else if (color === "navy") {
-      rgb = "000080";
-    } else if (color === "gold") {
-      rgb = "ffd700";
-    } else if (color.startsWith("#")) {
-      rgb = color.slice(1);
-      if (rgb.length === 3) {
-        rgb = rgb
-          .split("")
-          .map(x => x + x)
-          .join("");
-      }
-    }
-
-    if (rgb) {
-      return `Color(0xff${rgb})`;
-    } else {
-      console.log(`color ignored: ${color}`);
-    }
+    console.log(`color ignored: ${color}`);
   }
 };
 

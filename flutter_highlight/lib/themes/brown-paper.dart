@@ -3,11 +3,12 @@
 import 'package:flutter/painting.dart';
 
 const brownPaperTheme = {
+  'root':
+      TextStyle(backgroundColor: Color(0xffb7a68e), color: Color(0xff363c69)),
   'keyword': TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
   'selector-tag':
       TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
   'literal': TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
-  'root': TextStyle(color: Color(0xff363c69)),
   'subst': TextStyle(color: Color(0xff363c69)),
   'string': TextStyle(color: Color(0xff2c009f)),
   'title': TextStyle(color: Color(0xff2c009f), fontWeight: FontWeight.bold),
