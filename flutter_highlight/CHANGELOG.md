@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## 0.2.0
 
-* TODO: Describe initial release.
+- First release
+
+## 0.0.1
+
+- Flutter create
