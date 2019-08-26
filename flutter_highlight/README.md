@@ -1,5 +1,7 @@
 # flutter_highlight
 
+[![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight)
+
 Syntax highlighter for Flutter.
 
 View gallery built with Flutter web: https://pd4d10.github.io/highlight/
@@ -12,6 +14,7 @@ import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
 
 class MyWidget extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     var code = '''main() {
   print("Hello, World!");

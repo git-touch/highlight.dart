@@ -3,6 +3,7 @@ import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
 
 class MyWidget extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     var code = '''main() {
   print("Hello, World!");
