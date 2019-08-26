@@ -3,17 +3,17 @@ import 'mode.dart';
 
 class Result {
   int relevance;
-  List<Node> value;
+  List<Node> nodes;
   String language;
   Mode top;
-  Result second_best;
+  Result secondBest;
 
   Result({
     this.relevance,
-    this.value,
+    this.nodes,
     this.language,
     this.top,
-    this.second_best,
+    this.secondBest,
   });
 
   String _escape(String value) {
@@ -43,7 +43,7 @@ class Result {
       }
     }
 
-    value.forEach(_traverse);
+    nodes.forEach(_traverse);
     return str;
   }
 }

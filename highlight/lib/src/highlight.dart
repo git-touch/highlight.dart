@@ -246,6 +246,9 @@ class Highlight {
     _addNodes([Node(value: text)], result);
   }
 
+  /// Parse input code and returns a highlight [Result] which contains relevance and tree nodes
+  ///
+  /// Call [Result.toHtml] method to get HTML string
   Result parse(String input,
       {String language, bool ignoreIllegals = false, Mode continuation}) {
     if (language == null) {
@@ -351,7 +354,7 @@ class Highlight {
       if (explicit) {
         continuations[top.subLanguage.first] = result.top;
       }
-      return _buildSpan(result.language, result.value, false, true);
+      return _buildSpan(result.language, result.nodes, false, true);
     }
 
     void _processBuffer() {
@@ -462,12 +465,12 @@ class Highlight {
       return Result(
         language: language,
         relevance: relevance,
-        value: currentChildren,
+        nodes: currentChildren,
         top: top,
       );
     } catch (e) {
       if (e is String && e.startsWith('Illegal')) {
-        return Result(relevance: 0, value: [Node(value: input)]);
+        return Result(relevance: 0, nodes: [Node(value: input)]);
       } else {
         rethrow;
       }
@@ -494,9 +497,9 @@ class Highlight {
         languageSubset ?? _languages.keys.toList(); // TODO: options
     var result = Result(
       relevance: 0,
-      value: [Node(value: input)],
+      nodes: [Node(value: input)],
     );
-    var second_best = result;
+    var secondBest = result;
     // languageSubset = ['json'];
     languageSubset.forEach((language) {
       var lang = _getLanguage(language);
@@ -504,16 +507,16 @@ class Highlight {
 
       var current = parse(input, language: language, ignoreIllegals: false);
       current.language = language;
-      if (current.relevance > second_best.relevance) {
-        second_best = current;
+      if (current.relevance > secondBest.relevance) {
+        secondBest = current;
       }
       if (current.relevance > result.relevance) {
-        second_best = result;
+        secondBest = result;
         result = current;
       }
     });
-    if (second_best.language != null) {
-      result.second_best = second_best;
+    if (secondBest.language != null) {
+      result.secondBest = secondBest;
     }
     return result;
   }
