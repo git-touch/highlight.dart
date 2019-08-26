@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const hybridTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff1d1f21), color: Color(0xffc5c8c6)),
   'container::selection': TextStyle(backgroundColor: Color(0xff373b41)),

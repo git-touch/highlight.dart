@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const solarizedLightTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xfffdf6e3), color: Color(0xff657b83)),
   'comment': TextStyle(color: Color(0xff93a1a1)),

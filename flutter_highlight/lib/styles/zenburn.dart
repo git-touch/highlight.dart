@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const zenburnTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff3f3f3f), color: Color(0xffdcdcdc)),
   'keyword': TextStyle(color: Color(0xffe3ceab)),

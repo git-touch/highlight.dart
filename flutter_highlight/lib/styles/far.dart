@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const farTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff000080), color: Color(0xff00ffff)),
   'subst': TextStyle(color: Color(0xff00ffff)),

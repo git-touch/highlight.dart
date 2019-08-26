@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const githubTheme = {
   'container':
       TextStyle(color: Color(0xff333333), backgroundColor: Color(0xfff8f8f8)),
   'comment': TextStyle(color: Color(0xff999988), fontStyle: FontStyle.italic),

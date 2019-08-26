@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const schoolBookTheme = {
   'keyword': TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),
   'selector-tag':
       TextStyle(color: Color(0xff005599), fontWeight: FontWeight.bold),

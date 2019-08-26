@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const irBlackTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff000000), color: Color(0xfff8f8f8)),
   'comment': TextStyle(color: Color(0xff7c7c7c)),

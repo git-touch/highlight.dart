@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const agateTheme = {
   'container': TextStyle(backgroundColor: Color(0xff333333)),
   'name': TextStyle(fontWeight: FontWeight.bold),
   'strong': TextStyle(fontWeight: FontWeight.bold),

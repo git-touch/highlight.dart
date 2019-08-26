@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const atomOneDarkTheme = {
   'container':
       TextStyle(color: Color(0xffabb2bf), backgroundColor: Color(0xff282c34)),
   'comment': TextStyle(color: Color(0xff5c6370), fontStyle: FontStyle.italic),

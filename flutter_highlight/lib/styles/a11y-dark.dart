@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const a11yDarkTheme = {
   'comment': TextStyle(color: Color(0xffd4d0ab)),
   'quote': TextStyle(color: Color(0xffd4d0ab)),
   'variable': TextStyle(color: Color(0xffffa07a)),

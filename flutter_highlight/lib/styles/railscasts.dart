@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const railscastsTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff232323), color: Color(0xffe6e1dc)),
   'comment': TextStyle(color: Color(0xffbc9458), fontStyle: FontStyle.italic),

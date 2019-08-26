@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const oceanTheme = {
   'comment': TextStyle(color: Color(0xff65737e)),
   'quote': TextStyle(color: Color(0xff65737e)),
   'variable': TextStyle(color: Color(0xffbf616a)),

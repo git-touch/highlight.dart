@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const qtcreatorLightTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xffffffff), color: Color(0xff000000)),
   'subst': TextStyle(color: Color(0xff000000)),

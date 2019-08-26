@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const rainbowTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff474949), color: Color(0xffd1d9e1)),
   'comment': TextStyle(color: Color(0xff969896), fontStyle: FontStyle.italic),

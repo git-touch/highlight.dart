@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const ideaTheme = {
   'container':
       TextStyle(color: Color(0xff000000), backgroundColor: Color(0xffffffff)),
   'subst': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff000000)),

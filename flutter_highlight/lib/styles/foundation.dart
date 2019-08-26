@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const foundationTheme = {
   'container': TextStyle(backgroundColor: Color(0xffeeeeee)),
   'link': TextStyle(color: Color(0xff007700)),
   'emphasis': TextStyle(color: Color(0xff007700), fontStyle: FontStyle.italic),

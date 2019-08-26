@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const monokaiTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff272822), color: Color(0xffdddddd)),
   'tag': TextStyle(color: Color(0xfff92672)),

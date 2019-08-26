@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const xcodeTheme = {
   'container': TextStyle(backgroundColor: Color(0xffffffff)),
   'meta': TextStyle(color: Color(0xff643820)),
   'comment': TextStyle(color: Color(0xff007400)),

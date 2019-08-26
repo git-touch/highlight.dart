@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const darkTheme = {
   'container':
       TextStyle(backgroundColor: Color(0xff444444), color: Color(0xffdddddd)),
   'subst': TextStyle(color: Color(0xffdddddd)),

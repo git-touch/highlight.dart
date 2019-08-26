@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const atelierCaveDarkTheme = {
   'comment': TextStyle(color: Color(0xff7e7887)),
   'quote': TextStyle(color: Color(0xff7e7887)),
   'variable': TextStyle(color: Color(0xffbe4678)),

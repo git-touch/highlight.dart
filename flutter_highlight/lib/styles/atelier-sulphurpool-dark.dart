@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const atelierSulphurpoolDarkTheme = {
   'comment': TextStyle(color: Color(0xff898ea4)),
   'quote': TextStyle(color: Color(0xff898ea4)),
   'variable': TextStyle(color: Color(0xffc94922)),

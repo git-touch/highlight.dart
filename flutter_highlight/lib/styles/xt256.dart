@@ -2,7 +2,7 @@
 
 import 'package:flutter/painting.dart';
 
-const style = {
+const xt256Theme = {
   'container':
       TextStyle(color: Color(0xffeaeaea), backgroundColor: Color(0xff000000)),
   'subst': TextStyle(color: Color(0xffeaeaea)),
