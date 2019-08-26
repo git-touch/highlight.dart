@@ -34,6 +34,7 @@ const vs2015Theme = {
   'attr': TextStyle(color: Color(0xff9CDCFE)),
   'attribute': TextStyle(color: Color(0xff9CDCFE)),
   'builtin-name': TextStyle(color: Color(0xff9CDCFE)),
+  'section': TextStyle(color: Color(0xffffd700)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),
   'bullet': TextStyle(color: Color(0xffD7BA7D)),

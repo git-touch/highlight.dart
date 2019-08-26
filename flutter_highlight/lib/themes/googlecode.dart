@@ -3,6 +3,8 @@
 import 'package:flutter/painting.dart';
 
 const googlecodeTheme = {
+  'root':
+      TextStyle(backgroundColor: Color(0xffffffff), color: Color(0xff000000)),
   'comment': TextStyle(color: Color(0xff880000)),
   'quote': TextStyle(color: Color(0xff880000)),
   'keyword': TextStyle(color: Color(0xff000088)),

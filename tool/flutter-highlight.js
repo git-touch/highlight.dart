@@ -12,7 +12,7 @@ const destDir = "../flutter_highlight/lib/themes";
  *
  * @param {string} color
  */
-const covertColor = color => {
+const convertColor = color => {
   if (color === "inherit") {
     // FIXME:
     return;
@@ -44,6 +44,9 @@ const covertColor = color => {
           .map(x => x + x)
           .join("");
       }
+    }
+
+    if (rgb) {
       return `Color(0xff${rgb})`;
     } else {
       console.log(`color ignored: ${color}`);
@@ -58,7 +61,7 @@ const covertColor = color => {
 export function style() {
   let all = [NOTICE_COMMENT, "const themeMap = {"];
 
-  // ["github.css"]
+  // ["agate.css"]
   fs.readdirSync(rootDir).forEach(file => {
     if (path.extname(file) != ".css") return;
     const fileName = path.basename(file, ".css");
@@ -93,7 +96,8 @@ export function style() {
           } else if (item.type === "decl") {
             switch (item.prop) {
               case "color": {
-                const flutterColor = covertColor(item.value);
+                const flutterColor = convertColor(item.value);
+
                 if (flutterColor) {
                   style.color = flutterColor;
                 }
@@ -101,7 +105,7 @@ export function style() {
               }
               case "background":
               case "background-color": {
-                const flutterColor = covertColor(item.value);
+                const flutterColor = convertColor(item.value);
                 if (flutterColor) {
                   style.backgroundColor = flutterColor;
                 }

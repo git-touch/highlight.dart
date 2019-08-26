@@ -3,7 +3,8 @@
 import 'package:flutter/painting.dart';
 
 const isblEditorLightTheme = {
-  'root': TextStyle(color: Color(0xff000000)),
+  'root':
+      TextStyle(backgroundColor: Color(0xffffffff), color: Color(0xff000000)),
   'subst': TextStyle(color: Color(0xff000000)),
   'comment': TextStyle(color: Color(0xff555555), fontStyle: FontStyle.italic),
   'keyword': TextStyle(color: Color(0xff000000), fontWeight: FontWeight.bold),

@@ -12,6 +12,8 @@ const obsidianTheme = {
   'selector-id': TextStyle(color: Color(0xff93c763)),
   'number': TextStyle(color: Color(0xffffcd22)),
   'attribute': TextStyle(color: Color(0xff668bb0)),
+  'code': TextStyle(color: Color(0xffffffff)),
+  'section': TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
   'regexp': TextStyle(color: Color(0xffd39745)),
   'link': TextStyle(color: Color(0xffd39745)),
   'meta': TextStyle(color: Color(0xff557182)),
@@ -36,6 +38,5 @@ const obsidianTheme = {
   'selector-class': TextStyle(color: Color(0xffA082BD)),
   'doctag': TextStyle(fontWeight: FontWeight.bold),
   'title': TextStyle(fontWeight: FontWeight.bold),
-  'section': TextStyle(fontWeight: FontWeight.bold),
   'strong': TextStyle(fontWeight: FontWeight.bold),
 };

@@ -30,7 +30,8 @@ const tomorrowNightBlueTheme = {
   'section': TextStyle(color: Color(0xffbbdaff)),
   'keyword': TextStyle(color: Color(0xffebbbff)),
   'selector-tag': TextStyle(color: Color(0xffebbbff)),
-  'root': TextStyle(backgroundColor: Color(0xff002451)),
+  'root':
+      TextStyle(backgroundColor: Color(0xff002451), color: Color(0xffffffff)),
   'emphasis': TextStyle(fontStyle: FontStyle.italic),
   'strong': TextStyle(fontWeight: FontWeight.bold),
 };
