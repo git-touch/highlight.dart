@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:flutter_web/material.dart';
 import 'generated/flutter_highlight.dart';
 import 'generated/theme_map.dart';
@@ -82,6 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
               }
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            tooltip: 'Source Code',
+            onPressed: () {
+              html.window.open('https://github.com/pd4d10/highlight', '');
+            },
+          )
         ],
       ),
       body: Center(
