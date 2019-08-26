@@ -24,6 +24,7 @@ packages/build_runner/src/server/graph_viz.html
 packages/build_runner/src/server/graph_viz.js
 packages/build_runner/src/server/graph_viz_main.dart.js
 packages/build_web_compilers/src/dev_compiler_stack_trace/stack_trace_mapper.dart.js
+packages/flutter_highlight_gallery/generated/.gitkeep
 packages/flutter_web_ui/assets/Ahem.ttf
 packages/flutter_web_ui/assets/Roboto-Regular.ttf
 packages/flutter_web_ui/assets/houdini_painter.js
