@@ -3,6 +3,7 @@ import path from "path";
 import _ from "lodash";
 import { execSync } from "child_process";
 import postcss from "postcss";
+import { NOTICE_COMMENT } from "./utils";
 
 const rootDir = "../vendor/highlight.js/src/styles";
 const destDir = "../flutter_highlight/lib/styles";
@@ -56,19 +57,16 @@ const covertColor = color => {
  * flutter_highlight_gallery/lib/flutter_highlight/all_styles.dart
  */
 export function style() {
-  let all = "const allStyles = {";
+  let all = [NOTICE_COMMENT, "const themeMap = {"];
 
   // ["github.css"]
   fs.readdirSync(rootDir).forEach(file => {
     if (path.extname(file) != ".css") return;
     const fileName = path.basename(file, ".css");
-    let varName = _.snakeCase(fileName);
-    if (varName === "default") {
-      varName = "def";
-    }
+    let varName = _.camelCase(fileName + "Theme").replace(/a11y/i, "a11y");
 
-    all = `import 'styles/${fileName}.dart' as ${varName}; ` + all;
-    all += `'${fileName}': ${varName}.style,`;
+    all[0] += `import 'styles/${fileName}.dart';`;
+    all[1] += `'${fileName}': ${varName},`;
 
     const ast = postcss.parse(fs.readFileSync(path.resolve(rootDir, file)));
     // console.log(ast);
@@ -134,8 +132,7 @@ export function style() {
       });
     });
 
-    let code =
-      "// GENERATED CODE - DO NOT MODIFY BY HAND\n\nimport 'package:flutter/painting.dart'; const style = {";
+    let code = `${NOTICE_COMMENT}import 'package:flutter/painting.dart'; const ${varName} = {`;
     Object.entries(obj).forEach(([selector, v]) => {
       code += `'${selector}': TextStyle(${Object.entries(v)
         .map(([k, v]) => `${k}:${v}`)
@@ -146,15 +143,9 @@ export function style() {
     fs.writeFileSync(path.resolve(destDir, `${fileName}.dart`), code);
   });
 
-  all += "};";
-  try {
-    fs.mkdirSync("../flutter_highlight_gallery/lib/flutter_highlight");
-  } catch (err) {}
-  fs.writeFileSync(
-    "../flutter_highlight_gallery/lib/flutter_highlight/all_styles.dart",
-    all
-  );
+  all[1] += "};";
+  fs.writeFileSync("../flutter_highlight/lib/theme_map.dart", all.join("\n"));
 
   // format
-  execSync(`dartfmt --overwrite ${path.resolve(destDir, "*.dart")}`);
+  execSync(`dartfmt --overwrite ../flutter_highlight/lib/**/*.dart`);
 }
