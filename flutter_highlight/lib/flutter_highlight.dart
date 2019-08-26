@@ -91,7 +91,7 @@ class Highlight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nodes = _hl.parse(input, language: language).value;
+    var nodes = _hl.parse(input, language: language).nodes;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
       color: theme['container']?.color ?? _defaultFontColor,

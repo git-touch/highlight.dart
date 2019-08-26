@@ -2,6 +2,8 @@
 
 Syntax highlighter for Flutter.
 
+View gallery built with Flutter web: https://pd4d10.github.io/highlight/
+
 ## Usage
 
 ```dart
