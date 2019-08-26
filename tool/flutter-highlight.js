@@ -6,7 +6,7 @@ import postcss from "postcss";
 import { NOTICE_COMMENT } from "./utils";
 
 const rootDir = "../vendor/highlight.js/src/styles";
-const destDir = "../flutter_highlight/lib/styles";
+const destDir = "../flutter_highlight/lib/themes";
 
 /**
  * white, #fff, #ffffff, rgba(0,0,0,0) -> Flutter color
@@ -53,8 +53,8 @@ const covertColor = color => {
 };
 
 /**
- * flutter_highlight/lib/styles/*
- * flutter_highlight_gallery/lib/flutter_highlight/all_styles.dart
+ * flutter_highlight/lib/themes/*
+ * flutter_highlight/lib/theme_map.dart
  */
 export function style() {
   let all = [NOTICE_COMMENT, "const themeMap = {"];
@@ -65,7 +65,7 @@ export function style() {
     const fileName = path.basename(file, ".css");
     let varName = _.camelCase(fileName + "Theme").replace(/a11y/i, "a11y");
 
-    all[0] += `import 'styles/${fileName}.dart';`;
+    all[0] += `import 'themes/${fileName}.dart';`;
     all[1] += `'${fileName}': ${varName},`;
 
     const ast = postcss.parse(fs.readFileSync(path.resolve(rootDir, file)));

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
-import 'package:flutter_highlight/styles/github.dart';
+import 'package:flutter_highlight/themes/github.dart';
 
 class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
