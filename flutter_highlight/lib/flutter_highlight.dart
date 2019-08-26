@@ -1,7 +1,6 @@
-import 'dart:io' show Platform;
+import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart';
-import 'styles/default.dart' as def;
 
 class Highlighter extends StatelessWidget {
   static final _hl = Highlight();
@@ -9,8 +8,16 @@ class Highlighter extends StatelessWidget {
   final String code;
   final String language;
   final Map<String, TextStyle> style;
+  final EdgeInsetsGeometry padding;
+  final TextStyle textStyle;
 
-  Highlighter(this.code, {this.language, this.style = def.style});
+  Highlighter(
+    this.code, {
+    this.language,
+    this.style = const {},
+    this.padding,
+    this.textStyle,
+  });
 
   List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
@@ -44,13 +51,15 @@ class Highlighter extends StatelessWidget {
     return spans;
   }
 
-  static const defaultFontColor = Color(0xff000000);
-  static const defaultBackgroundColor = Color(0xffffffff);
-  static String get defaultFontFamily {
+  static const _defaultFontColor = Color(0xff000000);
+  static const _defaultBackgroundColor = Color(0xffffffff);
+  static String get _defaultFontFamily {
     if (Platform.isIOS || Platform.isMacOS) {
       return 'Menlo';
     } else if (Platform.isAndroid) {
       return 'Roboto Mono';
+    } else if (Platform.isWindows) {
+      return 'Consolas';
     } else {
       return 'monospace';
     }
@@ -59,16 +68,19 @@ class Highlighter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var nodes = _hl.parse(code, language: language).value;
+    var _textStyle = TextStyle(
+      fontFamily: _defaultFontFamily,
+      color: style['container']?.color ?? _defaultFontColor,
+    );
+    if (textStyle != null) {
+      _textStyle = _textStyle.merge(textStyle);
+    }
+
     return Container(
-      color: style['container']?.backgroundColor ?? defaultBackgroundColor,
+      color: style['container']?.backgroundColor ?? _defaultBackgroundColor,
+      padding: padding,
       child: RichText(
-        text: TextSpan(
-          style: TextStyle(
-            fontFamily: defaultFontFamily,
-            color: style['container']?.color ?? defaultFontColor,
-          ),
-          children: _convert(nodes),
-        ),
+        text: TextSpan(style: _textStyle, children: _convert(nodes)),
       ),
     );
   }
