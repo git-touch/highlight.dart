@@ -9,11 +9,26 @@ class MyWidget extends StatelessWidget {
 }
 ''';
 
-    return Highlighter(
+    return Highlight(
+      // The original code to be highlighted
       code,
-      language:
-          'dart', // Specify language. It is optional, but recommended for performance
-      theme: githubTheme, // Specify highlight style
+
+      // Specify language
+      // It is recommended to give it a value for performance
+      language: 'dart',
+
+      // Specify highlight theme
+      // All available themes are listed in `themes` folder
+      theme: githubTheme,
+
+      // Specify padding
+      padding: EdgeInsets.all(12),
+
+      // Specify text style
+      textStyle: TextStyle(
+        fontFamily: 'My awesome monospace font',
+        fontSize: 16,
+      ),
     );
   }
 }

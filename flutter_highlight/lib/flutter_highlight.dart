@@ -1,30 +1,54 @@
 import 'dart:io';
 import 'package:flutter/widgets.dart';
-import 'package:highlight/highlight.dart';
+import 'package:highlight/highlight.dart' as hl;
 
-class Highlighter extends StatelessWidget {
-  static final _hl = Highlight();
+/// Highlight Flutter Widget
+class Highlight extends StatelessWidget {
+  static final _hl = hl.Highlight();
 
-  final String code;
+  /// The original code to be highlighted
+  final String input;
+
+  /// Highlight language
+  ///
+  /// It is recommended to give it a value for performance
+  ///
+  /// [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
   final String language;
+
+  /// Highlight theme
+  ///
+  /// [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
   final Map<String, TextStyle> theme;
+
+  /// Padding
   final EdgeInsetsGeometry padding;
+
+  /// Text styles
+  ///
+  /// Specify text styles such as font family, font size
+  ///
+  /// default font family:
+  /// - iOS, macOS: Menlo
+  /// - Android: Roboto Mono
+  /// - Windows: Consolas
+  /// - others: monospace
   final TextStyle textStyle;
 
-  Highlighter(
-    this.code, {
+  Highlight(
+    this.input, {
     this.language,
     this.theme = const {},
     this.padding,
     this.textStyle,
   });
 
-  List<TextSpan> _convert(List<Node> nodes) {
+  List<TextSpan> _convert(List<hl.Node> nodes) {
     List<TextSpan> spans = [];
     var currentSpans = spans;
     List<List<TextSpan>> stack = [];
 
-    _traverse(Node node) {
+    _traverse(hl.Node node) {
       if (node.value != null) {
         currentSpans.add(node.className == null
             ? TextSpan(text: node.value)
@@ -67,7 +91,7 @@ class Highlighter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nodes = _hl.parse(code, language: language).value;
+    var nodes = _hl.parse(input, language: language).value;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
       color: theme['container']?.color ?? _defaultFontColor,
