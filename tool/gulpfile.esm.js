@@ -31,6 +31,11 @@ export default cb => {
   fh.style();
 
   // FIXME: use common used bash
-  execSync(`dartfmt --overwrite ../**/*.dart`, { shell: "/bin/zsh" });
+  try {
+    execSync(`dartfmt --overwrite ../**/*.dart`, { shell: "/bin/zsh" });
+  } catch (err) {
+    // CI env has no zsh, ignore error here
+    console.log(err);
+  }
   cb();
 };
