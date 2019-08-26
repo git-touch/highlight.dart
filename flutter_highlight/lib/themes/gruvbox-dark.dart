@@ -8,7 +8,7 @@ const gruvboxDarkTheme = {
   'subst': TextStyle(color: Color(0xffebdbb2)),
   'deletion': TextStyle(color: Color(0xfffb4934)),
   'formula': TextStyle(color: Color(0xfffb4934)),
-  'keyword': TextStyle(color: Color(0xff8ec07c)),
+  'keyword': TextStyle(color: Color(0xfffb4934)),
   'link': TextStyle(color: Color(0xfffb4934)),
   'selector-tag': TextStyle(color: Color(0xfffb4934)),
   'built_in': TextStyle(color: Color(0xff83a598)),

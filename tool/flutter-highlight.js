@@ -80,7 +80,8 @@ export function style() {
       rule.selectors.forEach(selector => {
         if (/\s+/.test(selector)) {
           // FIXME: nested selector
-          selector = selector.split(/\s+/).slice(-1)[0];
+          // console.log(selector);
+          return;
         }
         if (selector === ".hljs") selector = "root";
         selector = selector.replace(".hljs-", "");

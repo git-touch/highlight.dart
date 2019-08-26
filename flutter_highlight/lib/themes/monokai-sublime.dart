@@ -16,7 +16,7 @@ const monokaiSublimeTheme = {
   'literal': TextStyle(color: Color(0xffae81ff)),
   'link': TextStyle(color: Color(0xffae81ff)),
   'code': TextStyle(color: Color(0xffa6e22e)),
-  'title': TextStyle(color: Color(0xfff8f8f2)),
+  'title': TextStyle(color: Color(0xffa6e22e)),
   'section': TextStyle(color: Color(0xffa6e22e)),
   'selector-class': TextStyle(color: Color(0xffa6e22e)),
   'keyword': TextStyle(color: Color(0xfff92672)),

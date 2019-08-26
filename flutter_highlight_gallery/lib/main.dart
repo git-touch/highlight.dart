@@ -64,9 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           PopupMenuButton<String>(
-            // padding: const EdgeInsets.all(0),
             child: _buildMenuContent(theme),
-            // icon: Icon(Icons.style),
             itemBuilder: (context) {
               return themeMap.keys.map((key) {
                 return CheckedPopupMenuItem(

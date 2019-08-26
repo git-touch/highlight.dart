@@ -5,7 +5,7 @@ import 'package:flutter/painting.dart';
 const draculaTheme = {
   'root':
       TextStyle(backgroundColor: Color(0xff282a36), color: Color(0xfff8f8f2)),
-  'keyword': TextStyle(color: Color(0xffff79c6), fontWeight: FontWeight.bold),
+  'keyword': TextStyle(color: Color(0xff8be9fd), fontWeight: FontWeight.bold),
   'selector-tag':
       TextStyle(color: Color(0xff8be9fd), fontWeight: FontWeight.bold),
   'literal': TextStyle(color: Color(0xff8be9fd), fontWeight: FontWeight.bold),

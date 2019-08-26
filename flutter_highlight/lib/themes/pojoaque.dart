@@ -14,7 +14,7 @@ const pojoaqueTheme = {
   'string': TextStyle(color: Color(0xff468966)),
   'doctag': TextStyle(color: Color(0xff468966)),
   'regexp': TextStyle(color: Color(0xff468966)),
-  'title': TextStyle(color: Color(0xffb58900)),
+  'title': TextStyle(color: Color(0xffffb03b)),
   'section': TextStyle(color: Color(0xffffb03b)),
   'built_in': TextStyle(color: Color(0xffffb03b)),
   'name': TextStyle(color: Color(0xffffb03b)),

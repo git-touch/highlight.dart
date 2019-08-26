@@ -14,7 +14,7 @@ const foundationTheme = {
   'quote': TextStyle(color: Color(0xff999988), fontStyle: FontStyle.italic),
   'comment': TextStyle(color: Color(0xff999988), fontStyle: FontStyle.italic),
   'section': TextStyle(color: Color(0xff990000)),
-  'title': TextStyle(color: Color(0xff445588)),
+  'title': TextStyle(color: Color(0xff990000)),
   'type': TextStyle(color: Color(0xff445588)),
   'variable': TextStyle(color: Color(0xff336699)),
   'template-variable': TextStyle(color: Color(0xff336699)),

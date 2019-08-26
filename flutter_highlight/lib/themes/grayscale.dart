@@ -16,7 +16,7 @@ const grayscaleTheme = {
   'string': TextStyle(color: Color(0xff333333)),
   'doctag': TextStyle(color: Color(0xff333333)),
   'formula': TextStyle(color: Color(0xff333333)),
-  'title': TextStyle(color: Color(0xff333333), fontWeight: FontWeight.bold),
+  'title': TextStyle(color: Color(0xff000000), fontWeight: FontWeight.bold),
   'section': TextStyle(color: Color(0xff000000), fontWeight: FontWeight.bold),
   'selector-id':
       TextStyle(color: Color(0xff000000), fontWeight: FontWeight.bold),

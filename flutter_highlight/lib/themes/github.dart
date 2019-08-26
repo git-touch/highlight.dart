@@ -15,10 +15,9 @@ const githubTheme = {
   'literal': TextStyle(color: Color(0xff008080)),
   'variable': TextStyle(color: Color(0xff008080)),
   'template-variable': TextStyle(color: Color(0xff008080)),
-  'attr': TextStyle(color: Color(0xff008080)),
   'string': TextStyle(color: Color(0xffdd1144)),
   'doctag': TextStyle(color: Color(0xffdd1144)),
-  'title': TextStyle(color: Color(0xff445588), fontWeight: FontWeight.bold),
+  'title': TextStyle(color: Color(0xff990000), fontWeight: FontWeight.bold),
   'section': TextStyle(color: Color(0xff990000), fontWeight: FontWeight.bold),
   'selector-id':
       TextStyle(color: Color(0xff990000), fontWeight: FontWeight.bold),
