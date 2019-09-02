@@ -1,6 +1,6 @@
 name: flutter_highlight
 description: Flutter syntax highlighter with lots of languages and styles support. Zero dependencies, automatic language detection.
-version: 0.2.1
+version: 0.3.0
 author: Rongjian Zhang <pd4d10@gmail.com>
 homepage: https://github.com/pd4d10/highlight
 
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  highlight: ^0.2.0
+  highlight: ^0.3.0
 
 dev_dependencies:
   flutter_test:
