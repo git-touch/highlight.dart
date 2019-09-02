@@ -1,11 +1,9 @@
 import 'dart:io';
 import 'package:flutter/widgets.dart';
-import 'package:highlight/highlight.dart' as hl;
+import 'package:highlight/highlight.dart' as highlight;
 
 /// Highlight Flutter Widget
 class HighlightView extends StatelessWidget {
-  static final _hl = hl.Highlight();
-
   /// The original code to be highlighted
   final String input;
 
@@ -43,12 +41,12 @@ class HighlightView extends StatelessWidget {
     this.textStyle,
   });
 
-  List<TextSpan> _convert(List<hl.Node> nodes) {
+  List<TextSpan> _convert(List<highlight.Node> nodes) {
     List<TextSpan> spans = [];
     var currentSpans = spans;
     List<List<TextSpan>> stack = [];
 
-    _traverse(hl.Node node) {
+    _traverse(highlight.Node node) {
       if (node.value != null) {
         currentSpans.add(node.className == null
             ? TextSpan(text: node.value)
@@ -92,7 +90,7 @@ class HighlightView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nodes = _hl.parse(input, language: language).nodes;
+    var nodes = highlight.parse(input, language: language).nodes;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
       color: theme[_rootKey]?.color ?? _defaultFontColor,
