@@ -10,7 +10,7 @@ class MyWidget extends StatelessWidget {
 }
 ''';
 
-    return Highlight(
+    return HighlightView(
       // The original code to be highlighted
       code,
 

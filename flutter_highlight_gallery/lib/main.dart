@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Highlight(
+            HighlightView(
               exampleMap[language],
               language: 'dart',
               theme: themeMap[theme],

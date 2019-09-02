@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' as hl;
 
 /// Highlight Flutter Widget
-class Highlight extends StatelessWidget {
+class HighlightView extends StatelessWidget {
   static final _hl = hl.Highlight();
 
   /// The original code to be highlighted
@@ -35,7 +35,7 @@ class Highlight extends StatelessWidget {
   /// - others: monospace
   final TextStyle textStyle;
 
-  Highlight(
+  HighlightView(
     this.input, {
     this.language,
     this.theme = const {},
