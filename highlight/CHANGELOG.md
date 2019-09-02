@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Exports singleton
+
 ## 0.2.0
 
 - Refactor and improve documentation
