@@ -77,14 +77,16 @@ class HighlightView extends StatelessWidget {
   static const _defaultFontColor = Color(0xff000000);
   static const _defaultBackgroundColor = Color(0xffffffff);
   static String get _defaultFontFamily {
-    if (Platform.isIOS || Platform.isMacOS) {
-      return 'Menlo';
-    } else if (Platform.isAndroid) {
-      return 'Roboto Mono';
-    } else if (Platform.isWindows) {
-      return 'Consolas';
-    } else {
-      return 'monospace';
+    switch (Platform.operatingSystem) {
+      case 'ios':
+      case 'macos':
+        return 'Menlo';
+      case 'android':
+        return 'Roboto Mono';
+      case 'windows':
+        return 'Consolas';
+      default:
+        return 'monospace';
     }
   }
 

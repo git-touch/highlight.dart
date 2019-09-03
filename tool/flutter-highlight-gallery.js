@@ -46,10 +46,8 @@ export function highlight() {
           if (file.path.endsWith("flutter_highlight.dart")) {
             str = str
               .split("\n")
-              .filter(line => {
-                return !line.includes("dart:io");
-              })
-              .map(line => line.replace(/Platform\.(\w*)/g, "false"))
+              .filter(line => !line.includes("dart:io"))
+              .map(line => line.replace("Platform.operatingSystem", "''"))
               .join("\n");
           }
 
