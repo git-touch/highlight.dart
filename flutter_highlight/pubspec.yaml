@@ -16,8 +16,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# dependency_overrides:
-#   highlight:
-#     path: ../highlight
+dependency_overrides:
+  highlight:
+    path: ../highlight
 
 flutter:
