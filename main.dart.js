@@ -3880,7 +3880,10 @@ _.b=a
 _.c=b
 _.f=_.e=null
 _.a=c}},B={
-Xi:function(){return"monospace"},
+Xi:function(){switch(""){case"ios":case"macos":return"Menlo"
+case"android":return"Roboto Mono"
+case"windows":return"Consolas"
+default:return"monospace"}},
 A0:function A0(a,b,c,d,e,f){var _=this
 _.c=a
 _.d=b
