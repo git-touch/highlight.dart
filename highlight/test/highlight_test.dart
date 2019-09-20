@@ -39,7 +39,7 @@ void main() {
         Directory('$fixturesDir/detect/$lang').listSync().forEach((entity) {
           test(path.basename(entity.path), () {
             var code = File(entity.path).readAsStringSync();
-            expect(lang, highlight.parse(code, language: lang).language);
+            expect(lang, highlight.parse(code, autoDetection: true).language);
           });
         });
       });
