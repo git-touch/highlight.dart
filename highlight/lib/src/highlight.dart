@@ -246,15 +246,37 @@ class Highlight {
     _addNodes([Node(value: text)], result);
   }
 
-  /// Parse input code and returns a highlight [Result] which contains relevance and tree nodes
+  /// Parse [source] and returns a highlight [Result] which contains relevance and tree nodes.
   ///
   /// Call [Result.toHtml] method to get HTML string
-  Result parse(String input,
-      {String language, bool ignoreIllegals = false, Mode continuation}) {
+  ///
+  /// ```dart
+  /// var result = highlight.parse(source, language: 'dart');
+  /// var html = result.toHtml();
+  /// ```
+  ///
+  /// [language]: Required if [autoDetection] is not true.
+  ///
+  /// [autoDetect]: The default value is `false`. Pass `true` to enable language auto detection.
+  /// Notice that **this may cause performance issue** because it will try to parse source with
+  /// all registered languages and use the most relevant one.
+  Result parse(String source, {String language, bool autoDetection = false}) {
     if (language == null) {
-      return _parseAuto(input);
+      if (autoDetection) {
+        return _parseAuto(source);
+      } else {
+        throw '`language` is missing. If you want to enable language auto detection, set `autoDetection` to true.';
+      }
     }
+    return _parse(source, language: language);
+  }
 
+  Result _parse(
+    String source, {
+    String language,
+    bool ignoreIllegals = false,
+    Mode continuation,
+  }) {
     var langMode = _languageMode = _getLanguage(language);
     if (_languageMode == null) {
       throw 'Unknown language: "' + language + '"';
@@ -340,7 +362,7 @@ class Highlight {
       }
 
       var result = explicit
-          ? parse(mode_buffer,
+          ? _parse(mode_buffer,
               language: top.subLanguage.first,
               ignoreIllegals: true,
               continuation: continuations[top.subLanguage.first])
@@ -441,7 +463,7 @@ class Highlight {
       // print(value);
       while (true) {
         match = top.terminators
-            ?.allMatches(input, index)
+            ?.allMatches(source, index)
             ?.firstWhere((m) => true, orElse: () => null);
 
         if (match == null) break;
@@ -451,10 +473,10 @@ class Highlight {
         // print(result);
         // print('');
 
-        count = _processLexeme(substring(input, index, match.start), match[0]);
+        count = _processLexeme(substring(source, index, match.start), match[0]);
         index = count + match.start;
       }
-      _processLexeme(substring(input, index));
+      _processLexeme(substring(source, index));
       for (current = top; current.parent != null; current = current.parent) {
         if (_classNameExists(current.className)) {
           _pop();
@@ -470,7 +492,7 @@ class Highlight {
       );
     } catch (e) {
       if (e is String && e.startsWith('Illegal')) {
-        return Result(relevance: 0, nodes: [Node(value: input)]);
+        return Result(relevance: 0, nodes: [Node(value: source)]);
       } else {
         rethrow;
       }
@@ -492,12 +514,12 @@ class Highlight {
     }
   }
 
-  Result _parseAuto(String input, {List<String> languageSubset}) {
+  Result _parseAuto(String source, {List<String> languageSubset}) {
     languageSubset =
         languageSubset ?? _languages.keys.toList(); // TODO: options
     var result = Result(
       relevance: 0,
-      nodes: [Node(value: input)],
+      nodes: [Node(value: source)],
     );
     var secondBest = result;
     // languageSubset = ['json'];
@@ -505,7 +527,7 @@ class Highlight {
       var lang = _getLanguage(language);
       if (lang == null || lang.disableAutodetect == true) return;
 
-      var current = parse(input, language: language, ignoreIllegals: false);
+      var current = _parse(source, language: language, ignoreIllegals: false);
       current.language = language;
       if (current.relevance > secondBest.relevance) {
         secondBest = current;

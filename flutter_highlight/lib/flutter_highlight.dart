@@ -4,7 +4,7 @@ import 'package:highlight/highlight.dart' as highlight;
 /// Highlight Flutter Widget
 class HighlightView extends StatelessWidget {
   /// The original code to be highlighted
-  final String input;
+  final String source;
 
   /// Highlight language
   ///
@@ -33,7 +33,7 @@ class HighlightView extends StatelessWidget {
   final TextStyle textStyle;
 
   HighlightView(
-    this.input, {
+    this.source, {
     this.language,
     this.theme = const {},
     this.padding,
@@ -83,7 +83,7 @@ class HighlightView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nodes = highlight.parse(input, language: language).nodes;
+    var nodes = highlight.parse(source, language: language).nodes;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
       color: theme[_rootKey]?.color ?? _defaultFontColor,
