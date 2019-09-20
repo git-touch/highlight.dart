@@ -1,3 +1,8 @@
+## 0.4.0
+
+- Add auto detection option
+- Fallback to plaintext if language not registered
+
 ## 0.3.0
 
 - Exports singleton
