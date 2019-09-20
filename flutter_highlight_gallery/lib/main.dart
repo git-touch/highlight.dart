@@ -1,7 +1,7 @@
 import 'dart:html' as html;
-import 'package:flutter_web/material.dart';
-import 'generated/flutter_highlight.dart';
-import 'generated/theme_map.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/theme_map.dart';
 import 'generated/example_map.dart';
 
 void main() => runApp(MyApp());
