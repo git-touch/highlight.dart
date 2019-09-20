@@ -1,5 +1,11 @@
+## 0.4.0
+
+- Use `highlight` v0.4.0
+- Drop `dart:io` dependency for web platform
+
 ## 0.3.0
 
+- Use `highlight` v0.3.0
 - Rename to `HighlightView` to avoid confusion
 
 ## 0.2.1
