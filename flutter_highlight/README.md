@@ -2,9 +2,7 @@
 
 [![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight)
 
-Syntax highlighter for Flutter.
-
-View gallery built with Flutter web: https://pd4d10.github.io/highlight/
+Syntax highlighter for Flutter. https://pd4d10.github.io/highlight/
 
 ## Usage
 
