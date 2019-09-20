@@ -1,15 +1,25 @@
 language: dart
+addons:
+  apt:
+    # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
+    sources:
+      - ubuntu-toolchain-r-test # if we don't specify this, the libstdc++6 we get is the wrong version
+    packages:
+      - libstdc++6
+before_script:
+  - git clone https://github.com/flutter/flutter.git -b dev
+  - ./flutter/bin/flutter doctor
+  - ./flutter/bin/flutter config --enable-web
 before_deploy:
   - nvm install node
   - cd tool
   - npm install
   - npm start
   - cd ../flutter_highlight_gallery
-  - pub get
-  - pub global activate webdev
-  - webdev build
+  - ../flutter/bin/flutter pub get
+  - ../flutter/bin/flutter build web
 deploy:
-  local-dir: flutter_highlight_gallery/build
+  local-dir: flutter_highlight_gallery/build/web
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
