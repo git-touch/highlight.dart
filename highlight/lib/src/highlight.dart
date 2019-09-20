@@ -1,3 +1,4 @@
+import 'package:highlight/languages/plaintext.dart';
 import 'utils.dart';
 import 'node.dart';
 import 'mode.dart';
@@ -277,10 +278,11 @@ class Highlight {
     bool ignoreIllegals = false,
     Mode continuation,
   }) {
-    var langMode = _languageMode = _getLanguage(language);
-    if (_languageMode == null) {
-      throw 'Unknown language: "' + language + '"';
-    }
+    var langMode = _languageMode = _getLanguage(language) ?? plaintext;
+    // TODO: strategy
+    // if (_languageMode == null) {
+    //   throw 'Unknown language: "' + language + '"';
+    // }
 
     // FIXME: Move inside highlight to use lang reference
     _keywordMatch(Mode mode, RegExpMatch match) {
