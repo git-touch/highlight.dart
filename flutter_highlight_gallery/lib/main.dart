@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             HighlightView(
               exampleMap[language],
-              language: 'dart',
+              language: language,
               theme: themeMap[theme],
               padding: EdgeInsets.all(12),
               textStyle: TextStyle(
