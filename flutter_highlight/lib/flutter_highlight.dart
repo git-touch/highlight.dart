@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' as highlight;
 
@@ -76,19 +75,11 @@ class HighlightView extends StatelessWidget {
   static const _rootKey = 'root';
   static const _defaultFontColor = Color(0xff000000);
   static const _defaultBackgroundColor = Color(0xffffffff);
-  static String get _defaultFontFamily {
-    switch (Platform.operatingSystem) {
-      case 'ios':
-      case 'macos':
-        return 'Menlo';
-      case 'android':
-        return 'Roboto Mono';
-      case 'windows':
-        return 'Consolas';
-      default:
-        return 'monospace';
-    }
-  }
+
+  // TODO: dart:io is not available at web platform currently
+  // See: https://github.com/flutter/flutter/issues/39998
+  // So we just use monospace here for now
+  static const _defaultFontFamily = 'monospace';
 
   @override
   Widget build(BuildContext context) {
