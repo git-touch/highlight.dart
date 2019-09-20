@@ -6,6 +6,26 @@ import 'package:test/test.dart';
 void main() {
   var fixturesDir = '../vendor/highlight.js/test';
 
+  group('basic', () {
+    test('language is null', () {
+      expect(() => highlight.parse('abc'), throwsArgumentError);
+    });
+
+    test('language not exists', () {
+      expect(
+        highlight
+            .parse('abc', language: 'no-such-lang', autoDetection: true)
+            .toHtml(),
+        'abc',
+      );
+    });
+
+    test('auto detection', () {
+      expect(() => highlight.parse('abc', autoDetection: true),
+          isNot(throwsArgumentError));
+    });
+  });
+
   group('markup', () {
     Directory('$fixturesDir/markup').listSync().forEach((entity) {
       if (entity.path.endsWith('.js')) return;

@@ -266,7 +266,7 @@ class Highlight {
       if (autoDetection) {
         return _parseAuto(source);
       } else {
-        throw '`language` is missing. If you want to enable language auto detection, set `autoDetection` to true.';
+        throw ArgumentError.notNull('language');
       }
     }
     return _parse(source, language: language);
