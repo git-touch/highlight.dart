@@ -105,15 +105,30 @@ function normalizeLanguageName(name) {
 export function allModes() {
   let all = "var all = {";
 
+  const dirs = fs.readdirSync(dir);
+  const items = [
+    ...dirs.map(file => ({
+      name: path.basename(file, path.extname(file)),
+      factory: require(path.resolve(dir, file))
+    })),
+    {
+      name: "vue",
+      factory: require("../vendor/highlightjs-vue").definer
+    },
+    {
+      name: "graphql",
+      factory: require("../vendor/highlightjs-graphql").definer
+    }
+  ];
+
   // ["json"]
-  fs.readdirSync(dir).forEach(file => {
-    const langObj = require(path.resolve(dir, file))(hljs);
-    let originalLang = path.basename(file, path.extname(file));
+  items.forEach(item => {
+    let originalLang = item.name;
     let lang = normalizeLanguageName(originalLang);
 
     try {
       // Handle circular object
-      const str = CircularJSON.stringify(langObj, (k, v) => {
+      const str = CircularJSON.stringify(item.factory(hljs), (k, v) => {
         // console.log(v);
         // RegExp -> string
         if (v instanceof RegExp) {

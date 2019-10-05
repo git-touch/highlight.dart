@@ -1,3 +1,5 @@
+import 'graphql.dart';
+import 'vue.dart';
 import 'zephir.dart';
 import 'yaml.dart';
 import 'xquery.dart';
@@ -370,4 +372,6 @@ var all = {
   'xquery': xquery,
   'yaml': yaml,
   'zephir': zephir,
+  'vue': vue,
+  'graphql': graphql,
 };
