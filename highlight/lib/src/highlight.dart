@@ -3,23 +3,11 @@ import 'utils.dart';
 import 'node.dart';
 import 'mode.dart';
 import 'result.dart';
-import '../languages/all.dart';
 
 class Highlight {
   Map<String, Mode> _languages = {};
   Map<String, String> _aliases = {};
   Mode _languageMode;
-
-  /// Create a syntax highlight instance
-  ///
-  /// Note that all languages are registered by default.
-  factory Highlight() {
-    var hl = Highlight._init();
-    all.forEach(hl.registerLanguage);
-    return hl;
-  }
-
-  Highlight._init();
 
   bool _classNameExists(String className) {
     return className != null && className.isNotEmpty;

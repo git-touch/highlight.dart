@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:path/path.dart' as path;
-import 'package:highlight/highlight.dart' as highlight;
+import 'package:highlight/highlight.dart' show highlight;
 import 'package:test/test.dart';
 
 void main() {
@@ -42,8 +42,8 @@ void main() {
                     .readAsStringSync()
                     .trim();
 
-            var actual = highlight.parse(code, language: lang).toHtml().trim();
-            expect(actual, expected);
+            expect(highlight.parse(code, language: lang).toHtml().trim(),
+                expected);
           });
         });
       });
@@ -59,7 +59,7 @@ void main() {
         Directory('$fixturesDir/detect/$lang').listSync().forEach((entity) {
           test(path.basename(entity.path), () {
             var code = File(entity.path).readAsStringSync();
-            expect(lang, highlight.parse(code, autoDetection: true).language);
+            expect(highlight.parse(code, autoDetection: true).language, lang);
           });
         });
       });

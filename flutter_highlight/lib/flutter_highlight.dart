@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:highlight/highlight.dart' as highlight;
+import 'package:highlight/highlight.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
 class HighlightView extends StatelessWidget {
@@ -40,12 +40,12 @@ class HighlightView extends StatelessWidget {
     this.textStyle,
   });
 
-  List<TextSpan> _convert(List<highlight.Node> nodes) {
+  List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
     var currentSpans = spans;
     List<List<TextSpan>> stack = [];
 
-    _traverse(highlight.Node node) {
+    _traverse(Node node) {
       if (node.value != null) {
         currentSpans.add(node.className == null
             ? TextSpan(text: node.value)
