@@ -17,7 +17,5 @@ dev_dependencies:
     sdk: flutter
 
 dependency_overrides:
-  # highlight:
-  #   path: ../highlight
-
-flutter:
+  highlight:
+    path: ../highlight

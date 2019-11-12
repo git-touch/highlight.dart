@@ -25,7 +25,7 @@ export function example() {
   });
   code += "};";
   fs.writeFileSync(
-    "../flutter_highlight_gallery/lib/generated/example_map.dart",
+    "../flutter_highlight/example/lib/generated/example_map.dart",
     code
   );
 }
