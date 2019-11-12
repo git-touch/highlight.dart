@@ -1,3 +1,8 @@
+## 0.4.1
+
+- Support GraphQL and Vue
+- Add `highlight_core.dart`
+
 ## 0.4.0
 
 - Add auto detection option
