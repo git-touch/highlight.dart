@@ -4,10 +4,10 @@ Syntax highlighting for Dart and Flutter, which supports lots of languages and t
 
 [View gallery built with Flutter web](https://pd4d10.github.io/highlight/)
 
-| Package                                                                                | Version                                                                                              | Description                                        |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [highlight](https://github.com/pd4d10/highlight/tree/master/highlight)                 | [![pub](https://img.shields.io/pub/v/highlight)](https://pub.dev/packages/highlight)                 | Core syntax highlighting component written in Dart |
-| [flutter_highlight](https://github.com/pd4d10/highlight/tree/master/flutter_highlight) | [![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight) | Flutter syntax highlighting widget                 |
+| Package                                                                                | Version                                                                                              | Description                                      |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| [highlight](https://github.com/pd4d10/highlight/tree/master/highlight)                 | [![pub](https://img.shields.io/pub/v/highlight)](https://pub.dev/packages/highlight)                 | Core syntax highlighting library written in Dart |
+| [flutter_highlight](https://github.com/pd4d10/highlight/tree/master/flutter_highlight) | [![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight) | Flutter syntax highlighting widget               |
 |                                                                                        |
 
 ## References

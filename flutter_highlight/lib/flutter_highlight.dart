@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
@@ -23,13 +24,7 @@ class HighlightView extends StatelessWidget {
 
   /// Text styles
   ///
-  /// Specify text styles such as font family, font size
-  ///
-  /// default font family:
-  /// - iOS, macOS: Menlo
-  /// - Android: Roboto Mono
-  /// - Windows: Consolas
-  /// - others: monospace
+  /// Specify text styles such as font family and font size
   final TextStyle textStyle;
 
   HighlightView(
@@ -83,7 +78,6 @@ class HighlightView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nodes = highlight.parse(source, language: language).nodes;
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
       color: theme[_rootKey]?.color ?? _defaultFontColor,
@@ -95,8 +89,11 @@ class HighlightView extends StatelessWidget {
     return Container(
       color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
       padding: padding,
-      child: RichText(
-        text: TextSpan(style: _textStyle, children: _convert(nodes)),
+      child: SelectableText.rich(
+        TextSpan(
+          style: _textStyle,
+          children: _convert(highlight.parse(source, language: language).nodes),
+        ),
       ),
     );
   }
