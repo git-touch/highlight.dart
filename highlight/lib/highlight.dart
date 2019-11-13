@@ -6,4 +6,4 @@ export 'package:highlight/src/node.dart';
 export 'package:highlight/src/mode.dart';
 export 'package:highlight/src/result.dart';
 
-final highlight = Highlight()..registerLanguages(all);
+final highlight = Highlight()..registerLanguages(allLanguages);

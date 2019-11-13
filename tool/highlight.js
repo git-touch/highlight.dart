@@ -103,29 +103,36 @@ function normalizeLanguageName(name) {
 }
 
 export function allModes() {
-  let all = "final all = {";
+  let all = "";
+  let builtin = "final builtinLanguages = {";
+  let community = "final communityLanguages = {";
 
   const dirs = fs.readdirSync(dir);
   const items = [
     ...dirs.map(file => ({
       name: path.basename(file, path.extname(file)),
-      factory: require(path.resolve(dir, file))
+      factory: require(path.resolve(dir, file)),
+      community: false
     })),
     {
       name: "vue",
-      factory: require("../vendor/highlightjs-vue").definer
+      factory: require("../vendor/highlightjs-vue").definer,
+      community: true
     },
     {
       name: "graphql",
-      factory: require("../vendor/highlightjs-graphql").definer
+      factory: require("../vendor/highlightjs-graphql").definer,
+      community: true
     },
     {
       name: "gn",
-      factory: require("../vendor/highlightjs-GN").definer
+      factory: require("../vendor/highlightjs-GN").definer,
+      community: true
     },
     {
       name: "solidity",
-      factory: require("../vendor/highlightjs-solidity").definer
+      factory: require("../vendor/highlightjs-solidity").definer,
+      community: true
     }
   ];
 
@@ -198,15 +205,22 @@ export function allModes() {
           .replace(/\$/g, "\\$")
       );
 
-      all = `import '${originalLang}.dart';` + all;
-      all += `'${originalLang}': ${lang},`;
+      all += `import '${originalLang}.dart';`;
+      if (item.community) {
+        community += `'${originalLang}': ${lang},`;
+      } else {
+        builtin += `'${originalLang}': ${lang},`;
+      }
     } catch (err) {
       console.error(err);
     }
   });
 
   // all.dart
-  all += "};";
+  builtin += "};";
+  community += "};";
+  all += community + builtin;
+  all += "final allLanguages = {...builtinLanguages,...communityLanguages};";
   fs.writeFileSync(
     `../highlight/lib/languages/all.dart`,
     all.replace(/\$/g, "\\$")
