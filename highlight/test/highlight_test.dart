@@ -1,10 +1,12 @@
 import 'dart:io';
+import 'package:highlight/languages/all.dart';
 import 'package:path/path.dart' as path;
-import 'package:highlight/highlight.dart' show highlight;
+import 'package:highlight/highlight_core.dart' show highlight;
 import 'package:test/test.dart';
 
 void main() {
   var fixturesDir = '../vendor/highlight.js/test';
+  highlight.registerLanguages(builtinLanguages);
 
   group('basic', () {
     test('language is null', () {
