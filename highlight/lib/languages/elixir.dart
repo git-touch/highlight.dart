@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var elixir = Mode(
+final elixir = Mode(
     refs: {
       '~contains~0~contains~1~contains~9': Mode(begin: "->"),
       '~contains~0~contains~1~contains~8': Mode(

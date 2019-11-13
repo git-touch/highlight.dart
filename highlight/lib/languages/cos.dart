@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var cos = Mode(
+final cos = Mode(
     refs: {},
     case_insensitive: true,
     aliases: ["cos", "cls"],

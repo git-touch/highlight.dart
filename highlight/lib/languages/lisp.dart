@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var lisp = Mode(
+final lisp = Mode(
     refs: {
       '~contains~7': Mode(begin: "\\(\\s*", end: "\\)", contains: [
         Mode(className: "name", variants: [

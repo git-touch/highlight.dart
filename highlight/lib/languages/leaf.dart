@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var leaf = Mode(refs: {}, contains: [
+final leaf = Mode(refs: {}, contains: [
   Mode(
       className: "function",
       begin: "#+[A-Za-z_0-9]*\\(",

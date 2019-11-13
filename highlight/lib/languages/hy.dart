@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var hy = Mode(
+final hy = Mode(
     refs: {
       '~contains~1~contains~1~starts~contains~6~contains~9': Mode(
           begin: "[a-zA-Z_\\-!.?+*=<>&#'][a-zA-Z_\\-!.?+*=<>&#'0-9/;:]*",

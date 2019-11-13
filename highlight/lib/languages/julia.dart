@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var julia = Mode(
+final julia = Mode(
     refs: {
       '~contains~2~contains~1~contains~8': Mode(begin: "<:"),
       '~contains~2~contains~1~contains~7': Mode(

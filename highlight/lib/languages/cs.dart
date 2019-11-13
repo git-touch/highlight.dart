@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var cs = Mode(
+final cs = Mode(
     refs: {
       '~contains~4~variants~0~contains~3~contains~2':
           Mode(className: "string", begin: "@\"", end: "\"", contains: [

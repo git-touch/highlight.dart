@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ruby = Mode(
+final ruby = Mode(
     refs: {
       '~contains~3~starts~contains~0~contains~1~contains~3~contains~1~contains~9':
           Mode(className: "params", begin: "\\|", end: "\\|", keywords: {

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var asciidoc = Mode(refs: {}, aliases: [
+final asciidoc = Mode(refs: {}, aliases: [
   "adoc"
 ], contains: [
   Mode(

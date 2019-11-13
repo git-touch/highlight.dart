@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var vue = Mode(refs: {}, subLanguage: [
+final vue = Mode(refs: {}, subLanguage: [
   "xml"
 ], contains: [
   Mode(

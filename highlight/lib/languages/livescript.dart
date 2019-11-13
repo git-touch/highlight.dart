@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var livescript = Mode(
+final livescript = Mode(
     refs: {
       '~contains~9~contains~0': Mode(
           className: "title",

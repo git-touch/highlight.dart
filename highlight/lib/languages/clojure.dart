@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var clojure = Mode(
+final clojure = Mode(
     refs: {
       '~contains~0~contains~1~starts~contains~3~contains~0~contains~9': Mode(
           begin: "[a-zA-Z_\\-!.?+*=<>&#'][a-zA-Z_\\-!.?+*=<>&#'0-9/;:]*",

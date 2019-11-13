@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var perl = Mode(
+final perl = Mode(
     refs: {
       '~contains~3~contains~4~contains~1~contains~9': Mode(
           begin: "^__DATA__\$",

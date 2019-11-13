@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var mipsasm = Mode(
+final mipsasm = Mode(
     refs: {},
     case_insensitive: true,
     aliases: ["mips"],

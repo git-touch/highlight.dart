@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dos = Mode(
+final dos = Mode(
     refs: {
       '~contains~1~contains~1': Mode(
           className: "comment",

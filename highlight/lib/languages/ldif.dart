@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ldif = Mode(refs: {}, contains: [
+final ldif = Mode(refs: {}, contains: [
   Mode(
       className: "attribute",
       begin: "^dn",

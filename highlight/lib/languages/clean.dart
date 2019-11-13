@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var clean = Mode(refs: {}, aliases: [
+final clean = Mode(refs: {}, aliases: [
   "clean",
   "icl",
   "dcl"

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var mojolicious = Mode(refs: {}, subLanguage: [
+final mojolicious = Mode(refs: {}, subLanguage: [
   "xml"
 ], contains: [
   Mode(className: "meta", begin: "^__(END|DATA)__\$"),

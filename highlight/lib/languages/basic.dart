@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var basic = Mode(
+final basic = Mode(
     refs: {},
     case_insensitive: true,
     illegal: "^.",

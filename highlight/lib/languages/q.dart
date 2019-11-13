@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var q = Mode(
+final q = Mode(
     refs: {},
     aliases: ["k", "kdb"],
     keywords: {

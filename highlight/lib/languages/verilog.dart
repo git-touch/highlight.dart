@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var verilog = Mode(
+final verilog = Mode(
     refs: {},
     aliases: ["v", "sv", "svh"],
     case_insensitive: false,

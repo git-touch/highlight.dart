@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var irpf90 = Mode(
+final irpf90 = Mode(
     refs: {},
     case_insensitive: true,
     keywords: {

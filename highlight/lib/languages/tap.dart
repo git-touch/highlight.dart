@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var tap = Mode(
+final tap = Mode(
     refs: {},
     case_insensitive: true,
     contains: [

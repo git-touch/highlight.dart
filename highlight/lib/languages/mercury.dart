@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var mercury = Mode(refs: {}, aliases: [
+final mercury = Mode(refs: {}, aliases: [
   "m",
   "moo"
 ], keywords: {

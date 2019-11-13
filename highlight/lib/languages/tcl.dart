@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var tcl = Mode(
+final tcl = Mode(
     refs: {},
     aliases: ["tk"],
     keywords:

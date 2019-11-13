@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var smali = Mode(refs: {}, aliases: [
+final smali = Mode(refs: {}, aliases: [
   "smali"
 ], contains: [
   Mode(className: "string", begin: "\"", end: "\"", relevance: 0),

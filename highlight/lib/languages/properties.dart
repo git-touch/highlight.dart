@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var properties = Mode(
+final properties = Mode(
     refs: {
       '~contains~1~starts': Mode(
           end: "([ \\t\\f]*[:=][ \\t\\f]*|[ \\t\\f]+)",

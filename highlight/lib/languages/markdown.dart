@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var markdown = Mode(refs: {}, aliases: [
+final markdown = Mode(refs: {}, aliases: [
   "md",
   "mkdown",
   "mkd"

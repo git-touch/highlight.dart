@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var hsp = Mode(
+final hsp = Mode(
     refs: {},
     case_insensitive: true,
     lexemes: "[\\w\\._]+",

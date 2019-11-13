@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var profile = Mode(refs: {}, contains: [
+final profile = Mode(refs: {}, contains: [
   C_NUMBER_MODE,
   Mode(
       begin: "[a-zA-Z_][\\da-zA-Z_]+\\.[\\da-zA-Z_]{1,3}",

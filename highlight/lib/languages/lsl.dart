@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var lsl = Mode(
+final lsl = Mode(
     refs: {},
     illegal: ":",
     contains: [

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var subunit = Mode(
+final subunit = Mode(
     refs: {},
     case_insensitive: true,
     contains: [

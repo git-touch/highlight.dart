@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var erlang = Mode(
+final erlang = Mode(
     refs: {
       '~contains~0~contains~0~contains~2~contains~4~contains~1~contains~6~contains~9':
           Mode(

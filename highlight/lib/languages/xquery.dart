@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var xquery = Mode(
+final xquery = Mode(
     refs: {},
     aliases: ["xpath", "xq"],
     case_insensitive: false,

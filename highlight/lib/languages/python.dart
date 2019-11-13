@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var python = Mode(
+final python = Mode(
     refs: {
       '~contains~2~variants~2~contains~3': Mode(
           className: "subst",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var accesslog = Mode(refs: {}, contains: [
+final accesslog = Mode(refs: {}, contains: [
   Mode(
       className: "number",
       begin: "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?\\b",

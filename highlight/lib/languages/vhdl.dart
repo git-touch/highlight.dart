@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var vhdl = Mode(
+final vhdl = Mode(
     refs: {},
     case_insensitive: true,
     keywords: {

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var vbnet = Mode(
+final vbnet = Mode(
     refs: {},
     aliases: ["vb"],
     case_insensitive: true,

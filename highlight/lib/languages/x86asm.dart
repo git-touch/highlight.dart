@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var x86Asm = Mode(
+final x86Asm = Mode(
     refs: {},
     case_insensitive: true,
     lexemes: "[.%]?[a-zA-Z]\\w*",

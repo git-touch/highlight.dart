@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var haxe = Mode(refs: {}, aliases: [
+final haxe = Mode(refs: {}, aliases: [
   "hx"
 ], keywords: {
   "keyword":

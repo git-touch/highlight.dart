@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var prolog = Mode(refs: {
+final prolog = Mode(refs: {
   '~contains~2~contains~4~contains~9': Mode(
       className: "string", begin: "`", end: "`", contains: [BACKSLASH_ESCAPE]),
   '~contains~2~contains~4~contains~5': Mode(

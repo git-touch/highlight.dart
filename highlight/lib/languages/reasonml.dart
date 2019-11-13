@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var reasonml = Mode(
+final reasonml = Mode(
     refs: {
       '~contains~6': Mode(
           className: "constructor",

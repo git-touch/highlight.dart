@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dart = Mode(refs: {
+final dart = Mode(refs: {
   '~contains~0~variants~4~contains~2': Mode(
       className: "subst",
       variants: [Mode(begin: "\\\${", end: "}")],

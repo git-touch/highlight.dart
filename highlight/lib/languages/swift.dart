@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var swift = Mode(refs: {
+final swift = Mode(refs: {
   '~contains~2':
       Mode(className: "comment", begin: "/\\*", end: "\\*/", contains: [
     Mode(self: true),

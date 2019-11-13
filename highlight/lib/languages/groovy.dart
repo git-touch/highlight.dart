@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var groovy = Mode(refs: {}, keywords: {
+final groovy = Mode(refs: {}, keywords: {
   "literal": "true false null",
   "keyword":
       "byte short char int long boolean float double void def as in assert trait super this abstract static volatile transient public private protected synchronized final class interface enum if else for while switch case break default continue throw throws try catch finally implements extends new import package return instanceof"

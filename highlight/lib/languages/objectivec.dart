@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var objectivec = Mode(
+final objectivec = Mode(
     refs: {},
     aliases: ["mm", "objc", "obj-c"],
     keywords: {

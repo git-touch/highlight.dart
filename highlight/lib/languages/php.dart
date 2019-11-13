@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var php = Mode(
+final php = Mode(
     refs: {
       '~contains~9~contains~1~contains~4':
           Mode(variants: [BINARY_NUMBER_MODE, C_NUMBER_MODE]),

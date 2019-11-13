@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var javascript = Mode(refs: {
+final javascript = Mode(refs: {
   '~contains~4~starts~contains~1~contains~5': Mode(
       className: "number",
       variants: [

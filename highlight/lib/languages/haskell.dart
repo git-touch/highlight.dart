@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var haskell = Mode(
+final haskell = Mode(
     refs: {
       '~contains~2~contains~0':
           Mode(className: "type", begin: "\\b[A-Z][\\w']*", relevance: 0),

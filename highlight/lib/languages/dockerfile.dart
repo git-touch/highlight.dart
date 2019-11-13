@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dockerfile = Mode(
+final dockerfile = Mode(
     refs: {},
     aliases: ["docker"],
     case_insensitive: true,

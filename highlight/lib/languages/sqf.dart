@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var sqf = Mode(
+final sqf = Mode(
     refs: {
       '~contains~5~variants~1': Mode(
           begin: "'", end: "'", contains: [Mode(begin: "''", relevance: 0)]),

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var stan = Mode(refs: {}, contains: [
+final stan = Mode(refs: {}, contains: [
   HASH_COMMENT_MODE,
   C_LINE_COMMENT_MODE,
   C_BLOCK_COMMENT_MODE,

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var lang1C = Mode(
+final lang1C = Mode(
     refs: {
       '~contains~1~contains~0~contains~0~contains~2': Mode(
           begin: "'",

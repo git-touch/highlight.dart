@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var capnproto = Mode(refs: {}, aliases: [
+final capnproto = Mode(refs: {}, aliases: [
   "capnp"
 ], keywords: {
   "keyword":

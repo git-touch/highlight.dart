@@ -87,7 +87,7 @@ function generateMode(obj, matchCommonKey = true, commonSet = new Set()) {
 export function commonModes() {
   let common = `${NOTICE_COMMENT}import 'mode.dart';`;
   modeEntries.forEach(([k, v]) => {
-    common += `var ${k}=${generateMode(v, false)};`;
+    common += `final ${k}=${generateMode(v, false)};`;
   });
   fs.writeFileSync(
     `../highlight/lib/src/common_modes.dart`,
@@ -103,7 +103,7 @@ function normalizeLanguageName(name) {
 }
 
 export function allModes() {
-  let all = "var all = {";
+  let all = "final all = {";
 
   const dirs = fs.readdirSync(dir);
   const items = [
@@ -183,7 +183,7 @@ export function allModes() {
 
       fs.writeFileSync(
         `../highlight/lib/languages/${originalLang}.dart`,
-        `${NOTICE_COMMENT}import '../src/mode.dart'; import '../src/common_modes.dart'; var ${lang}=Mode(${commonStr} ${data.slice(
+        `${NOTICE_COMMENT}import '../src/mode.dart'; import '../src/common_modes.dart'; final ${lang}=Mode(${commonStr} ${data.slice(
           5
         )};`
           .replace(/"hljs\.(.*?)"/g, "$1")

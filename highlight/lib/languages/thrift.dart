@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var thrift = Mode(refs: {}, keywords: {
+final thrift = Mode(refs: {}, keywords: {
   "keyword":
       "namespace const typedef struct enum service exception void oneway set list map required optional",
   "built_in": "bool byte i16 i32 i64 double string binary",

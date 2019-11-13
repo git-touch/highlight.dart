@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var makefile = Mode(
+final makefile = Mode(
     refs: {
       '~contains~1': Mode(className: "variable", variants: [
         Mode(begin: "\\\$\\([a-zA-Z_]\\w*\\)", contains: [BACKSLASH_ESCAPE]),

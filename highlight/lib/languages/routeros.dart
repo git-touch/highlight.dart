@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var routeros = Mode(
+final routeros = Mode(
     refs: {
       '~contains~3': Mode(className: "string", begin: "'", end: "'"),
       '~contains~2~contains~1': Mode(className: "variable", variants: [

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var yaml = Mode(
+final yaml = Mode(
     refs: {},
     case_insensitive: true,
     aliases: ["yml", "YAML", "yaml"],

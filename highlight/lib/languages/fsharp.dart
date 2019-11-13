@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var fsharp = Mode(
+final fsharp = Mode(
     refs: {},
     aliases: ["fs"],
     keywords:

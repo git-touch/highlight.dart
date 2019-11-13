@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var d = Mode(
+final d = Mode(
     refs: {},
     lexemes: "[a-zA-Z_]\\w*",
     keywords: {

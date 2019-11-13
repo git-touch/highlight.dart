@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var fortran = Mode(
+final fortran = Mode(
     refs: {},
     case_insensitive: true,
     aliases: ["f90", "f95"],

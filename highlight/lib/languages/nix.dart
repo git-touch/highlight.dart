@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var nix = Mode(refs: {
+final nix = Mode(refs: {
   '~contains~3~contains~0~contains~4': Mode(
       begin: "[a-zA-Z0-9-_]+(\\s*=)",
       returnBegin: true,

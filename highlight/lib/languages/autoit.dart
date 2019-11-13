@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var autoit = Mode(
+final autoit = Mode(
     refs: {
       '~contains~3': Mode(variants: [BINARY_NUMBER_MODE, C_NUMBER_MODE]),
       '~contains~2': Mode(className: "string", variants: [

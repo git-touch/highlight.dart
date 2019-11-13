@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var nginx = Mode(refs: {
+final nginx = Mode(refs: {
   '~contains~2~contains~0~starts~contains~1~contains~1':
       Mode(className: "variable", variants: [
     Mode(begin: "\\\$\\d+"),

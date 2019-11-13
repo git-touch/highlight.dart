@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var erb = Mode(refs: {}, subLanguage: [
+final erb = Mode(refs: {}, subLanguage: [
   "xml"
 ], contains: [
   Mode(className: "comment", begin: "<%#", end: "%>", contains: [

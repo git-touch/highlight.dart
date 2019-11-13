@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ocaml = Mode(
+final ocaml = Mode(
     refs: {},
     aliases: ["ml"],
     keywords: {

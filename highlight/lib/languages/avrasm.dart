@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var avrasm = Mode(
+final avrasm = Mode(
     refs: {},
     case_insensitive: true,
     lexemes: "\\.?[a-zA-Z]\\w*",

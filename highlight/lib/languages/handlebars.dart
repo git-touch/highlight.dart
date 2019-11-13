@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var handlebars = Mode(
+final handlebars = Mode(
     refs: {
       '~contains~7~contains~0': Mode(
           begin: "\".*?\"|'.*?'|\\[.*?\\]|\\w+",

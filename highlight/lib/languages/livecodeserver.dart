@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var livecodeserver = Mode(
+final livecodeserver = Mode(
     refs: {
       '~contains~2~contains~6': Mode(
           className: "title",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var mathematica = Mode(
+final mathematica = Mode(
     refs: {},
     aliases: ["mma", "wl"],
     lexemes: "(\\\$|\\b)[a-zA-Z]\\w*\\b",

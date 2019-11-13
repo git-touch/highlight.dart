@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var csp = Mode(
+final csp = Mode(
     refs: {},
     case_insensitive: false,
     lexemes: "[a-zA-Z][a-zA-Z0-9_-]*",

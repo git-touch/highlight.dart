@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var abnf = Mode(
+final abnf = Mode(
     refs: {},
     illegal: "[!@#\$^&',?+\\x7e`|:]",
     keywords:

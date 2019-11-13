@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var lasso = Mode(
+final lasso = Mode(
     refs: {
       '~contains~3~starts~contains~9': Mode(variants: [
         Mode(begin: "[#\$][a-zA-Z_][\\w.]*"),

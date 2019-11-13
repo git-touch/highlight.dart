@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var matlab = Mode(
+final matlab = Mode(
     refs: {
       '~contains~1~starts':
           Mode(relevance: 0, contains: [Mode(begin: "('|\\.')+")]),

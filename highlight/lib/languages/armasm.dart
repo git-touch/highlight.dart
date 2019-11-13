@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var armasm = Mode(
+final armasm = Mode(
     refs: {},
     case_insensitive: true,
     aliases: ["arm"],

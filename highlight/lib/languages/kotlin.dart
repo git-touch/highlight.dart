@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var kotlin = Mode(refs: {
+final kotlin = Mode(refs: {
   '~contains~7~contains~2~contains~0~contains~0': Mode(variants: [
     Mode(className: "type", begin: "[a-zA-Z_]\\w*"),
     Mode(

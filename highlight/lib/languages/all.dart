@@ -186,7 +186,7 @@ import 'accesslog.dart';
 import 'abnf.dart';
 import '1c.dart';
 
-var all = {
+final all = {
   '1c': lang1C,
   'abnf': abnf,
   'accesslog': accesslog,

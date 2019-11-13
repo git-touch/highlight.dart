@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var maxima = Mode(
+final maxima = Mode(
     refs: {},
     lexemes: "[A-Za-z_%][0-9A-Za-z_%]*",
     keywords: {

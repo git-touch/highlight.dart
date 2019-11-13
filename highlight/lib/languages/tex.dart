@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var tex = Mode(refs: {
+final tex = Mode(refs: {
   '~contains~0': Mode(className: "tag", begin: "\\\\", relevance: 0, contains: [
     Mode(
         className: "name",

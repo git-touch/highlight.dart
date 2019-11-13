@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var gherkin = Mode(
+final gherkin = Mode(
     refs: {},
     aliases: ["feature"],
     keywords:

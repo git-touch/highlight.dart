@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var inform7 = Mode(
+final inform7 = Mode(
     refs: {},
     aliases: ["i7"],
     case_insensitive: true,

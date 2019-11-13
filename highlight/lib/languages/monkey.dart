@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var monkey = Mode(
+final monkey = Mode(
     refs: {},
     case_insensitive: true,
     keywords: {

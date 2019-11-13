@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var sas = Mode(
+final sas = Mode(
     refs: {},
     aliases: ["sas", "SAS"],
     case_insensitive: true,

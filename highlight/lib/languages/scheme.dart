@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var scheme = Mode(
+final scheme = Mode(
     refs: {
       '~contains~5~contains~2~contains~8':
           Mode(className: "comment", begin: "#\\|", end: "\\|#", contains: [

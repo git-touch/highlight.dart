@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var tp = Mode(refs: {
+final tp = Mode(refs: {
   '~contains~0~contains~2': Mode(className: "symbol", begin: ":[^\\]]+"),
   '~contains~0~contains~1':
       Mode(className: "number", begin: "[1-9][0-9]*", relevance: 0),

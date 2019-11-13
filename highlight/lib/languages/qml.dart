@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var qml = Mode(
+final qml = Mode(
     refs: {},
     aliases: ["qt"],
     case_insensitive: false,

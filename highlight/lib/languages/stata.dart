@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var stata = Mode(
+final stata = Mode(
     refs: {},
     aliases: ["do", "ado"],
     case_insensitive: true,

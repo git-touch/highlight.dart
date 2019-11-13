@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var zephir = Mode(
+final zephir = Mode(
     refs: {
       '~contains~6~contains~1~contains~3':
           Mode(variants: [BINARY_NUMBER_MODE, C_NUMBER_MODE]),

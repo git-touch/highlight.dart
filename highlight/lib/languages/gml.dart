@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var gml = Mode(
+final gml = Mode(
     refs: {},
     aliases: ["gml", "GML"],
     case_insensitive: false,

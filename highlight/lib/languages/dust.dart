@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dust = Mode(
+final dust = Mode(
     refs: {},
     aliases: ["dst"],
     case_insensitive: true,

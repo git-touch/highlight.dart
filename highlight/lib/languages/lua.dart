@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var lua = Mode(
+final lua = Mode(
     refs: {
       '~contains~1~contains~0': Mode(
           begin: "\\[=*\\[", end: "\\]=*\\]", contains: [Mode(self: true)]),

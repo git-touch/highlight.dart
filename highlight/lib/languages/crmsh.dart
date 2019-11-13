@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var crmsh = Mode(
+final crmsh = Mode(
     refs: {},
     aliases: ["crm", "pcmk"],
     case_insensitive: true,

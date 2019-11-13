@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var xl = Mode(
+final xl = Mode(
     refs: {
       '~contains~2':
           Mode(className: "string", begin: "\"", end: "\"", illegal: "\\n"),

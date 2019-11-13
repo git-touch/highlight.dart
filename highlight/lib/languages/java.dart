@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var java = Mode(
+final java = Mode(
     refs: {},
     aliases: ["jsp"],
     keywords:

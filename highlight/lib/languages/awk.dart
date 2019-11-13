@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var awk = Mode(refs: {}, keywords: {
+final awk = Mode(refs: {}, keywords: {
   "keyword":
       "BEGIN END if else while do for in break continue delete next nextfile function func exit|10"
 }, contains: [

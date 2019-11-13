@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var pf = Mode(
+final pf = Mode(
     refs: {},
     aliases: ["pf.conf"],
     lexemes: "[a-z0-9_<>-]+",

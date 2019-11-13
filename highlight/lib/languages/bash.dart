@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var bash = Mode(
+final bash = Mode(
     refs: {
       '~contains~3~contains~1': Mode(className: "variable", variants: [
         Mode(begin: "\\\$[\\w\\d#@][\\w\\d_]*"),

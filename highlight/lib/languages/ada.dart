@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ada = Mode(
+final ada = Mode(
     refs: {
       '~contains~6~contains~2': Mode(
           begin: "\\s+:\\s+",

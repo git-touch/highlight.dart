@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var vbscript = Mode(
+final vbscript = Mode(
     refs: {},
     aliases: ["vbs"],
     case_insensitive: true,

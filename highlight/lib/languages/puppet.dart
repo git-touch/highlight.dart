@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var puppet = Mode(refs: {
+final puppet = Mode(refs: {
   '~contains~2': Mode(
       className: "string",
       contains: [BACKSLASH_ESCAPE, Mode(ref: '~contains~1')],

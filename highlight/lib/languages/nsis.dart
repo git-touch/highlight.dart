@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var nsis = Mode(
+final nsis = Mode(
     refs: {
       '~contains~4~contains~4':
           Mode(className: "variable", begin: "\\\$+\\([\\w\\^\\.:-]+\\)"),

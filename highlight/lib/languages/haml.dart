@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var haml = Mode(
+final haml = Mode(
     refs: {},
     case_insensitive: true,
     contains: [

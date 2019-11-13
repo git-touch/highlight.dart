@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var sml = Mode(
+final sml = Mode(
     refs: {},
     aliases: ["ml"],
     keywords: {

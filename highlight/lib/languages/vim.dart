@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var vim = Mode(
+final vim = Mode(
     refs: {},
     lexemes: "[!#@\\w]+",
     keywords: {

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ini = Mode(
+final ini = Mode(
     refs: {},
     aliases: ["toml"],
     case_insensitive: true,

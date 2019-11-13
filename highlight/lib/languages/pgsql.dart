@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var pgsql = Mode(
+final pgsql = Mode(
     refs: {},
     aliases: ["postgres", "postgresql"],
     case_insensitive: true,

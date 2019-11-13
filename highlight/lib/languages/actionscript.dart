@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var actionscript = Mode(refs: {}, aliases: [
+final actionscript = Mode(refs: {}, aliases: [
   "as"
 ], keywords: {
   "keyword":

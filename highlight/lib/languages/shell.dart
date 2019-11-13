@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var shell = Mode(refs: {}, aliases: [
+final shell = Mode(refs: {}, aliases: [
   "console"
 ], contains: [
   Mode(

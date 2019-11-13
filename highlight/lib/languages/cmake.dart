@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var cmake = Mode(
+final cmake = Mode(
     refs: {},
     aliases: ["cmake.in"],
     case_insensitive: true,

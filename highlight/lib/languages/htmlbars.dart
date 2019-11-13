@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var htmlbars = Mode(
+final htmlbars = Mode(
     refs: {},
     case_insensitive: true,
     subLanguage: ["xml"],

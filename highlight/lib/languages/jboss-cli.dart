@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var jbossCli = Mode(
+final jbossCli = Mode(
     refs: {},
     aliases: ["wildfly-cli"],
     lexemes: "[a-z-]+",

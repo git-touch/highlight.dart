@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var django = Mode(
+final django = Mode(
     refs: {
       '~contains~2~contains~0~starts~contains~0':
           Mode(begin: "\\|[A-Za-z]+:?", keywords: {

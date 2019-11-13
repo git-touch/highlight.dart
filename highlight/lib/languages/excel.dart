@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var excel = Mode(
+final excel = Mode(
     refs: {},
     aliases: ["xlsx", "xls"],
     case_insensitive: true,

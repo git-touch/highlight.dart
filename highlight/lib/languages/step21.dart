@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var step21 = Mode(
+final step21 = Mode(
     refs: {},
     aliases: ["p21", "step", "stp"],
     case_insensitive: true,

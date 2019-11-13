@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var less = Mode(
+final less = Mode(
     refs: {
       '~contains~3~starts~contains~13~contains~5': Mode(
           variants: [

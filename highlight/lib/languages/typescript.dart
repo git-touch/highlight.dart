@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var typescript = Mode(refs: {
+final typescript = Mode(refs: {
   '~contains~3~starts~contains~1~contains~5': Mode(
       className: "number",
       variants: [

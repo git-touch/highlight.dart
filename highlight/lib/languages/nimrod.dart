@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var nimrod = Mode(refs: {}, aliases: [
+final nimrod = Mode(refs: {}, aliases: [
   "nim"
 ], keywords: {
   "keyword":

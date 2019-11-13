@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var arduino = Mode(
+final arduino = Mode(
   refs: {
     '~contains~5':
         Mode(className: "meta", begin: "#\\s*[a-z]+\\b", end: "\$", keywords: {

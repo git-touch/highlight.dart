@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var crystal = Mode(
+final crystal = Mode(
     refs: {
       '~contains~0~contains~0~variants~6~contains~0': Mode(
           begin: "<",

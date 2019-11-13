@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var coffeescript = Mode(
+final coffeescript = Mode(
     refs: {
       '~contains~8~contains~1': Mode(
           className: "params",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var http = Mode(
+final http = Mode(
     refs: {},
     aliases: ["https"],
     illegal: "\\S",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var parser3 = Mode(
+final parser3 = Mode(
     refs: {},
     subLanguage: ["xml"],
     relevance: 0,

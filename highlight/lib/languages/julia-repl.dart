@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var juliaRepl = Mode(refs: {}, contains: [
+final juliaRepl = Mode(refs: {}, contains: [
   Mode(
       className: "meta",
       begin: "^julia>",

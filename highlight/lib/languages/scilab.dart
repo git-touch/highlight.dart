@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var scilab = Mode(
+final scilab = Mode(
     refs: {
       '~contains~2~contains~1': Mode(
           className: "string",

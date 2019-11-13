@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dns = Mode(refs: {}, aliases: [
+final dns = Mode(refs: {}, aliases: [
   "bind",
   "zone"
 ], keywords: {

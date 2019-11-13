@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var smalltalk = Mode(
+final smalltalk = Mode(
     refs: {
       '~contains~6': Mode(className: "string", begin: "\\\$.{1}"),
       '~contains~5': Mode(className: "symbol", begin: "#[a-zA-Z_]\\w*"),

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var oxygene = Mode(
+final oxygene = Mode(
     refs: {
       '~contains~6': Mode(
           className: "function",

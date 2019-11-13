@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var taggerscript = Mode(refs: {}, contains: [
+final taggerscript = Mode(refs: {}, contains: [
   Mode(
       className: "comment",
       begin: "\\\$noop\\(",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var sql = Mode(
+final sql = Mode(
     refs: {
       '~contains~0~contains~5':
           Mode(className: "comment", begin: "--", end: "\$", contains: [

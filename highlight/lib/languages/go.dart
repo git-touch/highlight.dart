@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var go = Mode(
+final go = Mode(
     refs: {},
     aliases: ["golang"],
     keywords: {

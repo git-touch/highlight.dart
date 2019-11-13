@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var autohotkey = Mode(
+final autohotkey = Mode(
     refs: {
       '~contains~0': Mode(begin: "`[\\s\\S]"),
     },

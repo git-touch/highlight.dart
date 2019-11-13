@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var cal = Mode(
+final cal = Mode(
     refs: {
       '~contains~5~contains~1': Mode(
           className: "function",

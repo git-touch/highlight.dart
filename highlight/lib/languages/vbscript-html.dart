@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var vbscriptHtml = Mode(refs: {}, subLanguage: [
+final vbscriptHtml = Mode(refs: {}, subLanguage: [
   "xml"
 ], contains: [
   Mode(begin: "<%", end: "%>", subLanguage: ["vbscript"])

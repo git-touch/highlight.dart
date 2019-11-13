@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var rust = Mode(
+final rust = Mode(
     refs: {},
     aliases: ["rs"],
     keywords: {

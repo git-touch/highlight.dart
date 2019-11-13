@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var fix = Mode(refs: {}, contains: [
+final fix = Mode(refs: {}, contains: [
   Mode(
       begin: "[^\\u2401\\u0001]+",
       end: "[\\u2401\\u0001]",

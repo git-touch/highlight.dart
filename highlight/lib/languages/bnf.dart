@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var bnf = Mode(refs: {}, contains: [
+final bnf = Mode(refs: {}, contains: [
   Mode(className: "attribute", begin: "<", end: ">"),
   Mode(
       begin: "::=",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var diff = Mode(refs: {}, aliases: [
+final diff = Mode(refs: {}, aliases: [
   "patch"
 ], contains: [
   Mode(className: "meta", relevance: 10, variants: [

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var angelscript = Mode(
+final angelscript = Mode(
     refs: {
       '~contains~7~contains~0~contains~1': Mode(
           className: "symbol",

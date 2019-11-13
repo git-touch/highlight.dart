@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var scala = Mode(refs: {
+final scala = Mode(refs: {
   '~contains~5~contains~0': Mode(
       className: "title",
       begin:

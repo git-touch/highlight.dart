@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var gams = Mode(
+final gams = Mode(
     refs: {
       '~contains~9~contains~2': Mode(
           className: "symbol",

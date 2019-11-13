@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var purebasic = Mode(
+final purebasic = Mode(
     refs: {},
     aliases: ["pb", "pbi"],
     keywords:

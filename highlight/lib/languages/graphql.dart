@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var graphql = Mode(refs: {}, aliases: [
+final graphql = Mode(refs: {}, aliases: [
   "gql"
 ], keywords: {
   "keyword":

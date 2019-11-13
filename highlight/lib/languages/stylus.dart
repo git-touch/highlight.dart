@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var stylus = Mode(
+final stylus = Mode(
     refs: {
       '~contains~4':
           Mode(className: "number", begin: "#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})"),

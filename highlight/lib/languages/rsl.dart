@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var rsl = Mode(
+final rsl = Mode(
     refs: {},
     keywords: {
       "keyword":

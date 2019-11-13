@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var gcode = Mode(
+final gcode = Mode(
     refs: {},
     aliases: ["nc"],
     case_insensitive: true,

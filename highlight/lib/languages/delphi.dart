@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var delphi = Mode(
+final delphi = Mode(
     refs: {
       '~contains~4~contains~1~contains~5': Mode(
           className: "comment",

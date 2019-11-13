@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var css = Mode(
+final css = Mode(
     refs: {},
     case_insensitive: true,
     illegal: "[=\\/|'\\\$]",

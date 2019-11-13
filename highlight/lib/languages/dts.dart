@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dts = Mode(
+final dts = Mode(
     refs: {
       '~contains~0~contains~8~variants~2':
           Mode(begin: "'\\\\?.", end: "'", illegal: "."),

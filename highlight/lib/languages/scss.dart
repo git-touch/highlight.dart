@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var scss = Mode(
+final scss = Mode(
     refs: {
       '~contains~8': Mode(
           className: "variable", begin: "(\\\$[a-zA-Z-][a-zA-Z0-9_-]*)\\b"),

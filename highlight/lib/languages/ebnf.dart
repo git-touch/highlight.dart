@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ebnf = Mode(
+final ebnf = Mode(
     refs: {
       '~contains~0':
           Mode(className: "comment", begin: "\\(\\*", end: "\\*\\)", contains: [

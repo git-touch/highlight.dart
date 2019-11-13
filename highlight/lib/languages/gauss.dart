@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var gauss = Mode(
+final gauss = Mode(
     refs: {
       '~contains~9~contains~2~contains~4': Mode(
           begin: "[a-zA-Z_]\\w*\\s*\\(",

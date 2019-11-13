@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var twig = Mode(
+final twig = Mode(
     refs: {
       '~contains~1~contains~0~starts~contains~0~contains~0': Mode(
           beginKeywords:

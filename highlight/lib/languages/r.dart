@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var r = Mode(refs: {}, contains: [
+final r = Mode(refs: {}, contains: [
   HASH_COMMENT_MODE,
   Mode(
       begin: "([a-zA-Z]|\\.[a-zA-Z.])[a-zA-Z0-9._]*",

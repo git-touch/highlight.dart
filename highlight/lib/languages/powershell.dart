@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var powershell = Mode(
+final powershell = Mode(
     refs: {
       '~contains~2~contains~1': Mode(
           className: "variable",

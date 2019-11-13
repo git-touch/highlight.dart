@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var apache = Mode(
+final apache = Mode(
     refs: {
       '~contains~2~starts~contains~1~contains~1':
           Mode(className: "number", begin: "[\\\$%]\\d+"),

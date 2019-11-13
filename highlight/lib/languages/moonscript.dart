@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var moonscript = Mode(
+final moonscript = Mode(
     refs: {
       '~contains~6~contains~1': Mode(
           className: "params",

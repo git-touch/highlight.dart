@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var ceylon = Mode(
+final ceylon = Mode(
     refs: {
       '~contains~4~contains~0~contains~3': Mode(
           className: "number",

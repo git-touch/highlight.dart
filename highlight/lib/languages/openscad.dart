@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var openscad = Mode(refs: {
+final openscad = Mode(refs: {
   '~contains~5':
       Mode(className: "keyword", begin: "\\\$(f[asn]|t|vp[rtd]|children)"),
   '~contains~4': Mode(

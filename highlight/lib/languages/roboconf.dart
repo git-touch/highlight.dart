@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var roboconf = Mode(
+final roboconf = Mode(
     refs: {
       '~contains~0~contains~0': Mode(
           className: "attribute",

@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var flix = Mode(refs: {}, keywords: {
+final flix = Mode(refs: {}, keywords: {
   "literal": "true false",
   "keyword":
       "case class def else enum if impl import in lat rel index let match namespace switch type yield with"

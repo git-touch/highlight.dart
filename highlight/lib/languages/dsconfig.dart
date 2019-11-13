@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var dsconfig = Mode(
+final dsconfig = Mode(
     refs: {},
     keywords: "dsconfig",
     contains: [

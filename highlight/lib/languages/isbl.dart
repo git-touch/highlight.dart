@@ -3,7 +3,7 @@
 import '../src/mode.dart';
 import '../src/common_modes.dart';
 
-var isbl = Mode(
+final isbl = Mode(
     refs: {
       '~contains~0~contains~5~variants~0~contains~1': Mode(
           className: "doctag",
