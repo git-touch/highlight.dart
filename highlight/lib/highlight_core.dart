@@ -1,8 +1,8 @@
-import 'src/highlight.dart';
+import 'package:highlight/src/highlight.dart';
 
-export 'src/highlight.dart';
-export 'src/node.dart';
-export 'src/mode.dart';
-export 'src/result.dart';
+export 'package:highlight/src/highlight.dart';
+export 'package:highlight/src/node.dart';
+export 'package:highlight/src/mode.dart';
+export 'package:highlight/src/result.dart';
 
 final highlight = Highlight();

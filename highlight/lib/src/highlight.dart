@@ -504,6 +504,10 @@ class Highlight {
     }
   }
 
+  void registerLanguages(Map<String, Mode> languages) {
+    languages.forEach(registerLanguage);
+  }
+
   Result _parseAuto(String source, {List<String> languageSubset}) {
     languageSubset =
         languageSubset ?? _languages.keys.toList(); // TODO: options

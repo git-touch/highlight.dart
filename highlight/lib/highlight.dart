@@ -1,18 +1,9 @@
 import 'package:highlight/languages/all.dart';
-import 'src/highlight.dart' as src_highlight;
+import 'package:highlight/src/highlight.dart';
 
-export 'src/node.dart';
-export 'src/mode.dart';
-export 'src/result.dart';
+export 'package:highlight/src/highlight.dart';
+export 'package:highlight/src/node.dart';
+export 'package:highlight/src/mode.dart';
+export 'package:highlight/src/result.dart';
 
-class Highlight extends src_highlight.Highlight {
-  factory Highlight() {
-    final h = Highlight._();
-    all.forEach(h.registerLanguage);
-    return h;
-  }
-
-  Highlight._();
-}
-
-final highlight = Highlight();
+final highlight = Highlight()..registerLanguages(all);
