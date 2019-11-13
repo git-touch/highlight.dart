@@ -118,6 +118,14 @@ export function allModes() {
     {
       name: "graphql",
       factory: require("../vendor/highlightjs-graphql").definer
+    },
+    {
+      name: "gn",
+      factory: require("../vendor/highlightjs-GN").definer
+    },
+    {
+      name: "solidity",
+      factory: require("../vendor/highlightjs-solidity").definer
     }
   ];
 

@@ -1,3 +1,5 @@
+import 'solidity.dart';
+import 'gn.dart';
 import 'graphql.dart';
 import 'vue.dart';
 import 'zephir.dart';
@@ -374,4 +376,6 @@ final all = {
   'zephir': zephir,
   'vue': vue,
   'graphql': graphql,
+  'gn': gn,
+  'solidity': solidity,
 };
