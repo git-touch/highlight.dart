@@ -11,7 +11,7 @@ var elixir = Mode(
       '~contains~0~contains~1~contains~7': Mode(
           className: "number",
           begin:
-              "(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b",
+              "(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(.[0-9_]+([eE][-+]?[0-9]+)?)?)",
           relevance: 0),
       '~contains~0~contains~1~contains~6': Mode(
           className: "symbol",

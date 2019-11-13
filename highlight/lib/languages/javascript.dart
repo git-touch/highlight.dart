@@ -7,11 +7,11 @@ var javascript = Mode(refs: {
   '~contains~4~starts~contains~1~contains~5': Mode(
       className: "number",
       variants: [
-        Mode(begin: "\\b(0[bB][01]+)"),
-        Mode(begin: "\\b(0[oO][0-7]+)"),
+        Mode(begin: "\\b(0[bB][01]+)n?"),
+        Mode(begin: "\\b(0[oO][0-7]+)n?"),
         Mode(
             begin:
-                "(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)")
+                "(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)n?")
       ],
       relevance: 0),
   '~contains~4~starts~contains~1~contains~4': Mode(
@@ -76,7 +76,7 @@ var javascript = Mode(refs: {
   C_LINE_COMMENT_MODE,
   C_BLOCK_COMMENT_MODE,
   Mode(ref: '~contains~4~starts~contains~1~contains~5'),
-  Mode(begin: "[{,]\\s*", relevance: 0, contains: [
+  Mode(begin: "[{,\\n]\\s*", relevance: 0, contains: [
     Mode(
         begin: "[A-Za-z\$_][0-9A-Za-z\$_]*\\s*:",
         returnBegin: true,

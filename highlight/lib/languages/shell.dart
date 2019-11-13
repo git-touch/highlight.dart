@@ -8,6 +8,6 @@ var shell = Mode(refs: {}, aliases: [
 ], contains: [
   Mode(
       className: "meta",
-      begin: "^\\s{0,3}[\\w\\d\\[\\]()@-]*[>%\$#]",
+      begin: "^\\s{0,3}[/\\w\\d\\[\\]()@-]*[>%\$#]",
       starts: Mode(end: "\$", subLanguage: ["bash"]))
 ]);

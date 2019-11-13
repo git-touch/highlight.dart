@@ -9,14 +9,7 @@ var abnf = Mode(
     keywords:
         "ALPHA BIT CHAR CR CRLF CTL DIGIT DQUOTE HEXDIG HTAB LF LWSP OCTET SP VCHAR WSP",
     contains: [
-      Mode(
-          begin: "^[a-zA-Z][a-zA-Z0-9-]*\\s*=",
-          returnBegin: true,
-          end: "=",
-          relevance: 0,
-          contains: [
-            Mode(className: "attribute", begin: "^[a-zA-Z][a-zA-Z0-9-]*")
-          ]),
+      Mode(className: "attribute", begin: "^[a-zA-Z][a-zA-Z0-9-]*(?=\\s*=)"),
       Mode(className: "comment", begin: ";", end: "\$", contains: [
         PHRASAL_WORDS_MODE,
         Mode(

@@ -26,7 +26,8 @@ var xml = Mode(
       "xsd",
       "xsl",
       "plist",
-      "wsf"
+      "wsf",
+      "svg"
     ],
     case_insensitive: true,
     contains: [
@@ -73,7 +74,7 @@ var xml = Mode(
       ]),
       Mode(
           className: "tag",
-          begin: "<style(?=\\s|>|\$)",
+          begin: "<style(?=\\s|>)",
           end: ">",
           keywords: {"name": "style"},
           contains: [Mode(ref: '~contains~5~contains~0')],
@@ -81,7 +82,7 @@ var xml = Mode(
               end: "</style>", returnEnd: true, subLanguage: ["css", "xml"])),
       Mode(
           className: "tag",
-          begin: "<script(?=\\s|>|\$)",
+          begin: "<script(?=\\s|>)",
           end: ">",
           keywords: {"name": "script"},
           contains: [Mode(ref: '~contains~5~contains~0')],
@@ -89,8 +90,7 @@ var xml = Mode(
             "actionscript",
             "javascript",
             "handlebars",
-            "xml",
-            "vbscript"
+            "xml"
           ])),
       Mode(className: "tag", begin: "</?", end: "/?>", contains: [
         Mode(className: "name", begin: "[^\\/><\\s]+", relevance: 0),

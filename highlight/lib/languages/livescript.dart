@@ -5,7 +5,7 @@ import '../src/common_modes.dart';
 
 var livescript = Mode(
     refs: {
-      '~contains~8~contains~0': Mode(
+      '~contains~9~contains~0': Mode(
           className: "title",
           begin: "[A-Za-z\$_](?:-[0-9A-Za-z\$_]|[0-9A-Za-z\$_])*",
           relevance: 0),
@@ -15,7 +15,7 @@ var livescript = Mode(
           end: "(?:\\-[0-9A-Za-z\$_]|[0-9A-Za-z\$_])*",
           keywords: {
             "keyword":
-                "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native __hasProp __extends __slice __bind __indexOf",
+                "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native list map __hasProp __extends __slice __bind __indexOf",
             "literal": "true false null undefined yes no on off it that void",
             "built_in":
                 "npm require console print module global window document"
@@ -34,12 +34,12 @@ var livescript = Mode(
           Mode(ref: '~contains~2~variants~2~contains~1'),
           HASH_COMMENT_MODE
         ]),
-        Mode(begin: "\\/(?![ *])(\\\\\\/|.)*?\\/[gim]*(?=\\W|\$)")
+        Mode(begin: "\\/(?![ *])(\\\\\\/|.)*?\\/[gim]*(?=\\W)")
       ]),
       '~contains~2~variants~2~contains~1':
           Mode(className: "subst", begin: "#\\{", end: "}", keywords: {
         "keyword":
-            "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native __hasProp __extends __slice __bind __indexOf",
+            "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native list map __hasProp __extends __slice __bind __indexOf",
         "literal": "true false null undefined yes no on off it that void",
         "built_in": "npm require console print module global window document"
       }, contains: [
@@ -75,7 +75,7 @@ var livescript = Mode(
     aliases: ["ls"],
     keywords: {
       "keyword":
-          "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native __hasProp __extends __slice __bind __indexOf",
+          "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native list map __hasProp __extends __slice __bind __indexOf",
       "literal": "true false null undefined yes no on off it that void",
       "built_in": "npm require console print module global window document"
     },
@@ -95,10 +95,11 @@ var livescript = Mode(
             relevance: 0)
       ]),
       HASH_COMMENT_MODE,
+      Mode(begin: "(#=>|=>|\\|>>|-?->|\\!->)"),
       Mode(
           className: "function",
           contains: [
-            Mode(ref: '~contains~8~contains~0'),
+            Mode(ref: '~contains~9~contains~0'),
             Mode(
                 className: "params",
                 begin: "\\(",
@@ -106,7 +107,7 @@ var livescript = Mode(
                 contains: [
                   Mode(begin: "\\(", end: "\\)", keywords: {
                     "keyword":
-                        "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native __hasProp __extends __slice __bind __indexOf",
+                        "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger case default function var with then unless until loop of by when and or is isnt not it that otherwise from to til fallthrough super case default function var void const let enum export import native list map __hasProp __extends __slice __bind __indexOf",
                     "literal":
                         "true false null undefined yes no on off it that void",
                     "built_in":
@@ -147,8 +148,8 @@ var livescript = Mode(
                 beginKeywords: "extends",
                 endsWithParent: true,
                 illegal: "[:=\"\\[\\]]",
-                contains: [Mode(ref: '~contains~8~contains~0')]),
-            Mode(ref: '~contains~8~contains~0')
+                contains: [Mode(ref: '~contains~9~contains~0')]),
+            Mode(ref: '~contains~9~contains~0')
           ]),
       Mode(
           begin: "[A-Za-z\$_](?:-[0-9A-Za-z\$_]|[0-9A-Za-z\$_])*:",

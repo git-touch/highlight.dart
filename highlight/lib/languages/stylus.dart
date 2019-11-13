@@ -21,28 +21,18 @@ var stylus = Mode(
       C_BLOCK_COMMENT_MODE,
       Mode(ref: '~contains~4'),
       Mode(
-          begin: "\\.[a-zA-Z][a-zA-Z0-9_-]*[\\.\\s\\n\\[\\:,]",
-          returnBegin: true,
-          contains: [
-            Mode(
-                className: "selector-class", begin: "\\.[a-zA-Z][a-zA-Z0-9_-]*")
-          ]),
+          begin: "\\.[a-zA-Z][a-zA-Z0-9_-]*(?=[\\.\\s\\n\\[\\:,])",
+          className: "selector-class"),
       Mode(
-          begin: "\\#[a-zA-Z][a-zA-Z0-9_-]*[\\.\\s\\n\\[\\:,]",
-          returnBegin: true,
-          contains: [
-            Mode(className: "selector-id", begin: "\\#[a-zA-Z][a-zA-Z0-9_-]*")
-          ]),
+          begin: "\\#[a-zA-Z][a-zA-Z0-9_-]*(?=[\\.\\s\\n\\[\\:,])",
+          className: "selector-id"),
       Mode(
           begin:
-              "\\b(a|abbr|address|article|aside|audio|b|blockquote|body|button|canvas|caption|cite|code|dd|del|details|dfn|div|dl|dt|em|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|html|i|iframe|img|input|ins|kbd|label|legend|li|mark|menu|nav|object|ol|p|q|quote|samp|section|span|strong|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|tr|ul|var|video)[\\.\\s\\n\\[\\:,]",
-          returnBegin: true,
-          contains: [
-            Mode(className: "selector-tag", begin: "\\b[a-zA-Z][a-zA-Z0-9_-]*")
-          ]),
+              "\\b(a|abbr|address|article|aside|audio|b|blockquote|body|button|canvas|caption|cite|code|dd|del|details|dfn|div|dl|dt|em|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|header|hgroup|html|i|iframe|img|input|ins|kbd|label|legend|li|mark|menu|nav|object|ol|p|q|quote|samp|section|span|strong|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|tr|ul|var|video)(?=[\\.\\s\\n\\[\\:,])",
+          className: "selector-tag"),
       Mode(
           begin:
-              "&?:?:\\b(after|before|first-letter|first-line|active|first-child|focus|hover|lang|link|visited)[\\.\\s\\n\\[\\:,]"),
+              "&?:?:\\b(after|before|first-letter|first-line|active|first-child|focus|hover|lang|link|visited)(?=[\\.\\s\\n\\[\\:,])"),
       Mode(
           begin:
               "@(charset|css|debug|extend|font-face|for|import|include|media|mixin|page|warn|while)\\b"),

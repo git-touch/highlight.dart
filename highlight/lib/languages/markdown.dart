@@ -20,9 +20,9 @@ var markdown = Mode(refs: {}, aliases: [
       variants: [Mode(begin: "\\*.+?\\*"), Mode(begin: "_.+?_", relevance: 0)]),
   Mode(className: "quote", begin: "^>\\s+", end: "\$"),
   Mode(className: "code", variants: [
-    Mode(begin: "^```w*s*\$", end: "^```s*\$"),
+    Mode(begin: "^```\\w*\\s*\$", end: "^```[ ]*\$"),
     Mode(begin: "`.+?`"),
-    Mode(begin: "^( {4}|\t)", end: "\$", relevance: 0)
+    Mode(begin: "^( {4}|\\t)", end: "\$", relevance: 0)
   ]),
   Mode(begin: "^[-\\*]{3,}", end: "\$"),
   Mode(

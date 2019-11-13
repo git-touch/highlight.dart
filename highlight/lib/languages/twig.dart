@@ -17,7 +17,7 @@ var twig = Mode(
       '~contains~1~contains~0~starts~contains~0': Mode(
           begin: "\\|[A-Za-z_]+:?",
           keywords:
-              "abs batch capitalize convert_encoding date date_modify default escape first format join json_encode keys last length lower merge nl2br number_format raw replace reverse round slice sort split striptags title trim upper url_encode",
+              "abs batch capitalize column convert_encoding date date_modify default escape filter first format inky_to_html inline_css join json_encode keys last length lower map markdown merge nl2br number_format raw reduce replace reverse round slice sort spaceless split striptags title trim upper url_encode",
           contains: [
             Mode(ref: '~contains~1~contains~0~starts~contains~0~contains~0')
           ]),
@@ -38,7 +38,7 @@ var twig = Mode(
             className: "name",
             begin: "\\w+",
             keywords:
-                "autoescape block do embed extends filter flush for if import include macro sandbox set spaceless use verbatim endautoescape endblock enddo endembed endextends endfilter endflush endfor endif endimport endinclude endmacro endsandbox endset endspaceless enduse endverbatim",
+                "apply autoescape block deprecated do embed extends filter flush for from if import include macro sandbox set use verbatim with endapply endautoescape endblock enddeprecated enddo endembed endextends endfilter endflush endfor endfrom endif endimport endinclude endmacro endsandbox endset enduse endverbatim endwith",
             starts: Mode(
                 endsWithParent: true,
                 contains: [

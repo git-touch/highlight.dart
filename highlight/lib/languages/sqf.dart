@@ -4,7 +4,14 @@ import '../src/mode.dart';
 import '../src/common_modes.dart';
 
 var sqf = Mode(
-    refs: {},
+    refs: {
+      '~contains~5~variants~1': Mode(
+          begin: "'", end: "'", contains: [Mode(begin: "''", relevance: 0)]),
+      '~contains~5~variants~0': Mode(
+          begin: "\"",
+          end: "\"",
+          contains: [Mode(begin: "\"\"", relevance: 0)]),
+    },
     aliases: ["sqf"],
     case_insensitive: true,
     keywords: {
@@ -22,26 +29,16 @@ var sqf = Mode(
       Mode(className: "variable", begin: "\\b_+[a-zA-Z_]\\w*"),
       Mode(className: "title", begin: "[a-zA-Z][a-zA-Z0-9]+_fnc_\\w*"),
       Mode(className: "string", variants: [
-        Mode(
-            begin: "\"",
-            end: "\"",
-            contains: [Mode(begin: "\"\"", relevance: 0)]),
-        Mode(begin: "'", end: "'", contains: [Mode(begin: "''", relevance: 0)])
+        Mode(ref: '~contains~5~variants~0'),
+        Mode(ref: '~contains~5~variants~1')
       ]),
       Mode(className: "meta", begin: "#\\s*[a-z]+\\b", end: "\$", keywords: {
-        "meta-keyword":
-            "if else elif endif define undef warning error line pragma ifdef ifndef include"
+        "meta-keyword": "define undef ifdef ifndef else endif include"
       }, contains: [
         Mode(begin: "\\\\\\n", relevance: 0),
         Mode(className: "meta-string", variants: [
-          Mode(
-              begin: "(u8?|U|L)?\"",
-              end: "\"",
-              illegal: "\\n",
-              contains: [BACKSLASH_ESCAPE]),
-          Mode(
-              begin: "(?:u8?|U|L)?R\"([^()\\\\ ]{0,16})\\((?:.|\\n)*?\\)\\1\""),
-          Mode(begin: "'\\\\?.", end: "'", illegal: ".")
+          Mode(ref: '~contains~5~variants~0'),
+          Mode(ref: '~contains~5~variants~1')
         ]),
         Mode(
             className: "meta-string",

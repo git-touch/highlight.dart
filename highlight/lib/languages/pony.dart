@@ -23,7 +23,11 @@ var pony = Mode(refs: {}, keywords: {
       contains: [BACKSLASH_ESCAPE],
       relevance: 0),
   Mode(begin: "[a-zA-Z]\\w*'", relevance: 0),
-  C_NUMBER_MODE,
+  Mode(
+      className: "number",
+      begin:
+          "(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB][01]+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)",
+      relevance: 0),
   C_LINE_COMMENT_MODE,
   C_BLOCK_COMMENT_MODE
 ]);

@@ -39,9 +39,9 @@ var dart = Mode(refs: {
   ]),
 }, keywords: {
   "keyword":
-      "assert async await break case catch class const continue default do else enum extends false final finally for if in is new null rethrow return super switch sync this throw true try var void while with yield abstract as dynamic export external factory get implements import library operator part set static typedef",
+      "abstract as assert async await break case catch class const continue covariant default deferred do dynamic else enum export extends extension external factory false final finally for Function get hide if implements import in inferface is library mixin new null on operator part rethrow return set show static super switch sync this throw true try typedef var void while with yield",
   "built_in":
-      "print Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set Stopwatch String StringBuffer StringSink Symbol Type Uri bool double int num document window querySelector querySelectorAll Element ElementList"
+      "Comparable DateTime Duration Function Iterable Iterator List Map Match Null Object Pattern RegExp Set Stopwatch String StringBuffer StringSink Symbol Type Uri bool double dynamic int num print Element ElementList document querySelector querySelectorAll window"
 }, contains: [
   Mode(ref: '~contains~0'),
   Mode(className: "comment", begin: "/\\*\\*", end: "\\*/", contains: [
@@ -53,14 +53,13 @@ var dart = Mode(refs: {
   ], subLanguage: [
     "markdown"
   ]),
-  Mode(className: "comment", begin: "///", end: "\$", contains: [
+  Mode(className: "comment", begin: "///+\\s*", end: "\$", contains: [
+    Mode(subLanguage: ["markdown"], begin: ".", end: "\$"),
     PHRASAL_WORDS_MODE,
     Mode(
         className: "doctag",
         begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
         relevance: 0)
-  ], subLanguage: [
-    "markdown"
   ]),
   C_LINE_COMMENT_MODE,
   C_BLOCK_COMMENT_MODE,

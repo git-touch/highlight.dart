@@ -12,7 +12,9 @@ var json = Mode(refs: {
           QUOTE_STRING_MODE,
           C_NUMBER_MODE,
           Mode(ref: '~contains~2'),
-          Mode(ref: '~contains~2~contains~1~contains~3')
+          Mode(ref: '~contains~2~contains~1~contains~3'),
+          C_LINE_COMMENT_MODE,
+          C_BLOCK_COMMENT_MODE
         ], keywords: {
           "literal": "true false null"
         })
@@ -36,17 +38,23 @@ var json = Mode(refs: {
               QUOTE_STRING_MODE,
               C_NUMBER_MODE,
               Mode(ref: '~contains~2'),
-              Mode(ref: '~contains~2~contains~1~contains~3')
+              Mode(ref: '~contains~2~contains~1~contains~3'),
+              C_LINE_COMMENT_MODE,
+              C_BLOCK_COMMENT_MODE
             ],
             keywords: {"literal": "true false null"},
-            begin: ":")
+            begin: ":"),
+        C_LINE_COMMENT_MODE,
+        C_BLOCK_COMMENT_MODE
       ],
       illegal: "\\S"),
 }, contains: [
   QUOTE_STRING_MODE,
   C_NUMBER_MODE,
   Mode(ref: '~contains~2'),
-  Mode(ref: '~contains~2~contains~1~contains~3')
+  Mode(ref: '~contains~2~contains~1~contains~3'),
+  C_LINE_COMMENT_MODE,
+  C_BLOCK_COMMENT_MODE
 ], keywords: {
   "literal": "true false null"
 }, illegal: "\\S");

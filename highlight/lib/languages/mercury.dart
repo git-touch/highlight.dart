@@ -55,5 +55,6 @@ var mercury = Mode(refs: {}, aliases: [
             relevance: 0)
       ],
       relevance: 0),
-  Mode(begin: ":-")
+  Mode(begin: ":-"),
+  Mode(begin: "\\.\$")
 ]);

@@ -7,11 +7,11 @@ var typescript = Mode(refs: {
   '~contains~3~starts~contains~1~contains~5': Mode(
       className: "number",
       variants: [
-        Mode(begin: "\\b(0[bB][01]+)"),
-        Mode(begin: "\\b(0[oO][0-7]+)"),
+        Mode(begin: "\\b(0[bB][01]+)n?"),
+        Mode(begin: "\\b(0[oO][0-7]+)n?"),
         Mode(
             begin:
-                "(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)")
+                "(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)n?")
       ],
       relevance: 0),
   '~contains~3~starts~contains~1~contains~4': Mode(
@@ -145,7 +145,7 @@ var typescript = Mode(refs: {
       relevance: 0),
   Mode(
       className: "function",
-      begin: "function",
+      beginKeywords: "function",
       end: "[\\{;]",
       excludeEnd: true,
       keywords: {
@@ -167,7 +167,7 @@ var typescript = Mode(refs: {
       relevance: 0),
   Mode(
       beginKeywords: "constructor",
-      end: "\\{",
+      end: "[\\{;]",
       excludeEnd: true,
       contains: [Mode(self: true), Mode(ref: '~contains~10~contains~2')]),
   Mode(begin: "module\\.", keywords: {"built_in": "module"}, relevance: 0),

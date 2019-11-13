@@ -33,7 +33,7 @@ var go = Mode(
       Mode(
           className: "function",
           beginKeywords: "func",
-          end: "\\s*\\{",
+          end: "\\s*(\\{|\$)",
           excludeEnd: true,
           contains: [
             TITLE_MODE,

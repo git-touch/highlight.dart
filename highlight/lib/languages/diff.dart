@@ -17,7 +17,7 @@ var diff = Mode(refs: {}, aliases: [
     Mode(begin: "^\\-{3}", end: "\$"),
     Mode(begin: "^\\*{3} ", end: "\$"),
     Mode(begin: "^\\+{3}", end: "\$"),
-    Mode(begin: "\\*{5}", end: "\\*{5}\$")
+    Mode(begin: "^\\*{15}\$")
   ]),
   Mode(className: "addition", begin: "^\\+", end: "\$"),
   Mode(className: "deletion", begin: "^\\-", end: "\$"),

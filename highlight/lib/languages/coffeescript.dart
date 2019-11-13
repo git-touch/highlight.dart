@@ -47,7 +47,7 @@ var coffeescript = Mode(
           HASH_COMMENT_MODE
         ]),
         Mode(begin: "//[gim]*", relevance: 0),
-        Mode(begin: "\\/(?![ *])(\\\\\\/|.)*?\\/[gim]*(?=\\W|\$)")
+        Mode(begin: "\\/(?![ *])(\\\\\\/|.)*?\\/[gim]*(?=\\W)")
       ]),
       '~contains~2~variants~2~contains~1':
           Mode(className: "subst", begin: "#\\{", end: "}", keywords: {

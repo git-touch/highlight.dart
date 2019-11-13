@@ -61,6 +61,7 @@ import 'themes/magula.dart';
 import 'themes/mono-blue.dart';
 import 'themes/monokai-sublime.dart';
 import 'themes/monokai.dart';
+import 'themes/night-owl.dart';
 import 'themes/nord.dart';
 import 'themes/obsidian.dart';
 import 'themes/ocean.dart';
@@ -151,6 +152,7 @@ const themeMap = {
   'mono-blue': monoBlueTheme,
   'monokai-sublime': monokaiSublimeTheme,
   'monokai': monokaiTheme,
+  'night-owl': nightOwlTheme,
   'nord': nordTheme,
   'obsidian': obsidianTheme,
   'ocean': oceanTheme,

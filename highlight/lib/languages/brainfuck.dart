@@ -25,8 +25,7 @@ var brainfuck = Mode(refs: {
   Mode(className: "title", begin: "[\\[\\]]", relevance: 0),
   Mode(className: "string", begin: "[\\.,]", relevance: 0),
   Mode(
-      begin: "\\+\\+|\\-\\-",
-      returnBegin: true,
+      begin: "(?:\\+\\+|\\-\\-)",
       contains: [Mode(ref: '~contains~3~contains~0')]),
   Mode(ref: '~contains~3~contains~0')
 ]);

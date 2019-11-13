@@ -4,11 +4,6 @@ import '../src/mode.dart';
 import '../src/common_modes.dart';
 
 var kotlin = Mode(refs: {
-  '~contains~7~contains~2~contains~5': Mode(className: "string", variants: [
-    Mode(ref: '~contains~6~contains~0~contains~0~variants~0'),
-    Mode(ref: '~contains~6~contains~0~contains~0~variants~1'),
-    Mode(ref: '~contains~6~contains~0~contains~0~variants~2')
-  ]),
   '~contains~7~contains~2~contains~0~contains~0': Mode(variants: [
     Mode(className: "type", begin: "[a-zA-Z_]\\w*"),
     Mode(
@@ -16,19 +11,31 @@ var kotlin = Mode(refs: {
         end: "\\)",
         contains: [Mode(ref: '~contains~7~contains~2~contains~0~contains~0')])
   ]),
-  '~contains~6~contains~0~contains~0~variants~2':
+  '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1~variants~2':
       Mode(begin: "\"", end: "\"", illegal: "\\n", contains: [
     BACKSLASH_ESCAPE,
     Mode(ref: '~contains~6~contains~0~contains~0~variants~0~contains~0'),
     Mode(ref: '~contains~6~contains~0~contains~0~variants~0~contains~1')
   ]),
-  '~contains~6~contains~0~contains~0~variants~1':
+  '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1~variants~1':
       Mode(begin: "'", end: "'", illegal: "\\n", contains: [BACKSLASH_ESCAPE]),
-  '~contains~6~contains~0~contains~0~variants~0~contains~1': Mode(
-      className: "subst",
-      begin: "\\\${",
-      end: "}",
-      contains: [APOS_STRING_MODE, C_NUMBER_MODE]),
+  '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1':
+      Mode(className: "string", variants: [
+    Mode(ref: '~contains~6~contains~0~contains~0~variants~0'),
+    Mode(
+        ref:
+            '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1~variants~1'),
+    Mode(
+        ref:
+            '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1~variants~2')
+  ]),
+  '~contains~6~contains~0~contains~0~variants~0~contains~1':
+      Mode(className: "subst", begin: "\\\${", end: "}", contains: [
+    C_NUMBER_MODE,
+    Mode(
+        ref:
+            '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1')
+  ]),
   '~contains~6~contains~0~contains~0~variants~0~contains~0':
       Mode(className: "variable", begin: "\\\$[a-zA-Z_]\\w*"),
   '~contains~6~contains~0~contains~0~variants~0':
@@ -40,8 +47,12 @@ var kotlin = Mode(refs: {
     Mode(begin: "\\(", end: "\\)", contains: [
       Mode(className: "meta-string", variants: [
         Mode(ref: '~contains~6~contains~0~contains~0~variants~0'),
-        Mode(ref: '~contains~6~contains~0~contains~0~variants~1'),
-        Mode(ref: '~contains~6~contains~0~contains~0~variants~2')
+        Mode(
+            ref:
+                '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1~variants~1'),
+        Mode(
+            ref:
+                '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1~variants~2')
       ])
     ])
   ]),
@@ -143,7 +154,9 @@ var kotlin = Mode(refs: {
               Mode(ref: '~contains~2'),
               Mode(ref: '~contains~5'),
               Mode(ref: '~contains~6'),
-              Mode(ref: '~contains~7~contains~2~contains~5'),
+              Mode(
+                  ref:
+                      '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1'),
               C_NUMBER_MODE
             ]),
         Mode(ref: '~contains~2')
@@ -173,7 +186,9 @@ var kotlin = Mode(refs: {
         Mode(ref: '~contains~5'),
         Mode(ref: '~contains~6')
       ]),
-  Mode(ref: '~contains~7~contains~2~contains~5'),
+  Mode(
+      ref:
+          '~contains~6~contains~0~contains~0~variants~0~contains~1~contains~1'),
   Mode(className: "meta", begin: "^#!/usr/bin/env", end: "\$", illegal: "\n"),
   Mode(
       className: "number",

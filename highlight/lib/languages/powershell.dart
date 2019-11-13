@@ -10,7 +10,7 @@ var powershell = Mode(
           variants: [Mode(begin: "\\\$[\\w\\d][\\w\\d_:]*")]),
       '~contains~0': Mode(begin: "`[\\s\\S]", relevance: 0),
     },
-    aliases: ["ps"],
+    aliases: ["ps", "ps1"],
     lexemes: "-?[A-z\\.\\-]+",
     case_insensitive: true,
     keywords: {
