@@ -168,7 +168,7 @@ class Highlight {
   }
 
   List<Node> _buildSpan(String className, List<Node> insideSpan,
-      [bool leaveOpen = false, bool noPrefix = false]) {
+      {bool noPrefix = false}) {
     if (!_classNameExists(className)) {
       return insideSpan;
     }
@@ -366,7 +366,7 @@ class Highlight {
       if (explicit) {
         continuations[top.subLanguage.first] = result.top;
       }
-      return _buildSpan(result.language, result.nodes, false, true);
+      return _buildSpan(result.language, result.nodes, noPrefix: true);
     }
 
     void _processBuffer() {

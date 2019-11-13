@@ -27,7 +27,11 @@ class Result {
     var str = '';
 
     _traverse(Node node) {
-      if (node.className != null) {
+      final shouldAddSpan = node.className != null &&
+          ((node.value != null && node.value.isNotEmpty) ||
+              (node.children != null && node.children.isNotEmpty));
+
+      if (shouldAddSpan) {
         var prefix = node.noPrefix ? '' : 'hljs-';
         str += '<span class="${prefix + node.className}">';
       }
@@ -38,7 +42,7 @@ class Result {
         node.children.forEach(_traverse);
       }
 
-      if (node.className != null) {
+      if (shouldAddSpan) {
         str += '</span>';
       }
     }
