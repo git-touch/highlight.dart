@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 import gulp from "gulp";
 import * as h from "./highlight";
 import * as fh from "./flutter-highlight";
-import * as gallery from "./flutter-highlight-gallery";
+import * as gallery from "./gallery";
 
 export function watch(cb) {
   gulp.watch("../flutter_highlight/lib/**/*", { ignoreInitial: false });
