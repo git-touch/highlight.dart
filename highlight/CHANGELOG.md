@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Support GN and Solidity
+
 ## 0.4.1
 
 - Support GraphQL and Vue
