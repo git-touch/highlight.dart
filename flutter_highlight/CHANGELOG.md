@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Use `highlight` v0.5.0
+
 ## 0.4.0
 
 - Use `highlight` v0.4.0
