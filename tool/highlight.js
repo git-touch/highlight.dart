@@ -116,7 +116,7 @@ export function allModes() {
     })),
     {
       name: "vue",
-      factory: require("../vendor/highlightjs-vue").definer,
+      factory: require("../vendor/highlightjs-vue/vue").definer,
       community: true
     },
     {
