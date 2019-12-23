@@ -212,14 +212,7 @@ final solidity = Mode(
                 begin: "\"",
                 end: "\"",
                 illegal: "\\n",
-                contains: [
-                  BACKSLASH_ESCAPE,
-                  Mode(
-                      className: "subst",
-                      begin:
-                          "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-                      relevance: 0)
-                ])
+                contains: [BACKSLASH_ESCAPE])
           ]),
       Mode(beginKeywords: "assembly", end: "\\b\\B", contains: [
         C_LINE_COMMENT_MODE,

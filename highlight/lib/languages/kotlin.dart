@@ -39,7 +39,7 @@ final kotlin = Mode(refs: {
   '~contains~6~contains~0~contains~0~variants~0~contains~0':
       Mode(className: "variable", begin: "\\\$[a-zA-Z_]\\w*"),
   '~contains~6~contains~0~contains~0~variants~0':
-      Mode(begin: "\"\"\"", end: "\"\"\"", contains: [
+      Mode(begin: "\"\"\"", end: "\"\"\"(?=[^\"])", contains: [
     Mode(ref: '~contains~6~contains~0~contains~0~variants~0~contains~0'),
     Mode(ref: '~contains~6~contains~0~contains~0~variants~0~contains~1')
   ]),

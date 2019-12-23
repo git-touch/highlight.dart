@@ -55,7 +55,9 @@ final javascript = Mode(refs: {
       ])),
 }, aliases: [
   "js",
-  "jsx"
+  "jsx",
+  "mjs",
+  "cjs"
 ], keywords: {
   "keyword":
       "in of if for while finally var new function do return void else break catch instanceof with throw case default try this switch continue typeof delete let yield const export super debugger as async await static import from as",
@@ -74,6 +76,27 @@ final javascript = Mode(refs: {
   Mode(ref: '~contains~4~starts~contains~1~contains~3'),
   Mode(ref: '~contains~4~starts~contains~1~contains~4'),
   C_LINE_COMMENT_MODE,
+  Mode(
+      className: "comment",
+      begin: "/\\*\\*",
+      end: "\\*/",
+      contains: [
+        Mode(className: "doctag", begin: "@[A-Za-z]+", contains: [
+          Mode(className: "type", begin: "\\{", end: "\\}", relevance: 0),
+          Mode(
+              className: "variable",
+              begin: "[A-Za-z\$_][0-9A-Za-z\$_]*(?=\\s*(-)|\$)",
+              endsParent: true,
+              relevance: 0),
+          Mode(begin: "(?=[^\\n])\\s", relevance: 0)
+        ]),
+        PHRASAL_WORDS_MODE,
+        Mode(
+            className: "doctag",
+            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
+            relevance: 0)
+      ],
+      relevance: 0),
   C_BLOCK_COMMENT_MODE,
   Mode(ref: '~contains~4~starts~contains~1~contains~5'),
   Mode(begin: "[{,\\n]\\s*", relevance: 0, contains: [

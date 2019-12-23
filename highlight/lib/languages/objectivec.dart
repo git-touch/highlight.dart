@@ -24,19 +24,32 @@ final objectivec = Mode(
       C_BLOCK_COMMENT_MODE,
       C_NUMBER_MODE,
       QUOTE_STRING_MODE,
+      APOS_STRING_MODE,
       Mode(className: "string", variants: [
         Mode(
             begin: "@\"",
             end: "\"",
             illegal: "\\n",
-            contains: [BACKSLASH_ESCAPE]),
-        Mode(begin: "'", end: "[^\\\\]'", illegal: "[^\\\\][^']")
+            contains: [BACKSLASH_ESCAPE])
       ]),
-      Mode(className: "meta", begin: "#", end: "\$", contains: [
-        Mode(className: "meta-string", variants: [
-          Mode(begin: "\"", end: "\""),
-          Mode(begin: "<", end: ">")
-        ])
+      Mode(className: "meta", begin: "#\\s*[a-z]+\\b", end: "\$", keywords: {
+        "meta-keyword":
+            "if else elif endif define undef warning error line pragma ifdef ifndef include"
+      }, contains: [
+        Mode(begin: "\\\\\\n", relevance: 0),
+        Mode(
+            className: "meta-string",
+            begin: "\"",
+            end: "\"",
+            illegal: "\\n",
+            contains: [BACKSLASH_ESCAPE]),
+        Mode(
+            className: "meta-string",
+            begin: "<.*?>",
+            end: "\$",
+            illegal: "\\n"),
+        C_LINE_COMMENT_MODE,
+        C_BLOCK_COMMENT_MODE
       ]),
       Mode(
           className: "class",

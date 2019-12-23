@@ -14,14 +14,7 @@ final QUOTE_STRING_MODE = Mode(
     begin: "\"",
     end: "\"",
     illegal: "\\n",
-    contains: [
-      Mode(begin: "\\\\[\\s\\S]", relevance: 0),
-      Mode(
-          className: "subst",
-          begin:
-              "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-          relevance: 0)
-    ]);
+    contains: [Mode(begin: "\\\\[\\s\\S]", relevance: 0)]);
 final PHRASAL_WORDS_MODE = Mode(
     begin:
         "\\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\\b");

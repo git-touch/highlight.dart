@@ -45,6 +45,7 @@ import 'themes/github-gist.dart';
 import 'themes/github.dart';
 import 'themes/gml.dart';
 import 'themes/googlecode.dart';
+import 'themes/gradient-dark.dart';
 import 'themes/grayscale.dart';
 import 'themes/gruvbox-dark.dart';
 import 'themes/gruvbox-light.dart';
@@ -136,6 +137,7 @@ const themeMap = {
   'github': githubTheme,
   'gml': gmlTheme,
   'googlecode': googlecodeTheme,
+  'gradient-dark': gradientDarkTheme,
   'grayscale': grayscaleTheme,
   'gruvbox-dark': gruvboxDarkTheme,
   'gruvbox-light': gruvboxLightTheme,

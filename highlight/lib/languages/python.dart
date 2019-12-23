@@ -5,7 +5,7 @@ import '../src/common_modes.dart';
 
 final python = Mode(
     refs: {
-      '~contains~2~variants~2~contains~3': Mode(
+      '~contains~3~variants~2~contains~3': Mode(
           className: "subst",
           begin: "\\{",
           end: "\\}",
@@ -17,12 +17,12 @@ final python = Mode(
           },
           illegal: "#",
           contains: [
-            Mode(ref: '~contains~2'),
+            Mode(ref: '~contains~3'),
             Mode(ref: '~contains~1'),
             Mode(ref: '~contains~0')
           ]),
-      '~contains~2~variants~2~contains~2': Mode(begin: "\\{\\{", relevance: 0),
-      '~contains~2': Mode(className: "string", contains: [
+      '~contains~3~variants~2~contains~2': Mode(begin: "\\{\\{", relevance: 0),
+      '~contains~3': Mode(className: "string", contains: [
         BACKSLASH_ESCAPE
       ], variants: [
         Mode(
@@ -38,14 +38,14 @@ final python = Mode(
         Mode(begin: "(fr|rf|f)'''", end: "'''", contains: [
           BACKSLASH_ESCAPE,
           Mode(ref: '~contains~0'),
-          Mode(ref: '~contains~2~variants~2~contains~2'),
-          Mode(ref: '~contains~2~variants~2~contains~3')
+          Mode(ref: '~contains~3~variants~2~contains~2'),
+          Mode(ref: '~contains~3~variants~2~contains~3')
         ]),
         Mode(begin: "(fr|rf|f)\"\"\"", end: "\"\"\"", contains: [
           BACKSLASH_ESCAPE,
           Mode(ref: '~contains~0'),
-          Mode(ref: '~contains~2~variants~2~contains~2'),
-          Mode(ref: '~contains~2~variants~2~contains~3')
+          Mode(ref: '~contains~3~variants~2~contains~2'),
+          Mode(ref: '~contains~3~variants~2~contains~3')
         ]),
         Mode(begin: "(u|r|ur)'", end: "'", relevance: 10),
         Mode(begin: "(u|r|ur)\"", end: "\"", relevance: 10),
@@ -53,13 +53,13 @@ final python = Mode(
         Mode(begin: "(b|br)\"", end: "\""),
         Mode(begin: "(fr|rf|f)'", end: "'", contains: [
           BACKSLASH_ESCAPE,
-          Mode(ref: '~contains~2~variants~2~contains~2'),
-          Mode(ref: '~contains~2~variants~2~contains~3')
+          Mode(ref: '~contains~3~variants~2~contains~2'),
+          Mode(ref: '~contains~3~variants~2~contains~3')
         ]),
         Mode(begin: "(fr|rf|f)\"", end: "\"", contains: [
           BACKSLASH_ESCAPE,
-          Mode(ref: '~contains~2~variants~2~contains~2'),
-          Mode(ref: '~contains~2~variants~2~contains~3')
+          Mode(ref: '~contains~3~variants~2~contains~2'),
+          Mode(ref: '~contains~3~variants~2~contains~3')
         ]),
         APOS_STRING_MODE,
         QUOTE_STRING_MODE
@@ -84,7 +84,8 @@ final python = Mode(
     contains: [
       Mode(ref: '~contains~0'),
       Mode(ref: '~contains~1'),
-      Mode(ref: '~contains~2'),
+      Mode(beginKeywords: "if", relevance: 0),
+      Mode(ref: '~contains~3'),
       HASH_COMMENT_MODE,
       Mode(
           variants: [
@@ -99,7 +100,7 @@ final python = Mode(
               Mode(self: true),
               Mode(ref: '~contains~0'),
               Mode(ref: '~contains~1'),
-              Mode(ref: '~contains~2'),
+              Mode(ref: '~contains~3'),
               HASH_COMMENT_MODE
             ]),
             Mode(begin: "->", endsWithParent: true, keywords: "None")

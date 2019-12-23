@@ -19,7 +19,7 @@ final go = Mode(
       C_BLOCK_COMMENT_MODE,
       Mode(className: "string", variants: [
         QUOTE_STRING_MODE,
-        Mode(begin: "'", end: "[^\\\\]'"),
+        APOS_STRING_MODE,
         Mode(begin: "`", end: "`")
       ]),
       Mode(className: "number", variants: [

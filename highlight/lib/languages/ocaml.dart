@@ -41,14 +41,7 @@ final ocaml = Mode(
           begin: "\"",
           end: "\"",
           illegal: null,
-          contains: [
-            BACKSLASH_ESCAPE,
-            Mode(
-                className: "subst",
-                begin:
-                    "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-                relevance: 0)
-          ]),
+          contains: [BACKSLASH_ESCAPE]),
       Mode(
           className: "number",
           begin:

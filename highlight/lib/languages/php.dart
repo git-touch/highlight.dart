@@ -24,14 +24,7 @@ final php = Mode(
             begin: "\"",
             end: "\"",
             illegal: null,
-            contains: [
-              BACKSLASH_ESCAPE,
-              Mode(
-                  className: "subst",
-                  begin:
-                      "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-                  relevance: 0)
-            ])
+            contains: [BACKSLASH_ESCAPE])
       ]),
       '~contains~7': Mode(begin: "\\\$+[a-zA-Z_-ÿ][a-zA-Z0-9_-ÿ]*"),
       '~contains~1~contains~0':

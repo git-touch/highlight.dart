@@ -33,13 +33,7 @@ final makefile = Mode(
           contains: [
             Mode(ref: '~contains~1')
           ]),
-      Mode(
-          begin: "^[a-zA-Z_]\\w*\\s*[:+?]?=",
-          illegal: "\\n",
-          returnBegin: true,
-          contains: [
-            Mode(begin: "^[a-zA-Z_]\\w*", end: "[:+?]?=", excludeEnd: true)
-          ]),
+      Mode(begin: "^[a-zA-Z_]\\w*\\s*(?=[:+?]?=)"),
       Mode(
           className: "meta",
           begin: "^\\.PHONY:",

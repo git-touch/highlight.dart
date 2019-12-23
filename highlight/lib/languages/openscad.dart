@@ -11,14 +11,7 @@ final openscad = Mode(refs: {
       begin: "\"",
       end: "\"",
       illegal: null,
-      contains: [
-        BACKSLASH_ESCAPE,
-        Mode(
-            className: "subst",
-            begin:
-                "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-            relevance: 0)
-      ]),
+      contains: [BACKSLASH_ESCAPE]),
   '~contains~2': Mode(
       className: "number", begin: "\\b\\d+(\\.\\d+)?(e-?\\d+)?", relevance: 0),
 }, aliases: [

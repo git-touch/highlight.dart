@@ -11,22 +11,33 @@ final css = Mode(
       C_BLOCK_COMMENT_MODE,
       Mode(className: "selector-id", begin: "#[A-Za-z0-9_-]+"),
       Mode(className: "selector-class", begin: "\\.[A-Za-z0-9_-]+"),
-      Mode(className: "selector-attr", begin: "\\[", end: "\\]", illegal: "\$"),
+      Mode(
+          className: "selector-attr",
+          begin: "\\[",
+          end: "\\]",
+          illegal: "\$",
+          contains: [APOS_STRING_MODE, QUOTE_STRING_MODE]),
       Mode(
           className: "selector-pseudo",
           begin: ":(:)?[a-zA-Z0-9\\_\\-\\+\\(\\)\"'.]+"),
       Mode(
-          begin: "@(font-face|page)",
-          lexemes: "[a-z-]+",
-          keywords: "font-face page"),
-      Mode(begin: "@", end: "[{;]", illegal: ":", contains: [
-        Mode(className: "keyword", begin: "\\w+"),
+          begin: "@(page|font-face)",
+          lexemes: "@[a-z-]+",
+          keywords: "@page @font-face"),
+      Mode(begin: "@", end: "[{;]", illegal: ":", returnBegin: true, contains: [
+        Mode(className: "keyword", begin: "@\\-?\\w[\\w]*(\\-\\w+)*"),
         Mode(
             begin: "\\s",
             endsWithParent: true,
             excludeEnd: true,
             relevance: 0,
-            contains: [APOS_STRING_MODE, QUOTE_STRING_MODE, CSS_NUMBER_MODE])
+            keywords: "and or not only",
+            contains: [
+              Mode(begin: "[a-z-]+:", className: "attribute"),
+              APOS_STRING_MODE,
+              QUOTE_STRING_MODE,
+              CSS_NUMBER_MODE
+            ])
       ]),
       Mode(
           className: "selector-tag",
@@ -49,10 +60,11 @@ final css = Mode(
                       Mode(endsWithParent: true, excludeEnd: true, contains: [
                     Mode(begin: "[\\w-]+\\(", returnBegin: true, contains: [
                       Mode(className: "built_in", begin: "[\\w-]+"),
-                      Mode(
-                          begin: "\\(",
-                          end: "\\)",
-                          contains: [APOS_STRING_MODE, QUOTE_STRING_MODE])
+                      Mode(begin: "\\(", end: "\\)", contains: [
+                        APOS_STRING_MODE,
+                        QUOTE_STRING_MODE,
+                        CSS_NUMBER_MODE
+                      ])
                     ]),
                     CSS_NUMBER_MODE,
                     QUOTE_STRING_MODE,
