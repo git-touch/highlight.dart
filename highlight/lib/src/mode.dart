@@ -73,7 +73,7 @@ class Mode {
   });
 
   static Mode inherit(Mode a, [Mode b]) {
-    if (b == null) b = Mode();
+    b ??= Mode();
     return Mode()
       ..aliases = b.aliases ?? a.aliases
       ..keywords = b.keywords ?? a.keywords

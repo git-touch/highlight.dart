@@ -5,8 +5,8 @@ import 'mode.dart';
 import 'result.dart';
 
 class Highlight {
-  Map<String, Mode> _languages = {};
-  Map<String, String> _aliases = {};
+  final _languages = {}.cast<String, Mode>();
+  final _aliases = {}.cast<String, String>();
   Mode _languageMode;
 
   bool _classNameExists(String className) {
@@ -34,7 +34,7 @@ class Highlight {
     );
   }
 
-  _joinRe(List<String> regexps, String separator) {
+  String _joinRe(List<String> regexps, String separator) {
     var backreferenceRe = r'\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\.';
     var numCaptures = 0;
     var ret = '';
@@ -73,7 +73,7 @@ class Highlight {
     mode.keywords = mode.keywords ?? mode.beginKeywords;
 
     if (mode.keywords != null) {
-      Map<String, dynamic> compiledKeywords = {};
+      var compiledKeywords = {}.cast<String, dynamic>();
 
       void _flatten(String className, String str) {
         if (_languageMode.case_insensitive == true) {
@@ -107,7 +107,7 @@ class Highlight {
       if (mode.beginKeywords != null) {
         mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')\\b';
       }
-      if (mode.begin == null) mode.begin = r'\B|\b';
+      mode.begin ??= r'\B|\b';
       mode.beginRe = _langRe(mode.begin);
       if (mode.endSameAsBegin == true) mode.end = mode.begin;
       if (mode.end == null && mode.endsWithParent != true) mode.end = r'\B|\b';
@@ -119,10 +119,8 @@ class Highlight {
       }
     }
     if (mode.illegal != null) mode.illegalRe = _langRe(mode.illegal);
-    if (mode.relevance == null) mode.relevance = 1;
-    if (mode.contains == null) {
-      mode.contains = [];
-    }
+    mode.relevance ??= 1;
+    mode.contains ??= [];
 
     Mode _pointToRef(Mode m) {
       if (m.ref != null) {
@@ -141,7 +139,7 @@ class Highlight {
       mode.starts = _pointToRef(mode.starts);
     }
 
-    List<Mode> contains = [];
+    var contains = [].cast<Mode>();
     mode.contains.forEach((c) {
       contains.addAll(_expandMode(c.self == true ? mode : c));
     });
@@ -273,7 +271,7 @@ class Highlight {
     // }
 
     // FIXME: Move inside highlight to use lang reference
-    _keywordMatch(Mode mode, RegExpMatch match) {
+    dynamic _keywordMatch(Mode mode, RegExpMatch match) {
       var match_str =
           langMode.case_insensitive == true ? match[0].toLowerCase() : match[0];
       return mode.keywords[match_str];
@@ -282,10 +280,10 @@ class Highlight {
     _compileMode(_languageMode);
 
     var top = continuation ?? _languageMode;
-    Map<String, Mode> continuations = {};
-    List<Node> children = [];
+    var continuations = {}.cast<String, Mode>();
+    var children = [].cast<Node>();
     var currentChildren = children;
-    List<List<Node>> stack = [];
+    var stack = [].cast<List<Node>>();
 
     void _pop() {
       currentChildren = stack.isEmpty ? children : stack.removeLast();
@@ -320,8 +318,8 @@ class Highlight {
 
       var keyword_match;
       RegExpMatch match;
-      List<Node> result = [];
-      int last_index = 0;
+      var result = [].cast<Node>();
+      var last_index = 0;
 
       match = top.lexemesRe.firstMatch(mode_buffer);
 
@@ -449,7 +447,7 @@ class Highlight {
     try {
       RegExpMatch match;
       int count;
-      int index = 0;
+      var index = 0;
       // print(value);
       while (true) {
         match = top.terminators

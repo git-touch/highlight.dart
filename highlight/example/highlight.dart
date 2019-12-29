@@ -1,6 +1,6 @@
 import 'package:highlight/highlight.dart' show highlight;
 
-main() {
+void main() {
   var source = '''main() {
   print("Hello, World!");
 }

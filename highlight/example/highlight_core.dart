@@ -1,7 +1,7 @@
 import 'package:highlight/highlight_core.dart' show highlight;
 import 'package:highlight/languages/dart.dart';
 
-main() {
+void main() {
   var source = '''main() {
   print("Hello, World!");
 }

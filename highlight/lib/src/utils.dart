@@ -2,9 +2,7 @@
 ///
 /// RangeError: Value not in range
 String substring(String input, int startIndex, [int endIndex]) {
-  if (endIndex == null) {
-    endIndex = input.length;
-  }
+  endIndex ??= input.length;
 
   if (startIndex > endIndex) {
     var tmp = startIndex;
