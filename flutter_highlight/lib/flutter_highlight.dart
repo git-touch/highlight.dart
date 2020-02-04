@@ -28,12 +28,13 @@ class HighlightView extends StatelessWidget {
   final TextStyle textStyle;
 
   HighlightView(
-    this.source, {
+    String input, {
     this.language,
     this.theme = const {},
     this.padding,
     this.textStyle,
-  });
+    int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
+  }) : source = input.replaceAll('\t', ' ' * tabSize);
 
   List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
