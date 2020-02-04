@@ -154,23 +154,20 @@ final javascript = Mode(refs: {
               ])
             ]),
         Mode(className: "", begin: "\\s", end: "\\s*", skip: true),
-        Mode(
-            begin: "<",
-            end: "(\\/[A-Za-z0-9\\\\._:-]+|[A-Za-z0-9\\\\._:-]+\\/)>",
-            subLanguage: [
-              "xml"
-            ],
-            contains: [
-              Mode(begin: "<[A-Za-z0-9\\\\._:-]+\\s*\\/>", skip: true),
-              Mode(
-                  begin: "<[A-Za-z0-9\\\\._:-]+",
-                  end: "(\\/[A-Za-z0-9\\\\._:-]+|[A-Za-z0-9\\\\._:-]+\\/)>",
-                  skip: true,
-                  contains: [
-                    Mode(begin: "<[A-Za-z0-9\\\\._:-]+\\s*\\/>", skip: true),
-                    Mode(self: true)
-                  ])
-            ])
+        Mode(variants: [
+          Mode(begin: "<>", end: "</>"),
+          Mode(
+              begin: "<[A-Za-z0-9\\\\._:-]+",
+              end: "\\/[A-Za-z0-9\\\\._:-]+>|\\/>")
+        ], subLanguage: [
+          "xml"
+        ], contains: [
+          Mode(
+              begin: "<[A-Za-z0-9\\\\._:-]+",
+              end: "\\/[A-Za-z0-9\\\\._:-]+>|\\/>",
+              skip: true,
+              contains: [Mode(self: true)])
+        ])
       ],
       relevance: 0),
   Mode(

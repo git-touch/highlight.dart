@@ -46,8 +46,8 @@ final coffeescript = Mode(
           Mode(ref: '~contains~2~variants~2~contains~1'),
           HASH_COMMENT_MODE
         ]),
-        Mode(begin: "//[gim]*", relevance: 0),
-        Mode(begin: "\\/(?![ *])(\\\\\\/|.)*?\\/[gim]*(?=\\W)")
+        Mode(begin: "//[gim]{0,3}(?=\\W)", relevance: 0),
+        Mode(begin: "\\/(?![ *]).*?(?![\\\\]).\\/[gim]{0,3}(?=\\W)")
       ]),
       '~contains~2~variants~2~contains~1':
           Mode(className: "subst", begin: "#\\{", end: "}", keywords: {
