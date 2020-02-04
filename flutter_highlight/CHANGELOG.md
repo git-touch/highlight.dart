@@ -1,3 +1,8 @@
+## 0.6.0
+
+- Specify Tab size
+- `highlight` v0.6.0
+
 ## 0.5.0
 
 - Use `highlight` v0.5.0

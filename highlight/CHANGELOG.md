@@ -1,3 +1,7 @@
+## 0.6.0
+
+- Deps upgrade
+
 ## 0.5.0
 
 - Support GN and Solidity
