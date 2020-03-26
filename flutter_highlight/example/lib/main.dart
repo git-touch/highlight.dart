@@ -92,19 +92,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            HighlightView(
-              exampleMap[language],
-              language: language,
-              theme: themeMap[theme],
-              padding: EdgeInsets.all(12),
-              textStyle: TextStyle(
-                  fontFamily:
-                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
-            )
-          ],
+        child: Padding(
+          padding: EdgeInsets.all(5.0),
+          child: HighlightView(
+            exampleMap[language],
+            language: language,
+            theme: themeMap[theme],
+            padding: EdgeInsets.all(5.0),
+            textStyle:
+                TextStyle(fontFamily: 'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
+            wrapText: false,
+            border: Border.all(
+              color: Colors.black26,
+              width: 3.0,
+            ),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
         ),
       ),
     );

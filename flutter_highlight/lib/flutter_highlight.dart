@@ -27,12 +27,30 @@ class HighlightView extends StatelessWidget {
   /// Specify text styles such as font family and font size
   final TextStyle textStyle;
 
+  /// Text wrapping
+  ///
+  /// Toggle automatic text wrapping
+  final bool wrapText;
+
+  /// Container border
+  ///
+  /// Specify custom border of the container
+  final Border border;
+
+  /// Container border radius
+  ///
+  /// Specify the radius of the border, in case one is set
+  final BorderRadius borderRadius;
+
   HighlightView(
     String input, {
     this.language,
     this.theme = const {},
     this.padding,
     this.textStyle,
+    this.wrapText = true,
+    this.border,
+    this.borderRadius,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
   }) : source = input.replaceAll('\t', ' ' * tabSize);
 
@@ -79,6 +97,25 @@ class HighlightView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      padding: padding,
+      decoration: BoxDecoration(
+        color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
+        border: border,
+        borderRadius: border == null ? null : borderRadius,
+      ),
+      child: SingleChildScrollView(
+        child: wrapText
+            ? _getTextWidget()
+            : SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: _getTextWidget(),
+              ),
+      ),
+    );
+  }
+
+  Widget _getTextWidget() {
     var _textStyle = TextStyle(
       fontFamily: _defaultFontFamily,
       color: theme[_rootKey]?.color ?? _defaultFontColor,
@@ -86,15 +123,10 @@ class HighlightView extends StatelessWidget {
     if (textStyle != null) {
       _textStyle = _textStyle.merge(textStyle);
     }
-
-    return Container(
-      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
-      padding: padding,
-      child: RichText(
-        text: TextSpan(
-          style: _textStyle,
-          children: _convert(highlight.parse(source, language: language).nodes),
-        ),
+    return RichText(
+      text: TextSpan(
+        style: _textStyle,
+        children: _convert(highlight.parse(source, language: language).nodes),
       ),
     );
   }
