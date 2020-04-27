@@ -1,3 +1,7 @@
+## 0.6.0+1
+
+- Update demo link
+
 ## 0.6.0
 
 - Specify Tab size
