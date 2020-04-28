@@ -2,7 +2,7 @@
 
 Syntax highlighting for Dart and Flutter, which supports lots of languages and themes.
 
-[View gallery built with Flutter web](https://pd4d10.github.io/highlight/)
+[View gallery built with Flutter web](https://git-touch.github.io/highlight/)
 
 | Package                                                                                | Version                                                                                              | Description                                      |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ |

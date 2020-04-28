@@ -1,8 +1,8 @@
 name: flutter_highlight
 description: Syntax highlighting widget for Flutter with lots of languages and themes support.
-version: 0.6.0
+version: 0.6.0+1
 author: Rongjian Zhang <pd4d10@gmail.com>
-homepage: https://github.com/pd4d10/highlight
+homepage: https://github.com/git-touch/highlight
 
 environment:
   sdk: ">=2.3.0 <3.0.0"
