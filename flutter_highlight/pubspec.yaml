@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   highlight: ^0.6.0
+  linked_scroll_controller: ^0.1.2
 
 dev_dependencies:
   flutter_test:

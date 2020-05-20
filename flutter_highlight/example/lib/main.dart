@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text(title),
         actions: <Widget>[
@@ -92,19 +93,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            HighlightView(
-              exampleMap[language],
-              language: language,
-              theme: themeMap[theme],
-              padding: EdgeInsets.all(12),
-              textStyle: TextStyle(
-                  fontFamily:
-                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
-            )
-          ],
+        child: HighlightView(
+          exampleMap[language],
+          readOnly: false,
+          language: language,
+          theme: themeMap[theme],
+          padding: EdgeInsets.all(12),
+          textStyle: TextStyle(
+              fontFamily:
+                  'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
         ),
       ),
     );
