@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text(title),
         actions: <Widget>[
@@ -91,21 +92,37 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            HighlightView(
-              exampleMap[language],
-              language: language,
-              theme: themeMap[theme],
-              padding: EdgeInsets.all(12),
-              textStyle: TextStyle(
-                  fontFamily:
-                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
-            )
-          ],
-        ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final highlightView = HighlightView(
+            exampleMap[language],
+            readOnly: false,
+            language: language,
+            theme: themeMap[theme],
+            padding: EdgeInsets.all(12),
+            textStyle: TextStyle(
+              fontFamily:
+                  'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace',
+            ),
+          );
+
+          if (constraints.maxWidth > 600) {
+            return Center(
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: 600,
+                  maxHeight: 800,
+                ),
+                child: highlightView,
+              ),
+            );
+          } else {
+            return SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: highlightView,
+            );
+          }
+        },
       ),
     );
   }
