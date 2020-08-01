@@ -92,17 +92,37 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Center(
-        child: HighlightView(
-          exampleMap[language],
-          readOnly: false,
-          language: language,
-          theme: themeMap[theme],
-          padding: EdgeInsets.all(12),
-          textStyle: TextStyle(
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final highlightView = HighlightView(
+            exampleMap[language],
+            readOnly: false,
+            language: language,
+            theme: themeMap[theme],
+            padding: EdgeInsets.all(12),
+            textStyle: TextStyle(
               fontFamily:
-                  'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
-        ),
+                  'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace',
+            ),
+          );
+
+          if (constraints.maxWidth > 600) {
+            return Center(
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: 600,
+                  maxHeight: 800,
+                ),
+                child: highlightView,
+              ),
+            );
+          } else {
+            return SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: highlightView,
+            );
+          }
+        },
       ),
     );
   }

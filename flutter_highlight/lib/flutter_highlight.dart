@@ -30,6 +30,12 @@ class HighlightView extends StatefulWidget {
   /// Specify text styles such as font family and font size
   final TextStyle textStyle;
 
+  /// Code edition controller
+  ///
+  /// Required if property [readOnly] changed to false
+  final TextEditingController controller;
+
+  /// Code edition availability
   final bool readOnly;
 
   HighlightView(
@@ -40,6 +46,7 @@ class HighlightView extends StatefulWidget {
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
     this.readOnly = true,
+    this.controller,
   }) : source = input.replaceAll('\t', ' ' * tabSize);
 
   static const _rootKey = 'root';
@@ -66,7 +73,8 @@ class _HighlightViewState extends State<HighlightView> {
     _controllers = LinkedScrollControllerGroup();
     _highlightScrollController = _controllers.addAndGet();
     _editableScrollView = _controllers.addAndGet();
-    _textController = TextEditingController(text: widget.source);
+    _textController = widget.controller ?? TextEditingController();
+    _textController.text = widget.source;
     _editableText = widget.source;
     super.initState();
   }
@@ -75,7 +83,9 @@ class _HighlightViewState extends State<HighlightView> {
   void dispose() {
     _highlightScrollController.dispose();
     _editableScrollView.dispose();
-    _textController.dispose();
+    if (widget.controller == null) {
+      _textController.dispose();
+    }
     super.dispose();
   }
 
@@ -143,15 +153,14 @@ class _HighlightViewState extends State<HighlightView> {
       _textStyle = _textStyle.merge(widget.textStyle);
     }
 
-    Widget content = Container(
+    Widget content = Padding(
       padding: padding,
-      color: widget.theme[HighlightView._rootKey]?.backgroundColor ??
-          HighlightView._defaultBackgroundColor,
       child: RichText(
         text: TextSpan(
           style: _textStyle,
           children: _convert(
-              highlight.parse(_editableText, language: widget.language).nodes),
+            highlight.parse(_editableText, language: widget.language).nodes,
+          ),
         ),
       ),
     );
@@ -172,32 +181,36 @@ class _HighlightViewState extends State<HighlightView> {
         }
         return true;
       },
-      child: Stack(
-        children: <Widget>[
-          content,
-          if (!widget.readOnly)
-            CupertinoTextField(
-              scrollController: _editableScrollView,
-              scrollPadding: EdgeInsets.zero,
-              maxLines: _linesCount,
-              maxLengthEnforced: false,
-              keyboardType: TextInputType.multiline,
-              controller: _textController,
-              padding: padding,
-              style: _textStyle.copyWith(
-                color: Colors.transparent,
+      child: Container(
+        color: widget.theme[HighlightView._rootKey]?.backgroundColor ??
+            HighlightView._defaultBackgroundColor,
+        child: Stack(
+          children: <Widget>[
+            content,
+            if (!widget.readOnly)
+              CupertinoTextField(
+                scrollController: _editableScrollView,
+                scrollPadding: EdgeInsets.zero,
+                maxLines: _linesCount,
+                maxLengthEnforced: false,
+                keyboardType: TextInputType.multiline,
+                controller: _textController,
+                padding: padding,
+                style: _textStyle.copyWith(
+                  color: Colors.transparent,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.zero,
+                  color: Colors.transparent,
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    _editableText = value;
+                  });
+                },
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.zero,
-                color: Colors.transparent,
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _editableText = value;
-                });
-              },
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }
