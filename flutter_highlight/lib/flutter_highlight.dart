@@ -3,9 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
-class HighlightView extends StatelessWidget {
+class HighlightView extends StatefulWidget {
   /// The original code to be highlighted
-  final String source;
+  String source;
+
+  /// The controller for the highlighted text
+  HighlightEditingController controller;
 
   /// Highlight language
   ///
@@ -19,6 +22,12 @@ class HighlightView extends StatelessWidget {
   /// [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
   final Map<String, TextStyle> theme;
 
+  /// Editable
+  ///
+  /// If set to true, this will render a TextField instead.
+  /// Defaults to false.
+  final bool editable;
+
   /// Padding
   final EdgeInsetsGeometry padding;
 
@@ -27,14 +36,24 @@ class HighlightView extends StatelessWidget {
   /// Specify text styles such as font family and font size
   final TextStyle textStyle;
 
-  HighlightView(
-    String input, {
+  HighlightView({
+    String text,
+    this.controller,
     this.language,
     this.theme = const {},
+    this.editable = false,
     this.padding,
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
-  }) : source = input.replaceAll('\t', ' ' * tabSize);
+  }) {
+    if (controller == null) {
+      source = text.replaceAll('\t', ' ' * tabSize);
+      controller = HighlightEditingController(language, theme);
+      controller.text = source;
+    } else {
+      source = controller.text.replaceAll('\t', ' ' * tabSize);
+    }
+  }
 
   static const _rootKey = 'root';
   static const _defaultFontColor = Color(0xff000000);
@@ -46,29 +65,47 @@ class HighlightView extends StatelessWidget {
   static const _defaultFontFamily = 'monospace';
 
   @override
+  _HighlightViewState createState() => _HighlightViewState();
+}
+
+class _HighlightViewState extends State<HighlightView> {
+  @override
   Widget build(BuildContext context) {
     var _textStyle = TextStyle(
-      fontFamily: _defaultFontFamily,
-      color: theme[_rootKey]?.color ?? _defaultFontColor,
+      fontFamily: HighlightView._defaultFontFamily,
+      color: widget.theme[HighlightView._rootKey]?.color ??
+          HighlightView._defaultFontColor,
     );
-    if (textStyle != null) {
-      _textStyle = _textStyle.merge(textStyle);
+    if (widget.textStyle != null) {
+      _textStyle = _textStyle.merge(widget.textStyle);
     }
 
     return Container(
-      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
-      padding: padding,
-      child: RichText(
-        text: TextSpan(
-          style: _textStyle,
-          children: getHighlightTextSpan(source, language, theme),
-        ),
-      ),
+      color: widget.theme[HighlightView._rootKey]?.backgroundColor ??
+          HighlightView._defaultBackgroundColor,
+      padding: widget.padding,
+      child: widget.editable
+          ? TextField(
+              controller: widget.controller,
+              decoration: InputDecoration(border: InputBorder.none),
+              maxLines: null,
+              style: widget.theme[HighlightView._rootKey],
+            )
+          : RichText(
+              text: TextSpan(
+                style: _textStyle,
+                children: getHighlightTextSpan(
+                  widget.source,
+                  widget.language,
+                  widget.theme,
+                ),
+              ),
+            ),
     );
   }
 }
 
-List<TextSpan> getHighlightTextSpan( source, language, theme) {
+List<TextSpan> getHighlightTextSpan(source, language, theme) {
   return _convert(highlight.parse(source, language: language).nodes, theme);
 }
 
@@ -81,8 +118,10 @@ class HighlightEditingController extends TextEditingController {
   @override
   TextSpan buildTextSpan({TextStyle style, bool withComposing}) {
     final result = highlight.parse(value.text, language: language);
-    final spans =
-    TextSpan(style: style, children: _convert(result.nodes, theme));
+    final spans = TextSpan(
+      style: style,
+      children: _convert(result.nodes, theme),
+    );
     if (value.composing.isValid && withComposing) {
       underlineComposing(spans);
     }
@@ -92,10 +131,11 @@ class HighlightEditingController extends TextEditingController {
   underlineComposing(TextSpan nodes) {
     var pos = 0;
     final TextStyle composingStyle =
-    TextStyle(decoration: TextDecoration.underline);
+        TextStyle(decoration: TextDecoration.underline);
 
     TextSpan _traverse(TextSpan node) {
-      if (node.text != null && pos <= value.composing.start &&
+      if (node.text != null &&
+          pos <= value.composing.start &&
           value.composing.end <= pos + node.text.length) {
         var relativeComposing = TextRange(
           start: value.composing.start - pos,
@@ -116,8 +156,8 @@ class HighlightEditingController extends TextEditingController {
       pos += node.text?.length ?? 0;
       if (node.children != null) {
         for (var i = 0;
-        i < node.children.length && pos <= value.composing.start;
-        i++) {
+            i < node.children.length && pos <= value.composing.start;
+            i++) {
           var update = _traverse(node.children[i]);
           if (update != null) {
             node.children[i] = update;
