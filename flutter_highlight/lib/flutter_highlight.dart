@@ -72,8 +72,8 @@ class _HighlightViewState extends State<HighlightView> {
       controller.text = widget.text;
     } else {
       controller = widget.controller;
-      source = controller.text;
     }
+    source = controller.text;
   }
 
   @override
