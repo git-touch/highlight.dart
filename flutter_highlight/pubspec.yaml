@@ -4,13 +4,16 @@ version: 0.6.0+1
 author: Rongjian Zhang <pd4d10@gmail.com>
 homepage: https://github.com/git-touch/highlight
 
+publish_to: none
+
 environment:
   sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  highlight: ^0.6.0
+  highlight:
+    path: ../highlight
 
 dev_dependencies:
   flutter_test:
