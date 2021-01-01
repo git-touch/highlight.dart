@@ -45,7 +45,8 @@ class HighlightView extends StatefulWidget {
     this.padding,
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
-  });
+  }) : assert(text != null || controller != null,
+            'One of text or controller properties must be provided');
 
   static const _rootKey = 'root';
   static const _defaultFontColor = Color(0xff000000);
