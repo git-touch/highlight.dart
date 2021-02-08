@@ -1,3 +1,5 @@
+> NOTE: this fork has been archived in favour of hosting my own [flutter_highlight](https://github.com/tusharsadhwani/flutter_highlight) repo for ease of use.
+
 # highlight
 
 Syntax highlighting for Dart and Flutter, which supports lots of languages and themes.

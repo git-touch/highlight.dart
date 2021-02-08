@@ -92,17 +92,20 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          primary: false,
+          shrinkWrap: true,
           children: <Widget>[
             HighlightView(
-              exampleMap[language],
+              text: exampleMap[language],
+              editable: true,
               language: language,
               theme: themeMap[theme],
               padding: EdgeInsets.all(12),
               textStyle: TextStyle(
-                  fontFamily:
-                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
+                fontFamily:
+                    'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace',
+              ),
             )
           ],
         ),
