@@ -2,7 +2,6 @@ name: flutter_highlighter
 description: Syntax highlighting widget for Flutter with lots of languages and themes support.
 version: 0.1.0+1
 homepage: https://github.com/Purple-Graphite/highlight
-publish_to: 'none'
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
