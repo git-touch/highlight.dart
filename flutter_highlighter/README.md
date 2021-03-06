@@ -8,7 +8,7 @@ Syntax highlighter for Flutter. <!-- https://git-touch.github.io/highlighter/ --
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_highlighter/flutter_highlight.dart';
+import 'package:flutter_highlighter/flutter_highlighter.dart';
 import 'package:flutter_highlighter/themes/github.dart';
 
 class MyWidget extends StatelessWidget {
