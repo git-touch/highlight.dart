@@ -2,7 +2,7 @@
 
 [![pub](https://img.shields.io/pub/v/flutter_highlighter)](https://pub.dev/packages/flutter_highlighter)
 
-Syntax highlighter for Flutter. https://git-touch.github.io/highlighter/
+Syntax highlighter for Flutter. <!-- https://git-touch.github.io/highlighter/ -->
 
 ## Usage
 
@@ -46,8 +46,8 @@ class MyWidget extends StatelessWidget {
 
 ## References
 
-- [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
-- [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
+- [All available languages](https://github.com/Purple-Graphite/highlight/tree/master/highlighter/lib/languages)
+- [All available themes](https://github.com/Purple-Graphite/highlight/blob/master/flutter_highlighter/lib/themes)
 
 ## License
 

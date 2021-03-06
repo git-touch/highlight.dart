@@ -1,3 +1,9 @@
+## 0.1.0
+
+- Migrated to null-safety
+
+# Changelog from the forked package `flutter_highlighter`
+
 ## 0.6.0+1
 
 - Update demo link

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_highlighter/flutter_highlight.dart';
+import 'package:flutter_highlighter/flutter_highlighter.dart';
 import 'package:flutter_highlighter/theme_map.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'example_map.dart';

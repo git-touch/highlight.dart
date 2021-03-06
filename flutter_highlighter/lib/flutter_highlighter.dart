@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:highlighter/highlight.dart' show highlight, Node;
+import 'package:highlighter/highlighter.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
 class HighlightView extends StatelessWidget {
