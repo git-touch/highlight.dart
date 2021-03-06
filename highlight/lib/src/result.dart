@@ -2,11 +2,11 @@ import 'node.dart';
 import 'mode.dart';
 
 class Result {
-  int relevance;
-  List<Node> nodes;
-  String language;
-  Mode top;
-  Result secondBest;
+  int? relevance;
+  List<Node>? nodes;
+  String? language;
+  Mode? top;
+  Result? secondBest;
 
   Result({
     this.relevance,
@@ -28,18 +28,18 @@ class Result {
 
     void _traverse(Node node) {
       final shouldAddSpan = node.className != null &&
-          ((node.value != null && node.value.isNotEmpty) ||
-              (node.children != null && node.children.isNotEmpty));
+          ((node.value != null && node.value!.isNotEmpty) ||
+              (node.children != null && node.children!.isNotEmpty));
 
       if (shouldAddSpan) {
         var prefix = node.noPrefix ? '' : 'hljs-';
-        str += '<span class="${prefix + node.className}">';
+        str += '<span class="${prefix + node.className!}">';
       }
 
       if (node.value != null) {
-        str += _escape(node.value);
+        str += _escape(node.value!);
       } else if (node.children != null) {
-        node.children.forEach(_traverse);
+        node.children!.forEach(_traverse);
       }
 
       if (shouldAddSpan) {
@@ -47,7 +47,7 @@ class Result {
       }
     }
 
-    nodes.forEach(_traverse);
+    nodes!.forEach(_traverse);
     return str;
   }
 }
