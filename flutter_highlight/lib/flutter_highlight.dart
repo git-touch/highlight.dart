@@ -12,7 +12,7 @@ class HighlightView extends StatelessWidget {
   /// It is recommended to give it a value for performance
   ///
   /// [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
-  final String language;
+  final String? language;
 
   /// Highlight theme
   ///
@@ -20,12 +20,12 @@ class HighlightView extends StatelessWidget {
   final Map<String, TextStyle> theme;
 
   /// Padding
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   /// Text styles
   ///
   /// Specify text styles such as font family and font size
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   HighlightView(
     String input, {
@@ -45,16 +45,17 @@ class HighlightView extends StatelessWidget {
       if (node.value != null) {
         currentSpans.add(node.className == null
             ? TextSpan(text: node.value)
-            : TextSpan(text: node.value, style: theme[node.className]));
+            : TextSpan(text: node.value, style: theme[node.className!]));
       } else if (node.children != null) {
         List<TextSpan> tmp = [];
-        currentSpans.add(TextSpan(children: tmp, style: theme[node.className]));
+        currentSpans
+            .add(TextSpan(children: tmp, style: theme[node.className!]));
         stack.add(currentSpans);
         currentSpans = tmp;
 
-        node.children.forEach((n) {
+        node.children!.forEach((n) {
           _traverse(n);
-          if (n == node.children.last) {
+          if (n == node.children!.last) {
             currentSpans = stack.isEmpty ? spans : stack.removeLast();
           }
         });
@@ -93,7 +94,8 @@ class HighlightView extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           style: _textStyle,
-          children: _convert(highlight.parse(source, language: language).nodes),
+          children:
+              _convert(highlight.parse(source, language: language).nodes!),
         ),
       ),
     );

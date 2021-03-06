@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               }).toList();
             },
-            onSelected: (selected) {
+            onSelected: (dynamic selected) {
               if (selected != null) {
                 setState(() {
                   language = selected;
@@ -96,9 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             HighlightView(
-              exampleMap[language],
+              exampleMap[language]!,
               language: language,
-              theme: themeMap[theme],
+              theme: themeMap[theme]!,
               padding: EdgeInsets.all(12),
               textStyle: TextStyle(
                   fontFamily:
