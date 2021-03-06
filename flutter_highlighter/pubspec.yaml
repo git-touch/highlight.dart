@@ -1,7 +1,7 @@
-name: flutter_highlight
+name: flutter_highlighter
 description: Syntax highlighting widget for Flutter with lots of languages and themes support.
 version: 0.7.0
-homepage: https://github.com/Purple-Graphite/highlight/tree/master/flutter_highlight
+homepage: https://github.com/Purple-Graphite/highlight
 publish_to: 'none'
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  highlight:
+  highlighter:
     git:
       url: git@github.com:Purple-Graphite/highlight.git
       ref: highlight/v0.7.0
@@ -19,6 +19,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-# dependency_overrides:
-#   highlight:
-#     path: ../highlight
+dependency_overrides:
+  highlight:
+    path: ../highlighter

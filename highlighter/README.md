@@ -1,15 +1,15 @@
-# highlight
+# highlighter
 
-[![pub](https://img.shields.io/pub/v/highlight)](https://pub.dev/packages/highlight)
+[![pub](https://img.shields.io/pub/v/highlighter)](https://pub.dev/packages/highlighter)
 
 Dart Syntax highlighting library.
 
-If you are looking for Flutter widget, see [flutter_highlight](https://github.com/pd4d10/highlight/tree/master/flutter_highlight).
+If you are looking for Flutter widget, see [flutter_highlighter](https://github.com/Purple-Graphite/highlight/tree/master/flutter_highlighter).
 
 ## Usage
 
 ```dart
-import 'package:highlight/highlight.dart' show highlight;
+import 'package:highlighter/highlighter.dart' show highlight;
 
 main() {
   var source = '''main() {
@@ -26,8 +26,8 @@ main() {
 Notice that **all available languages are registered** in the way above. For those desiring more control over what exactly they need, import `highlight_core.dart` instead and register languages manually:
 
 ```dart
-import 'package:highlight/highlight_core.dart' show highlight;
-import 'package:highlight/languages/dart.dart';
+import 'package:highlighter/highlight_core.dart' show highlight;
+import 'package:highlighter/languages/dart.dart';
 
 main() {
   var source = '''main() {
@@ -45,7 +45,7 @@ main() {
 
 ## References
 
-- [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
+- [All available languages](https://github.com/Purple-Graphite/highlight/tree/master/highlighter/lib/languages)
 
 ## License
 

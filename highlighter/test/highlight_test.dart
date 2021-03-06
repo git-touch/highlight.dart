@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:highlight/languages/all.dart';
+import 'package:highlighter/languages/all.dart';
 import 'package:path/path.dart' as path;
-import 'package:highlight/highlight_core.dart' show highlight;
+import 'package:highlighter/highlight_core.dart' show highlight;
 import 'package:test/test.dart';
 
 void main() {

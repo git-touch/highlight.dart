@@ -21,7 +21,7 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.2
-  flutter_highlight:
+  flutter_highlighter:
     path: ../
 
 dev_dependencies:

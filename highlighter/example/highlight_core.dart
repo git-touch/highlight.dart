@@ -1,5 +1,5 @@
-import 'package:highlight/highlight_core.dart' show highlight;
-import 'package:highlight/languages/dart.dart';
+import 'package:highlighter/highlight_core.dart' show highlight;
+import 'package:highlighter/languages/dart.dart';
 
 void main() {
   var source = '''main() {

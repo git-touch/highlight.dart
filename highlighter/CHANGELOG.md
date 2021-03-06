@@ -1,8 +1,10 @@
+## 0.1.0
+
+- Migration to null-safety
+
+# Changes before this was forked from highlight package
+
 ## 0.6.0
-
-- Deps upgrade
-
-## 0.5.0
 
 - Support GN and Solidity
 

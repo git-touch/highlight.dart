@@ -1,8 +1,7 @@
-name: highlight
+name: highlighter
 description: Syntax highlighting for Dart with lots of languages and themes support.
-version: 0.7.0
+version: 0.1.0
 homepage: https://github.com/Purple-Graphite/highlight/tree/master/highlight
-publish_to: 'none'
 
 dependencies:
   collection: ^1.15.0

@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Dart",
-      "program": "flutter_highlight/example/lib/main.dart",
+      "program": "flutter_highlighter/example/lib/main.dart",
       "request": "launch",
       "type": "dart"
     }

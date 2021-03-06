@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:highlight/highlight.dart' show highlight, Node;
+import 'package:highlighter/highlight.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
 class HighlightView extends StatelessWidget {
@@ -11,12 +11,12 @@ class HighlightView extends StatelessWidget {
   ///
   /// It is recommended to give it a value for performance
   ///
-  /// [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
+  /// [All available languages](https://github.com/Purple-Graphite/highlight/tree/master/highlight/lib/languages)
   final String? language;
 
   /// Highlight theme
   ///
-  /// [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
+  /// [All available themes](https://github.com/Purple-Graphite/highlight/blob/master/flutter_highlighter/lib/themes)
   final Map<String, TextStyle> theme;
 
   /// Padding

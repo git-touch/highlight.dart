@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:highlight/languages/plaintext.dart';
+import 'package:highlighter/languages/plaintext.dart';
 import 'utils.dart';
 import 'node.dart';
 import 'mode.dart';
@@ -376,9 +376,7 @@ class Highlight {
 
     void _processBuffer() {
       _addNodes(
-          top.subLanguage != null
-              ? _processSubLanguage()!
-              : _processKeywords(),
+          top.subLanguage != null ? _processSubLanguage()! : _processKeywords(),
           currentChildren);
       mode_buffer = '';
     }
