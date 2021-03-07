@@ -1,6 +1,6 @@
 name: highlight
 description: Syntax highlighting for Dart with lots of languages and themes support.
-version: 0.6.0
+version: 0.7.0
 homepage: https://github.com/pd4d10/highlight
 
 environment:
