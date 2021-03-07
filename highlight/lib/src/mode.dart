@@ -1,45 +1,45 @@
 class Mode {
-  String ref;
-  Map<String, Mode> refs;
+  String? ref;
+  Map<String, Mode>? refs;
 
-  List<String> aliases;
+  List<String>? aliases;
 
   /// `String | Map<String, [String, int]>`
   dynamic keywords;
-  String illegal;
-  bool case_insensitive;
-  List<Mode> contains;
-  List<Mode> variants;
-  Mode starts;
-  String className;
-  String begin;
-  String beginKeywords;
-  String end;
-  String lexemes;
-  bool endSameAsBegin;
-  bool endsParent;
-  bool endsWithParent;
-  int relevance;
+  String? illegal;
+  bool? case_insensitive;
+  List<Mode?>? contains;
+  List<Mode?>? variants;
+  Mode? starts;
+  String? className;
+  String? begin;
+  String? beginKeywords;
+  String? end;
+  String? lexemes;
+  bool? endSameAsBegin;
+  bool? endsParent;
+  bool? endsWithParent;
+  int? relevance;
 
-  List<String> subLanguage;
-  bool excludeBegin;
-  bool excludeEnd;
-  bool skip;
-  bool returnBegin;
-  bool returnEnd;
+  List<String>? subLanguage;
+  bool? excludeBegin;
+  bool? excludeEnd;
+  bool? skip;
+  bool? returnBegin;
+  bool? returnEnd;
 
-  bool compiled;
-  Mode parent;
-  RegExp lexemesRe;
-  RegExp beginRe;
-  RegExp endRe;
-  RegExp illegalRe;
-  String terminator_end;
-  List<Mode> cached_variants;
-  RegExp terminators;
+  bool? compiled;
+  Mode? parent;
+  RegExp? lexemesRe;
+  RegExp? beginRe;
+  RegExp? endRe;
+  RegExp? illegalRe;
+  String? terminator_end;
+  List<Mode>? cached_variants;
+  RegExp? terminators;
 
-  bool self;
-  bool disableAutodetect;
+  bool? self;
+  bool? disableAutodetect;
 
   Mode({
     this.ref,
@@ -72,7 +72,7 @@ class Mode {
     this.disableAutodetect,
   });
 
-  static Mode inherit(Mode a, [Mode b]) {
+  static Mode inherit(Mode a, [Mode? b]) {
     b ??= Mode();
     return Mode()
       ..aliases = b.aliases ?? a.aliases

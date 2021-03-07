@@ -1,7 +1,7 @@
 /// Extends builtin String.substring function
 ///
 /// RangeError: Value not in range
-String substring(String input, int startIndex, [int endIndex]) {
+String substring(String input, int startIndex, [int? endIndex]) {
   endIndex ??= input.length;
 
   if (startIndex > endIndex) {
