@@ -26,12 +26,15 @@ class HighlightView extends StatelessWidget {
   ///
   /// Specify text styles such as font family and font size
   final TextStyle? textStyle;
+  
+  final Color backgroundColor;
 
   HighlightView(
     String input, {
     this.language,
     this.theme = const {},
     this.padding,
+      this.backgroundColor,
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
   }) : source = input.replaceAll('\t', ' ' * tabSize);
@@ -70,7 +73,7 @@ class HighlightView extends StatelessWidget {
 
   static const _rootKey = 'root';
   static const _defaultFontColor = Color(0xff000000);
-  static const _defaultBackgroundColor = Color(0xffffffff);
+  static const _defaultBackgroundColor = Colors.transparent;
 
   // TODO: dart:io is not available at web platform currently
   // See: https://github.com/flutter/flutter/issues/39998
@@ -88,7 +91,7 @@ class HighlightView extends StatelessWidget {
     }
 
     return Container(
-      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
+      color: backgroundColor?? theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
       padding: padding,
       child: RichText(
         text: TextSpan(
