@@ -27,14 +27,14 @@ class HighlightView extends StatelessWidget {
   /// Specify text styles such as font family and font size
   final TextStyle? textStyle;
   
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   HighlightView(
     String input, {
     this.language,
     this.theme = const {},
     this.padding,
-      this.backgroundColor,
+    this.backgroundColor,
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
   }) : source = input.replaceAll('\t', ' ' * tabSize);
