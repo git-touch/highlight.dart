@@ -187,12 +187,14 @@ import 'vue.dart';
 import 'graphql.dart';
 import 'gn.dart';
 import 'solidity.dart';
+import 'gdscript.dart';
 
 final communityLanguages = {
   'vue': vue,
   'graphql': graphql,
   'gn': gn,
   'solidity': solidity,
+  'gdscript': gdscript,
 };
 final builtinLanguages = {
   '1c': lang1C,
