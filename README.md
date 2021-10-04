@@ -18,11 +18,11 @@ Syntax highlighting for Dart and Flutter, which supports lots of languages and t
 ## How to add unsupported language
 
 1. Install nodejs and gulp.  
-Highlight.dart uses [nodejs](https://nodejs.org/en/) and [gulp](https://gulpjs.com/) from command line to generate language definition files, so please install nodejs and gulp-cli.
+Highlight.dart uses [nodejs](https://nodejs.org/en/) and [gulp](https://gulpjs.com/) from command line to generate language syntax definition files, so please install nodejs and gulp-cli.
 
 2. make sure your language is [supported by highlight.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md).
 3. add your supported language repository as git submodule under `vendor` folder  
-  **Note:** if the `[language].js` file are not in root directory, please move it to root directory of your `vendor/highlightjs-[language]`.
+  **Note:** if the `main` key's value of `pacakge.json` in your language repository does not exists, please correct it(and then create a PR to the repository) or the syntax definition file won't be generated.
 4. edit `tool/highlight.js` function allModes`:
 for exmaple, given I'm trying to add support for GDScript:
 ```javascript
@@ -64,7 +64,7 @@ export function allModes(){
   ];
   ...
 ```
-5. change your working directory to `tool` and run gulp in command line.
+5. change your working directory to `tool` and run gulp in command line, and then use `dart format [your directory]` command to format generated dart files.
 
 ## License
 
