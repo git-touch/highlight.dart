@@ -4,7 +4,7 @@
 
 Dart Syntax highlighting library.
 
-If you are looking for Flutter widget, see [flutter_highlighter](https://github.com/Purple-Graphite/highlight/tree/master/flutter_highlighter).
+If you are looking for Flutter widget, see [flutter_highlighter](https://github.com/predatorx7/highlight/tree/master/flutter_highlighter).
 
 ## Usage
 
@@ -45,7 +45,7 @@ main() {
 
 ## References
 
-- [All available languages](https://github.com/Purple-Graphite/highlight/tree/master/highlighter/lib/languages)
+- [All available languages](https://github.com/predatorx7/highlight/tree/master/highlighter/lib/languages)
 
 ## License
 

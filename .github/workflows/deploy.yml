@@ -6,14 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1.1.0
-      - uses: subosito/flutter-action@v1.1.1
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+      - run: cd flutter_highlight/example && flutter pub get && flutter build web
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          channel: dev
-      - run: flutter config --enable-web
-      - run: cd flutter_highlighter/example && flutter pub get && flutter build web
-      - uses: peaceiris/actions-gh-pages@v2.5.1
-        env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./flutter_highlighter/example/build/web
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./flutter_highlight/example/build/web

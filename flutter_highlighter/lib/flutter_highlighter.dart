@@ -11,12 +11,12 @@ class HighlightView extends StatelessWidget {
   ///
   /// It is recommended to give it a value for performance
   ///
-  /// [All available languages](https://github.com/Purple-Graphite/highlight/tree/master/highlight/lib/languages)
+  /// [All available languages](https://github.com/predatorx7/highlight/tree/master/highlight/lib/languages)
   final String? language;
 
   /// Highlight theme
   ///
-  /// [All available themes](https://github.com/Purple-Graphite/highlight/blob/master/flutter_highlighter/lib/themes)
+  /// [All available themes](https://github.com/predatorx7/highlight/blob/master/flutter_highlighter/lib/themes)
   final Map<String, TextStyle> theme;
 
   /// Padding
