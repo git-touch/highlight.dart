@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Merge changes from upstream
+
 ## 0.1.0
 
 - Migration to null-safety

@@ -1,6 +1,6 @@
 name: flutter_highlighter
 description: Syntax highlighting widget for Flutter with lots of languages and themes support.
-version: 0.1.0+1
+version: 0.1.1
 homepage: https://github.com/predatorx7/highlight
 
 environment:
@@ -14,6 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.0
 # dependency_overrides:
 #  highlight:
 #    path: ../highlighter
