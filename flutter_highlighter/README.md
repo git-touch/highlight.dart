@@ -46,8 +46,8 @@ class MyWidget extends StatelessWidget {
 
 ## References
 
-- [All available languages](https://github.com/Purple-Graphite/highlight/tree/master/highlighter/lib/languages)
-- [All available themes](https://github.com/Purple-Graphite/highlight/blob/master/flutter_highlighter/lib/themes)
+- [All available languages](https://github.com/predatorx7/highlight/tree/master/highlighter/lib/languages)
+- [All available themes](https://github.com/predatorx7/highlight/blob/master/flutter_highlighter/lib/themes)
 
 ## License
 
