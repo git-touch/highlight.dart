@@ -251,7 +251,7 @@ class Highlight {
   /// [autoDetect]: The default value is `false`. Pass `true` to enable language auto detection.
   /// Notice that **this may cause performance issue** because it will try to parse source with
   /// all registered languages and use the most relevant one.
-  Result parse(String source, {String? language, bool autoDetection = false}) {
+  Result parse(String source, {String? language, bool autoDetection = false, Mode? continuation}) {
     if (language == null) {
       if (autoDetection) {
         return _parseAuto(source);
@@ -259,7 +259,7 @@ class Highlight {
         throw ArgumentError.notNull('language');
       }
     }
-    return _parse(source, language: language);
+    return _parse(source, language: language, continuation: continuation);
   }
 
   Result _parse(
