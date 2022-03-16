@@ -133,6 +133,11 @@ export function allModes() {
       name: "solidity",
       factory: require("../vendor/highlightjs-solidity").definer,
       community: true
+    },
+    {
+      name: "terraform",
+      factory: require("../vendor/highlightjs-terraform").definer,
+      community: true
     }
   ];
 

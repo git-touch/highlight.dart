@@ -187,12 +187,14 @@ import 'vue.dart';
 import 'graphql.dart';
 import 'gn.dart';
 import 'solidity.dart';
+import 'terraform.dart';
 
 final communityLanguages = {
   'vue': vue,
   'graphql': graphql,
   'gn': gn,
   'solidity': solidity,
+  'terraform': terraform,
 };
 final builtinLanguages = {
   '1c': lang1C,
