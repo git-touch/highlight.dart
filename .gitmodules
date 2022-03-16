@@ -13,3 +13,6 @@
 [submodule "vendor/highlightjs-solidity"]
 	path = vendor/highlightjs-solidity
 	url = https://github.com/highlightjs/highlightjs-solidity.git
+[submodule "vendor/highlightjs-terraform"]
+	path = vendor/highlightjs-terraform
+	url = https://github.com/highlightjs/highlightjs-terraform
