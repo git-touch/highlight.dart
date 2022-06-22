@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_highlight/flutter_highlight_background.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
@@ -27,6 +27,12 @@ class HighlightView extends StatefulWidget {
   /// Specify text styles such as font family and font size
   final TextStyle? textStyle;
 
+  /// Progress indicator
+  ///
+  /// A widget that is displayed while the [source] is being processed.
+  /// This may only be used if a [HighlightBackgroundEnvironment] is available.
+  Widget? progressIndicator;
+
   HighlightView(
     String input, {
     this.language,
@@ -34,6 +40,7 @@ class HighlightView extends StatefulWidget {
     this.padding,
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
+    this.progressIndicator,
   }) : source = input.replaceAll('\t', ' ' * tabSize);
 
   static const _rootKey = 'root';
@@ -50,8 +57,8 @@ class HighlightView extends StatefulWidget {
 }
 
 class _HighlightViewState extends State<HighlightView> {
-  late List<Node> _nodes;
-  late List<TextSpan> _spans;
+  late Future<List<Node>> _nodesFuture;
+  late Future<List<TextSpan>> _spansFuture;
 
   List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
@@ -86,15 +93,19 @@ class _HighlightViewState extends State<HighlightView> {
     return spans;
   }
 
-  void _parse() =>
-      _nodes = highlight.parse(widget.source, language: widget.language).nodes!;
+  void _parse(HighlightBackgroundProvider? backgroundProvider) => _nodesFuture =
+      backgroundProvider?.parse(widget.source, language: widget.language) ??
+          Future.value(
+            highlight.parse(widget.source, language: widget.language).nodes,
+          );
 
-  void _generateSpans() => _spans = _convert(_nodes);
+  void _generateSpans() => _spansFuture = _nodesFuture.then(_convert);
 
   @override
-  void initState() {
-    super.initState();
-    _parse();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
+    _parse(backgroundProvider);
     _generateSpans();
   }
 
@@ -103,7 +114,8 @@ class _HighlightViewState extends State<HighlightView> {
     super.didUpdateWidget(oldWidget);
     if (widget.source != oldWidget.source ||
         widget.language != oldWidget.language) {
-      _parse();
+      final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
+      _parse(backgroundProvider);
       _generateSpans();
     } else if (widget.theme != oldWidget.theme) {
       _generateSpans();
@@ -125,11 +137,28 @@ class _HighlightViewState extends State<HighlightView> {
       color: widget.theme[HighlightView._rootKey]?.backgroundColor ??
           HighlightView._defaultBackgroundColor,
       padding: widget.padding,
-      child: RichText(
-        text: TextSpan(
-          style: _textStyle,
-          children: _spans,
-        ),
+      child: FutureBuilder<List<TextSpan>>(
+        future: _spansFuture,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            final progressIndicator = widget.progressIndicator;
+            if (progressIndicator == null) {
+              return const SizedBox.shrink();
+            } else {
+              assert(
+                HighlightBackgroundProvider.maybeOf(context) != null,
+                'Cannot display a progress indicator unless a HighlightBackgroundEnvironment is available!',
+              );
+              return progressIndicator;
+            }
+          }
+          return RichText(
+            text: TextSpan(
+              style: _textStyle,
+              children: snapshot.requireData,
+            ),
+          );
+        },
       ),
     );
   }
