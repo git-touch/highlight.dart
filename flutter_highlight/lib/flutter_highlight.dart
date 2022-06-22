@@ -31,7 +31,7 @@ class HighlightView extends StatefulWidget {
   ///
   /// A widget that is displayed while the [source] is being processed.
   /// This may only be used if a [HighlightBackgroundEnvironment] is available.
-  Widget? progressIndicator;
+  final Widget? progressIndicator;
 
   HighlightView(
     String input, {
