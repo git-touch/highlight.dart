@@ -50,6 +50,7 @@ class HighlightView extends StatefulWidget {
 }
 
 class _HighlightViewState extends State<HighlightView> {
+  late List<Node> _nodes;
   late List<TextSpan> _spans;
 
   List<TextSpan> _convert(List<Node> nodes) {
@@ -85,12 +86,15 @@ class _HighlightViewState extends State<HighlightView> {
     return spans;
   }
 
-  void _generateSpans() => _spans = _convert(
-      highlight.parse(widget.source, language: widget.language).nodes!);
+  void _parse() =>
+      _nodes = highlight.parse(widget.source, language: widget.language).nodes!;
+
+  void _generateSpans() => _spans = _convert(_nodes);
 
   @override
   void initState() {
     super.initState();
+    _parse();
     _generateSpans();
   }
 
@@ -98,8 +102,10 @@ class _HighlightViewState extends State<HighlightView> {
   void didUpdateWidget(HighlightView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.source != oldWidget.source ||
-        widget.language != oldWidget.language ||
-        widget.theme != oldWidget.theme) {
+        widget.language != oldWidget.language) {
+      _parse();
+      _generateSpans();
+    } else if (widget.theme != oldWidget.theme) {
       _generateSpans();
     }
   }
