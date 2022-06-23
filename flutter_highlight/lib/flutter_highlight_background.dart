@@ -41,7 +41,6 @@ class _HighlightBackgroundEnvironmentState
       } else if (message is _IsolateStartedResponse) {
         _sendPortCompleter.complete(message.sendPort);
       } else if (message is _IsolateEndedResponse) {
-        print('Ended');
         receivePort.close();
       }
     });
