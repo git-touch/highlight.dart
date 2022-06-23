@@ -112,12 +112,26 @@ class _HighlightViewState extends State<HighlightView> {
                   HighlightView.render(nodes, widget.theme))
               as FutureOr<List<TextSpan>>);
 
+  void _parseAndRender(HighlightBackgroundProvider? backgroundProvider) {
+    if (backgroundProvider == null) {
+      _parse(null);
+      _render(null);
+    } else {
+      final resultFuture = backgroundProvider.parseAndRender(
+        widget.source,
+        widget.theme,
+        language: widget.language,
+      );
+      _nodesFuture = resultFuture.then((result) => result.nodes);
+      _spansFuture = resultFuture.then((result) => result.spans);
+    }
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
-    _parse(backgroundProvider);
-    _render(backgroundProvider);
+    _parseAndRender(backgroundProvider);
   }
 
   @override
@@ -126,8 +140,7 @@ class _HighlightViewState extends State<HighlightView> {
     if (widget.source != oldWidget.source ||
         widget.language != oldWidget.language) {
       final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
-      _parse(backgroundProvider);
-      _render(backgroundProvider);
+      _parseAndRender(backgroundProvider);
     } else if (widget.theme != oldWidget.theme) {
       final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
       _render(backgroundProvider);
