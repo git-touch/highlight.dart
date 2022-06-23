@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/flutter_highlight_background.dart';
 import 'package:flutter_highlight/theme_map.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'example_map.dart';
 
 void main() => runApp(MyApp());
@@ -95,14 +97,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            HighlightView(
-              exampleMap[language],
-              language: language,
-              theme: themeMap[theme],
-              padding: EdgeInsets.all(12),
-              textStyle: TextStyle(
-                  fontFamily:
-                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
+            HighlightBackgroundEnvironment(
+              child: HighlightView(
+                exampleMap[language],
+                language: language,
+                theme: themeMap[theme],
+                padding: EdgeInsets.all(12),
+                textStyle: TextStyle(
+                    fontFamily:
+                        'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
+              ),
             )
           ],
         ),
