@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:isolate';
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
 /// A widget that provides a background [Isolate] to do expensive highlighting
@@ -27,20 +28,21 @@ class HighlightBackgroundEnvironment extends StatefulWidget {
 class _HighlightBackgroundEnvironmentState
     extends State<HighlightBackgroundEnvironment> {
   late final Completer<SendPort> _sendPortCompleter;
-  late final StreamController<_ParseResponse> _parseResultStreamController;
+  late final StreamController<_IdentifiableIsolateMessage>
+      _resultStreamController;
 
   @override
   void initState() {
     super.initState();
     _sendPortCompleter = Completer();
-    _parseResultStreamController = StreamController.broadcast();
+    _resultStreamController = StreamController.broadcast();
     final receivePort = ReceivePort();
-    receivePort.listen((message) {
-      if (message is _ParseResponse) {
-        _parseResultStreamController.add(message);
-      } else if (message is _IsolateStartedResponse) {
-        _sendPortCompleter.complete(message.sendPort);
-      } else if (message is _IsolateEndedResponse) {
+    receivePort.listen((response) {
+      if (response is _IdentifiableIsolateResponse) {
+        _resultStreamController.add(response);
+      } else if (response is _IsolateStartedResponse) {
+        _sendPortCompleter.complete(response.sendPort);
+      } else if (response is _IsolateEndedResponse) {
         receivePort.close();
       }
     });
@@ -54,20 +56,32 @@ class _HighlightBackgroundEnvironmentState
         .then((sendPort) => sendPort.send(_IsolateEndRequest()));
   }
 
-  Future<List<Node>> parse(String source, {String? language}) {
-    final identifier = Capability();
-    _sendPortCompleter.future.then((sendPort) =>
-        sendPort.send(_ParseRequest(identifier, source, language: language)));
-    return _parseResultStreamController.stream
-        .firstWhere((message) => identical(message.identifier, identifier))
-        .then((message) => message.nodes);
+  Future<T> _performTask<T extends _IdentifiableIsolateResponse>(
+      _IdentifiableIsolateRequest<T> request) {
+    _sendPortCompleter.future.then((sendPort) => sendPort.send(request));
+    return _resultStreamController.stream
+        .firstWhere(
+            (message) => identical(message.identifier, request.identifier))
+        .then((response) => response as T);
   }
+
+  Future<List<Node>> _parse(String source, {String? language}) =>
+      _performTask(_ParseRequest(source, language: language))
+          .then((response) => response.nodes);
+
+  Future<List<TextSpan>> _render(
+    List<Node> nodes,
+    Map<String, TextStyle> theme,
+  ) =>
+      _performTask(_RenderRequest(nodes, theme))
+          .then((response) => response.spans);
 
   @override
   Widget build(BuildContext context) {
     return HighlightBackgroundProvider._(
       environmentIdentifier: this,
-      parse: parse,
+      parse: _parse,
+      render: _render,
       child: widget.child,
     );
   }
@@ -76,11 +90,16 @@ class _HighlightBackgroundEnvironmentState
 class HighlightBackgroundProvider extends InheritedWidget {
   final Object environmentIdentifier;
   final Future<List<Node>> Function(String source, {String? language}) parse;
+  final Future<List<TextSpan>> Function(
+    List<Node> nodes,
+    Map<String, TextStyle> theme,
+  ) render;
 
   HighlightBackgroundProvider._({
     Key? key,
     required this.environmentIdentifier,
     required this.parse,
+    required this.render,
     required Widget child,
   }) : super(
           key: key,
@@ -104,12 +123,15 @@ class HighlightBackgroundProvider extends InheritedWidget {
 
 void _isolateEntrypoint(SendPort sendPort) {
   final receivePort = ReceivePort();
-  receivePort.listen((message) {
-    if (message is _ParseRequest) {
+  receivePort.listen((request) {
+    if (request is _ParseRequest) {
       final nodes =
-          highlight.parse(message.source, language: message.language).nodes!;
-      sendPort.send(_ParseResponse(message.identifier, nodes));
-    } else if (message is _IsolateEndRequest) {
+          highlight.parse(request.source, language: request.language).nodes!;
+      sendPort.send(_ParseResponse(request, nodes));
+    } else if (request is _RenderRequest) {
+      final spans = HighlightView.render(request.nodes, request.theme);
+      sendPort.send(_RenderResponse(request, spans));
+    } else if (request is _IsolateEndRequest) {
       receivePort.close();
       sendPort.send(const _IsolateEndedResponse());
     }
@@ -117,21 +139,42 @@ void _isolateEntrypoint(SendPort sendPort) {
   sendPort.send(_IsolateStartedResponse(receivePort.sendPort));
 }
 
+abstract class _IdentifiableIsolateMessage {
+  Capability get identifier;
+}
+
 abstract class _IsolateRequest {}
+
+abstract class _IdentifiableIsolateRequest<
+        T extends _IdentifiableIsolateResponse>
+    implements _IsolateRequest, _IdentifiableIsolateMessage {}
 
 class _IsolateEndRequest implements _IsolateRequest {
   const _IsolateEndRequest();
 }
 
-class _ParseRequest implements _IsolateRequest {
-  final Capability identifier;
+class _ParseRequest implements _IdentifiableIsolateRequest<_ParseResponse> {
+  @override
+  final Capability identifier = Capability();
   final String source;
   final String? language;
 
-  const _ParseRequest(this.identifier, this.source, {this.language});
+  _ParseRequest(this.source, {this.language});
+}
+
+class _RenderRequest implements _IdentifiableIsolateRequest<_RenderResponse> {
+  @override
+  final Capability identifier = Capability();
+  final List<Node> nodes;
+  final Map<String, TextStyle> theme;
+
+  _RenderRequest(this.nodes, this.theme);
 }
 
 abstract class _IsolateResponse {}
+
+abstract class _IdentifiableIsolateResponse
+    implements _IsolateResponse, _IdentifiableIsolateMessage {}
 
 class _IsolateStartedResponse implements _IsolateResponse {
   final SendPort sendPort;
@@ -143,9 +186,20 @@ class _IsolateEndedResponse implements _IsolateResponse {
   const _IsolateEndedResponse();
 }
 
-class _ParseResponse implements _IsolateResponse {
+class _ParseResponse implements _IdentifiableIsolateResponse {
+  @override
   final Capability identifier;
   final List<Node> nodes;
 
-  const _ParseResponse(this.identifier, this.nodes);
+  _ParseResponse(_ParseRequest request, this.nodes)
+      : identifier = request.identifier;
+}
+
+class _RenderResponse implements _IdentifiableIsolateResponse {
+  @override
+  final Capability identifier;
+  final List<TextSpan> spans;
+
+  _RenderResponse(_RenderRequest request, this.spans)
+      : identifier = request.identifier;
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_highlight/flutter_highlight_background.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
@@ -104,15 +106,18 @@ class _HighlightViewState extends State<HighlightView> {
             highlight.parse(widget.source, language: widget.language).nodes,
           );
 
-  void _render() => _spansFuture =
-      _nodesFuture.then((nodes) => HighlightView.render(nodes, widget.theme));
+  void _render(HighlightBackgroundProvider? backgroundProvider) =>
+      _spansFuture = _nodesFuture.then((nodes) =>
+          (backgroundProvider?.render(nodes, widget.theme) ??
+                  HighlightView.render(nodes, widget.theme))
+              as FutureOr<List<TextSpan>>);
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
     _parse(backgroundProvider);
-    _render();
+    _render(backgroundProvider);
   }
 
   @override
@@ -122,9 +127,10 @@ class _HighlightViewState extends State<HighlightView> {
         widget.language != oldWidget.language) {
       final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
       _parse(backgroundProvider);
-      _render();
+      _render(backgroundProvider);
     } else if (widget.theme != oldWidget.theme) {
-      _render();
+      final backgroundProvider = HighlightBackgroundProvider.maybeOf(context);
+      _render(backgroundProvider);
     }
   }
 
