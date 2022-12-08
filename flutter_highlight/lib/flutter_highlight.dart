@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
@@ -27,33 +26,50 @@ class HighlightView extends StatelessWidget {
   /// Specify text styles such as font family and font size
   final TextStyle? textStyle;
 
-  HighlightView(
-    String input, {
-    this.language,
-    this.theme = const {},
-    this.padding,
-    this.textStyle,
-    int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
-  }) : source = input.replaceAll('\t', ' ' * tabSize);
+  /// Enable line numbers
+  final bool lineNumbers;
+
+  /// Decorations for line numbers container
+  ///
+  /// Must be provided when `lineNumbers` are enabled.
+  final BoxBorder? lineNumbersBorder;
+
+  /// Decorations for line numbers container
+  ///
+  /// Must be provided when `lineNumbers` are enabled.
+  final BorderRadius? lineNumbersRadius;
+
+  HighlightView(String input,
+      {this.language,
+      this.theme = const {},
+      this.padding,
+      this.textStyle,
+      int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
+      this.lineNumbers = false,
+      this.lineNumbersBorder,
+      this.lineNumbersRadius,
+      super.key})
+      : source = input.replaceAll('\t', ' ' * tabSize);
 
   List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
     var currentSpans = spans;
     List<List<TextSpan>> stack = [];
 
-    _traverse(Node node) {
+    traverse(Node node) {
       if (node.value != null) {
         currentSpans.add(node.className == null
             ? TextSpan(text: node.value)
             : TextSpan(text: node.value, style: theme[node.className!]));
       } else if (node.children != null) {
         List<TextSpan> tmp = [];
-        currentSpans.add(TextSpan(children: tmp, style: theme[node.className!]));
+        currentSpans
+            .add(TextSpan(children: tmp, style: theme[node.className!]));
         stack.add(currentSpans);
         currentSpans = tmp;
 
         node.children!.forEach((n) {
-          _traverse(n);
+          traverse(n);
           if (n == node.children!.last) {
             currentSpans = stack.isEmpty ? spans : stack.removeLast();
           }
@@ -62,7 +78,7 @@ class HighlightView extends StatelessWidget {
     }
 
     for (var node in nodes) {
-      _traverse(node);
+      traverse(node);
     }
 
     return spans;
@@ -79,23 +95,99 @@ class HighlightView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _textStyle = TextStyle(
-      fontFamily: _defaultFontFamily,
-      color: theme[_rootKey]?.color ?? _defaultFontColor,
-    );
-    if (textStyle != null) {
-      _textStyle = _textStyle.merge(textStyle);
-    }
+    return LayoutBuilder(builder: (context, constraints) {
+      var tStyle = TextStyle(
+        fontFamily: _defaultFontFamily,
+        color: theme[_rootKey]?.color ?? _defaultFontColor,
+      );
+      if (textStyle != null) {
+        tStyle = tStyle.merge(textStyle);
+      }
 
-    return Container(
-      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
-      padding: padding,
-      child: RichText(
-        text: TextSpan(
-          style: _textStyle,
-          children: _convert(highlight.parse(source, language: language).nodes!),
-        ),
-      ),
-    );
+      var converted =
+          _convert(highlight.parse(source, language: language).nodes!);
+
+      var painter = TextPainter(
+        text: TextSpan(style: tStyle, children: converted),
+        textAlign: TextAlign.left,
+        textDirection: TextDirection.ltr,
+        textWidthBasis: TextWidthBasis.parent,
+      );
+
+      painter.layout(maxWidth: constraints.maxWidth - tStyle.fontSize! * 3);
+
+      if (lineNumbers) {
+        assert(lineNumbersBorder != null);
+        assert(lineNumbersRadius != null);
+
+        var lineMetrics = painter.computeLineMetrics();
+        assert(lineMetrics.isNotEmpty);
+
+        var realLineNumber = 0;
+        var lineNumberSpans = List<TextSpan>.empty(growable: true);
+        var maxWidth = 0;
+        var prevSoftBreak = false;
+        for (var line in lineMetrics) {
+          var tmp = (realLineNumber + 1).toString();
+          tmp += '\n';
+          if (!prevSoftBreak) realLineNumber += 1;
+
+          lineNumberSpans.add(TextSpan(text: (!prevSoftBreak) ? tmp : '\n'));
+          prevSoftBreak = !line.hardBreak;
+
+          if (tmp.length > maxWidth) maxWidth = tmp.length;
+        }
+
+        // account for trailing line number
+        lineNumberSpans.removeLast();
+        var tmp = realLineNumber.toString();
+        lineNumberSpans.add(TextSpan(text: tmp));
+
+        return Row(children: [
+          Container(
+              decoration: BoxDecoration(
+                  color: theme[_rootKey]?.backgroundColor ??
+                      _defaultBackgroundColor,
+                  border: lineNumbersBorder,
+                  borderRadius: lineNumbersRadius!),
+              child: Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 10, 8, 10),
+                  child: RichText(
+                    textAlign: TextAlign.end,
+                    text: TextSpan(style: textStyle, children: lineNumberSpans),
+                  ))),
+          Expanded(
+            child: Container(
+                color:
+                    theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
+                child: CustomPaint(
+                  painter: PainterWrapper(painter),
+                  size: painter.size,
+                )),
+          ),
+        ]);
+      } else {
+        return CustomPaint(
+          painter: PainterWrapper(painter),
+          size: painter.size,
+        );
+      }
+    });
+  }
+}
+
+class PainterWrapper extends CustomPainter {
+  final TextPainter textPainter;
+
+  const PainterWrapper(this.textPainter);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    textPainter.paint(canvas, const Offset(4, 0));
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
   }
 }
