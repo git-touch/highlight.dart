@@ -29,8 +29,11 @@ class HighlightView extends StatefulWidget {
   /// Enable line numbers
   final bool lineNumbers;
 
-  // To enable horizontal scrolling
-  final bool expanded;
+  // To enable control bar
+  final bool controlBar;
+
+  final Icon zoomInIcon, zoomOutIcon, lineWrapIcon;
+  final Color? barIconColor;
 
   HighlightView(String input,
       {this.language,
@@ -39,7 +42,11 @@ class HighlightView extends StatefulWidget {
       this.textStyle,
       int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
       this.lineNumbers = false,
-      this.expanded = true})
+      this.controlBar = false,
+      this.zoomInIcon = const Icon(Icons.zoom_in),
+      this.zoomOutIcon = const Icon(Icons.zoom_out),
+      this.lineWrapIcon = const Icon(Icons.password),
+      this.barIconColor})
       : source = input.replaceAll('\t', ' ' * tabSize);
 
   static const _rootKey = 'root';
@@ -57,6 +64,7 @@ class HighlightView extends StatefulWidget {
 
 class _HighlightViewState extends State<HighlightView> {
   double _fontScaleFactor = 1;
+  bool expanded = true;
 
   List<TextSpan> _convert(List<Node> nodes) {
     List<TextSpan> spans = [];
@@ -115,7 +123,7 @@ class _HighlightViewState extends State<HighlightView> {
       );
 
       painter.layout(
-          maxWidth: widget.expanded
+          maxWidth: expanded
               ? double.infinity
               : constraints.maxWidth - tStyle.fontSize! * 3);
 
@@ -145,7 +153,7 @@ class _HighlightViewState extends State<HighlightView> {
 
         return Column(
           children: [
-            zoomControls(),
+            if (widget.controlBar) controlBarWidget(),
             Row(children: [
               Container(
                   decoration: BoxDecoration(
@@ -188,7 +196,7 @@ class _HighlightViewState extends State<HighlightView> {
     });
   }
 
-  Widget zoomControls() {
+  Widget controlBarWidget() {
     return Container(
       color: widget.theme[HighlightView._rootKey]?.backgroundColor ??
           HighlightView._defaultBackgroundColor,
@@ -197,23 +205,35 @@ class _HighlightViewState extends State<HighlightView> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           IconButton(
-              color: Colors.grey.shade300,
+              color: widget.barIconColor ?? Colors.grey.shade300,
               disabledColor: Colors.grey,
-              icon: Icon(Icons.zoom_out),
+              tooltip: "Zoom out",
+              icon: widget.zoomOutIcon,
               onPressed: _fontScaleFactor > 1
                   ? () => setState(() {
                         _fontScaleFactor -= 0.1;
                       })
                   : null),
           IconButton(
-              icon: Icon(Icons.zoom_in),
-              color: Colors.grey.shade300,
+              icon: widget.zoomInIcon,
+              color: widget.barIconColor ?? Colors.grey.shade300,
+              tooltip: "Zoom in",
               disabledColor: Colors.grey,
               onPressed: _fontScaleFactor < 2
                   ? () => setState(() {
                         _fontScaleFactor += 0.1;
                       })
                   : null),
+          IconButton(
+              icon: widget.lineWrapIcon,
+              color: expanded
+                  ? widget.barIconColor ?? Colors.grey.shade300
+                  : Colors.orange,
+              tooltip: "Line wrap",
+              disabledColor: Colors.grey,
+              onPressed: () => setState(() {
+                    expanded = !expanded;
+                  })),
         ],
       ),
     );
