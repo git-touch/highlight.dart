@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
 /// Highlight Flutter Widget
-class HighlightView extends StatelessWidget {
+class HighlightView extends StatefulWidget {
   /// The original code to be highlighted
   final String source;
 
@@ -27,46 +26,21 @@ class HighlightView extends StatelessWidget {
   /// Specify text styles such as font family and font size
   final TextStyle? textStyle;
 
-  HighlightView(
-    String input, {
-    this.language,
-    this.theme = const {},
-    this.padding,
-    this.textStyle,
-    int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
-  }) : source = input.replaceAll('\t', ' ' * tabSize);
+  /// Enable line numbers
+  final bool lineNumbers;
 
-  List<TextSpan> _convert(List<Node> nodes) {
-    List<TextSpan> spans = [];
-    var currentSpans = spans;
-    List<List<TextSpan>> stack = [];
+  // To enable horizontal scrolling
+  final bool expanded;
 
-    _traverse(Node node) {
-      if (node.value != null) {
-        currentSpans.add(node.className == null
-            ? TextSpan(text: node.value)
-            : TextSpan(text: node.value, style: theme[node.className!]));
-      } else if (node.children != null) {
-        List<TextSpan> tmp = [];
-        currentSpans.add(TextSpan(children: tmp, style: theme[node.className!]));
-        stack.add(currentSpans);
-        currentSpans = tmp;
-
-        node.children!.forEach((n) {
-          _traverse(n);
-          if (n == node.children!.last) {
-            currentSpans = stack.isEmpty ? spans : stack.removeLast();
-          }
-        });
-      }
-    }
-
-    for (var node in nodes) {
-      _traverse(node);
-    }
-
-    return spans;
-  }
+  HighlightView(String input,
+      {this.language,
+      this.theme = const {},
+      this.padding,
+      this.textStyle,
+      int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
+      this.lineNumbers = false,
+      this.expanded = true})
+      : source = input.replaceAll('\t', ' ' * tabSize);
 
   static const _rootKey = 'root';
   static const _defaultFontColor = Color(0xff000000);
@@ -78,24 +52,186 @@ class HighlightView extends StatelessWidget {
   static const _defaultFontFamily = 'monospace';
 
   @override
-  Widget build(BuildContext context) {
-    var _textStyle = TextStyle(
-      fontFamily: _defaultFontFamily,
-      color: theme[_rootKey]?.color ?? _defaultFontColor,
-    );
-    if (textStyle != null) {
-      _textStyle = _textStyle.merge(textStyle);
+  State<HighlightView> createState() => _HighlightViewState();
+}
+
+class _HighlightViewState extends State<HighlightView> {
+  double _fontScaleFactor = 1;
+
+  List<TextSpan> _convert(List<Node> nodes) {
+    List<TextSpan> spans = [];
+    var currentSpans = spans;
+    List<List<TextSpan>> stack = [];
+
+    traverse(Node node) {
+      if (node.value != null) {
+        currentSpans.add(node.className == null
+            ? TextSpan(text: node.value)
+            : TextSpan(text: node.value, style: widget.theme[node.className!]));
+      } else if (node.children != null) {
+        List<TextSpan> tmp = [];
+        currentSpans
+            .add(TextSpan(children: tmp, style: widget.theme[node.className!]));
+        stack.add(currentSpans);
+        currentSpans = tmp;
+
+        node.children!.forEach((n) {
+          traverse(n);
+          if (n == node.children!.last) {
+            currentSpans = stack.isEmpty ? spans : stack.removeLast();
+          }
+        });
+      }
     }
 
+    for (var node in nodes) {
+      traverse(node);
+    }
+
+    return spans;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraints) {
+      var tStyle = TextStyle(
+        fontFamily: HighlightView._defaultFontFamily,
+        color: widget.theme[HighlightView._rootKey]?.color ??
+            HighlightView._defaultFontColor,
+      );
+      if (widget.textStyle != null) {
+        tStyle = tStyle.merge(widget.textStyle);
+      }
+
+      var converted = _convert(
+          highlight.parse(widget.source, language: widget.language).nodes!);
+
+      var painter = TextPainter(
+        textScaleFactor: _fontScaleFactor,
+        text: TextSpan(style: tStyle, children: converted),
+        textAlign: TextAlign.left,
+        textDirection: TextDirection.ltr,
+        textWidthBasis: TextWidthBasis.parent,
+      );
+
+      painter.layout(
+          maxWidth: widget.expanded
+              ? double.infinity
+              : constraints.maxWidth - tStyle.fontSize! * 3);
+
+      if (widget.lineNumbers) {
+        var lineMetrics = painter.computeLineMetrics();
+        assert(lineMetrics.isNotEmpty);
+
+        var realLineNumber = 0;
+        var lineNumberSpans = List<TextSpan>.empty(growable: true);
+        var maxWidth = 0;
+        var prevSoftBreak = false;
+        for (var line in lineMetrics) {
+          var tmp = (realLineNumber + 1).toString();
+          tmp += '\n';
+          if (!prevSoftBreak) realLineNumber += 1;
+
+          lineNumberSpans.add(TextSpan(text: (!prevSoftBreak) ? tmp : '\n'));
+          prevSoftBreak = !line.hardBreak;
+
+          if (tmp.length > maxWidth) maxWidth = tmp.length;
+        }
+
+        // account for trailing line number
+        lineNumberSpans.removeLast();
+        var tmp = realLineNumber.toString();
+        lineNumberSpans.add(TextSpan(text: tmp));
+
+        return Column(
+          children: [
+            zoomControls(),
+            Row(children: [
+              Container(
+                  decoration: BoxDecoration(
+                      color: widget
+                              .theme[HighlightView._rootKey]?.backgroundColor ??
+                          HighlightView._defaultBackgroundColor),
+                  child: Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 0, 8, 0),
+                      child: RichText(
+                        textAlign: TextAlign.end,
+                        textScaleFactor: _fontScaleFactor,
+                        text: TextSpan(
+                            style:
+                                widget.textStyle?.copyWith(color: Colors.grey),
+                            children: lineNumberSpans),
+                      ))),
+              Expanded(
+                child: Container(
+                    color:
+                        widget.theme[HighlightView._rootKey]?.backgroundColor ??
+                            HighlightView._defaultBackgroundColor,
+                    child: Scrollbar(
+                        child: SingleChildScrollView(
+                            child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: CustomPaint(
+                                  painter: PainterWrapper(painter),
+                                  size: painter.size,
+                                ))))),
+              ),
+            ]),
+          ],
+        );
+      } else {
+        return CustomPaint(
+          painter: PainterWrapper(painter),
+          size: painter.size,
+        );
+      }
+    });
+  }
+
+  Widget zoomControls() {
     return Container(
-      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
-      padding: padding,
-      child: RichText(
-        text: TextSpan(
-          style: _textStyle,
-          children: _convert(highlight.parse(source, language: language).nodes!),
-        ),
+      color: widget.theme[HighlightView._rootKey]?.backgroundColor ??
+          HighlightView._defaultBackgroundColor,
+      child: Row(
+        // mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          IconButton(
+              color: Colors.grey.shade300,
+              disabledColor: Colors.grey,
+              icon: Icon(Icons.zoom_out),
+              onPressed: _fontScaleFactor > 1
+                  ? () => setState(() {
+                        _fontScaleFactor -= 0.1;
+                      })
+                  : null),
+          IconButton(
+              icon: Icon(Icons.zoom_in),
+              color: Colors.grey.shade300,
+              disabledColor: Colors.grey,
+              onPressed: _fontScaleFactor < 2
+                  ? () => setState(() {
+                        _fontScaleFactor += 0.1;
+                      })
+                  : null),
+        ],
       ),
     );
+  }
+}
+
+class PainterWrapper extends CustomPainter {
+  final TextPainter textPainter;
+
+  const PainterWrapper(this.textPainter);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    textPainter.paint(canvas, const Offset(4, 0));
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
   }
 }
