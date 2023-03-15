@@ -9,7 +9,8 @@ class HighlightView extends StatelessWidget {
 
   /// Highlight language
   ///
-  /// It is recommended to give it a value for performance
+  /// It is recommended to give it a value for performance,
+  /// if null, then auto detection will be enabled.
   ///
   /// [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
   final String? language;
@@ -93,7 +94,11 @@ class HighlightView extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           style: _textStyle,
-          children: _convert(highlight.parse(source, language: language).nodes!),
+          children: (language != null)
+              ? _convert(highlight.parse(source, language: language).nodes!)
+              : _convert(highlight
+                  .parse(source, autoDetection: true)
+                  .nodes!), // auto detection
         ),
       ),
     );
