@@ -7,7 +7,7 @@ class HighlightView extends StatelessWidget {
   /// The original code to be highlighted
   final String source;
   
-  final Color? backgrounColor;
+  final Color? backgroundColor;
 
   /// Highlight language
   ///
