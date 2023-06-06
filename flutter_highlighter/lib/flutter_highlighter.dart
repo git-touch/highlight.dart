@@ -80,7 +80,6 @@ class HighlightView extends StatelessWidget {
   // See: https://github.com/flutter/flutter/issues/39998
   // So we just use monospace here for now
   static const _defaultFontFamily = 'monospace';
-
   @override
   Widget build(BuildContext context) {
     var _textStyle = TextStyle(
@@ -94,8 +93,8 @@ class HighlightView extends StatelessWidget {
     return Container(
       color: backgroundColor ?? theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
       padding: padding,
-      child: RichText(
-        text: TextSpan(
+      child: SelectableText.rich(
+        TextSpan(
           style: _textStyle,
           children:
               _convert(highlight.parse(source, language: language).nodes!),
