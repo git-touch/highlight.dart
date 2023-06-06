@@ -6,6 +6,8 @@ import 'package:highlighter/highlighter.dart' show highlight, Node;
 class HighlightView extends StatelessWidget {
   /// The original code to be highlighted
   final String source;
+  
+  final Color? backgroundColor;
 
   /// Highlight language
   ///
@@ -29,6 +31,7 @@ class HighlightView extends StatelessWidget {
 
   HighlightView(
     String input, {
+    this.backgroundColor,
     this.language,
     this.theme = const {},
     this.padding,
@@ -89,7 +92,7 @@ class HighlightView extends StatelessWidget {
     }
 
     return Container(
-      color: theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
+      color: backgroundColor ?? theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
       padding: padding,
       child: RichText(
         text: TextSpan(
