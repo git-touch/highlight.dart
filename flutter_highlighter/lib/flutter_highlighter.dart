@@ -6,7 +6,7 @@ import 'package:highlighter/highlighter.dart' show highlight, Node;
 class HighlightView extends StatelessWidget {
   /// The original code to be highlighted
   final String source;
-  
+
   final Color? backgroundColor;
 
   /// Highlight language
@@ -28,6 +28,7 @@ class HighlightView extends StatelessWidget {
   ///
   /// Specify text styles such as font family and font size
   final TextStyle? textStyle;
+  final BoxDecoration? boxDecoration;
 
   HighlightView(
     String input, {
@@ -37,6 +38,7 @@ class HighlightView extends StatelessWidget {
     this.padding,
     this.textStyle,
     int tabSize = 8, // TODO: https://github.com/flutter/flutter/issues/50087
+    this.boxDecoration,
   }) : source = input.replaceAll('\t', ' ' * tabSize);
 
   List<TextSpan> _convert(List<Node> nodes) {
@@ -91,7 +93,16 @@ class HighlightView extends StatelessWidget {
     }
 
     return Container(
-      color: backgroundColor ?? theme[_rootKey]?.backgroundColor ?? _defaultBackgroundColor,
+      decoration: boxDecoration?.copyWith(
+        color: backgroundColor ??
+            theme[_rootKey]?.backgroundColor ??
+            _defaultBackgroundColor,
+      ),
+      color: boxDecoration != null
+          ? null
+          : backgroundColor ??
+              theme[_rootKey]?.backgroundColor ??
+              _defaultBackgroundColor,
       padding: padding,
       child: SelectableText.rich(
         TextSpan(
