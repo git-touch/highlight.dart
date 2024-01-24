@@ -1,3 +1,9 @@
+# [0.7.1]
+
+### Features
+
+- Added `enum HighlightStyle` for convenient access to themes.
+
 # [0.7.0](https://github.com/git-touch/highlight/compare/v0.6.0...v.7.0) (2021-03-07)
 
 ### Features
