@@ -29,7 +29,7 @@ class MyWidget extends StatelessWidget {
 
       // Specify highlight theme
       // All available themes are listed in `themes` folder
-      theme: githubTheme,
+      theme: HighlightStyle.github.theme,
 
       // Specify padding
       padding: EdgeInsets.all(12),
