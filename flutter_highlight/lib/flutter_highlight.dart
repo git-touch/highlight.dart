@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:highlight/highlight.dart' show highlight, Node;
 
+export 'package:flutter_highlight/highlight_style.dart';
+
 /// Highlight Flutter Widget
 class HighlightView extends StatelessWidget {
   /// The original code to be highlighted
