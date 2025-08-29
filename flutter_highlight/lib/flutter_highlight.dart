@@ -14,6 +14,12 @@ class HighlightView extends StatelessWidget {
   /// [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
   final String? language;
 
+  /// Automatically detect the most likely language if [language] is null.
+  ///
+  /// Notice that **this may cause performance issue** because it will try to
+  /// parse source with all registered languages and use the most relevant one.
+  final bool? autoDetection;
+
   /// Highlight theme
   ///
   /// [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
@@ -30,6 +36,7 @@ class HighlightView extends StatelessWidget {
   HighlightView(
     String input, {
     this.language,
+    this.autoDetection = false,
     this.theme = const {},
     this.padding,
     this.textStyle,
@@ -93,7 +100,10 @@ class HighlightView extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           style: _textStyle,
-          children: _convert(highlight.parse(source, language: language).nodes!),
+          children: _convert(highlight
+              .parse(source,
+                  language: language, autoDetection: autoDetection ?? false)
+              .nodes!),
         ),
       ),
     );
