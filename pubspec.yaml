@@ -1,0 +1,9 @@
+name: highlight_dart_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+workspace:
+  - highlight
+  - flutter_highlight

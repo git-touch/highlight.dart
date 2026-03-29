@@ -1,20 +1,39 @@
 # highlight.dart
 
-Syntax highlighting for Dart and Flutter, which supports lots of languages and themes.
+A faithful Dart port of [highlight.js](https://highlightjs.org/) — syntax highlighting for 192 languages with 257 themes.
 
-[View gallery built with Flutter web](https://git-touch.github.io/highlight/)
+## Packages
 
-| Package | Version | Description |
-| --- | --- | --- |
-| [highlight](https://github.com/pd4d10/highlight/tree/master/highlight) | [![pub](https://img.shields.io/pub/v/highlight)](https://pub.dev/packages/highlight) | Core syntax highlighting library written in Dart |
-| [flutter_highlight](https://github.com/pd4d10/highlight/tree/master/flutter_highlight) | [![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight) | Flutter syntax highlighting widget |
-|  |
+| Package | Description |
+|---------|-------------|
+| [`highlight`](highlight/) | Core Dart package — parsing engine, 192 languages, HTML output |
+| [`flutter_highlight`](flutter_highlight/) | Flutter widget — `HighlightView` with 257 themes and line numbers |
 
-## References
+## Quick Start
 
-- [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
-- [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
+### Dart
 
-## License
+```dart
+import 'package:highlight/highlight.dart';
 
-MIT
+void main() {
+  ensureInitialized();
+  final result = hljs.highlight('print("hello")', language: 'python');
+  print(result.toHtml());
+}
+```
+
+### Flutter
+
+```dart
+import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/themes/github.dart';
+import 'package:highlight/highlight.dart';
+
+HighlightView(
+  sourceCode,
+  language: 'python',
+  theme: githubTheme,
+  showLineNumbers: true,
+)
+```

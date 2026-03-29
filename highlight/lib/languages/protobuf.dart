@@ -1,34 +1,120 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final protobuf = Mode(refs: {}, keywords: {
-  "keyword": "package import option optional required repeated group oneof",
-  "built_in":
-      "double float int32 int64 uint32 uint64 sint32 sint64 fixed32 fixed64 sfixed32 sfixed64 bool string bytes",
-  "literal": "true false"
-}, contains: [
-  QUOTE_STRING_MODE,
-  NUMBER_MODE,
-  C_LINE_COMMENT_MODE,
-  Mode(
-      className: "class",
-      beginKeywords: "message enum service",
-      end: "\\{",
-      illegal: "\\n",
-      contains: [
-        Mode(
-            className: "title",
-            begin: "[a-zA-Z]\\w*",
+Mode protobuf(Highlight hljs) {
+  return Mode(
+    name: r'Protocol Buffers',
+    aliases: [
+      r'proto',
+    ],
+    keywords: {
+      r'keyword': [
+        r'package',
+        r'import',
+        r'option',
+        r'optional',
+        r'required',
+        r'repeated',
+        r'group',
+        r'oneof',
+      ],
+      r'type': [
+        r'double',
+        r'float',
+        r'int32',
+        r'int64',
+        r'uint32',
+        r'uint64',
+        r'sint32',
+        r'sint64',
+        r'fixed32',
+        r'fixed64',
+        r'sfixed32',
+        r'sfixed64',
+        r'bool',
+        r'string',
+        r'bytes',
+      ],
+      r'literal': [
+        r'true',
+        r'false',
+      ],
+    },
+    contains: [
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        illegal: r'\n',
+        contains: [
+          Mode(
+            begin: r'\\[\s\S]',
             relevance: 0,
-            starts: Mode(endsWithParent: true, excludeEnd: true))
-      ]),
-  Mode(
-      className: "function",
-      beginKeywords: "rpc",
-      end: ";",
-      excludeEnd: true,
-      keywords: "rpc returns"),
-  Mode(begin: "^\\s*[A-Z_]+", end: "\\s*=", excludeEnd: true)
-]);
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        begin: r'\b\d+(\.\d+)?',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'//',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'/\*',
+        end: r'\*/',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        match: [
+          r'(message|enum|service)\s+',
+          r'[a-zA-Z]\w*',
+        ],
+        scope: {
+          1: r'keyword',
+          2: r'title.class',
+        },
+      ),
+      Mode(
+        scope: r'function',
+        beginKeywords: r'rpc',
+        end: r'[{;]',
+        excludeEnd: true,
+        keywords: r'rpc returns',
+      ),
+      Mode(
+        begin: r'^\s*[A-Z_]+(?=\s*=[^\n]+;$)',
+      ),
+    ],
+  );
+}

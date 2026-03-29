@@ -1,25 +1,47 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final diff = Mode(refs: {}, aliases: [
-  "patch"
-], contains: [
-  Mode(className: "meta", relevance: 10, variants: [
-    Mode(begin: "^@@ +\\-\\d+,\\d+ +\\+\\d+,\\d+ +@@\$"),
-    Mode(begin: "^\\*\\*\\* +\\d+,\\d+ +\\*\\*\\*\\*\$"),
-    Mode(begin: "^\\-\\-\\- +\\d+,\\d+ +\\-\\-\\-\\-\$")
-  ]),
-  Mode(className: "comment", variants: [
-    Mode(begin: "Index: ", end: "\$"),
-    Mode(begin: "={3,}", end: "\$"),
-    Mode(begin: "^\\-{3}", end: "\$"),
-    Mode(begin: "^\\*{3} ", end: "\$"),
-    Mode(begin: "^\\+{3}", end: "\$"),
-    Mode(begin: "^\\*{15}\$")
-  ]),
-  Mode(className: "addition", begin: "^\\+", end: "\$"),
-  Mode(className: "deletion", begin: "^\\-", end: "\$"),
-  Mode(className: "addition", begin: "^\\!", end: "\$")
-]);
+Mode diff(Highlight hljs) {
+  return Mode(
+    name: r'Diff',
+    aliases: [
+      r'patch',
+    ],
+    contains: [
+      Mode(
+        scope: r'meta',
+        relevance: 10,
+        match:
+            r'(?:^@@ +-\d+,\d+ +\+\d+,\d+ +@@|^\*\*\* +\d+,\d+ +\*\*\*\*$|^--- +\d+,\d+ +----$)',
+      ),
+      Mode(
+        scope: r'comment',
+        variants: [
+          Mode(
+            begin: r'(?:Index: |^index|={3,}|^-{3}|^\*{3} |^\+{3}|^diff --git)',
+            end: r'$',
+          ),
+          Mode(
+            match: r'^\*{15}$',
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'addition',
+        begin: r'^\+',
+        end: r'$',
+      ),
+      Mode(
+        scope: r'deletion',
+        begin: r'^-',
+        end: r'$',
+      ),
+      Mode(
+        scope: r'addition',
+        begin: r'^!',
+        end: r'$',
+      ),
+    ],
+  );
+}

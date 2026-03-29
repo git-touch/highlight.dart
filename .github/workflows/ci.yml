@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install workspace dependencies
+        run: dart pub get
+
+      - name: Analyze highlight
+        working-directory: highlight
+        run: dart analyze
+
+      - name: Analyze flutter_highlight
+        working-directory: flutter_highlight
+        run: flutter analyze
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install workspace dependencies
+        run: dart pub get
+
+      - name: Test highlight
+        working-directory: highlight
+        run: dart test -r expanded
+
+      - name: Test flutter_highlight
+        working-directory: flutter_highlight
+        run: |
+          if [ -d test ]; then
+            flutter test
+          else
+            echo "No tests in flutter_highlight; skipping."
+          fi

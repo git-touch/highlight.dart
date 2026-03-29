@@ -1,27 +1,193 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final rsl = Mode(
-    refs: {},
+Mode rsl(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  _mode0.begin = r'\\[\s\S]';
+  _mode0.relevance = 0;
+  return Mode(
+    name: r'RenderMan RSL',
     keywords: {
-      "keyword":
-          "float color point normal vector matrix while for if do return else break extern continue",
-      "built_in":
-          "abs acos ambient area asin atan atmosphere attribute calculatenormal ceil cellnoise clamp comp concat cos degrees depth Deriv diffuse distance Du Dv environment exp faceforward filterstep floor format fresnel incident length lightsource log match max min mod noise normalize ntransform opposite option phong pnoise pow printf ptlined radians random reflect refract renderinfo round setcomp setxcomp setycomp setzcomp shadow sign sin smoothstep specular specularbrdf spline sqrt step tan texture textureinfo trace transform vtransform xcomp ycomp zcomp"
+      r'keyword': [
+        r'while',
+        r'for',
+        r'if',
+        r'do',
+        r'return',
+        r'else',
+        r'break',
+        r'extern',
+        r'continue',
+      ],
+      r'built_in': [
+        r'abs',
+        r'acos',
+        r'ambient',
+        r'area',
+        r'asin',
+        r'atan',
+        r'atmosphere',
+        r'attribute',
+        r'calculatenormal',
+        r'ceil',
+        r'cellnoise',
+        r'clamp',
+        r'comp',
+        r'concat',
+        r'cos',
+        r'degrees',
+        r'depth',
+        r'Deriv',
+        r'diffuse',
+        r'distance',
+        r'Du',
+        r'Dv',
+        r'environment',
+        r'exp',
+        r'faceforward',
+        r'filterstep',
+        r'floor',
+        r'format',
+        r'fresnel',
+        r'incident',
+        r'length',
+        r'lightsource',
+        r'log',
+        r'match',
+        r'max',
+        r'min',
+        r'mod',
+        r'noise',
+        r'normalize',
+        r'ntransform',
+        r'opposite',
+        r'option',
+        r'phong',
+        r'pnoise',
+        r'pow',
+        r'printf',
+        r'ptlined',
+        r'radians',
+        r'random',
+        r'reflect',
+        r'refract',
+        r'renderinfo',
+        r'round',
+        r'setcomp',
+        r'setxcomp',
+        r'setycomp',
+        r'setzcomp',
+        r'shadow',
+        r'sign',
+        r'sin',
+        r'smoothstep',
+        r'specular',
+        r'specularbrdf',
+        r'spline',
+        r'sqrt',
+        r'step',
+        r'tan',
+        r'texture',
+        r'textureinfo',
+        r'trace',
+        r'transform',
+        r'vtransform',
+        r'xcomp',
+        r'ycomp',
+        r'zcomp',
+      ],
+      r'type': [
+        r'matrix',
+        r'float',
+        r'color',
+        r'point',
+        r'normal',
+        r'vector',
+      ],
     },
-    illegal: "</",
+    illegal: r'</',
     contains: [
-      C_LINE_COMMENT_MODE,
-      C_BLOCK_COMMENT_MODE,
-      QUOTE_STRING_MODE,
-      APOS_STRING_MODE,
-      C_NUMBER_MODE,
-      Mode(className: "meta", begin: "#", end: "\$"),
       Mode(
-          className: "class",
-          beginKeywords: "surface displacement light volume imager",
-          end: "\\("),
-      Mode(beginKeywords: "illuminate illuminance gather", end: "\\(")
-    ]);
+        scope: r'comment',
+        begin: r'//',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'/\*',
+        end: r'\*/',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        illegal: r'\n',
+        contains: [
+          _mode0,
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r"'",
+        end: r"'",
+        illegal: r'\n',
+        contains: [
+          _mode0,
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'meta',
+        begin: r'#',
+        end: r'$',
+      ),
+      Mode(
+        match: [
+          r'(surface|displacement|light|volume|imager)',
+          r'\s+',
+          r'[a-zA-Z]\w*',
+        ],
+        scope: {
+          1: r'keyword',
+          3: r'title.class',
+        },
+      ),
+      Mode(
+        beginKeywords: r'illuminate illuminance gather',
+        end: r'\(',
+      ),
+    ],
+  );
+}

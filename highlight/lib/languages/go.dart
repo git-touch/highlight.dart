@@ -1,53 +1,279 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final go = Mode(
-    refs: {},
-    aliases: ["golang"],
+Mode go(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  _mode0.begin = r'\\[\s\S]';
+  _mode0.relevance = 0;
+  return Mode(
+    name: r'Go',
+    aliases: [
+      r'golang',
+    ],
     keywords: {
-      "keyword":
-          "break default func interface select case map struct chan else goto package switch const fallthrough if range type continue for import return var go defer bool byte complex64 complex128 float32 float64 int8 int16 int32 int64 string uint8 uint16 uint32 uint64 int uint uintptr rune",
-      "literal": "true false iota nil",
-      "built_in":
-          "append cap close complex copy imag len make new panic print println real recover delete"
+      r'keyword': [
+        r'break',
+        r'case',
+        r'chan',
+        r'const',
+        r'continue',
+        r'default',
+        r'defer',
+        r'else',
+        r'fallthrough',
+        r'for',
+        r'func',
+        r'go',
+        r'goto',
+        r'if',
+        r'import',
+        r'interface',
+        r'map',
+        r'package',
+        r'range',
+        r'return',
+        r'select',
+        r'struct',
+        r'switch',
+        r'type',
+        r'var',
+      ],
+      r'type': [
+        r'bool',
+        r'byte',
+        r'complex64',
+        r'complex128',
+        r'error',
+        r'float32',
+        r'float64',
+        r'int8',
+        r'int16',
+        r'int32',
+        r'int64',
+        r'string',
+        r'uint8',
+        r'uint16',
+        r'uint32',
+        r'uint64',
+        r'int',
+        r'uint',
+        r'uintptr',
+        r'rune',
+      ],
+      r'literal': [
+        r'true',
+        r'false',
+        r'iota',
+        r'nil',
+      ],
+      r'built_in': [
+        r'append',
+        r'cap',
+        r'close',
+        r'complex',
+        r'copy',
+        r'imag',
+        r'len',
+        r'make',
+        r'new',
+        r'panic',
+        r'print',
+        r'println',
+        r'real',
+        r'recover',
+        r'delete',
+      ],
     },
-    illegal: "</",
+    illegal: r'</',
     contains: [
-      C_LINE_COMMENT_MODE,
-      C_BLOCK_COMMENT_MODE,
-      Mode(className: "string", variants: [
-        QUOTE_STRING_MODE,
-        APOS_STRING_MODE,
-        Mode(begin: "`", end: "`")
-      ]),
-      Mode(className: "number", variants: [
-        Mode(
-            begin:
-                "(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)[i]",
-            relevance: 1),
-        C_NUMBER_MODE
-      ]),
-      Mode(begin: ":="),
       Mode(
-          className: "function",
-          beginKeywords: "func",
-          end: "\\s*(\\{|\$)",
-          excludeEnd: true,
-          contains: [
-            TITLE_MODE,
-            Mode(
-                className: "params",
-                begin: "\\(",
-                end: "\\)",
-                keywords: {
-                  "keyword":
-                      "break default func interface select case map struct chan else goto package switch const fallthrough if range type continue for import return var go defer bool byte complex64 complex128 float32 float64 int8 int16 int32 int64 string uint8 uint16 uint32 uint64 int uint uintptr rune",
-                  "literal": "true false iota nil",
-                  "built_in":
-                      "append cap close complex copy imag len make new panic print println real recover delete"
-                },
-                illegal: "[\"']")
-          ])
-    ]);
+        scope: r'comment',
+        begin: r'//',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'/\*',
+        end: r'\*/',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        variants: [
+          Mode(
+            scope: r'string',
+            begin: r'"',
+            end: r'"',
+            illegal: r'\n',
+            contains: [
+              _mode0,
+            ],
+          ),
+          Mode(
+            scope: r'string',
+            begin: r"'",
+            end: r"'",
+            illegal: r'\n',
+            contains: [
+              _mode0,
+            ],
+          ),
+          Mode(
+            begin: r'`',
+            end: r'`',
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        variants: [
+          Mode(
+            match:
+                r'-?\b0[xX]\.[a-fA-F0-9](_?[a-fA-F0-9])*[pP][+-]?\d(_?\d)*i?',
+            relevance: 0,
+          ),
+          Mode(
+            match:
+                r'-?\b0[xX](_?[a-fA-F0-9])+((\.([a-fA-F0-9](_?[a-fA-F0-9])*)?)?[pP][+-]?\d(_?\d)*)?i?',
+            relevance: 0,
+          ),
+          Mode(
+            match: r'-?\b0[oO](_?[0-7])*i?',
+            relevance: 0,
+          ),
+          Mode(
+            match: r'-?\.\d(_?\d)*([eE][+-]?\d(_?\d)*)?i?',
+            relevance: 0,
+          ),
+          Mode(
+            match: r'-?\b\d(_?\d)*(\.(\d(_?\d)*)?)?([eE][+-]?\d(_?\d)*)?i?',
+            relevance: 0,
+          ),
+        ],
+      ),
+      Mode(
+        begin: r':=',
+      ),
+      Mode(
+        scope: r'function',
+        beginKeywords: r'func',
+        end: r'\s*(\{|$)',
+        excludeEnd: true,
+        contains: [
+          Mode(
+            scope: r'title',
+            begin: r'[a-zA-Z]\w*',
+            relevance: 0,
+          ),
+          Mode(
+            scope: r'params',
+            begin: r'\(',
+            end: r'\)',
+            endsParent: true,
+            keywords: {
+              r'keyword': [
+                r'break',
+                r'case',
+                r'chan',
+                r'const',
+                r'continue',
+                r'default',
+                r'defer',
+                r'else',
+                r'fallthrough',
+                r'for',
+                r'func',
+                r'go',
+                r'goto',
+                r'if',
+                r'import',
+                r'interface',
+                r'map',
+                r'package',
+                r'range',
+                r'return',
+                r'select',
+                r'struct',
+                r'switch',
+                r'type',
+                r'var',
+              ],
+              r'type': [
+                r'bool',
+                r'byte',
+                r'complex64',
+                r'complex128',
+                r'error',
+                r'float32',
+                r'float64',
+                r'int8',
+                r'int16',
+                r'int32',
+                r'int64',
+                r'string',
+                r'uint8',
+                r'uint16',
+                r'uint32',
+                r'uint64',
+                r'int',
+                r'uint',
+                r'uintptr',
+                r'rune',
+              ],
+              r'literal': [
+                r'true',
+                r'false',
+                r'iota',
+                r'nil',
+              ],
+              r'built_in': [
+                r'append',
+                r'cap',
+                r'close',
+                r'complex',
+                r'copy',
+                r'imag',
+                r'len',
+                r'make',
+                r'new',
+                r'panic',
+                r'print',
+                r'println',
+                r'real',
+                r'recover',
+                r'delete',
+              ],
+            },
+            illegal: '["\']',
+          ),
+        ],
+      ),
+    ],
+  );
+}

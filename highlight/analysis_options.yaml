@@ -1,5 +1,20 @@
-include: package:pedantic/analysis_options.yaml
+include: package:lints/recommended.yaml
+
+analyzer:
+  errors:
+    unused_local_variable: warning
+    inference_failure_on_collection_literal: ignore
+    dead_code: ignore
+  exclude:
+    - lib/languages/**
 
 linter:
   rules:
-    prefer_single_quotes: false
+    prefer_single_quotes: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    avoid_print: false
+    lines_longer_than_80_chars: false
+    non_constant_identifier_names: false
+    constant_identifier_names: false
+    file_names: false

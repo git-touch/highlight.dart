@@ -1,63 +1,315 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final objectivec = Mode(
-    refs: {},
-    aliases: ["mm", "objc", "obj-c"],
+Mode objectivec(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  final Mode _mode2 = Mode();
+  final Mode _mode3 = Mode();
+  final Mode _mode4 = Mode();
+  final Mode _mode5 = Mode();
+  final Mode _mode6 = Mode();
+  _mode0.scope = r'comment';
+  _mode0.begin = r'//';
+  _mode0.end = r'$';
+  _mode0.contains = [
+    _mode1,
+    _mode2,
+  ];
+  _mode1.scope = r'doctag';
+  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  _mode1.excludeBegin = true;
+  _mode1.relevance = 0;
+  _mode2.begin =
+      r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
+  _mode3.scope = r'comment';
+  _mode3.begin = r'/\*';
+  _mode3.end = r'\*/';
+  _mode3.contains = [
+    _mode4,
+    _mode5,
+  ];
+  _mode4.scope = r'doctag';
+  _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  _mode4.excludeBegin = true;
+  _mode4.relevance = 0;
+  _mode5.begin =
+      r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
+  _mode6.begin = r'\\[\s\S]';
+  _mode6.relevance = 0;
+  return Mode(
+    name: r'Objective-C',
+    aliases: [
+      r'mm',
+      r'objc',
+      r'obj-c',
+      r'obj-c++',
+      r'objective-c++',
+    ],
     keywords: {
-      "keyword":
-          "int float while char export sizeof typedef const struct for union unsigned long volatile static bool mutable if do return goto void enum else break extern asm case short default double register explicit signed typename this switch continue wchar_t inline readonly assign readwrite self @synchronized id typeof nonatomic super unichar IBOutlet IBAction strong weak copy in out inout bycopy byref oneway __strong __weak __block __autoreleasing @private @protected @public @try @property @end @throw @catch @finally @autoreleasepool @synthesize @dynamic @selector @optional @required @encode @package @import @defs @compatibility_alias __bridge __bridge_transfer __bridge_retained __bridge_retain __covariant __contravariant __kindof _Nonnull _Nullable _Null_unspecified __FUNCTION__ __PRETTY_FUNCTION__ __attribute__ getter setter retain unsafe_unretained nonnull nullable null_unspecified null_resettable class instancetype NS_DESIGNATED_INITIALIZER NS_UNAVAILABLE NS_REQUIRES_SUPER NS_RETURNS_INNER_POINTER NS_INLINE NS_AVAILABLE NS_DEPRECATED NS_ENUM NS_OPTIONS NS_SWIFT_UNAVAILABLE NS_ASSUME_NONNULL_BEGIN NS_ASSUME_NONNULL_END NS_REFINED_FOR_SWIFT NS_SWIFT_NAME NS_SWIFT_NOTHROW NS_DURING NS_HANDLER NS_ENDHANDLER NS_VALUERETURN NS_VOIDRETURN",
-      "literal": "false true FALSE TRUE nil YES NO NULL",
-      "built_in":
-          "BOOL dispatch_once_t dispatch_queue_t dispatch_sync dispatch_async dispatch_once"
+      r'variable.language': [
+        r'this',
+        r'super',
+      ],
+      r'$pattern': r'[a-zA-Z@][a-zA-Z0-9_]*',
+      r'keyword': [
+        r'while',
+        r'export',
+        r'sizeof',
+        r'typedef',
+        r'const',
+        r'struct',
+        r'for',
+        r'union',
+        r'volatile',
+        r'static',
+        r'mutable',
+        r'if',
+        r'do',
+        r'return',
+        r'goto',
+        r'enum',
+        r'else',
+        r'break',
+        r'extern',
+        r'asm',
+        r'case',
+        r'default',
+        r'register',
+        r'explicit',
+        r'typename',
+        r'switch',
+        r'continue',
+        r'inline',
+        r'readonly',
+        r'assign',
+        r'readwrite',
+        r'self',
+        r'@synchronized',
+        r'id',
+        r'typeof',
+        r'nonatomic',
+        r'IBOutlet',
+        r'IBAction',
+        r'strong',
+        r'weak',
+        r'copy',
+        r'in',
+        r'out',
+        r'inout',
+        r'bycopy',
+        r'byref',
+        r'oneway',
+        r'__strong',
+        r'__weak',
+        r'__block',
+        r'__autoreleasing',
+        r'@private',
+        r'@protected',
+        r'@public',
+        r'@try',
+        r'@property',
+        r'@end',
+        r'@throw',
+        r'@catch',
+        r'@finally',
+        r'@autoreleasepool',
+        r'@synthesize',
+        r'@dynamic',
+        r'@selector',
+        r'@optional',
+        r'@required',
+        r'@encode',
+        r'@package',
+        r'@import',
+        r'@defs',
+        r'@compatibility_alias',
+        r'__bridge',
+        r'__bridge_transfer',
+        r'__bridge_retained',
+        r'__bridge_retain',
+        r'__covariant',
+        r'__contravariant',
+        r'__kindof',
+        r'_Nonnull',
+        r'_Nullable',
+        r'_Null_unspecified',
+        r'__FUNCTION__',
+        r'__PRETTY_FUNCTION__',
+        r'__attribute__',
+        r'getter',
+        r'setter',
+        r'retain',
+        r'unsafe_unretained',
+        r'nonnull',
+        r'nullable',
+        r'null_unspecified',
+        r'null_resettable',
+        r'class',
+        r'instancetype',
+        r'NS_DESIGNATED_INITIALIZER',
+        r'NS_UNAVAILABLE',
+        r'NS_REQUIRES_SUPER',
+        r'NS_RETURNS_INNER_POINTER',
+        r'NS_INLINE',
+        r'NS_AVAILABLE',
+        r'NS_DEPRECATED',
+        r'NS_ENUM',
+        r'NS_OPTIONS',
+        r'NS_SWIFT_UNAVAILABLE',
+        r'NS_ASSUME_NONNULL_BEGIN',
+        r'NS_ASSUME_NONNULL_END',
+        r'NS_REFINED_FOR_SWIFT',
+        r'NS_SWIFT_NAME',
+        r'NS_SWIFT_NOTHROW',
+        r'NS_DURING',
+        r'NS_HANDLER',
+        r'NS_ENDHANDLER',
+        r'NS_VALUERETURN',
+        r'NS_VOIDRETURN',
+      ],
+      r'literal': [
+        r'false',
+        r'true',
+        r'FALSE',
+        r'TRUE',
+        r'nil',
+        r'YES',
+        r'NO',
+        r'NULL',
+      ],
+      r'built_in': [
+        r'dispatch_once_t',
+        r'dispatch_queue_t',
+        r'dispatch_sync',
+        r'dispatch_async',
+        r'dispatch_once',
+      ],
+      r'type': [
+        r'int',
+        r'float',
+        r'char',
+        r'unsigned',
+        r'signed',
+        r'short',
+        r'long',
+        r'double',
+        r'wchar_t',
+        r'unichar',
+        r'void',
+        r'bool',
+        r'BOOL',
+        r'id|0',
+        r'_Bool',
+      ],
     },
-    lexemes: "[a-zA-Z@][a-zA-Z0-9_]*",
-    illegal: "</",
+    illegal: r'</',
     contains: [
       Mode(
-          className: "built_in",
-          begin:
-              "\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+"),
-      C_LINE_COMMENT_MODE,
-      C_BLOCK_COMMENT_MODE,
-      C_NUMBER_MODE,
-      QUOTE_STRING_MODE,
-      APOS_STRING_MODE,
-      Mode(className: "string", variants: [
-        Mode(
-            begin: "@\"",
-            end: "\"",
-            illegal: "\\n",
-            contains: [BACKSLASH_ESCAPE])
-      ]),
-      Mode(className: "meta", begin: "#\\s*[a-z]+\\b", end: "\$", keywords: {
-        "meta-keyword":
-            "if else elif endif define undef warning error line pragma ifdef ifndef include"
-      }, contains: [
-        Mode(begin: "\\\\\\n", relevance: 0),
-        Mode(
-            className: "meta-string",
-            begin: "\"",
-            end: "\"",
-            illegal: "\\n",
-            contains: [BACKSLASH_ESCAPE]),
-        Mode(
-            className: "meta-string",
-            begin: "<.*?>",
-            end: "\$",
-            illegal: "\\n"),
-        C_LINE_COMMENT_MODE,
-        C_BLOCK_COMMENT_MODE
-      ]),
+        scope: r'built_in',
+        begin:
+            r'\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\w+',
+      ),
+      _mode0,
+      _mode3,
       Mode(
-          className: "class",
-          begin: "(@interface|@class|@protocol|@implementation)\\b",
-          end: "({|\$)",
-          excludeEnd: true,
-          keywords: "@interface @class @protocol @implementation",
-          lexemes: "[a-zA-Z@][a-zA-Z0-9_]*",
-          contains: [UNDERSCORE_TITLE_MODE]),
-      Mode(begin: "\\.[a-zA-Z_]\\w*", relevance: 0)
-    ]);
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        illegal: r'\n',
+        contains: [
+          _mode6,
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r"'",
+        end: r"'",
+        illegal: r'\n',
+        contains: [
+          _mode6,
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        variants: [
+          Mode(
+            begin: r'@"',
+            end: r'"',
+            illegal: r'\n',
+            contains: [
+              _mode6,
+            ],
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'meta',
+        begin: r'#\s*[a-z]+\b',
+        end: r'$',
+        keywords: {
+          r'keyword':
+              r'if else elif endif define undef warning error line pragma ifdef ifndef include',
+        },
+        contains: [
+          Mode(
+            begin: r'\\\n',
+            relevance: 0,
+          ),
+          Mode(
+            scope: r'string',
+            begin: r'"',
+            end: r'"',
+            illegal: r'\n',
+            contains: [
+              _mode6,
+            ],
+          ),
+          Mode(
+            scope: r'string',
+            begin: r'<.*?>',
+            end: r'$',
+            illegal: r'\n',
+          ),
+          _mode0,
+          _mode3,
+        ],
+      ),
+      Mode(
+        scope: r'class',
+        begin: r'(@interface|@class|@protocol|@implementation)\b',
+        end: r'(\{|$)',
+        excludeEnd: true,
+        keywords: {
+          r'$pattern': r'[a-zA-Z@][a-zA-Z0-9_]*',
+          r'keyword': [
+            r'@interface',
+            r'@class',
+            r'@protocol',
+            r'@implementation',
+          ],
+        },
+        contains: [
+          Mode(
+            scope: r'title',
+            begin: r'[a-zA-Z_]\w*',
+            relevance: 0,
+          ),
+        ],
+      ),
+      Mode(
+        begin: r'\.[a-zA-Z_]\w*',
+        relevance: 0,
+      ),
+    ],
+  );
+}

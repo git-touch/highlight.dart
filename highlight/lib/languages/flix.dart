@@ -1,27 +1,107 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final flix = Mode(refs: {}, keywords: {
-  "literal": "true false",
-  "keyword":
-      "case class def else enum if impl import in lat rel index let match namespace switch type yield with"
-}, contains: [
-  C_LINE_COMMENT_MODE,
-  C_BLOCK_COMMENT_MODE,
-  Mode(className: "string", begin: "'(.|\\\\[xXuU][a-zA-Z0-9]+)'"),
-  Mode(className: "string", variants: [Mode(begin: "\"", end: "\"")]),
-  Mode(
-      className: "function",
-      beginKeywords: "def",
-      end: "[:={\\[(\\n;]",
-      excludeEnd: true,
-      contains: [
-        Mode(
-            className: "title",
+Mode flix(Highlight hljs) {
+  return Mode(
+    name: r'Flix',
+    keywords: {
+      r'keyword': [
+        r'case',
+        r'class',
+        r'def',
+        r'else',
+        r'enum',
+        r'if',
+        r'impl',
+        r'import',
+        r'in',
+        r'lat',
+        r'rel',
+        r'index',
+        r'let',
+        r'match',
+        r'namespace',
+        r'switch',
+        r'type',
+        r'yield',
+        r'with',
+      ],
+      r'literal': [
+        r'true',
+        r'false',
+      ],
+    },
+    contains: [
+      Mode(
+        scope: r'comment',
+        begin: r'//',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
             begin:
-                "[^0-9\\n\\t \"'(),.`{}\\[\\]:;][^\\n\\t \"'(),.`{}\\[\\]:;]+|[^0-9\\n\\t \"'(),.`{}\\[\\]:;=]")
-      ]),
-  C_NUMBER_MODE
-]);
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'/\*',
+        end: r'\*/',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r"'(.|\\[xXuU][a-zA-Z0-9]+)'",
+      ),
+      Mode(
+        scope: r'string',
+        variants: [
+          Mode(
+            begin: r'"',
+            end: r'"',
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'function',
+        beginKeywords: r'def',
+        end: r'[:={\[(\n;]',
+        excludeEnd: true,
+        contains: [
+          Mode(
+            scope: r'title',
+            relevance: 0,
+            begin:
+                '[^0-9\\n\\t "\'(),.`{}\\[\\]:;][^\\n\\t "\'(),.`{}\\[\\]:;]+|[^0-9\\n\\t "\'(),.`{}\\[\\]:;=]',
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+    ],
+  );
+}

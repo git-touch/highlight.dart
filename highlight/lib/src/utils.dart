@@ -1,22 +1,34 @@
-/// Extends builtin String.substring function
-///
-/// RangeError: Value not in range
-String substring(String input, int startIndex, [int? endIndex]) {
-  endIndex ??= input.length;
+String escapeHTML(String value) {
+  return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#x27;');
+}
 
-  if (startIndex > endIndex) {
-    var tmp = startIndex;
-    startIndex = endIndex;
-    endIndex = tmp;
+Map<String, dynamic> inherit(Map<String, dynamic> original,
+    [Map<String, dynamic>? obj1,
+    Map<String, dynamic>? obj2,
+    Map<String, dynamic>? obj3]) {
+  final result = <String, dynamic>{};
+  original.forEach((key, value) {
+    result[key] = value;
+  });
+  if (obj1 != null) {
+    obj1.forEach((key, value) {
+      result[key] = value;
+    });
   }
-
-  if (startIndex < 0 || startIndex > input.length) {
-    startIndex = 0;
+  if (obj2 != null) {
+    obj2.forEach((key, value) {
+      result[key] = value;
+    });
   }
-
-  if (endIndex < 0 || endIndex > input.length) {
-    endIndex = input.length;
+  if (obj3 != null) {
+    obj3.forEach((key, value) {
+      result[key] = value;
+    });
   }
-
-  return input.substring(startIndex, endIndex);
+  return result;
 }

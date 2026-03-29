@@ -1,160 +1,253 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final powershell = Mode(
-    refs: {
-      '~contains~0~contains~0~contains~9':
-          Mode(className: "literal", begin: "\\\$(null|true|false)\\b"),
-      '~contains~0~contains~0~contains~7':
-          Mode(className: "built_in", variants: [
-        Mode(
-            begin:
-                "(Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|Move|New|Open|Optimize|Pop|Push|Redo|Remove|Rename|Reset|Resize|Search|Select|Set|Show|Skip|Split|Step|Switch|Undo|Unlock|Watch|Backup|Checkpoint|Compare|Compress|Convert|ConvertFrom|ConvertTo|Dismount|Edit|Expand|Export|Group|Import|Initialize|Limit|Merge|New|Out|Publish|Restore|Save|Sync|Unpublish|Update|Approve|Assert|Complete|Confirm|Deny|Disable|Enable|Install|Invoke|Register|Request|Restart|Resume|Start|Stop|Submit|Suspend|Uninstall|Unregister|Wait|Debug|Measure|Ping|Repair|Resolve|Test|Trace|Connect|Disconnect|Read|Receive|Send|Write|Block|Grant|Protect|Revoke|Unblock|Unprotect|Use|ForEach|Sort|Tee|Where)+(-)[\\w\\d]+")
-      ]),
-      '~contains~0~contains~0~contains~6': Mode(className: "string", variants: [
-        Mode(begin: "'", end: "'"),
-        Mode(begin: "@'", end: "^'@")
-      ]),
-      '~contains~0~contains~0~contains~5~contains~1':
-          Mode(className: "variable", variants: [
-        Mode(begin: "\\\$\\B"),
-        Mode(className: "keyword", begin: "\\\$this"),
-        Mode(begin: "\\\$[\\w\\d][\\w\\d_:]*")
-      ]),
-      '~contains~0~contains~0~contains~5': Mode(className: "string", variants: [
-        Mode(begin: "\"", end: "\""),
-        Mode(begin: "@\"", end: "^\"@")
-      ], contains: [
-        Mode(ref: '~contains~0~contains~0~contains~3'),
-        Mode(ref: '~contains~0~contains~0~contains~5~contains~1'),
-        Mode(className: "variable", begin: "\\\$[A-z]", end: "[^A-z]")
-      ]),
-      '~contains~0~contains~0~contains~3':
-          Mode(begin: "`[\\s\\S]", relevance: 0),
-      '~contains~0~contains~0~contains~2':
-          Mode(className: "comment", begin: null, end: null, contains: [
-        Mode(className: "doctag", variants: [
-          Mode(
-              begin:
-                  "\\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)"),
-          Mode(
-              begin:
-                  "\\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\\s+\\S+")
-        ])
-      ], variants: [
-        Mode(begin: "#", end: "\$"),
-        Mode(begin: "<#", end: "#>")
-      ]),
-      '~contains~0~contains~0~contains~10':
-          Mode(className: "selector-tag", begin: "\\@\\B", relevance: 0),
-      '~contains~0~contains~0': Mode(
-          begin: "\\[",
-          end: "\\]",
-          excludeBegin: true,
-          excludeEnd: true,
-          relevance: 0,
-          contains: [
-            Mode(self: true),
-            Mode(ref: '~contains~0'),
-            Mode(ref: '~contains~0~contains~0~contains~2'),
-            Mode(ref: '~contains~0~contains~0~contains~3'),
-            NUMBER_MODE,
-            Mode(ref: '~contains~0~contains~0~contains~5'),
-            Mode(ref: '~contains~0~contains~0~contains~6'),
-            Mode(ref: '~contains~0~contains~0~contains~7'),
-            Mode(ref: '~contains~0~contains~0~contains~5~contains~1'),
-            Mode(ref: '~contains~0~contains~0~contains~9'),
-            Mode(ref: '~contains~0~contains~0~contains~10'),
-            Mode(
-                begin:
-                    "(string|char|byte|int|long|bool|decimal|single|double|DateTime|xml|array|hashtable|void)",
-                className: "built_in",
-                relevance: 0),
-            Mode(className: "type", begin: "[\\.\\w\\d]+", relevance: 0)
-          ]),
-      '~contains~0': Mode(
-          className: "function",
-          begin: "\\[.*\\]\\s*[\\w]+[ ]??\\(",
-          end: "\$",
-          returnBegin: true,
-          relevance: 0,
-          contains: [
-            Mode(ref: '~contains~0~contains~0'),
-            Mode(
-                className: "keyword",
-                begin:
-                    "(if|else|foreach|return|do|while|until|elseif|begin|for|trap|data|dynamicparam|end|break|throw|param|continue|finally|in|switch|exit|filter|try|process|catch|hidden|static|parameter)\\b",
-                endsParent: true,
-                relevance: 0),
-            Mode(
-                className: "title",
-                begin: "[a-zA-Z]\\w*",
-                relevance: 0,
-                endsParent: true)
-          ]),
-    },
-    aliases: ["ps", "ps1"],
-    lexemes: "-?[A-z\\.\\-]+",
-    case_insensitive: true,
+Mode powershell(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  final Mode _mode2 = Mode();
+  final Mode _mode3 = Mode();
+  final Mode _mode4 = Mode();
+  final Mode _mode5 = Mode();
+  final Mode _mode6 = Mode();
+  final Mode _mode7 = Mode();
+  final Mode _mode8 = Mode();
+  final Mode _mode9 = Mode();
+  final Mode _mode10 = Mode();
+  final Mode _mode11 = Mode();
+  final Mode _mode12 = Mode();
+  final Mode _mode13 = Mode();
+  final Mode _mode14 = Mode();
+  final Mode _mode15 = Mode();
+  final Mode _mode16 = Mode();
+  final Mode _mode17 = Mode();
+  final Mode _mode18 = Mode();
+  final Mode _mode19 = Mode();
+  final Mode _mode20 = Mode();
+  final Mode _mode21 = Mode();
+  final Mode _mode22 = Mode();
+  final Mode _mode23 = Mode();
+  final Mode _mode24 = Mode();
+  final Mode _mode25 = Mode();
+  final Mode _mode26 = Mode();
+  final Mode _mode27 = Mode();
+  final Mode _mode28 = Mode();
+  _mode0.scope = r'function';
+  _mode0.begin = r'\[.*\]\s*[\w]+[ ]??\(';
+  _mode0.end = r'$';
+  _mode0.returnBegin = true;
+  _mode0.relevance = 0;
+  _mode0.contains = [
+    _mode1,
+    _mode27,
+    _mode28,
+  ];
+  _mode1.begin = r'\[';
+  _mode1.end = r'\]';
+  _mode1.excludeBegin = true;
+  _mode1.excludeEnd = true;
+  _mode1.relevance = 0;
+  _mode1.contains = [
+    r'self',
+    _mode0,
+    _mode2,
+    _mode8,
+    _mode9,
+    _mode10,
+    _mode18,
+    _mode21,
+    _mode13,
+    _mode23,
+    _mode24,
+    _mode25,
+    _mode26,
+  ];
+  _mode2.scope = r'comment';
+  _mode2.contains = [
+    _mode3,
+  ];
+  _mode2.variants = [
+    _mode6,
+    _mode7,
+  ];
+  _mode3.scope = r'doctag';
+  _mode3.variants = [
+    _mode4,
+    _mode5,
+  ];
+  _mode4.begin =
+      r'\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)';
+  _mode5.begin =
+      r'\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\s+\S+';
+  _mode6.begin = r'#';
+  _mode6.end = r'$';
+  _mode7.begin = r'<#';
+  _mode7.end = r'#>';
+  _mode8.begin = r'`[\s\S]';
+  _mode8.relevance = 0;
+  _mode9.scope = r'number';
+  _mode9.begin = r'\b\d+(\.\d+)?';
+  _mode9.relevance = 0;
+  _mode10.scope = r'string';
+  _mode10.variants = [
+    _mode11,
+    _mode12,
+  ];
+  _mode10.contains = [
+    _mode8,
+    _mode13,
+    _mode17,
+  ];
+  _mode11.begin = r'"';
+  _mode11.end = r'"';
+  _mode12.begin = r'@"';
+  _mode12.end = r'^"@';
+  _mode13.scope = r'variable';
+  _mode13.variants = [
+    _mode14,
+    _mode15,
+    _mode16,
+  ];
+  _mode14.begin = r'\$\B';
+  _mode15.scope = r'keyword';
+  _mode15.begin = r'\$this';
+  _mode16.begin = r'\$[\w\d][\w\d_:]*';
+  _mode17.scope = r'variable';
+  _mode17.begin = r'\$[A-z]';
+  _mode17.end = r'[^A-z]';
+  _mode18.scope = r'string';
+  _mode18.variants = [
+    _mode19,
+    _mode20,
+  ];
+  _mode19.begin = r"'";
+  _mode19.end = r"'";
+  _mode20.begin = r"@'";
+  _mode20.end = r"^'@";
+  _mode21.scope = r'built_in';
+  _mode21.variants = [
+    _mode22,
+  ];
+  _mode22.begin =
+      r'(Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|Move|New|Open|Optimize|Pop|Push|Redo|Remove|Rename|Reset|Resize|Search|Select|Set|Show|Skip|Split|Step|Switch|Undo|Unlock|Watch|Backup|Checkpoint|Compare|Compress|Convert|ConvertFrom|ConvertTo|Dismount|Edit|Expand|Export|Group|Import|Initialize|Limit|Merge|Mount|Out|Publish|Restore|Save|Sync|Unpublish|Update|Approve|Assert|Build|Complete|Confirm|Deny|Deploy|Disable|Enable|Install|Invoke|Register|Request|Restart|Resume|Start|Stop|Submit|Suspend|Uninstall|Unregister|Wait|Debug|Measure|Ping|Repair|Resolve|Test|Trace|Connect|Disconnect|Read|Receive|Send|Write|Block|Grant|Protect|Revoke|Unblock|Unprotect|Use|ForEach|Sort|Tee|Where)+(-)[\w\d]+';
+  _mode23.scope = r'literal';
+  _mode23.begin = r'\$(null|true|false)\b';
+  _mode24.scope = r'selector-tag';
+  _mode24.begin = r'@\B';
+  _mode24.relevance = 0;
+  _mode25.begin =
+      r'(string|char|byte|int|long|bool|decimal|single|double|DateTime|xml|array|hashtable|void)';
+  _mode25.scope = r'built_in';
+  _mode25.relevance = 0;
+  _mode26.scope = r'type';
+  _mode26.begin = r'[\.\w\d]+';
+  _mode26.relevance = 0;
+  _mode27.scope = r'keyword';
+  _mode27.begin =
+      r'(if|else|foreach|return|do|while|until|elseif|begin|for|trap|data|dynamicparam|end|break|throw|param|continue|finally|in|switch|exit|filter|try|process|catch|hidden|static|parameter)\b';
+  _mode27.endsParent = true;
+  _mode27.relevance = 0;
+  _mode28.scope = r'title';
+  _mode28.begin = r'[a-zA-Z]\w*';
+  _mode28.relevance = 0;
+  _mode28.endsParent = true;
+  return Mode(
+    name: r'PowerShell',
+    aliases: [
+      r'pwsh',
+      r'ps',
+      r'ps1',
+    ],
+    caseInsensitive: true,
     keywords: {
-      "keyword":
-          "if else foreach return do while until elseif begin for trap data dynamicparam end break throw param continue finally in switch exit filter try process catch hidden static parameter"
+      r'$pattern': r'-?[A-z\.\-]+\b',
+      r'keyword':
+          r'if else foreach return do while until elseif begin for trap data dynamicparam end break throw param continue finally in switch exit filter try process catch hidden static parameter',
+      r'built_in':
+          r'ac asnp cat cd CFS chdir clc clear clhy cli clp cls clv cnsn compare copy cp cpi cpp curl cvpa dbp del diff dir dnsn ebp echo|0 epal epcsv epsn erase etsn exsn fc fhx fl ft fw gal gbp gc gcb gci gcm gcs gdr gerr ghy gi gin gjb gl gm gmo gp gps gpv group gsn gsnp gsv gtz gu gv gwmi h history icm iex ihy ii ipal ipcsv ipmo ipsn irm ise iwmi iwr kill lp ls man md measure mi mount move mp mv nal ndr ni nmo npssc nsn nv ogv oh popd ps pushd pwd r rbp rcjb rcsn rd rdr ren ri rjb rm rmdir rmo rni rnp rp rsn rsnp rujb rv rvpa rwmi sajb sal saps sasv sbp sc scb select set shcm si sl sleep sls sort sp spjb spps spsv start stz sujb sv swmi tee trcm type wget where wjb write',
     },
     contains: [
-      Mode(ref: '~contains~0'),
-      Mode(ref: '~contains~0~contains~0~contains~2'),
-      Mode(ref: '~contains~0~contains~0~contains~3'),
-      NUMBER_MODE,
-      Mode(ref: '~contains~0~contains~0~contains~5'),
-      Mode(ref: '~contains~0~contains~0~contains~6'),
-      Mode(ref: '~contains~0~contains~0~contains~7'),
-      Mode(ref: '~contains~0~contains~0~contains~5~contains~1'),
-      Mode(ref: '~contains~0~contains~0~contains~9'),
-      Mode(ref: '~contains~0~contains~0~contains~10'),
+      _mode0,
+      _mode2,
+      _mode8,
+      _mode9,
+      _mode10,
+      _mode18,
+      _mode21,
+      _mode13,
+      _mode23,
+      _mode24,
       Mode(
-          className: "class",
-          beginKeywords: "class enum",
-          end: "\\s*[{]",
-          excludeEnd: true,
-          relevance: 0,
-          contains: [TITLE_MODE]),
+        scope: r'class',
+        beginKeywords: r'class enum',
+        end: r'\s*[{]',
+        excludeEnd: true,
+        relevance: 0,
+        contains: [
+          Mode(
+            scope: r'title',
+            begin: r'[a-zA-Z]\w*',
+            relevance: 0,
+          ),
+        ],
+      ),
       Mode(
-          className: "function",
-          begin: "function\\s+",
-          end: "\\s*\\{|\$",
-          excludeEnd: true,
-          returnBegin: true,
-          relevance: 0,
-          contains: [
-            Mode(begin: "function", relevance: 0, className: "keyword"),
-            Mode(
-                className: "title",
-                begin: "\\w[\\w\\d]*((-)[\\w\\d]+)*",
-                relevance: 0),
-            Mode(
-                begin: "\\(",
-                end: "\\)",
-                className: "params",
-                relevance: 0,
-                contains: [
-                  Mode(ref: '~contains~0~contains~0~contains~5~contains~1')
-                ])
-          ]),
-      Mode(begin: "using\\s", end: "\$", returnBegin: true, contains: [
-        Mode(ref: '~contains~0~contains~0~contains~5'),
-        Mode(ref: '~contains~0~contains~0~contains~6'),
-        Mode(
-            className: "keyword",
-            begin: "(using|assembly|command|module|namespace|type)")
-      ]),
-      Mode(variants: [
-        Mode(
-            className: "operator",
+        scope: r'function',
+        begin: r'function\s+',
+        end: r'\s*\{|$',
+        excludeEnd: true,
+        returnBegin: true,
+        relevance: 0,
+        contains: [
+          Mode(
+            begin: r'function',
+            relevance: 0,
+            scope: r'keyword',
+          ),
+          Mode(
+            scope: r'title',
+            begin: r'\w[\w\d]*((-)[\w\d]+)*',
+            relevance: 0,
+          ),
+          Mode(
+            begin: r'\(',
+            end: r'\)',
+            scope: r'params',
+            relevance: 0,
+            contains: [
+              _mode13,
+            ],
+          ),
+        ],
+      ),
+      Mode(
+        begin: r'using\s',
+        end: r'$',
+        returnBegin: true,
+        contains: [
+          _mode10,
+          _mode18,
+          Mode(
+            scope: r'keyword',
+            begin: r'(using|assembly|command|module|namespace|type)',
+          ),
+        ],
+      ),
+      Mode(
+        variants: [
+          Mode(
+            scope: r'operator',
             begin:
-                "(-and|-as|-band|-bnot|-bor|-bxor|-casesensitive|-ccontains|-ceq|-cge|-cgt|-cle|-clike|-clt|-cmatch|-cne|-cnotcontains|-cnotlike|-cnotmatch|-contains|-creplace|-csplit|-eq|-exact|-f|-file|-ge|-gt|-icontains|-ieq|-ige|-igt|-ile|-ilike|-ilt|-imatch|-in|-ine|-inotcontains|-inotlike|-inotmatch|-ireplace|-is|-isnot|-isplit|-join|-le|-like|-lt|-match|-ne|-not|-notcontains|-notin|-notlike|-notmatch|-or|-regex|-replace|-shl|-shr|-split|-wildcard|-xor)\\b"),
-        Mode(className: "literal", begin: "(-)[\\w\\d]+", relevance: 0)
-      ]),
-      Mode(ref: '~contains~0~contains~0')
-    ]);
+                r'(-and|-as|-band|-bnot|-bor|-bxor|-casesensitive|-ccontains|-ceq|-cge|-cgt|-cle|-clike|-clt|-cmatch|-cne|-cnotcontains|-cnotlike|-cnotmatch|-contains|-creplace|-csplit|-eq|-exact|-f|-file|-ge|-gt|-icontains|-ieq|-ige|-igt|-ile|-ilike|-ilt|-imatch|-in|-ine|-inotcontains|-inotlike|-inotmatch|-ireplace|-is|-isnot|-isplit|-join|-le|-like|-lt|-match|-ne|-not|-notcontains|-notin|-notlike|-notmatch|-or|-regex|-replace|-shl|-shr|-split|-wildcard|-xor)\b',
+          ),
+          Mode(
+            scope: r'literal',
+            begin: r'(-){1,2}[\w\d-]+',
+            relevance: 0,
+          ),
+        ],
+      ),
+      _mode1,
+    ],
+  );
+}

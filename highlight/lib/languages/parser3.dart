@@ -1,49 +1,96 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final parser3 = Mode(
-    refs: {},
-    subLanguage: ["xml"],
+Mode parser3(Highlight hljs) {
+  return Mode(
+    name: r'Parser3',
+    subLanguage: r'xml',
     relevance: 0,
     contains: [
-      Mode(className: "comment", begin: "^#", end: "\$", contains: [
-        PHRASAL_WORDS_MODE,
-        Mode(
-            className: "doctag",
-            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-            relevance: 0)
-      ]),
       Mode(
-          className: "comment",
-          begin: "\\^rem{",
-          end: "}",
-          contains: [
-            Mode(className: "comment", begin: "{", end: "}", contains: [
-              Mode(self: true),
-              PHRASAL_WORDS_MODE,
+        scope: r'comment',
+        begin: r'^#',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'\^rem\{',
+        end: r'\}',
+        contains: [
+          Mode(
+            scope: r'comment',
+            begin: r'\{',
+            end: r'\}',
+            contains: [
+              r'self',
               Mode(
-                  className: "doctag",
-                  begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-                  relevance: 0)
-            ]),
-            PHRASAL_WORDS_MODE,
-            Mode(
-                className: "doctag",
-                begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-                relevance: 0)
-          ],
-          relevance: 10),
+                scope: r'doctag',
+                begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+                end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+                excludeBegin: true,
+                relevance: 0,
+              ),
+              Mode(
+                begin:
+                    r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+              ),
+            ],
+          ),
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+        relevance: 10,
+      ),
       Mode(
-          className: "meta",
-          begin: "^@(?:BASE|USE|CLASS|OPTIONS)\$",
-          relevance: 10),
+        scope: r'meta',
+        begin: r'^@(?:BASE|USE|CLASS|OPTIONS)$',
+        relevance: 10,
+      ),
       Mode(
-          className: "title",
-          begin: "@[\\w\\-]+\\[[\\w^;\\-]*\\](?:\\[[\\w^;\\-]*\\])?(?:.*)\$"),
-      Mode(className: "variable", begin: "\\\$\\{?[\\w\\-\\.\\:]+\\}?"),
-      Mode(className: "keyword", begin: "\\^[\\w\\-\\.\\:]+"),
-      Mode(className: "number", begin: "\\^#[0-9a-fA-F]+"),
-      C_NUMBER_MODE
-    ]);
+        scope: r'title',
+        begin: r'@[\w\-]+\[[\w^;\-]*\](?:\[[\w^;\-]*\])?(?:.*)$',
+      ),
+      Mode(
+        scope: r'variable',
+        begin: r'\$\{?[\w\-.:]+\}?',
+      ),
+      Mode(
+        scope: r'keyword',
+        begin: r'\^[\w\-.:]+',
+      ),
+      Mode(
+        scope: r'number',
+        begin: r'\^#[0-9a-fA-F]+',
+      ),
+      Mode(
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+    ],
+  );
+}

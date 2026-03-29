@@ -1,18 +1,48 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final csp = Mode(
-    refs: {},
-    case_insensitive: false,
-    lexemes: "[a-zA-Z][a-zA-Z0-9_-]*",
+Mode csp(Highlight hljs) {
+  return Mode(
+    name: r'CSP',
+    caseInsensitive: false,
     keywords: {
-      "keyword":
-          "base-uri child-src connect-src default-src font-src form-action frame-ancestors frame-src img-src media-src object-src plugin-types report-uri sandbox script-src style-src"
+      r'$pattern': r'[a-zA-Z][a-zA-Z0-9_-]*',
+      r'keyword': [
+        r'base-uri',
+        r'child-src',
+        r'connect-src',
+        r'default-src',
+        r'font-src',
+        r'form-action',
+        r'frame-ancestors',
+        r'frame-src',
+        r'img-src',
+        r'manifest-src',
+        r'media-src',
+        r'object-src',
+        r'plugin-types',
+        r'report-uri',
+        r'sandbox',
+        r'script-src',
+        r'style-src',
+        r'trusted-types',
+        r'unsafe-hashes',
+        r'worker-src',
+      ],
     },
     contains: [
-      Mode(className: "string", begin: "'", end: "'"),
       Mode(
-          className: "attribute", begin: "^Content", end: ":", excludeEnd: true)
-    ]);
+        scope: r'string',
+        begin: r"'",
+        end: r"'",
+      ),
+      Mode(
+        scope: r'attribute',
+        begin: r'^Content',
+        end: r':',
+        excludeEnd: true,
+      ),
+    ],
+  );
+}

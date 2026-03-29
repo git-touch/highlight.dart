@@ -1,15 +1,106 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final golo = Mode(refs: {}, keywords: {
-  "keyword":
-      "println readln print import module function local return let var while for foreach times in case when match with break continue augment augmentation each find filter reduce if then else otherwise try catch finally raise throw orIfNull DynamicObject|10 DynamicVariable struct Observable map set vector list array",
-  "literal": "true false null"
-}, contains: [
-  HASH_COMMENT_MODE,
-  QUOTE_STRING_MODE,
-  C_NUMBER_MODE,
-  Mode(className: "meta", begin: "@[A-Za-z]+")
-]);
+Mode golo(Highlight hljs) {
+  return Mode(
+    name: r'Golo',
+    keywords: {
+      r'keyword': [
+        r'println',
+        r'readln',
+        r'print',
+        r'import',
+        r'module',
+        r'function',
+        r'local',
+        r'return',
+        r'let',
+        r'var',
+        r'while',
+        r'for',
+        r'foreach',
+        r'times',
+        r'in',
+        r'case',
+        r'when',
+        r'match',
+        r'with',
+        r'break',
+        r'continue',
+        r'augment',
+        r'augmentation',
+        r'each',
+        r'find',
+        r'filter',
+        r'reduce',
+        r'if',
+        r'then',
+        r'else',
+        r'otherwise',
+        r'try',
+        r'catch',
+        r'finally',
+        r'raise',
+        r'throw',
+        r'orIfNull',
+        r'DynamicObject|10',
+        r'DynamicVariable',
+        r'struct',
+        r'Observable',
+        r'map',
+        r'set',
+        r'vector',
+        r'list',
+        r'array',
+      ],
+      r'literal': [
+        r'true',
+        r'false',
+        r'null',
+      ],
+    },
+    contains: [
+      Mode(
+        scope: r'comment',
+        begin: r'#',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        illegal: r'\n',
+        contains: [
+          Mode(
+            begin: r'\\[\s\S]',
+            relevance: 0,
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'meta',
+        begin: r'@[A-Za-z]+',
+      ),
+    ],
+  );
+}

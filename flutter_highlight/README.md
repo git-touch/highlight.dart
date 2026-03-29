@@ -1,53 +1,64 @@
 # flutter_highlight
 
-[![pub](https://img.shields.io/pub/v/flutter_highlight)](https://pub.dev/packages/flutter_highlight)
+A Flutter widget for syntax highlighting, powered by the [highlight](../highlight/) package (a Dart port of [highlight.js](https://highlightjs.org/)).
 
-Syntax highlighter for Flutter. https://git-touch.github.io/highlight/
+## Features
 
-## Usage
+- **HighlightView widget** — Drop-in widget for displaying syntax-highlighted code
+- **192 languages** — All highlight.js languages supported
+- **257 themes** — All highlight.js themes available
+- **Line numbers** — Optional line number gutter
+- **Text selection** — Code is selectable by default
+- **Horizontal scroll** — Long lines scroll horizontally
+
+## Quick Start
 
 ```dart
-import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
+import 'package:highlight/highlight.dart';
 
-class MyWidget extends StatelessWidget {
+class CodeViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var code = '''main() {
-  print("Hello, World!");
-}
-''';
-
+    ensureInitialized();
     return HighlightView(
-      // The original code to be highlighted
-      code,
-
-      // Specify language
-      // It is recommended to give it a value for performance
-      language: 'dart',
-
-      // Specify highlight theme
-      // All available themes are listed in `themes` folder
+      'def hello():\n    print("Hello, World!")',
+      language: 'python',
       theme: githubTheme,
-
-      // Specify padding
-      padding: EdgeInsets.all(12),
-
-      // Specify text style
+      padding: EdgeInsets.all(16),
       textStyle: TextStyle(
-        fontFamily: 'My awesome monospace font',
-        fontSize: 16,
+        fontFamily: 'JetBrains Mono',
+        fontSize: 14,
       ),
     );
   }
 }
 ```
 
-## References
+## With Line Numbers
 
-- [All available languages](https://github.com/pd4d10/highlight/tree/master/highlight/lib/languages)
-- [All available themes](https://github.com/pd4d10/highlight/blob/master/flutter_highlight/lib/themes)
+```dart
+HighlightView(
+  sourceCode,
+  language: 'dart',
+  theme: githubTheme,
+  showLineNumbers: true,
+  firstLineNumber: 1,
+  lineNumberStyle: TextStyle(color: Colors.grey),
+)
+```
+
+## Auto-Detection
+
+Omit the `language` parameter to auto-detect:
+
+```dart
+HighlightView(
+  unknownCode,
+  theme: githubTheme,
+)
+```
 
 ## License
 

@@ -1,6 +1,14 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final plaintext = Mode(refs: {}, disableAutodetect: true);
+Mode plaintext(Highlight hljs) {
+  return Mode(
+    name: r'Plain text',
+    aliases: [
+      r'text',
+      r'txt',
+    ],
+    disableAutodetect: true,
+  );
+}

@@ -1,61 +1,242 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final twig = Mode(
-    refs: {
-      '~contains~1~contains~0~starts~contains~0~contains~0': Mode(
-          beginKeywords:
-              "attribute block constant cycle date dump include max min parent random range source template_from_string",
-          keywords: {
-            "name":
-                "attribute block constant cycle date dump include max min parent random range source template_from_string"
-          },
-          relevance: 0,
-          contains: [Mode(className: "params", begin: "\\(", end: "\\)")]),
-      '~contains~1~contains~0~starts~contains~0': Mode(
-          begin: "\\|[A-Za-z_]+:?",
-          keywords:
-              "abs batch capitalize column convert_encoding date date_modify default escape filter first format inky_to_html inline_css join json_encode keys last length lower map markdown merge nl2br number_format raw reduce replace reverse round slice sort spaceless split striptags title trim upper url_encode",
-          contains: [
-            Mode(ref: '~contains~1~contains~0~starts~contains~0~contains~0')
-          ]),
-    },
-    aliases: ["craftcms"],
-    case_insensitive: true,
-    subLanguage: ["xml"],
+Mode twig(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  final Mode _mode2 = Mode();
+  final Mode _mode3 = Mode();
+  final Mode _mode4 = Mode();
+  final Mode _mode5 = Mode();
+  final Mode _mode6 = Mode();
+  final Mode _mode7 = Mode();
+  _mode0.match = r'\|(?=[A-Za-z_]+:?)';
+  _mode0.beginScope = r'punctuation';
+  _mode0.relevance = 0;
+  _mode0.contains = [
+    _mode1,
+  ];
+  _mode1.match = r'[A-Za-z_]+:?';
+  _mode1.keywords = [
+    r'abs',
+    r'abbr_class',
+    r'abbr_method',
+    r'batch',
+    r'capitalize',
+    r'column',
+    r'convert_encoding',
+    r'country_name',
+    r'currency_name',
+    r'currency_symbol',
+    r'data_uri',
+    r'date',
+    r'date_modify',
+    r'default',
+    r'escape',
+    r'file_excerpt',
+    r'file_link',
+    r'file_relative',
+    r'filter',
+    r'first',
+    r'format',
+    r'format_args',
+    r'format_args_as_text',
+    r'format_currency',
+    r'format_date',
+    r'format_datetime',
+    r'format_file',
+    r'format_file_from_text',
+    r'format_number',
+    r'format_time',
+    r'html_to_markdown',
+    r'humanize',
+    r'inky_to_html',
+    r'inline_css',
+    r'join',
+    r'json_encode',
+    r'keys',
+    r'language_name',
+    r'last',
+    r'length',
+    r'locale_name',
+    r'lower',
+    r'map',
+    r'markdown',
+    r'markdown_to_html',
+    r'merge',
+    r'nl2br',
+    r'number_format',
+    r'raw',
+    r'reduce',
+    r'replace',
+    r'reverse',
+    r'round',
+    r'slice',
+    r'slug',
+    r'sort',
+    r'spaceless',
+    r'split',
+    r'striptags',
+    r'timezone_name',
+    r'title',
+    r'trans',
+    r'transchoice',
+    r'trim',
+    r'u|0',
+    r'upper',
+    r'url_encode',
+    r'yaml_dump',
+    r'yaml_encode',
+  ];
+  _mode2.beginKeywords =
+      r'absolute_url asset|0 asset_version attribute block constant controller|0 country_timezones csrf_token cycle date dump expression form|0 form_end form_errors form_help form_label form_rest form_row form_start form_widget html_classes include is_granted logout_path logout_url max min parent path|0 random range relative_path render render_esi source template_from_string url|0';
+  _mode2.keywords = {
+    r'name': [
+      r'absolute_url',
+      r'asset|0',
+      r'asset_version',
+      r'attribute',
+      r'block',
+      r'constant',
+      r'controller|0',
+      r'country_timezones',
+      r'csrf_token',
+      r'cycle',
+      r'date',
+      r'dump',
+      r'expression',
+      r'form|0',
+      r'form_end',
+      r'form_errors',
+      r'form_help',
+      r'form_label',
+      r'form_rest',
+      r'form_row',
+      r'form_start',
+      r'form_widget',
+      r'html_classes',
+      r'include',
+      r'is_granted',
+      r'logout_path',
+      r'logout_url',
+      r'max',
+      r'min',
+      r'parent',
+      r'path|0',
+      r'random',
+      r'range',
+      r'relative_path',
+      r'render',
+      r'render_esi',
+      r'source',
+      r'template_from_string',
+      r'url|0',
+    ],
+  };
+  _mode2.relevance = 0;
+  _mode2.contains = [
+    _mode3,
+  ];
+  _mode3.begin = r'\(';
+  _mode3.end = r'\)';
+  _mode3.excludeBegin = true;
+  _mode3.excludeEnd = true;
+  _mode3.contains = [
+    _mode4,
+    _mode7,
+  ];
+  _mode4.scope = r'string';
+  _mode4.variants = [
+    _mode5,
+    _mode6,
+  ];
+  _mode5.begin = r"'";
+  _mode5.end = r"'";
+  _mode6.begin = r'"';
+  _mode6.end = r'"';
+  _mode7.scope = r'number';
+  _mode7.match = r'\d+';
+  return Mode(
+    name: r'Twig',
+    aliases: [
+      r'craftcms',
+    ],
+    caseInsensitive: true,
+    subLanguage: r'xml',
     contains: [
-      Mode(className: "comment", begin: "\\{#", end: "#}", contains: [
-        PHRASAL_WORDS_MODE,
-        Mode(
-            className: "doctag",
-            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-            relevance: 0)
-      ]),
-      Mode(className: "template-tag", begin: "\\{%", end: "%}", contains: [
-        Mode(
-            className: "name",
-            begin: "\\w+",
-            keywords:
-                "apply autoescape block deprecated do embed extends filter flush for from if import include macro sandbox set use verbatim with endapply endautoescape endblock enddeprecated enddo endembed endextends endfilter endflush endfor endfrom endif endimport endinclude endmacro endsandbox endset enduse endverbatim endwith",
-            starts: Mode(
-                endsWithParent: true,
-                contains: [
-                  Mode(ref: '~contains~1~contains~0~starts~contains~0'),
-                  Mode(
-                      ref:
-                          '~contains~1~contains~0~starts~contains~0~contains~0')
-                ],
-                relevance: 0))
-      ]),
       Mode(
-          className: "template-variable",
-          begin: "\\{\\{",
-          end: "}}",
-          contains: [
-            Mode(self: true),
-            Mode(ref: '~contains~1~contains~0~starts~contains~0'),
-            Mode(ref: '~contains~1~contains~0~starts~contains~0~contains~0')
-          ])
-    ]);
+        scope: r'comment',
+        begin: r'\{#',
+        end: r'#\}',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        beginScope: {
+          1: r'template-tag',
+          3: r'name',
+        },
+        relevance: 2,
+        endScope: r'template-tag',
+        begin: [
+          r'\{%',
+          r'\s*',
+          r'(?:apply|autoescape|block|cache|deprecated|do|embed|extends|filter|flush|for|form_theme|from|if|import|include|macro|sandbox|set|stopwatch|trans|trans_default_domain|transchoice|use|verbatim|with|endapply|endautoescape|endblock|endcache|enddeprecated|enddo|endembed|endextends|endfilter|endflush|endfor|endform_theme|endfrom|endif|endimport|endinclude|endmacro|endsandbox|endset|endstopwatch|endtrans|endtrans_default_domain|endtranschoice|enduse|endverbatim|endwith)',
+        ],
+        end: r'%\}',
+        keywords: r'in',
+        contains: [
+          _mode0,
+          _mode2,
+          _mode4,
+          _mode7,
+        ],
+      ),
+      Mode(
+        beginScope: {
+          1: r'template-tag',
+          3: r'name',
+        },
+        relevance: 1,
+        endScope: r'template-tag',
+        begin: [
+          r'\{%',
+          r'\s*',
+          r'(?:[a-z_]+)',
+        ],
+        end: r'%\}',
+        keywords: r'in',
+        contains: [
+          _mode0,
+          _mode2,
+          _mode4,
+          _mode7,
+        ],
+      ),
+      Mode(
+        scope: r'template-variable',
+        begin: r'\{\{',
+        end: r'\}\}',
+        contains: [
+          r'self',
+          _mode0,
+          _mode2,
+          _mode4,
+          _mode7,
+        ],
+      ),
+    ],
+  );
+}

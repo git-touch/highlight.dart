@@ -1,110 +1,82 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
-import 'package:flutter_highlight/theme_map.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'example_map.dart';
+import 'package:flutter_highlight/themes/github.dart';
+import 'package:highlight/highlight.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  ensureInitialized();
+  runApp(const ExampleApp());
+}
 
-final title = 'Flutter Highlight Gallery';
+const _sampleDart = '''
+import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('Count: \$_count'),
+        ElevatedButton(
+          onPressed: () => setState(() => _count++),
+          child: const Text('Increment'),
+        ),
+      ],
+    );
+  }
+}
+''';
+
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: title,
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  String language = 'dart';
-  String theme = 'a11y-dark';
-
-  Widget _buildMenuContent(String text) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12),
-      child: Row(children: <Widget>[
-        Text(text, style: TextStyle(fontSize: 16)),
-        Icon(Icons.arrow_drop_down)
-      ]),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[
-          PopupMenuButton(
-            child: _buildMenuContent(language),
-            itemBuilder: (context) {
-              return exampleMap.keys.map((key) {
-                return CheckedPopupMenuItem(
-                  value: key,
-                  child: Text(key),
-                  checked: language == key,
-                );
-              }).toList();
-            },
-            onSelected: (selected) {
-              if (selected != null) {
-                setState(() {
-                  language = selected;
-                });
-              }
-            },
+      title: 'flutter_highlight Example',
+      theme: ThemeData(useMaterial3: true),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('flutter_highlight')),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Dart — with line numbers',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              HighlightView(
+                _sampleDart,
+                language: 'dart',
+                theme: githubTheme,
+                showLineNumbers: true,
+                highlighter: hljs,
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Dart — without line numbers',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              HighlightView(
+                _sampleDart,
+                language: 'dart',
+                theme: githubTheme,
+                highlighter: hljs,
+              ),
+            ],
           ),
-          PopupMenuButton<String>(
-            child: _buildMenuContent(theme),
-            itemBuilder: (context) {
-              return themeMap.keys.map((key) {
-                return CheckedPopupMenuItem(
-                  value: key,
-                  child: Text(key),
-                  checked: theme == key,
-                );
-              }).toList();
-            },
-            onSelected: (selected) {
-              if (selected != null) {
-                setState(() {
-                  theme = selected;
-                });
-              }
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.code),
-            tooltip: 'Source Code',
-            onPressed: () {
-              launch('https://github.com/pd4d10/highlight');
-            },
-          )
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            HighlightView(
-              exampleMap[language],
-              language: language,
-              theme: themeMap[theme],
-              padding: EdgeInsets.all(12),
-              textStyle: TextStyle(
-                  fontFamily:
-                      'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace'),
-            )
-          ],
         ),
       ),
     );

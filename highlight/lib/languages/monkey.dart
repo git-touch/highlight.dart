@@ -1,64 +1,232 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final monkey = Mode(
-    refs: {},
-    case_insensitive: true,
+Mode monkey(Highlight hljs) {
+  return Mode(
+    name: r'Monkey',
+    caseInsensitive: true,
     keywords: {
-      "keyword":
-          "public private property continue exit extern new try catch eachin not abstract final select case default const local global field end if then else elseif endif while wend repeat until forever for to step next return module inline throw import",
-      "built_in":
-          "DebugLog DebugStop Error Print ACos ACosr ASin ASinr ATan ATan2 ATan2r ATanr Abs Abs Ceil Clamp Clamp Cos Cosr Exp Floor Log Max Max Min Min Pow Sgn Sgn Sin Sinr Sqrt Tan Tanr Seed PI HALFPI TWOPI",
-      "literal": "true false null and or shl shr mod"
+      r'keyword': [
+        r'public',
+        r'private',
+        r'property',
+        r'continue',
+        r'exit',
+        r'extern',
+        r'new',
+        r'try',
+        r'catch',
+        r'eachin',
+        r'not',
+        r'abstract',
+        r'final',
+        r'select',
+        r'case',
+        r'default',
+        r'const',
+        r'local',
+        r'global',
+        r'field',
+        r'end',
+        r'if',
+        r'then',
+        r'else',
+        r'elseif',
+        r'endif',
+        r'while',
+        r'wend',
+        r'repeat',
+        r'until',
+        r'forever',
+        r'for',
+        r'to',
+        r'step',
+        r'next',
+        r'return',
+        r'module',
+        r'inline',
+        r'throw',
+        r'import',
+        r'and',
+        r'or',
+        r'shl',
+        r'shr',
+        r'mod',
+      ],
+      r'built_in': [
+        r'DebugLog',
+        r'DebugStop',
+        r'Error',
+        r'Print',
+        r'ACos',
+        r'ACosr',
+        r'ASin',
+        r'ASinr',
+        r'ATan',
+        r'ATan2',
+        r'ATan2r',
+        r'ATanr',
+        r'Abs',
+        r'Abs',
+        r'Ceil',
+        r'Clamp',
+        r'Clamp',
+        r'Cos',
+        r'Cosr',
+        r'Exp',
+        r'Floor',
+        r'Log',
+        r'Max',
+        r'Max',
+        r'Min',
+        r'Min',
+        r'Pow',
+        r'Sgn',
+        r'Sgn',
+        r'Sin',
+        r'Sinr',
+        r'Sqrt',
+        r'Tan',
+        r'Tanr',
+        r'Seed',
+        r'PI',
+        r'HALFPI',
+        r'TWOPI',
+      ],
+      r'literal': [
+        r'true',
+        r'false',
+        r'null',
+      ],
     },
-    illegal: "\\/\\*",
+    illegal: r'\/\*',
     contains: [
-      Mode(className: "comment", begin: "#rem", end: "#end", contains: [
-        PHRASAL_WORDS_MODE,
-        Mode(
-            className: "doctag",
-            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-            relevance: 0)
-      ]),
       Mode(
-          className: "comment",
-          begin: "'",
-          end: "\$",
-          contains: [
-            PHRASAL_WORDS_MODE,
-            Mode(
-                className: "doctag",
-                begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-                relevance: 0)
-          ],
-          relevance: 0),
+        scope: r'comment',
+        begin: r'#rem',
+        end: r'#end',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
       Mode(
-          className: "function",
-          beginKeywords: "function method",
-          end: "[(=:]|\$",
-          illegal: "\\n",
-          contains: [UNDERSCORE_TITLE_MODE]),
+        scope: r'comment',
+        begin: r"'",
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+        relevance: 0,
+      ),
       Mode(
-          className: "class",
-          beginKeywords: "class interface",
-          end: "\$",
-          contains: [
-            Mode(beginKeywords: "extends implements"),
-            UNDERSCORE_TITLE_MODE
-          ]),
-      Mode(className: "built_in", begin: "\\b(self|super)\\b"),
+        variants: [
+          Mode(
+            match: [
+              r'(function|method)',
+              r'\s+',
+              r'[a-zA-Z_]\w*',
+            ],
+          ),
+        ],
+        scope: {
+          1: r'keyword',
+          3: r'title.function',
+        },
+      ),
       Mode(
-          className: "meta",
-          begin: "\\s*#",
-          end: "\$",
-          keywords: {"meta-keyword": "if else elseif endif end then"}),
-      Mode(className: "meta", begin: "^\\s*strict\\b"),
-      Mode(beginKeywords: "alias", end: "=", contains: [UNDERSCORE_TITLE_MODE]),
-      QUOTE_STRING_MODE,
+        variants: [
+          Mode(
+            match: [
+              r'(class|interface|extends|implements)',
+              r'\s+',
+              r'[a-zA-Z_]\w*',
+            ],
+          ),
+        ],
+        scope: {
+          1: r'keyword',
+          3: r'title.class',
+        },
+      ),
       Mode(
-          className: "number",
-          relevance: 0,
-          variants: [Mode(begin: "[\$][a-fA-F0-9]+"), NUMBER_MODE])
-    ]);
+        scope: r'variable.language',
+        begin: r'\b(self|super)\b',
+      ),
+      Mode(
+        scope: r'meta',
+        begin: r'\s*#',
+        end: r'$',
+        keywords: {
+          r'keyword': r'if else elseif endif end then',
+        },
+      ),
+      Mode(
+        match: [
+          r'^\s*',
+          r'strict\b',
+        ],
+        scope: {
+          2: r'meta',
+        },
+      ),
+      Mode(
+        beginKeywords: r'alias',
+        end: r'=',
+        contains: [
+          Mode(
+            scope: r'title',
+            begin: r'[a-zA-Z_]\w*',
+            relevance: 0,
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        illegal: r'\n',
+        contains: [
+          Mode(
+            begin: r'\\[\s\S]',
+            relevance: 0,
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        relevance: 0,
+        variants: [
+          Mode(
+            begin: r'[$][a-fA-F0-9]+',
+          ),
+          Mode(
+            scope: r'number',
+            begin: r'\b\d+(\.\d+)?',
+            relevance: 0,
+          ),
+        ],
+      ),
+    ],
+  );
+}

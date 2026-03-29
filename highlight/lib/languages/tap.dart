@@ -1,24 +1,62 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final tap = Mode(
-    refs: {},
-    case_insensitive: true,
+Mode tap(Highlight hljs) {
+  return Mode(
+    name: r'Test Anything Protocol',
+    caseInsensitive: true,
     contains: [
-      HASH_COMMENT_MODE,
-      Mode(className: "meta", variants: [
-        Mode(begin: "^TAP version (\\d+)\$"),
-        Mode(begin: "^1\\.\\.(\\d+)\$")
-      ]),
       Mode(
-          begin: "(s+)?---\$",
-          end: "\\.\\.\\.\$",
-          subLanguage: ["yaml"],
-          relevance: 0),
-      Mode(className: "number", begin: " (\\d+) "),
+        scope: r'comment',
+        begin: r'#',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
       Mode(
-          className: "symbol",
-          variants: [Mode(begin: "^ok"), Mode(begin: "^not ok")])
-    ]);
+        scope: r'meta',
+        variants: [
+          Mode(
+            begin: r'^TAP version (\d+)$',
+          ),
+          Mode(
+            begin: r'^1\.\.(\d+)$',
+          ),
+        ],
+      ),
+      Mode(
+        begin: r'---$',
+        end: r'\.\.\.$',
+        subLanguage: r'yaml',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'number',
+        begin: r' (\d+) ',
+      ),
+      Mode(
+        scope: r'symbol',
+        variants: [
+          Mode(
+            begin: r'^ok',
+          ),
+          Mode(
+            begin: r'^not ok',
+          ),
+        ],
+      ),
+    ],
+  );
+}

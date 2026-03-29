@@ -1,145 +1,749 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final coffeescript = Mode(
-    refs: {
-      '~contains~8~contains~1': Mode(
-          className: "params",
-          begin: "\\([^\\(]",
-          returnBegin: true,
-          contains: [
-            Mode(begin: "\\(", end: "\\)", keywords: {
-              "keyword":
-                  "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger super yield import export from as default await then unless until loop of by when and or is isnt not",
-              "literal": "true false null undefined yes no on off",
-              "built_in":
-                  "npm require console print module global window document"
-            }, contains: [
-              Mode(self: true),
-              BINARY_NUMBER_MODE,
-              Mode(ref: '~contains~1'),
-              Mode(ref: '~contains~2'),
-              Mode(ref: '~contains~2~variants~2~contains~1~contains~3'),
-              Mode(ref: '~contains~2~variants~2~contains~1~contains~4'),
-              Mode(ref: '~contains~2~variants~2~contains~1~contains~5')
-            ])
-          ]),
-      '~contains~8~contains~0': Mode(
-          className: "title",
-          begin: "[A-Za-z\$_][0-9A-Za-z\$_]*",
-          relevance: 0),
-      '~contains~2~variants~2~contains~1~contains~5': Mode(
-          subLanguage: ["javascript"],
-          excludeBegin: true,
-          excludeEnd: true,
-          variants: [
-            Mode(begin: "```", end: "```"),
-            Mode(begin: "`", end: "`")
-          ]),
-      '~contains~2~variants~2~contains~1~contains~4':
-          Mode(begin: "@[A-Za-z\$_][0-9A-Za-z\$_]*"),
-      '~contains~2~variants~2~contains~1~contains~3':
-          Mode(className: "regexp", variants: [
-        Mode(begin: "///", end: "///", contains: [
-          Mode(ref: '~contains~2~variants~2~contains~1'),
-          HASH_COMMENT_MODE
-        ]),
-        Mode(begin: "//[gim]{0,3}(?=\\W)", relevance: 0),
-        Mode(begin: "\\/(?![ *]).*?(?![\\\\]).\\/[gim]{0,3}(?=\\W)")
-      ]),
-      '~contains~2~variants~2~contains~1':
-          Mode(className: "subst", begin: "#\\{", end: "}", keywords: {
-        "keyword":
-            "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger super yield import export from as default await then unless until loop of by when and or is isnt not",
-        "literal": "true false null undefined yes no on off",
-        "built_in": "npm require console print module global window document"
-      }, contains: [
-        BINARY_NUMBER_MODE,
-        Mode(ref: '~contains~1'),
-        Mode(ref: '~contains~2'),
-        Mode(ref: '~contains~2~variants~2~contains~1~contains~3'),
-        Mode(ref: '~contains~2~variants~2~contains~1~contains~4'),
-        Mode(ref: '~contains~2~variants~2~contains~1~contains~5')
-      ]),
-      '~contains~2': Mode(className: "string", variants: [
-        Mode(begin: "'''", end: "'''", contains: [BACKSLASH_ESCAPE]),
-        Mode(begin: "'", end: "'", contains: [BACKSLASH_ESCAPE]),
-        Mode(begin: "\"\"\"", end: "\"\"\"", contains: [
-          BACKSLASH_ESCAPE,
-          Mode(ref: '~contains~2~variants~2~contains~1')
-        ]),
-        Mode(begin: "\"", end: "\"", contains: [
-          BACKSLASH_ESCAPE,
-          Mode(ref: '~contains~2~variants~2~contains~1')
-        ])
-      ]),
-      '~contains~1': Mode(
-          className: "number",
-          begin:
-              "(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)",
-          relevance: 0,
-          starts: Mode(end: "(\\s*/)?", relevance: 0)),
-    },
-    aliases: ["coffee", "cson", "iced"],
+Mode coffeescript(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  final Mode _mode2 = Mode();
+  final Mode _mode3 = Mode();
+  final Mode _mode4 = Mode();
+  final Mode _mode5 = Mode();
+  final Mode _mode6 = Mode();
+  final Mode _mode7 = Mode();
+  final Mode _mode8 = Mode();
+  final Mode _mode9 = Mode();
+  final Mode _mode10 = Mode();
+  final Mode _mode11 = Mode();
+  final Mode _mode12 = Mode();
+  final Mode _mode13 = Mode();
+  final Mode _mode14 = Mode();
+  final Mode _mode15 = Mode();
+  final Mode _mode16 = Mode();
+  final Mode _mode17 = Mode();
+  final Mode _mode18 = Mode();
+  final Mode _mode19 = Mode();
+  final Mode _mode20 = Mode();
+  final Mode _mode21 = Mode();
+  final Mode _mode22 = Mode();
+  _mode0.scope = r'number';
+  _mode0.begin = r'\b(0b[01]+)';
+  _mode0.relevance = 0;
+  _mode1.scope = r'number';
+  _mode1.begin =
+      r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
+  _mode1.relevance = 0;
+  _mode1.starts = _mode2;
+  _mode2.end = r'(\s*/)?';
+  _mode2.relevance = 0;
+  _mode3.scope = r'string';
+  _mode3.variants = [
+    _mode4,
+    _mode6,
+    _mode7,
+    _mode20,
+  ];
+  _mode4.begin = r"'''";
+  _mode4.end = r"'''";
+  _mode4.contains = [
+    _mode5,
+  ];
+  _mode5.begin = r'\\[\s\S]';
+  _mode5.relevance = 0;
+  _mode6.begin = r"'";
+  _mode6.end = r"'";
+  _mode6.contains = [
+    _mode5,
+  ];
+  _mode7.begin = r'"""';
+  _mode7.end = r'"""';
+  _mode7.contains = [
+    _mode5,
+    _mode8,
+  ];
+  _mode8.scope = r'subst';
+  _mode8.begin = r'#\{';
+  _mode8.end = r'\}';
+  _mode8.keywords = {
+    r'keyword': [
+      r'as',
+      r'in',
+      r'of',
+      r'if',
+      r'for',
+      r'while',
+      r'finally',
+      r'new',
+      r'do',
+      r'return',
+      r'void',
+      r'else',
+      r'break',
+      r'catch',
+      r'instanceof',
+      r'with',
+      r'throw',
+      r'case',
+      r'default',
+      r'try',
+      r'switch',
+      r'continue',
+      r'typeof',
+      r'delete',
+      r'yield',
+      r'class',
+      r'debugger',
+      r'async',
+      r'await',
+      r'import',
+      r'from',
+      r'export',
+      r'extends',
+      r'using',
+      r'then',
+      r'unless',
+      r'until',
+      r'loop',
+      r'by',
+      r'when',
+      r'and',
+      r'or',
+      r'is',
+      r'isnt',
+      r'not',
+    ],
+    r'literal': [
+      r'true',
+      r'false',
+      r'null',
+      r'undefined',
+      r'NaN',
+      r'Infinity',
+      r'yes',
+      r'no',
+      r'on',
+      r'off',
+    ],
+    r'built_in': [
+      r'setInterval',
+      r'setTimeout',
+      r'clearInterval',
+      r'clearTimeout',
+      r'require',
+      r'exports',
+      r'eval',
+      r'isFinite',
+      r'isNaN',
+      r'parseFloat',
+      r'parseInt',
+      r'decodeURI',
+      r'decodeURIComponent',
+      r'encodeURI',
+      r'encodeURIComponent',
+      r'escape',
+      r'unescape',
+      r'Object',
+      r'Function',
+      r'Boolean',
+      r'Symbol',
+      r'Math',
+      r'Date',
+      r'Number',
+      r'BigInt',
+      r'String',
+      r'RegExp',
+      r'Array',
+      r'Float32Array',
+      r'Float64Array',
+      r'Int8Array',
+      r'Uint8Array',
+      r'Uint8ClampedArray',
+      r'Int16Array',
+      r'Int32Array',
+      r'Uint16Array',
+      r'Uint32Array',
+      r'BigInt64Array',
+      r'BigUint64Array',
+      r'Set',
+      r'Map',
+      r'WeakSet',
+      r'WeakMap',
+      r'ArrayBuffer',
+      r'SharedArrayBuffer',
+      r'Atomics',
+      r'DataView',
+      r'JSON',
+      r'Promise',
+      r'Generator',
+      r'GeneratorFunction',
+      r'AsyncFunction',
+      r'Reflect',
+      r'Proxy',
+      r'Intl',
+      r'WebAssembly',
+      r'Error',
+      r'EvalError',
+      r'InternalError',
+      r'RangeError',
+      r'ReferenceError',
+      r'SyntaxError',
+      r'TypeError',
+      r'URIError',
+      r'npm',
+      r'print',
+    ],
+  };
+  _mode8.contains = [
+    _mode0,
+    _mode1,
+    _mode3,
+    _mode9,
+    _mode16,
+    _mode17,
+  ];
+  _mode9.scope = r'regexp';
+  _mode9.variants = [
+    _mode10,
+    _mode14,
+    _mode15,
+  ];
+  _mode10.begin = r'///';
+  _mode10.end = r'///';
+  _mode10.contains = [
+    _mode8,
+    _mode11,
+  ];
+  _mode11.scope = r'comment';
+  _mode11.begin = r'#';
+  _mode11.end = r'$';
+  _mode11.contains = [
+    _mode12,
+    _mode13,
+  ];
+  _mode12.scope = r'doctag';
+  _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  _mode12.excludeBegin = true;
+  _mode12.relevance = 0;
+  _mode13.begin =
+      r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
+  _mode14.begin = r'//[gim]{0,3}(?=\W)';
+  _mode14.relevance = 0;
+  _mode15.begin = r'\/(?![ *]).*?(?![\\]).\/[gim]{0,3}(?=\W)';
+  _mode16.begin = r'@[A-Za-z$_][0-9A-Za-z$_]*';
+  _mode17.subLanguage = r'javascript';
+  _mode17.excludeBegin = true;
+  _mode17.excludeEnd = true;
+  _mode17.variants = [
+    _mode18,
+    _mode19,
+  ];
+  _mode18.begin = r'```';
+  _mode18.end = r'```';
+  _mode19.begin = r'`';
+  _mode19.end = r'`';
+  _mode20.begin = r'"';
+  _mode20.end = r'"';
+  _mode20.contains = [
+    _mode5,
+    _mode8,
+  ];
+  _mode21.scope = r'params';
+  _mode21.begin = r'\([^\(]';
+  _mode21.returnBegin = true;
+  _mode21.contains = [
+    _mode22,
+  ];
+  _mode22.begin = r'\(';
+  _mode22.end = r'\)';
+  _mode22.keywords = {
+    r'keyword': [
+      r'as',
+      r'in',
+      r'of',
+      r'if',
+      r'for',
+      r'while',
+      r'finally',
+      r'new',
+      r'do',
+      r'return',
+      r'void',
+      r'else',
+      r'break',
+      r'catch',
+      r'instanceof',
+      r'with',
+      r'throw',
+      r'case',
+      r'default',
+      r'try',
+      r'switch',
+      r'continue',
+      r'typeof',
+      r'delete',
+      r'yield',
+      r'class',
+      r'debugger',
+      r'async',
+      r'await',
+      r'import',
+      r'from',
+      r'export',
+      r'extends',
+      r'using',
+      r'then',
+      r'unless',
+      r'until',
+      r'loop',
+      r'by',
+      r'when',
+      r'and',
+      r'or',
+      r'is',
+      r'isnt',
+      r'not',
+    ],
+    r'literal': [
+      r'true',
+      r'false',
+      r'null',
+      r'undefined',
+      r'NaN',
+      r'Infinity',
+      r'yes',
+      r'no',
+      r'on',
+      r'off',
+    ],
+    r'built_in': [
+      r'setInterval',
+      r'setTimeout',
+      r'clearInterval',
+      r'clearTimeout',
+      r'require',
+      r'exports',
+      r'eval',
+      r'isFinite',
+      r'isNaN',
+      r'parseFloat',
+      r'parseInt',
+      r'decodeURI',
+      r'decodeURIComponent',
+      r'encodeURI',
+      r'encodeURIComponent',
+      r'escape',
+      r'unescape',
+      r'Object',
+      r'Function',
+      r'Boolean',
+      r'Symbol',
+      r'Math',
+      r'Date',
+      r'Number',
+      r'BigInt',
+      r'String',
+      r'RegExp',
+      r'Array',
+      r'Float32Array',
+      r'Float64Array',
+      r'Int8Array',
+      r'Uint8Array',
+      r'Uint8ClampedArray',
+      r'Int16Array',
+      r'Int32Array',
+      r'Uint16Array',
+      r'Uint32Array',
+      r'BigInt64Array',
+      r'BigUint64Array',
+      r'Set',
+      r'Map',
+      r'WeakSet',
+      r'WeakMap',
+      r'ArrayBuffer',
+      r'SharedArrayBuffer',
+      r'Atomics',
+      r'DataView',
+      r'JSON',
+      r'Promise',
+      r'Generator',
+      r'GeneratorFunction',
+      r'AsyncFunction',
+      r'Reflect',
+      r'Proxy',
+      r'Intl',
+      r'WebAssembly',
+      r'Error',
+      r'EvalError',
+      r'InternalError',
+      r'RangeError',
+      r'ReferenceError',
+      r'SyntaxError',
+      r'TypeError',
+      r'URIError',
+      r'npm',
+      r'print',
+    ],
+  };
+  _mode22.contains = [
+    r'self',
+    _mode0,
+    _mode1,
+    _mode3,
+    _mode9,
+    _mode16,
+    _mode17,
+  ];
+  return Mode(
+    name: r'CoffeeScript',
+    aliases: [
+      r'coffee',
+      r'cson',
+      r'iced',
+    ],
     keywords: {
-      "keyword":
-          "in if for while finally new do return else break catch instanceof throw try this switch continue typeof delete debugger super yield import export from as default await then unless until loop of by when and or is isnt not",
-      "literal": "true false null undefined yes no on off",
-      "built_in": "npm require console print module global window document"
+      r'keyword': [
+        r'as',
+        r'in',
+        r'of',
+        r'if',
+        r'for',
+        r'while',
+        r'finally',
+        r'new',
+        r'do',
+        r'return',
+        r'void',
+        r'else',
+        r'break',
+        r'catch',
+        r'instanceof',
+        r'with',
+        r'throw',
+        r'case',
+        r'default',
+        r'try',
+        r'switch',
+        r'continue',
+        r'typeof',
+        r'delete',
+        r'yield',
+        r'class',
+        r'debugger',
+        r'async',
+        r'await',
+        r'import',
+        r'from',
+        r'export',
+        r'extends',
+        r'using',
+        r'then',
+        r'unless',
+        r'until',
+        r'loop',
+        r'by',
+        r'when',
+        r'and',
+        r'or',
+        r'is',
+        r'isnt',
+        r'not',
+      ],
+      r'literal': [
+        r'true',
+        r'false',
+        r'null',
+        r'undefined',
+        r'NaN',
+        r'Infinity',
+        r'yes',
+        r'no',
+        r'on',
+        r'off',
+      ],
+      r'built_in': [
+        r'setInterval',
+        r'setTimeout',
+        r'clearInterval',
+        r'clearTimeout',
+        r'require',
+        r'exports',
+        r'eval',
+        r'isFinite',
+        r'isNaN',
+        r'parseFloat',
+        r'parseInt',
+        r'decodeURI',
+        r'decodeURIComponent',
+        r'encodeURI',
+        r'encodeURIComponent',
+        r'escape',
+        r'unescape',
+        r'Object',
+        r'Function',
+        r'Boolean',
+        r'Symbol',
+        r'Math',
+        r'Date',
+        r'Number',
+        r'BigInt',
+        r'String',
+        r'RegExp',
+        r'Array',
+        r'Float32Array',
+        r'Float64Array',
+        r'Int8Array',
+        r'Uint8Array',
+        r'Uint8ClampedArray',
+        r'Int16Array',
+        r'Int32Array',
+        r'Uint16Array',
+        r'Uint32Array',
+        r'BigInt64Array',
+        r'BigUint64Array',
+        r'Set',
+        r'Map',
+        r'WeakSet',
+        r'WeakMap',
+        r'ArrayBuffer',
+        r'SharedArrayBuffer',
+        r'Atomics',
+        r'DataView',
+        r'JSON',
+        r'Promise',
+        r'Generator',
+        r'GeneratorFunction',
+        r'AsyncFunction',
+        r'Reflect',
+        r'Proxy',
+        r'Intl',
+        r'WebAssembly',
+        r'Error',
+        r'EvalError',
+        r'InternalError',
+        r'RangeError',
+        r'ReferenceError',
+        r'SyntaxError',
+        r'TypeError',
+        r'URIError',
+        r'npm',
+        r'print',
+      ],
     },
-    illegal: "\\/\\*",
+    illegal: r'\/\*',
     contains: [
-      BINARY_NUMBER_MODE,
-      Mode(ref: '~contains~1'),
-      Mode(ref: '~contains~2'),
-      Mode(ref: '~contains~2~variants~2~contains~1~contains~3'),
-      Mode(ref: '~contains~2~variants~2~contains~1~contains~4'),
-      Mode(ref: '~contains~2~variants~2~contains~1~contains~5'),
-      Mode(className: "comment", begin: "###", end: "###", contains: [
-        PHRASAL_WORDS_MODE,
-        Mode(
-            className: "doctag",
-            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-            relevance: 0)
-      ]),
-      HASH_COMMENT_MODE,
+      _mode0,
+      _mode1,
+      _mode3,
+      _mode9,
+      _mode16,
+      _mode17,
       Mode(
-          className: "function",
-          begin:
-              "^\\s*[A-Za-z\$_][0-9A-Za-z\$_]*\\s*=\\s*(\\(.*\\))?\\s*\\B[-=]>",
-          end: "[-=]>",
-          returnBegin: true,
-          contains: [
-            Mode(ref: '~contains~8~contains~0'),
-            Mode(ref: '~contains~8~contains~1')
-          ]),
-      Mode(begin: "[:\\(,=]\\s*", relevance: 0, contains: [
-        Mode(
-            className: "function",
-            begin: "(\\(.*\\))?\\s*\\B[-=]>",
-            end: "[-=]>",
+        scope: r'comment',
+        begin: r'###',
+        end: r'###',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      _mode11,
+      Mode(
+        scope: r'function',
+        begin: r'^\s*[A-Za-z$_][0-9A-Za-z$_]*\s*=\s*(\(.*\)\s*)?\B[-=]>',
+        end: r'[-=]>',
+        returnBegin: true,
+        contains: [
+          Mode(
+            scope: r'title',
+            begin: r'[A-Za-z$_][0-9A-Za-z$_]*',
+            relevance: 0,
+          ),
+          _mode21,
+        ],
+      ),
+      Mode(
+        begin: r'[:\(,=]\s*',
+        relevance: 0,
+        contains: [
+          Mode(
+            scope: r'function',
+            begin: r'(\(.*\)\s*)?\B[-=]>',
+            end: r'[-=]>',
             returnBegin: true,
-            contains: [Mode(ref: '~contains~8~contains~1')])
-      ]),
+            contains: [
+              _mode21,
+            ],
+          ),
+        ],
+      ),
       Mode(
-          className: "class",
-          beginKeywords: "class",
-          end: "\$",
-          illegal: "[:=\"\\[\\]]",
-          contains: [
-            Mode(
-                beginKeywords: "extends",
-                endsWithParent: true,
-                illegal: "[:=\"\\[\\]]",
-                contains: [Mode(ref: '~contains~8~contains~0')]),
-            Mode(ref: '~contains~8~contains~0')
-          ]),
+        variants: [
+          Mode(
+            match: [
+              r'class\s+',
+              r'[A-Za-z$_][0-9A-Za-z$_]*',
+              r'\s+extends\s+',
+              r'[A-Za-z$_][0-9A-Za-z$_]*',
+            ],
+          ),
+          Mode(
+            match: [
+              r'class\s+',
+              r'[A-Za-z$_][0-9A-Za-z$_]*',
+            ],
+          ),
+        ],
+        scope: {
+          2: r'title.class',
+          4: r'title.class.inherited',
+        },
+        keywords: {
+          r'keyword': [
+            r'as',
+            r'in',
+            r'of',
+            r'if',
+            r'for',
+            r'while',
+            r'finally',
+            r'new',
+            r'do',
+            r'return',
+            r'void',
+            r'else',
+            r'break',
+            r'catch',
+            r'instanceof',
+            r'with',
+            r'throw',
+            r'case',
+            r'default',
+            r'try',
+            r'switch',
+            r'continue',
+            r'typeof',
+            r'delete',
+            r'yield',
+            r'class',
+            r'debugger',
+            r'async',
+            r'await',
+            r'import',
+            r'from',
+            r'export',
+            r'extends',
+            r'using',
+            r'then',
+            r'unless',
+            r'until',
+            r'loop',
+            r'by',
+            r'when',
+            r'and',
+            r'or',
+            r'is',
+            r'isnt',
+            r'not',
+          ],
+          r'literal': [
+            r'true',
+            r'false',
+            r'null',
+            r'undefined',
+            r'NaN',
+            r'Infinity',
+            r'yes',
+            r'no',
+            r'on',
+            r'off',
+          ],
+          r'built_in': [
+            r'setInterval',
+            r'setTimeout',
+            r'clearInterval',
+            r'clearTimeout',
+            r'require',
+            r'exports',
+            r'eval',
+            r'isFinite',
+            r'isNaN',
+            r'parseFloat',
+            r'parseInt',
+            r'decodeURI',
+            r'decodeURIComponent',
+            r'encodeURI',
+            r'encodeURIComponent',
+            r'escape',
+            r'unescape',
+            r'Object',
+            r'Function',
+            r'Boolean',
+            r'Symbol',
+            r'Math',
+            r'Date',
+            r'Number',
+            r'BigInt',
+            r'String',
+            r'RegExp',
+            r'Array',
+            r'Float32Array',
+            r'Float64Array',
+            r'Int8Array',
+            r'Uint8Array',
+            r'Uint8ClampedArray',
+            r'Int16Array',
+            r'Int32Array',
+            r'Uint16Array',
+            r'Uint32Array',
+            r'BigInt64Array',
+            r'BigUint64Array',
+            r'Set',
+            r'Map',
+            r'WeakSet',
+            r'WeakMap',
+            r'ArrayBuffer',
+            r'SharedArrayBuffer',
+            r'Atomics',
+            r'DataView',
+            r'JSON',
+            r'Promise',
+            r'Generator',
+            r'GeneratorFunction',
+            r'AsyncFunction',
+            r'Reflect',
+            r'Proxy',
+            r'Intl',
+            r'WebAssembly',
+            r'Error',
+            r'EvalError',
+            r'InternalError',
+            r'RangeError',
+            r'ReferenceError',
+            r'SyntaxError',
+            r'TypeError',
+            r'URIError',
+            r'npm',
+            r'print',
+          ],
+        },
+      ),
       Mode(
-          begin: "[A-Za-z\$_][0-9A-Za-z\$_]*:",
-          end: ":",
-          returnBegin: true,
-          returnEnd: true,
-          relevance: 0)
-    ]);
+        begin: r'[A-Za-z$_][0-9A-Za-z$_]*:',
+        end: r':',
+        returnBegin: true,
+        returnEnd: true,
+        relevance: 0,
+      ),
+    ],
+  );
+}

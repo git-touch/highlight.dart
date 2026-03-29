@@ -1,40 +1,131 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final apache = Mode(
-    refs: {
-      '~contains~2~starts~contains~1~contains~1':
-          Mode(className: "number", begin: "[\\\$%]\\d+"),
-    },
-    aliases: ["apacheconf"],
-    case_insensitive: true,
+Mode apache(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  _mode0.scope = r'number';
+  _mode0.begin = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?';
+  _mode1.begin = r'\\[\s\S]';
+  _mode1.relevance = 0;
+  return Mode(
+    name: r'Apache config',
+    aliases: [
+      r'apacheconf',
+    ],
+    caseInsensitive: true,
     contains: [
-      HASH_COMMENT_MODE,
-      Mode(className: "section", begin: "</?", end: ">"),
       Mode(
-          className: "attribute",
-          begin: "\\w+",
+        scope: r'comment',
+        begin: r'#',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'section',
+        begin: r'<\/?',
+        end: r'>',
+        contains: [
+          _mode0,
+          Mode(
+            scope: r'number',
+            begin: r':\d{1,5}',
+          ),
+          Mode(
+            scope: r'string',
+            begin: r'"',
+            end: r'"',
+            illegal: r'\n',
+            contains: [
+              _mode1,
+            ],
+            relevance: 0,
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'attribute',
+        begin: r'\w+',
+        relevance: 0,
+        keywords: {
+          r'_': [
+            r'order',
+            r'deny',
+            r'allow',
+            r'setenv',
+            r'rewriterule',
+            r'rewriteengine',
+            r'rewritecond',
+            r'documentroot',
+            r'sethandler',
+            r'errordocument',
+            r'loadmodule',
+            r'options',
+            r'header',
+            r'listen',
+            r'serverroot',
+            r'servername',
+          ],
+        },
+        starts: Mode(
+          end: r'$',
           relevance: 0,
           keywords: {
-            "nomarkup":
-                "order deny allow setenv rewriterule rewriteengine rewritecond documentroot sethandler errordocument loadmodule options header listen serverroot servername"
+            r'literal': r'on off all deny allow',
           },
-          starts: Mode(end: "\$", relevance: 0, keywords: {
-            "literal": "on off all"
-          }, contains: [
-            Mode(className: "meta", begin: "\\s\\[", end: "\\]\$"),
+          contains: [
             Mode(
-                className: "variable",
-                begin: "[\\\$%]\\{",
-                end: "\\}",
-                contains: [
-                  Mode(self: true),
-                  Mode(ref: '~contains~2~starts~contains~1~contains~1')
-                ]),
-            Mode(ref: '~contains~2~starts~contains~1~contains~1'),
-            QUOTE_STRING_MODE
-          ]))
+              scope: r'punctuation',
+              match: r'\\\n',
+            ),
+            Mode(
+              scope: r'meta',
+              begin: r'\s\[',
+              end: r'\]$',
+            ),
+            Mode(
+              scope: r'variable',
+              begin: r'[\$%]\{',
+              end: r'\}',
+              contains: [
+                r'self',
+                Mode(
+                  scope: r'number',
+                  begin: r'[$%]\d+',
+                ),
+              ],
+            ),
+            _mode0,
+            Mode(
+              scope: r'number',
+              begin: r'\b\d+',
+            ),
+            Mode(
+              scope: r'string',
+              begin: r'"',
+              end: r'"',
+              illegal: r'\n',
+              contains: [
+                _mode1,
+              ],
+            ),
+          ],
+        ),
+      ),
     ],
-    illegal: "\\S");
+    illegal: r'\S',
+  );
+}

@@ -1,45 +1,170 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final dos = Mode(
-    refs: {
-      '~contains~1~contains~1': Mode(
-          className: "comment",
-          begin: "^\\s*@?rem\\b",
-          end: "\$",
-          contains: [
-            PHRASAL_WORDS_MODE,
-            Mode(
-                className: "doctag",
-                begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-                relevance: 0)
-          ],
-          relevance: 10),
-    },
-    aliases: ["bat", "cmd"],
-    case_insensitive: true,
-    illegal: "\\/\\*",
+Mode dos(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  final Mode _mode2 = Mode();
+  _mode0.scope = r'comment';
+  _mode0.begin = r'^\s*@?rem\b';
+  _mode0.end = r'$';
+  _mode0.contains = [
+    _mode1,
+    _mode2,
+  ];
+  _mode0.relevance = 10;
+  _mode1.scope = r'doctag';
+  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  _mode1.excludeBegin = true;
+  _mode1.relevance = 0;
+  _mode2.begin =
+      r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
+  return Mode(
+    name: r'Batch file (DOS)',
+    aliases: [
+      r'bat',
+      r'cmd',
+    ],
+    caseInsensitive: true,
+    illegal: r'\/\*',
     keywords: {
-      "keyword":
-          "if else goto for in do call exit not exist errorlevel defined equ neq lss leq gtr geq",
-      "built_in":
-          "prn nul lpt3 lpt2 lpt1 con com4 com3 com2 com1 aux shift cd dir echo setlocal endlocal set pause copy append assoc at attrib break cacls cd chcp chdir chkdsk chkntfs cls cmd color comp compact convert date dir diskcomp diskcopy doskey erase fs find findstr format ftype graftabl help keyb label md mkdir mode more move path pause print popd pushd promt rd recover rem rename replace restore rmdir shiftsort start subst time title tree type ver verify vol ping net ipconfig taskkill xcopy ren del"
+      r'keyword': [
+        r'if',
+        r'else',
+        r'goto',
+        r'for',
+        r'in',
+        r'do',
+        r'call',
+        r'exit',
+        r'not',
+        r'exist',
+        r'errorlevel',
+        r'defined',
+        r'equ',
+        r'neq',
+        r'lss',
+        r'leq',
+        r'gtr',
+        r'geq',
+      ],
+      r'built_in': [
+        r'prn',
+        r'nul',
+        r'lpt3',
+        r'lpt2',
+        r'lpt1',
+        r'con',
+        r'com4',
+        r'com3',
+        r'com2',
+        r'com1',
+        r'aux',
+        r'shift',
+        r'cd',
+        r'dir',
+        r'echo',
+        r'setlocal',
+        r'endlocal',
+        r'set',
+        r'pause',
+        r'copy',
+        r'append',
+        r'assoc',
+        r'at',
+        r'attrib',
+        r'break',
+        r'cacls',
+        r'cd',
+        r'chcp',
+        r'chdir',
+        r'chkdsk',
+        r'chkntfs',
+        r'cls',
+        r'cmd',
+        r'color',
+        r'comp',
+        r'compact',
+        r'convert',
+        r'date',
+        r'dir',
+        r'diskcomp',
+        r'diskcopy',
+        r'doskey',
+        r'erase',
+        r'fs',
+        r'find',
+        r'findstr',
+        r'format',
+        r'ftype',
+        r'graftabl',
+        r'help',
+        r'keyb',
+        r'label',
+        r'md',
+        r'mkdir',
+        r'mode',
+        r'more',
+        r'move',
+        r'path',
+        r'pause',
+        r'print',
+        r'popd',
+        r'pushd',
+        r'promt',
+        r'rd',
+        r'recover',
+        r'rem',
+        r'rename',
+        r'replace',
+        r'restore',
+        r'rmdir',
+        r'shift',
+        r'sort',
+        r'start',
+        r'subst',
+        r'time',
+        r'title',
+        r'tree',
+        r'type',
+        r'ver',
+        r'verify',
+        r'vol',
+        r'ping',
+        r'net',
+        r'ipconfig',
+        r'taskkill',
+        r'xcopy',
+        r'ren',
+        r'del',
+      ],
     },
     contains: [
-      Mode(className: "variable", begin: "%%[^ ]|%[^ ]+?%|![^ ]+?!"),
       Mode(
-          className: "function",
-          begin: "^\\s*[A-Za-z._?][A-Za-z0-9_\$#@\\x7e.?]*(:|\\s+label)",
-          end: "goto:eof",
-          contains: [
-            Mode(
-                className: "title",
-                begin: "([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*",
-                relevance: 0),
-            Mode(ref: '~contains~1~contains~1')
-          ]),
-      Mode(className: "number", begin: "\\b\\d+", relevance: 0),
-      Mode(ref: '~contains~1~contains~1')
-    ]);
+        scope: r'variable',
+        begin: r'%%[^ ]|%[^ ]+?%|![^ ]+?!',
+      ),
+      Mode(
+        scope: r'function',
+        begin: r'^\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\s+label)',
+        end: r'goto:eof',
+        contains: [
+          Mode(
+            scope: r'title',
+            begin: r'([_a-zA-Z]\w*\.)*([_a-zA-Z]\w*:)?[_a-zA-Z]\w*',
+            relevance: 0,
+          ),
+          _mode0,
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        begin: r'\b\d+',
+        relevance: 0,
+      ),
+      _mode0,
+    ],
+  );
+}

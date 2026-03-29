@@ -1,27 +1,24 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+import 'package:highlight/highlight_core.dart' show HljsStyle;
 
-import 'package:flutter/painting.dart';
-
-const asceticTheme = {
-  'root':
-      TextStyle(backgroundColor: Color(0xffffffff), color: Color(0xff000000)),
-  'string': TextStyle(color: Color(0xff888888)),
-  'variable': TextStyle(color: Color(0xff888888)),
-  'template-variable': TextStyle(color: Color(0xff888888)),
-  'symbol': TextStyle(color: Color(0xff888888)),
-  'bullet': TextStyle(color: Color(0xff888888)),
-  'section': TextStyle(color: Color(0xff888888), fontWeight: FontWeight.bold),
-  'addition': TextStyle(color: Color(0xff888888)),
-  'attribute': TextStyle(color: Color(0xff888888)),
-  'link': TextStyle(color: Color(0xff888888)),
-  'comment': TextStyle(color: Color(0xffcccccc)),
-  'quote': TextStyle(color: Color(0xffcccccc)),
-  'meta': TextStyle(color: Color(0xffcccccc)),
-  'deletion': TextStyle(color: Color(0xffcccccc)),
-  'keyword': TextStyle(fontWeight: FontWeight.bold),
-  'selector-tag': TextStyle(fontWeight: FontWeight.bold),
-  'name': TextStyle(fontWeight: FontWeight.bold),
-  'type': TextStyle(fontWeight: FontWeight.bold),
-  'strong': TextStyle(fontWeight: FontWeight.bold),
-  'emphasis': TextStyle(fontStyle: FontStyle.italic),
+const asceticTheme = <String, HljsStyle>{
+  'root': const HljsStyle(color: '#000000', backgroundColor: '#ffffff'),
+  'addition': const HljsStyle(color: '#888888'),
+  'attribute': const HljsStyle(color: '#888888'),
+  'bullet': const HljsStyle(color: '#888888'),
+  'comment': const HljsStyle(color: '#cccccc'),
+  'deletion': const HljsStyle(color: '#cccccc'),
+  'emphasis': const HljsStyle(italic: true),
+  'keyword': const HljsStyle(bold: true),
+  'link': const HljsStyle(color: '#888888'),
+  'meta': const HljsStyle(color: '#cccccc'),
+  'name': const HljsStyle(bold: true),
+  'quote': const HljsStyle(color: '#cccccc'),
+  'section': const HljsStyle(color: '#888888', bold: true),
+  'selector-tag': const HljsStyle(bold: true),
+  'string': const HljsStyle(color: '#888888'),
+  'strong': const HljsStyle(bold: true),
+  'symbol': const HljsStyle(color: '#888888'),
+  'template-variable': const HljsStyle(color: '#888888'),
+  'type': const HljsStyle(bold: true),
+  'variable': const HljsStyle(color: '#888888'),
 };

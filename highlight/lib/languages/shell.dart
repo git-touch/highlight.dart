@@ -1,13 +1,23 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final shell = Mode(refs: {}, aliases: [
-  "console"
-], contains: [
-  Mode(
-      className: "meta",
-      begin: "^\\s{0,3}[/\\w\\d\\[\\]()@-]*[>%\$#]",
-      starts: Mode(end: "\$", subLanguage: ["bash"]))
-]);
+Mode shell(Highlight hljs) {
+  return Mode(
+    name: r'Shell Session',
+    aliases: [
+      r'console',
+      r'shellsession',
+    ],
+    contains: [
+      Mode(
+        scope: r'meta.prompt',
+        begin: r'^\s{0,3}[/~\w\d[\]()@-]*[>%$#][ ]?',
+        starts: Mode(
+          end: r'[^\\](?=\s*$)',
+          subLanguage: r'bash',
+        ),
+      ),
+    ],
+  );
+}

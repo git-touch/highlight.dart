@@ -1,35 +1,56 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final inform7 = Mode(
-    refs: {},
-    aliases: ["i7"],
-    case_insensitive: true,
+Mode inform7(Highlight hljs) {
+  return Mode(
+    name: r'Inform 7',
+    aliases: [
+      r'i7',
+    ],
+    caseInsensitive: true,
     keywords: {
-      "keyword":
-          "thing room person man woman animal container supporter backdrop door scenery open closed locked inside gender is are say understand kind of rule"
+      r'keyword':
+          r'thing room person man woman animal container supporter backdrop door scenery open closed locked inside gender is are say understand kind of rule',
     },
     contains: [
       Mode(
-          className: "string",
-          begin: "\"",
-          end: "\"",
-          relevance: 0,
-          contains: [Mode(className: "subst", begin: "\\[", end: "\\]")]),
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        relevance: 0,
+        contains: [
+          Mode(
+            scope: r'subst',
+            begin: r'\[',
+            end: r'\]',
+          ),
+        ],
+      ),
       Mode(
-          className: "section",
-          begin: "^(Volume|Book|Part|Chapter|Section|Table)\\b",
-          end: "\$"),
+        scope: r'section',
+        begin: r'^(Volume|Book|Part|Chapter|Section|Table)\b',
+        end: r'$',
+      ),
       Mode(
-          begin:
-              "^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\\b",
-          end: ":",
-          contains: [Mode(begin: "\\(This", end: "\\)")]),
+        begin:
+            r'^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\b',
+        end: r':',
+        contains: [
+          Mode(
+            begin: r'\(This',
+            end: r'\)',
+          ),
+        ],
+      ),
       Mode(
-          className: "comment",
-          begin: "\\[",
-          end: "\\]",
-          contains: [Mode(self: true)])
-    ]);
+        scope: r'comment',
+        begin: r'\[',
+        end: r'\]',
+        contains: [
+          r'self',
+        ],
+      ),
+    ],
+  );
+}

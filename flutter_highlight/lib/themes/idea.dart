@@ -1,48 +1,37 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+import 'package:highlight/highlight_core.dart' show HljsStyle;
 
-import 'package:flutter/painting.dart';
-
-const ideaTheme = {
-  'root':
-      TextStyle(color: Color(0xff000000), backgroundColor: Color(0xffffffff)),
-  'subst': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff000000)),
-  'title': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff000000)),
-  'comment': TextStyle(color: Color(0xff808080), fontStyle: FontStyle.italic),
-  'quote': TextStyle(color: Color(0xff808080), fontStyle: FontStyle.italic),
-  'meta': TextStyle(color: Color(0xff808000)),
-  'tag': TextStyle(backgroundColor: Color(0xffefefef)),
-  'section': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'name': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'literal': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'keyword': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'selector-tag':
-      TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'type': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'selector-id':
-      TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'selector-class':
-      TextStyle(fontWeight: FontWeight.bold, color: Color(0xff000080)),
-  'attribute': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff0000ff)),
-  'number': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff0000ff)),
-  'regexp': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff0000ff)),
-  'link': TextStyle(fontWeight: FontWeight.normal, color: Color(0xff0000ff)),
-  'string': TextStyle(color: Color(0xff008000), fontWeight: FontWeight.bold),
-  'symbol': TextStyle(
-      color: Color(0xff000000),
-      backgroundColor: Color(0xffd0eded),
-      fontStyle: FontStyle.italic),
-  'bullet': TextStyle(
-      color: Color(0xff000000),
-      backgroundColor: Color(0xffd0eded),
-      fontStyle: FontStyle.italic),
-  'formula': TextStyle(
-      color: Color(0xff000000),
-      backgroundColor: Color(0xffd0eded),
-      fontStyle: FontStyle.italic),
-  'variable': TextStyle(color: Color(0xff660e7a)),
-  'template-variable': TextStyle(color: Color(0xff660e7a)),
-  'addition': TextStyle(backgroundColor: Color(0xffbaeeba)),
-  'deletion': TextStyle(backgroundColor: Color(0xffffc8bd)),
-  'emphasis': TextStyle(fontStyle: FontStyle.italic),
-  'strong': TextStyle(fontWeight: FontWeight.bold),
+const ideaTheme = <String, HljsStyle>{
+  'root': const HljsStyle(color: '#000000', backgroundColor: '#ffffff'),
+  'addition': const HljsStyle(backgroundColor: '#baeeba'),
+  'attribute': const HljsStyle(color: '#0000ff', bold: true),
+  'bullet': const HljsStyle(
+      color: '#000000', backgroundColor: '#d0eded', italic: true),
+  'comment': const HljsStyle(color: '#808080', italic: true),
+  'deletion': const HljsStyle(backgroundColor: '#ffc8bd'),
+  'doctag': const HljsStyle(underline: true),
+  'emphasis': const HljsStyle(italic: true),
+  'formula': const HljsStyle(
+      color: '#000000', backgroundColor: '#d0eded', italic: true),
+  'keyword': const HljsStyle(color: '#000080', bold: true),
+  'link': const HljsStyle(color: '#0000ff'),
+  'literal': const HljsStyle(color: '#000080', bold: true),
+  'meta': const HljsStyle(color: '#808000'),
+  'name': const HljsStyle(color: '#000080', bold: true),
+  'number': const HljsStyle(color: '#0000ff'),
+  'quote': const HljsStyle(color: '#808080', italic: true),
+  'regexp': const HljsStyle(color: '#0000ff'),
+  'section': const HljsStyle(color: '#000080', bold: true),
+  'selector-class': const HljsStyle(color: '#000080', bold: true),
+  'selector-id': const HljsStyle(color: '#000080', bold: true),
+  'selector-tag': const HljsStyle(color: '#000080', bold: true),
+  'string': const HljsStyle(color: '#008000', bold: true),
+  'strong': const HljsStyle(bold: true),
+  'subst': const HljsStyle(color: '#000000'),
+  'symbol': const HljsStyle(
+      color: '#000000', backgroundColor: '#d0eded', italic: true),
+  'tag': const HljsStyle(backgroundColor: '#efefef'),
+  'template-variable': const HljsStyle(color: '#660e7a'),
+  'title': const HljsStyle(color: '#000000'),
+  'type': const HljsStyle(color: '#000080', bold: true),
+  'variable': const HljsStyle(color: '#660e7a'),
 };

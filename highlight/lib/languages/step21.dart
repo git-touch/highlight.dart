@@ -1,41 +1,129 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final step21 = Mode(
-    refs: {},
-    aliases: ["p21", "step", "stp"],
-    case_insensitive: true,
-    lexemes: "[A-Z_][A-Z0-9_.]*",
-    keywords: {"keyword": "HEADER ENDSEC DATA"},
+Mode step21(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  _mode0.begin = r'\\[\s\S]';
+  _mode0.relevance = 0;
+  return Mode(
+    name: r'STEP Part 21',
+    aliases: [
+      r'p21',
+      r'step',
+      r'stp',
+    ],
+    caseInsensitive: true,
+    keywords: {
+      r'$pattern': r'[A-Z_][A-Z0-9_.]*',
+      r'keyword': [
+        r'HEADER',
+        r'ENDSEC',
+        r'DATA',
+      ],
+    },
     contains: [
-      Mode(className: "meta", begin: "ISO-10303-21;", relevance: 10),
-      Mode(className: "meta", begin: "END-ISO-10303-21;", relevance: 10),
-      C_LINE_COMMENT_MODE,
-      C_BLOCK_COMMENT_MODE,
-      Mode(className: "comment", begin: "/\\*\\*!", end: "\\*/", contains: [
-        PHRASAL_WORDS_MODE,
-        Mode(
-            className: "doctag",
-            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-            relevance: 0)
-      ]),
-      C_NUMBER_MODE,
       Mode(
-          className: "string",
-          begin: "'",
-          end: "'",
-          illegal: null,
-          contains: [BACKSLASH_ESCAPE]),
+        scope: r'meta',
+        begin: r'ISO-10303-21;',
+        relevance: 10,
+      ),
       Mode(
-          className: "string",
-          begin: "\"",
-          end: "\"",
-          illegal: null,
-          contains: [BACKSLASH_ESCAPE]),
-      Mode(className: "string", begin: "'", end: "'"),
+        scope: r'meta',
+        begin: r'END-ISO-10303-21;',
+        relevance: 10,
+      ),
       Mode(
-          className: "symbol",
-          variants: [Mode(begin: "#", end: "\\d+", illegal: "\\W")])
-    ]);
+        scope: r'comment',
+        begin: r'//',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'/\*',
+        end: r'\*/',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'comment',
+        begin: r'/\*\*!',
+        end: r'\*/',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'string',
+        begin: r"'",
+        end: r"'",
+        contains: [
+          _mode0,
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        contains: [
+          _mode0,
+        ],
+      ),
+      Mode(
+        scope: r'string',
+        begin: r"'",
+        end: r"'",
+      ),
+      Mode(
+        scope: r'symbol',
+        variants: [
+          Mode(
+            begin: r'#',
+            end: r'\d+',
+            illegal: r'\W',
+          ),
+        ],
+      ),
+    ],
+  );
+}

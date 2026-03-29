@@ -1,78 +1,205 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final cal = Mode(
-    refs: {
-      '~contains~5~contains~1': Mode(
-          className: "function",
-          beginKeywords: "procedure",
-          end: "[:;]",
-          keywords: "procedure|10",
-          contains: [
-            TITLE_MODE,
-            Mode(
-                className: "params",
-                begin: "\\(",
-                end: "\\)",
-                keywords:
-                    "div mod in and or not xor asserterror begin case do downto else end exit for if of repeat then to until while with var",
-                contains: [Mode(ref: '~contains~0'), Mode(ref: '~contains~1')]),
-            C_LINE_COMMENT_MODE,
-            Mode(
-                className: "comment",
-                begin: "\\{",
-                end: "\\}",
-                contains: [
-                  PHRASAL_WORDS_MODE,
-                  Mode(
-                      className: "doctag",
-                      begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-                      relevance: 0)
-                ],
-                relevance: 0),
-            Mode(
-                className: "comment",
-                begin: "\\(\\*",
-                end: "\\*\\)",
-                contains: [
-                  PHRASAL_WORDS_MODE,
-                  Mode(
-                      className: "doctag",
-                      begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-                      relevance: 0)
-                ],
-                relevance: 10)
-          ]),
-      '~contains~1': Mode(className: "string", begin: "(#\\d+)+"),
-      '~contains~0': Mode(
-          className: "string",
-          begin: "'",
-          end: "'",
-          contains: [Mode(begin: "''")]),
-    },
-    case_insensitive: true,
+Mode cal(Highlight hljs) {
+  final Mode _mode0 = Mode();
+  final Mode _mode1 = Mode();
+  final Mode _mode2 = Mode();
+  final Mode _mode3 = Mode();
+  _mode0.scope = r'string';
+  _mode0.begin = r"'";
+  _mode0.end = r"'";
+  _mode0.contains = [
+    _mode1,
+  ];
+  _mode1.begin = r"''";
+  _mode2.scope = r'string';
+  _mode2.begin = r'(#\d+)+';
+  _mode3.scope = r'number';
+  _mode3.begin = r'\b\d+(\.\d+)?';
+  _mode3.relevance = 0;
+  return Mode(
+    name: r'C/AL',
+    caseInsensitive: true,
     keywords: {
-      "keyword":
-          "div mod in and or not xor asserterror begin case do downto else end exit for if of repeat then to until while with var",
-      "literal": "false true"
+      r'keyword': [
+        r'div',
+        r'mod',
+        r'in',
+        r'and',
+        r'or',
+        r'not',
+        r'xor',
+        r'asserterror',
+        r'begin',
+        r'case',
+        r'do',
+        r'downto',
+        r'else',
+        r'end',
+        r'exit',
+        r'for',
+        r'local',
+        r'if',
+        r'of',
+        r'repeat',
+        r'then',
+        r'to',
+        r'until',
+        r'while',
+        r'with',
+        r'var',
+      ],
+      r'literal': r'false true',
     },
-    illegal: "\\/\\*",
+    illegal: r'\/\*',
     contains: [
-      Mode(ref: '~contains~0'),
-      Mode(ref: '~contains~1'),
       Mode(
-          className: "number",
-          begin: "\\b\\d+(\\.\\d+)?(DT|D|T)",
-          relevance: 0),
-      Mode(className: "string", begin: "\"", end: "\""),
-      NUMBER_MODE,
+        match: r'[\w]+(?=\=)',
+        scope: r'attribute',
+        relevance: 0,
+      ),
+      _mode0,
+      _mode2,
       Mode(
-          className: "class",
-          begin:
-              "OBJECT (Table|Form|Report|Dataport|Codeunit|XMLport|MenuSuite|Page|Query) (\\d+) ([^\\r\\n]+)",
-          returnBegin: true,
-          contains: [TITLE_MODE, Mode(ref: '~contains~5~contains~1')]),
-      Mode(ref: '~contains~5~contains~1')
-    ]);
+        scope: r'number',
+        begin: r'\b\d+(\.\d+)?(DT|D|T)',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+      ),
+      _mode3,
+      Mode(
+        match: [
+          r'OBJECT',
+          r'\s+',
+          r'(?:Table|Form|Report|Dataport|Codeunit|XMLport|MenuSuite|Page|Query)',
+          r'\s+',
+          r'\d+',
+          r'\s+(?=[^\s])',
+          r'.*',
+          r'$',
+        ],
+        relevance: 3,
+        scope: {
+          1: r'keyword',
+          3: r'type',
+          5: r'number',
+          7: r'title',
+        },
+      ),
+      Mode(
+        match: [
+          r'procedure',
+          r'\s+',
+          r'[a-zA-Z_][\w@]*',
+          r'\s*',
+        ],
+        scope: {
+          1: r'keyword',
+          3: r'title.function',
+        },
+        contains: [
+          Mode(
+            scope: r'params',
+            begin: r'\(',
+            end: r'\)',
+            keywords: [
+              r'div',
+              r'mod',
+              r'in',
+              r'and',
+              r'or',
+              r'not',
+              r'xor',
+              r'asserterror',
+              r'begin',
+              r'case',
+              r'do',
+              r'downto',
+              r'else',
+              r'end',
+              r'exit',
+              r'for',
+              r'local',
+              r'if',
+              r'of',
+              r'repeat',
+              r'then',
+              r'to',
+              r'until',
+              r'while',
+              r'with',
+              r'var',
+            ],
+            contains: [
+              _mode0,
+              _mode2,
+              _mode3,
+            ],
+          ),
+          Mode(
+            scope: r'comment',
+            begin: r'//',
+            end: r'$',
+            contains: [
+              Mode(
+                scope: r'doctag',
+                begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+                end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+                excludeBegin: true,
+                relevance: 0,
+              ),
+              Mode(
+                begin:
+                    r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+              ),
+            ],
+          ),
+          Mode(
+            scope: r'comment',
+            begin: r'\{',
+            end: r'\}',
+            contains: [
+              Mode(
+                scope: r'doctag',
+                begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+                end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+                excludeBegin: true,
+                relevance: 0,
+              ),
+              Mode(
+                begin:
+                    r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+              ),
+            ],
+            relevance: 0,
+          ),
+          Mode(
+            scope: r'comment',
+            begin: r'\(\*',
+            end: r'\*\)',
+            contains: [
+              Mode(
+                scope: r'doctag',
+                begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+                end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+                excludeBegin: true,
+                relevance: 0,
+              ),
+              Mode(
+                begin:
+                    r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+              ),
+            ],
+            relevance: 10,
+          ),
+        ],
+      ),
+    ],
+  );
+}

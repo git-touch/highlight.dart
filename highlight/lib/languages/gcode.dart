@@ -1,53 +1,208 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND.
 
-import '../src/mode.dart';
-import '../src/common_modes.dart';
+import '../highlight_core.dart';
 
-final gcode = Mode(
-    refs: {},
-    aliases: ["nc"],
-    case_insensitive: true,
-    lexemes: "[A-Z_][A-Z0-9_.]*",
-    keywords:
-        "IF DO WHILE ENDWHILE CALL ENDIF SUB ENDSUB GOTO REPEAT ENDREPEAT EQ LT GT NE GE LE OR XOR",
+Mode gcode(Highlight hljs) {
+  void _letterBoundaryCallback(RegExpMatch match, CallbackResponse response) {
+    if (match.start == 0) return;
+
+    final charBeforeMatch = match.input[match.start - 1];
+    if ((charBeforeMatch.compareTo('0') >= 0 &&
+            charBeforeMatch.compareTo('9') <= 0) ||
+        charBeforeMatch == '_') {
+      return;
+    }
+
+    response.ignoreMatch();
+  }
+
+  final Mode _mode0 = Mode();
+  _mode0.begin = r'\\[\s\S]';
+  _mode0.relevance = 0;
+  return Mode(
+    name: r'G-code (ISO 6983)',
+    aliases: [
+      r'nc',
+    ],
+    caseInsensitive: true,
+    disableAutodetect: true,
+    keywords: {
+      r'$pattern': r'[A-Z]+|%',
+      r'keyword': [
+        r'THEN',
+        r'ELSE',
+        r'ENDIF',
+        r'IF',
+        r'GOTO',
+        r'DO',
+        r'WHILE',
+        r'WH',
+        r'END',
+        r'CALL',
+        r'SUB',
+        r'ENDSUB',
+        r'EQ',
+        r'NE',
+        r'LT',
+        r'GT',
+        r'LE',
+        r'GE',
+        r'AND',
+        r'OR',
+        r'XOR',
+        r'%',
+      ],
+      r'built_in': [
+        r'ATAN',
+        r'ABS',
+        r'ACOS',
+        r'ASIN',
+        r'COS',
+        r'EXP',
+        r'FIX',
+        r'FUP',
+        r'ROUND',
+        r'LN',
+        r'SIN',
+        r'SQRT',
+        r'TAN',
+        r'EXISTS',
+      ],
+    },
     contains: [
-      Mode(className: "meta", begin: "\\%"),
-      Mode(className: "meta", begin: "([O])([0-9]+)"),
-      C_LINE_COMMENT_MODE,
-      C_BLOCK_COMMENT_MODE,
-      Mode(className: "comment", begin: "\\(", end: "\\)", contains: [
-        PHRASAL_WORDS_MODE,
-        Mode(
-            className: "doctag",
-            begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-            relevance: 0)
-      ]),
       Mode(
-          className: "number",
-          begin:
-              "([-+]?([0-9]*\\.?[0-9]+\\.?))|(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)",
-          relevance: 0),
+        scope: r'comment',
+        begin: r'\(',
+        end: r'\)',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
       Mode(
-          className: "string",
-          begin: "'",
-          end: "'",
-          illegal: null,
-          contains: [BACKSLASH_ESCAPE]),
+        scope: r'comment',
+        begin: r';',
+        end: r'$',
+        contains: [
+          Mode(
+            scope: r'doctag',
+            begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+            end: r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+            excludeBegin: true,
+            relevance: 0,
+          ),
+          Mode(
+            begin:
+                r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
+          ),
+        ],
+      ),
       Mode(
-          className: "string",
-          begin: "\"",
-          end: "\"",
-          illegal: null,
-          contains: [BACKSLASH_ESCAPE]),
-      Mode(className: "name", begin: "([G])([0-9]+\\.?[0-9]?)"),
-      Mode(className: "name", begin: "([M])([0-9]+\\.?[0-9]?)"),
-      Mode(className: "attr", begin: "(VC|VS|#)", end: "(\\d+)"),
-      Mode(className: "attr", begin: "(VZOFX|VZOFY|VZOFZ)"),
+        scope: r'string',
+        begin: r"'",
+        end: r"'",
+        illegal: r'\n',
+        contains: [
+          _mode0,
+        ],
+      ),
       Mode(
-          className: "built_in",
-          begin: "(ATAN|ABS|ACOS|ASIN|SIN|COS|EXP|FIX|FUP|ROUND|LN|TAN)(\\[)",
-          end: "([-+]?([0-9]*\\.?[0-9]+\\.?))(\\])"),
+        scope: r'string',
+        begin: r'"',
+        end: r'"',
+        illegal: r'\n',
+        contains: [
+          _mode0,
+        ],
+      ),
       Mode(
-          className: "symbol",
-          variants: [Mode(begin: "N", end: "\\d+", illegal: "\\W")])
-    ]);
+        scope: r'number',
+        begin:
+            r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
+        relevance: 0,
+      ),
+      Mode(
+        scope: r'title.function',
+        variants: [
+          Mode(
+            match: r'\b[GM]\s*\d+(\.\d+)?',
+          ),
+          Mode(
+            begin: r'[GM]\s*\d+(\.\d+)?',
+            onBegin: _letterBoundaryCallback,
+          ),
+          Mode(
+            match: r'\bT\s*\d+',
+          ),
+          Mode(
+            begin: r'T\s*\d+',
+            onBegin: _letterBoundaryCallback,
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'symbol',
+        variants: [
+          Mode(
+            match: r'\bO\s*\d+',
+          ),
+          Mode(
+            begin: r'O\s*\d+',
+            onBegin: _letterBoundaryCallback,
+          ),
+          Mode(
+            match: r'\bO<.+>',
+          ),
+          Mode(
+            begin: r'O<.+>',
+            onBegin: _letterBoundaryCallback,
+          ),
+          Mode(
+            match: r'\*\s*\d+\s*$',
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'operator',
+        match: r'^N\s*\d+',
+      ),
+      Mode(
+        scope: r'variable',
+        match: r'-?#\s*\d+',
+      ),
+      Mode(
+        scope: r'property',
+        variants: [
+          Mode(
+            match: r'\b[ABCUVWXYZ]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
+          ),
+          Mode(
+            begin: r'[ABCUVWXYZ]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
+            onBegin: _letterBoundaryCallback,
+          ),
+        ],
+      ),
+      Mode(
+        scope: r'params',
+        variants: [
+          Mode(
+            match: r'\b[FHIJKPQRS]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
+          ),
+          Mode(
+            begin: r'[FHIJKPQRS]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
+            onBegin: _letterBoundaryCallback,
+          ),
+        ],
+      ),
+    ],
+  );
+}
