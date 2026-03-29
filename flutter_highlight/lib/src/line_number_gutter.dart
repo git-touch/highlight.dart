@@ -31,8 +31,9 @@ class LineNumberGutter extends StatelessWidget {
   Widget build(BuildContext context) {
     final lastNumber = firstLineNumber + lineCount - 1;
     final digitCount = lastNumber.toString().length;
-    final effectiveStyle =
-        lineHeight != null ? style.copyWith(height: lineHeight) : style;
+    final effectiveStyle = lineHeight != null
+        ? style.copyWith(height: lineHeight)
+        : style;
 
     return Padding(
       padding: const EdgeInsets.only(right: 12),

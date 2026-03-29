@@ -1,6 +1,16 @@
 import 'dart:io';
 
 void main(List<String> args) {
+  var formatOutput = true;
+  final requestedArgs = <String>[];
+  for (final arg in args) {
+    if (arg == '--no-format') {
+      formatOutput = false;
+      continue;
+    }
+    requestedArgs.add(arg);
+  }
+
   final toolRoot = File.fromUri(Platform.script).parent.path;
   final repoRoot = Directory(toolRoot).parent.path;
   final vendorStylesDir = Directory(
@@ -20,15 +30,16 @@ void main(List<String> args) {
   }
 
   final allThemes = _discoverThemePaths(vendorStylesDir);
-  final requested = args.map(_normalizeThemeArg).toSet();
-  final targets = allThemes
-      .where(
-        (String themePath) =>
-            requested.isEmpty ||
-            requested.contains(_normalizeThemeArg(themePath)),
-      )
-      .toList()
-    ..sort();
+  final requested = requestedArgs.map(_normalizeThemeArg).toSet();
+  final targets =
+      allThemes
+          .where(
+            (String themePath) =>
+                requested.isEmpty ||
+                requested.contains(_normalizeThemeArg(themePath)),
+          )
+          .toList()
+        ..sort();
 
   if (targets.isEmpty) {
     stderr.writeln('No matching themes to generate.');
@@ -59,14 +70,16 @@ void main(List<String> args) {
   allExportsFile.writeAsStringSync(_renderAllExports(exports));
   writtenFiles.add(allExportsFile.path);
 
-  final formatResult = Process.runSync(Platform.resolvedExecutable, <String>[
-    'format',
-    ...writtenFiles,
-  ]);
-  if (formatResult.exitCode != 0) {
-    stderr.write(formatResult.stderr);
-    exitCode = formatResult.exitCode;
-    return;
+  if (formatOutput) {
+    final formatResult = Process.runSync(Platform.resolvedExecutable, <String>[
+      'format',
+      ...writtenFiles,
+    ]);
+    if (formatResult.exitCode != 0) {
+      stderr.write(formatResult.stderr);
+      exitCode = formatResult.exitCode;
+      return;
+    }
   }
 
   stdout.writeln('Generated ${targets.length} theme files.');
@@ -120,10 +133,7 @@ List<String> _discoverThemePaths(Directory vendorStylesDir) {
   return themes;
 }
 
-String _renderThemeFile(
-  String themePath,
-  Map<String, _StyleBuilder> theme,
-) {
+String _renderThemeFile(String themePath, Map<String, _StyleBuilder> theme) {
   final buffer = StringBuffer();
   final variableName = _themeVariableName(themePath);
   final keys = theme.keys.toList()
@@ -138,7 +148,8 @@ String _renderThemeFile(
     });
 
   buffer.writeln(
-      "import 'package:highlight/highlight_core.dart' show HljsStyle;");
+    "import 'package:highlight/highlight_core.dart' show HljsStyle;",
+  );
   buffer.writeln();
   buffer.writeln('const $variableName = <String, HljsStyle>{');
   for (final key in keys) {
@@ -205,21 +216,25 @@ String _themeVariableName(String themePath) {
   }
 
   final baseName = buffer.toString();
-  final identifier =
-      RegExp(r'^\d').hasMatch(baseName) ? '\$$baseName' : baseName;
+  final identifier = RegExp(r'^\d').hasMatch(baseName)
+      ? '\$$baseName'
+      : baseName;
   return '${identifier}Theme';
 }
 
 String _themeOutputRelativePath(String themePath) {
-  final parts =
-      themePath.split('/').map((String part) => part.replaceAll('-', '_'));
+  final parts = themePath
+      .split('/')
+      .map((String part) => part.replaceAll('-', '_'));
   return '${parts.join('/')}.dart';
 }
 
 String _normalizeThemeArg(String value) {
   var normalized = value.trim().replaceAll('\\', '/');
-  normalized =
-      normalized.replaceAll(RegExp(r'\.(css|dart)$', caseSensitive: false), '');
+  normalized = normalized.replaceAll(
+    RegExp(r'\.(css|dart)$', caseSensitive: false),
+    '',
+  );
   normalized = normalized.replaceAll('_', '-');
   return normalized;
 }
@@ -774,14 +789,9 @@ final class _CssDeclaration {
 }
 
 final class _SelectorPart {
-  const _SelectorPart({
-    required this.scope,
-    required this.qualifiers,
-  });
+  const _SelectorPart({required this.scope, required this.qualifiers});
 
-  const _SelectorPart.root()
-      : scope = 'root',
-        qualifiers = const <String>[];
+  const _SelectorPart.root() : scope = 'root', qualifiers = const <String>[];
 
   static const _SelectorPart unsupported = _SelectorPart(
     scope: '',

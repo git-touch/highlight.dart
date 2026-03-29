@@ -194,10 +194,15 @@ const _unsupportedFunctionValue = _UnsupportedFunctionValue();
 Future<void> main(List<String> args) async {
   final requestedLanguages = <String>{};
   var includeUnsupported = false;
+  var formatOutput = true;
 
   for (final arg in args) {
     if (arg == '--include-unsupported') {
       includeUnsupported = true;
+      continue;
+    }
+    if (arg == '--no-format') {
+      formatOutput = false;
       continue;
     }
 
@@ -222,13 +227,14 @@ Future<void> main(List<String> args) async {
     return;
   }
 
-  final targets = _existingLanguageNames(outputDir)
-      .where(
-        (String name) =>
-            requestedLanguages.isEmpty || requestedLanguages.contains(name),
-      )
-      .toList()
-    ..sort();
+  final targets =
+      _existingLanguageNames(outputDir)
+          .where(
+            (String name) =>
+                requestedLanguages.isEmpty || requestedLanguages.contains(name),
+          )
+          .toList()
+        ..sort();
 
   if (targets.isEmpty) {
     stderr.writeln('No matching languages to generate.');
@@ -238,10 +244,12 @@ Future<void> main(List<String> args) async {
 
   final generated = <String>[];
   final skipped = <String>[];
+  final writtenFiles = <String>[];
   final loadResults = await _loadLanguageGraphs(vendorRoot, targets);
 
   for (final languageName in targets) {
-    final loadResult = loadResults[languageName] ??
+    final loadResult =
+        loadResults[languageName] ??
         const _LanguageGraphLoadResult(
           loadError: 'Language result missing from Node extractor',
         );
@@ -261,13 +269,34 @@ Future<void> main(List<String> args) async {
     try {
       final rootMode = _decodeGraph(loadResult.graph!);
       final source = _buildLanguageSource(languageName, rootMode);
-      final outputPath = _joinAll(
-        <String>[outputDir.path, '${_sanitizeFileStem(languageName)}.dart'],
-      );
+      final outputPath = _joinAll(<String>[
+        outputDir.path,
+        '${_sanitizeFileStem(languageName)}.dart',
+      ]);
       File(outputPath).writeAsStringSync(source);
+      writtenFiles.add(outputPath);
       generated.add(languageName);
     } catch (error) {
       skipped.add('$languageName: generation failed ($error)');
+    }
+  }
+
+  final allLanguagesFile = File(
+    _joinAll(<String>[outputDir.path, '_all.dart']),
+  );
+  final allLanguageNames = _existingLanguageNames(outputDir).toList()..sort();
+  allLanguagesFile.writeAsStringSync(_renderAllLanguagesFile(allLanguageNames));
+  writtenFiles.add(allLanguagesFile.path);
+
+  if (formatOutput && writtenFiles.isNotEmpty) {
+    final formatResult = Process.runSync(Platform.resolvedExecutable, <String>[
+      'format',
+      ...writtenFiles,
+    ]);
+    if (formatResult.exitCode != 0) {
+      stderr.write(formatResult.stderr);
+      exitCode = formatResult.exitCode;
+      return;
     }
   }
 
@@ -373,7 +402,8 @@ JsObject _decodeGraph(Map<String, dynamic> graph) {
 
   for (var index = 0; index < rawNodes.length; index++) {
     final entries = Map<String, dynamic>.from(
-        rawNodes[index]['entries'] as Map<dynamic, dynamic>);
+      rawNodes[index]['entries'] as Map<dynamic, dynamic>,
+    );
     for (final MapEntry<String, dynamic> entry in entries.entries) {
       nodes[index].entries[entry.key] = _decodeValue(entry.value, nodes);
     }
@@ -495,6 +525,35 @@ String _sanitizeFunctionName(String name) {
   return RegExp(r'^\d').hasMatch(normalized) ? 'lang_$normalized' : normalized;
 }
 
+String _renderAllLanguagesFile(List<String> languageNames) {
+  final buffer = StringBuffer()
+    ..writeln("import '../highlight_core.dart';")
+    ..writeln();
+
+  for (final languageName in languageNames) {
+    final fileStem = _sanitizeFileStem(languageName);
+    final identifier = _sanitizeFunctionName(languageName);
+    buffer.writeln("import '$fileStem.dart' as $identifier;");
+  }
+
+  buffer
+    ..writeln()
+    ..writeln('void registerAllLanguages(Highlight hljs) {');
+
+  for (final languageName in languageNames) {
+    final identifier = _sanitizeFunctionName(languageName);
+    buffer.writeln(
+      "  hljs.registerLanguage('$languageName', $identifier.$identifier);",
+    );
+  }
+
+  buffer
+    ..writeln('}')
+    ..writeln();
+
+  return buffer.toString();
+}
+
 String _dartString(String value) {
   final canUseRawSingle =
       !value.contains('\n') && !value.contains('\r') && !value.contains("'");
@@ -545,8 +604,9 @@ String _escapeDartString(String value, String quote) {
 String _basename(String path) => path.replaceAll(r'\', '/').split('/').last;
 
 String _joinAll(List<String> segments) {
-  final normalizedSegments =
-      segments.where((String segment) => segment.isNotEmpty);
+  final normalizedSegments = segments.where(
+    (String segment) => segment.isNotEmpty,
+  );
   return normalizedSegments.join(Platform.pathSeparator);
 }
 
@@ -579,7 +639,12 @@ class _LanguageGraphLoadResult {
 class _Serializer {
   _Serializer(this.rootMode, this.counts) {
     _collectSharedModes(
-        rootMode, rootMode, sharedModes, <JsObject>{}, <JsObject>{});
+      rootMode,
+      rootMode,
+      sharedModes,
+      <JsObject>{},
+      <JsObject>{},
+    );
     for (var index = 0; index < sharedModes.length; index++) {
       modeNames[sharedModes[index]] = '_mode$index';
     }
@@ -656,16 +721,20 @@ class _Serializer {
       !identical(mode, rootMode) && modeNames.containsKey(mode);
 
   String _serializeMap(JsObject map, JsObject currentMode, String indent) {
-    final entries =
-        map.entries.entries.where((entry) => entry.value != null).toList();
+    final entries = map.entries.entries
+        .where((entry) => entry.value != null)
+        .toList();
     if (entries.isEmpty) return '{}';
 
     final childIndent = '$indent  ';
-    final parts = entries.map((entry) {
-      final renderedKey =
-          _isNumericKey(entry.key) ? entry.key : _dartString(entry.key);
-      return '$childIndent$renderedKey: ${_serializeValue(entry.value, currentMode, childIndent)},';
-    }).join('\n');
+    final parts = entries
+        .map((entry) {
+          final renderedKey = _isNumericKey(entry.key)
+              ? entry.key
+              : _dartString(entry.key);
+          return '$childIndent$renderedKey: ${_serializeValue(entry.value, currentMode, childIndent)},';
+        })
+        .join('\n');
 
     return '{\n$parts\n$indent}';
   }
@@ -700,12 +769,14 @@ class _Serializer {
     if (entries.isEmpty) return 'Mode()';
 
     final childIndent = '$indent  ';
-    final parts = entries.map((entry) {
-      final renderedValue = entry.key == 'exports'
-          ? _serializeMap(entry.value as JsObject, mode, childIndent)
-          : _serializeValue(entry.value, mode, childIndent);
-      return '$childIndent${entry.key}: $renderedValue,';
-    }).join('\n');
+    final parts = entries
+        .map((entry) {
+          final renderedValue = entry.key == 'exports'
+              ? _serializeMap(entry.value as JsObject, mode, childIndent)
+              : _serializeValue(entry.value, mode, childIndent);
+          return '$childIndent${entry.key}: $renderedValue,';
+        })
+        .join('\n');
 
     return 'Mode(\n$parts\n$indent)';
   }

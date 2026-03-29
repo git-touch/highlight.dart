@@ -5,6 +5,51 @@ on:
   pull_request:
 
 jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install workspace dependencies
+        run: dart pub get
+
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed tool highlight flutter_highlight
+
+  generated:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install workspace dependencies
+        run: dart pub get
+
+      - name: Regenerate code
+        run: dart run tool/generate.dart --no-verify
+
+      - name: Check for generated diffs
+        run: git diff --exit-code
+
   lint:
     runs-on: ubuntu-latest
 

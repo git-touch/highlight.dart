@@ -28,18 +28,15 @@ class TextSpanBuilder {
       if (child is String) {
         spans.add(TextSpan(text: child));
       } else if (child is DataNode) {
-        final style =
-            child.scope != null ? themeMap.resolve(child.scope!) : null;
+        final style = child.scope != null
+            ? themeMap.resolve(child.scope!)
+            : null;
         if (child.children.length == 1 && child.children.first is String) {
-          spans.add(TextSpan(
-            text: child.children.first as String,
-            style: style,
-          ));
+          spans.add(
+            TextSpan(text: child.children.first as String, style: style),
+          );
         } else {
-          spans.add(TextSpan(
-            style: style,
-            children: _buildChildren(child),
-          ));
+          spans.add(TextSpan(style: style, children: _buildChildren(child)));
         }
       }
     }

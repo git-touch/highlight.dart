@@ -48,8 +48,10 @@ class ThemeMap {
   static TextStyle _convertStyle(HljsStyle style) {
     TextDecoration? decoration;
     if (style.underline && style.strikethrough) {
-      decoration = TextDecoration.combine(
-          [TextDecoration.underline, TextDecoration.lineThrough]);
+      decoration = TextDecoration.combine([
+        TextDecoration.underline,
+        TextDecoration.lineThrough,
+      ]);
     } else if (style.underline) {
       decoration = TextDecoration.underline;
     } else if (style.strikethrough) {

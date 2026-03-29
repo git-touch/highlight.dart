@@ -70,7 +70,8 @@ class HighlightView extends StatelessWidget {
     final span = _buildSpan(themeMap, baseStyle);
     final lineCount = '\n'.allMatches(code).length + 1;
 
-    final effectiveLineNumberStyle = lineNumberStyle ??
+    final effectiveLineNumberStyle =
+        lineNumberStyle ??
         baseStyle.copyWith(
           color: (themeMap.rootStyle.color ?? const Color(0xFF888888))
               .withAlpha(128),
