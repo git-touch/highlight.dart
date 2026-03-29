@@ -40,18 +40,9 @@ Mode thrift(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'//',
@@ -98,10 +89,7 @@ Mode thrift(Highlight hljs) {
             scope: r'title',
             begin: r'[a-zA-Z]\w*',
             relevance: 0,
-            starts: Mode(
-              endsWithParent: true,
-              excludeEnd: true,
-            ),
+            starts: Mode(endsWithParent: true, excludeEnd: true),
           ),
         ],
       ),
@@ -123,9 +111,7 @@ Mode thrift(Highlight hljs) {
           ],
         },
         end: r'>',
-        contains: [
-          r'self',
-        ],
+        contains: [r'self'],
       ),
     ],
   );

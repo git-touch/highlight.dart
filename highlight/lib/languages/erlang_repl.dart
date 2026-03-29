@@ -14,11 +14,7 @@ Mode erlang_repl(Highlight hljs) {
           r'after and andalso|10 band begin bnot bor bsl bsr bxor case catch cond div end fun if let not of or orelse|10 query receive rem try when xor',
     },
     contains: [
-      Mode(
-        scope: r'meta.prompt',
-        begin: r'^[0-9]+> ',
-        relevance: 10,
-      ),
+      Mode(scope: r'meta.prompt', begin: r'^[0-9]+> ', relevance: 10),
       Mode(
         scope: r'comment',
         begin: r'%',
@@ -48,40 +44,25 @@ Mode erlang_repl(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
-      Mode(
-        begin: r'\?(::)?([A-Z]\w*)((::)[A-Z]\w*)*',
-      ),
-      Mode(
-        begin: r'->',
-      ),
-      Mode(
-        begin: r'ok',
-      ),
-      Mode(
-        begin: r'!',
-      ),
+      Mode(begin: r'\?(::)?([A-Z]\w*)((::)[A-Z]\w*)*'),
+      Mode(begin: r'->'),
+      Mode(begin: r'ok'),
+      Mode(begin: r'!'),
       Mode(
         begin:
             r"(\b[a-z'][a-zA-Z0-9_']*:[a-z'][a-zA-Z0-9_']*)|(\b[a-z'][a-zA-Z0-9_']*)",
         relevance: 0,
       ),
-      Mode(
-        begin: r"[A-Z][a-zA-Z0-9_']*",
-        relevance: 0,
-      ),
+      Mode(begin: r"[A-Z][a-zA-Z0-9_']*", relevance: 0),
     ],
   );
 }

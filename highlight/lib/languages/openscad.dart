@@ -13,18 +13,14 @@ Mode openscad(Highlight hljs) {
   _mode1.scope = r'string';
   _mode1.begin = r'"';
   _mode1.end = r'"';
-  _mode1.contains = [
-    _mode2,
-  ];
+  _mode1.contains = [_mode2];
   _mode2.begin = r'\\[\s\S]';
   _mode2.relevance = 0;
   _mode3.scope = r'keyword';
   _mode3.begin = r'\$(f[asn]|t|vp[rtd]|children)';
   return Mode(
     name: r'OpenSCAD',
-    aliases: [
-      r'scad',
-    ],
+    aliases: [r'scad'],
     keywords: {
       r'keyword':
           r'function module include use for intersection_for if else \%',
@@ -72,18 +68,13 @@ Mode openscad(Highlight hljs) {
       _mode0,
       Mode(
         scope: r'meta',
-        keywords: {
-          r'keyword': r'include use',
-        },
+        keywords: {r'keyword': r'include use'},
         begin: r'include|use <',
         end: r'>',
       ),
       _mode1,
       _mode3,
-      Mode(
-        begin: r'[*!#%]',
-        relevance: 0,
-      ),
+      Mode(begin: r'[*!#%]', relevance: 0),
       Mode(
         scope: r'function',
         beginKeywords: r'module function',
@@ -98,17 +89,10 @@ Mode openscad(Highlight hljs) {
               _mode0,
               _mode1,
               _mode3,
-              Mode(
-                scope: r'literal',
-                begin: r'false|true|PI|undef',
-              ),
+              Mode(scope: r'literal', begin: r'false|true|PI|undef'),
             ],
           ),
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
         ],
       ),
     ],

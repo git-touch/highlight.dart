@@ -8,31 +8,15 @@ Mode step21(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'STEP Part 21',
-    aliases: [
-      r'p21',
-      r'step',
-      r'stp',
-    ],
+    aliases: [r'p21', r'step', r'stp'],
     caseInsensitive: true,
     keywords: {
       r'$pattern': r'[A-Z_][A-Z0-9_.]*',
-      r'keyword': [
-        r'HEADER',
-        r'ENDSEC',
-        r'DATA',
-      ],
+      r'keyword': [r'HEADER', r'ENDSEC', r'DATA'],
     },
     contains: [
-      Mode(
-        scope: r'meta',
-        begin: r'ISO-10303-21;',
-        relevance: 10,
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'END-ISO-10303-21;',
-        relevance: 10,
-      ),
+      Mode(scope: r'meta', begin: r'ISO-10303-21;', relevance: 10),
+      Mode(scope: r'meta', begin: r'END-ISO-10303-21;', relevance: 10),
       Mode(
         scope: r'comment',
         begin: r'//',
@@ -93,36 +77,12 @@ Mode step21(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-        contains: [
-          _mode0,
-        ],
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-        contains: [
-          _mode0,
-        ],
-      ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-      ),
+      Mode(scope: r'string', begin: r"'", end: r"'", contains: [_mode0]),
+      Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
+      Mode(scope: r'string', begin: r"'", end: r"'"),
       Mode(
         scope: r'symbol',
-        variants: [
-          Mode(
-            begin: r'#',
-            end: r'\d+',
-            illegal: r'\W',
-          ),
-        ],
+        variants: [Mode(begin: r'#', end: r'\d+', illegal: r'\W')],
       ),
     ],
   );

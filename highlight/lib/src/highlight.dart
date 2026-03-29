@@ -55,9 +55,9 @@ class _CallbackRegExpMatch implements RegExpMatch {
     String? input,
     int? start,
     int? end,
-  })  : _inputOverride = input,
-        _startOverride = start,
-        _endOverride = end;
+  }) : _inputOverride = input,
+       _startOverride = start,
+       _endOverride = end;
 
   @override
   RegExp get pattern => _inner.pattern;
@@ -110,7 +110,10 @@ class Highlight {
     } catch (error) {
       if (!_safeMode) rethrow;
       lang = Mode(
-          disableAutodetect: true, name: 'Plain text', contains: <dynamic>[]);
+        disableAutodetect: true,
+        name: 'Plain text',
+        contains: <dynamic>[],
+      );
     }
     lang.name ??= name;
     _languages[name] = lang;
@@ -148,26 +151,30 @@ class Highlight {
   }
 
   HighlightResult highlight(String code, {required String language}) {
-    final context = <String, dynamic>{
-      'code': code,
-      'language': language,
-    };
+    final context = <String, dynamic>{'code': code, 'language': language};
 
     final result = _highlight(
-        context['language'] as String, context['code'] as String, true);
+      context['language'] as String,
+      context['code'] as String,
+      true,
+    );
     result.code = code;
     return result;
   }
 
   HighlightResult _highlight(
-      String languageName, String codeToHighlight, bool ignoreIllegals,
-      [Mode? continuation]) {
+    String languageName,
+    String codeToHighlight,
+    bool ignoreIllegals, [
+    Mode? continuation,
+  ]) {
     final keywordHits = <String, int>{};
 
     RegExpMatch callbackMatch(Map<String, dynamic> match) {
       final original = match['_match'] as RegExpMatch;
-      final groups =
-          List<String?>.from(match['_groups'] as List<String?>? ?? []);
+      final groups = List<String?>.from(
+        match['_groups'] as List<String?>? ?? [],
+      );
       return _CallbackRegExpMatch(original, groups);
     }
 
@@ -224,7 +231,9 @@ class Highlight {
     }
 
     void emitMultiClass(
-        Map<dynamic, dynamic> scope, Map<String, dynamic> match) {
+      Map<dynamic, dynamic> scope,
+      Map<String, dynamic> match,
+    ) {
       var i = 1;
       final groups = match['_groups'] as List<String?>? ?? [];
       final emit = scope['_emit'] as Map<int, bool>? ?? {};
@@ -348,7 +357,7 @@ class Highlight {
         if (beginScope['_wrap'] != null) {
           final wrap =
               _classNameAlias(language, beginScope['_wrap'] as String?) ??
-                  beginScope['_wrap'] as String;
+              beginScope['_wrap'] as String;
           emitKeyword(modeBuffer, wrap);
           modeBuffer = '';
         } else if (beginScope['_multi'] == true) {
@@ -364,7 +373,10 @@ class Highlight {
     }
 
     Mode? endOfMode(
-        Mode mode, Map<String, dynamic> match, String matchPlusRemainder) {
+      Mode mode,
+      Map<String, dynamic> match,
+      String matchPlusRemainder,
+    ) {
       final endRe = mode.endRe;
       final matched = endRe?.firstMatch(matchPlusRemainder);
 
@@ -433,8 +445,10 @@ class Highlight {
 
     dynamic doEndMatch(Map<String, dynamic> match) {
       final lexeme = match['0'] as String? ?? '';
-      final matchIndex =
-          (match['index'] as int).clamp(0, codeToHighlight.length);
+      final matchIndex = (match['index'] as int).clamp(
+        0,
+        codeToHighlight.length,
+      );
       final matchPlusRemainder = codeToHighlight.substring(matchIndex);
 
       final endMode = endOfMode(top, match, matchPlusRemainder);
@@ -445,7 +459,8 @@ class Highlight {
       final endScope = top.endScope;
       if (endScope is Map && endScope['_wrap'] != null) {
         processBuffer();
-        final wrap = _classNameAlias(language, endScope['_wrap'] as String?) ??
+        final wrap =
+            _classNameAlias(language, endScope['_wrap'] as String?) ??
             endScope['_wrap'] as String;
         emitKeyword(lexeme, wrap);
       } else if (endScope is Map && endScope['_multi'] == true) {
@@ -532,7 +547,8 @@ class Highlight {
         return doBeginMatch(match);
       } else if (match['type'] == 'illegal' && !ignoreIllegals) {
         throw StateError(
-            'Illegal lexeme "$lexeme" for mode "${top.scope ?? '<unnamed>'}"');
+          'Illegal lexeme "$lexeme" for mode "${top.scope ?? '<unnamed>'}"',
+        );
       } else if (match['type'] == 'end') {
         final processed = doEndMatch(match);
         if (!identical(processed, noMatch)) {
@@ -550,7 +566,8 @@ class Highlight {
 
       if (iterations > 100000 && iterations > codeToHighlight.length * 3) {
         throw StateError(
-            'potential infinite loop, way more iterations than matches');
+          'potential infinite loop, way more iterations than matches',
+        );
       }
 
       modeBuffer += lexeme;
@@ -582,10 +599,14 @@ class Highlight {
 
           final matchIdx = match['index'] as int;
           final safeIndex = index.clamp(0, codeToHighlight.length);
-          final safeMatchIdx =
-              matchIdx.clamp(safeIndex, codeToHighlight.length);
-          final beforeMatch =
-              codeToHighlight.substring(safeIndex, safeMatchIdx);
+          final safeMatchIdx = matchIdx.clamp(
+            safeIndex,
+            codeToHighlight.length,
+          );
+          final beforeMatch = codeToHighlight.substring(
+            safeIndex,
+            safeMatchIdx,
+          );
           final processedCount = processLexeme(beforeMatch, match);
           index = matchIdx + processedCount;
         }
@@ -616,8 +637,9 @@ class Highlight {
             'message': err.message,
             'index': index,
             'context': codeToHighlight.substring(
-                (index - 100).clamp(0, codeToHighlight.length),
-                (index + 100).clamp(0, codeToHighlight.length)),
+              (index - 100).clamp(0, codeToHighlight.length),
+              (index + 100).clamp(0, codeToHighlight.length),
+            ),
             'mode': top.scope,
           },
         );
@@ -740,25 +762,25 @@ class Highlight {
   Mode get BACKSLASH_ESCAPE => Mode(begin: r'\\[\s\S]', relevance: 0);
 
   Mode get APOS_STRING_MODE => Mode(
-        scope: 'string',
-        begin: "'",
-        end: "'",
-        illegal: r'\n',
-        contains: [BACKSLASH_ESCAPE],
-      );
+    scope: 'string',
+    begin: "'",
+    end: "'",
+    illegal: r'\n',
+    contains: [BACKSLASH_ESCAPE],
+  );
 
   Mode get QUOTE_STRING_MODE => Mode(
-        scope: 'string',
-        begin: '"',
-        end: '"',
-        illegal: r'\n',
-        contains: [BACKSLASH_ESCAPE],
-      );
+    scope: 'string',
+    begin: '"',
+    end: '"',
+    illegal: r'\n',
+    contains: [BACKSLASH_ESCAPE],
+  );
 
   Mode get PHRASAL_WORDS_MODE => Mode(
-        begin:
-            r"\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b",
-      );
+    begin:
+        r"\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b",
+  );
 
   Mode COMMENT(dynamic begin, dynamic end, [Mode? modeOptions]) {
     final mode = Mode(
@@ -774,13 +796,15 @@ class Highlight {
     );
 
     final contains = mode.contains as List<dynamic>;
-    contains.add(Mode(
-      scope: 'doctag',
-      begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
-      end: RegExp(r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):'),
-      excludeBegin: true,
-      relevance: 0,
-    ));
+    contains.add(
+      Mode(
+        scope: 'doctag',
+        begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+        end: RegExp(r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):'),
+        excludeBegin: true,
+        relevance: 0,
+      ),
+    );
 
     final englishWord = regex.either(
       'I',
@@ -798,10 +822,17 @@ class Highlight {
       RegExp(r'[A-Za-z]+[-][a-z]+'),
       RegExp(r'[A-Za-z][a-z]{2,}'),
     );
-    contains.add(Mode(
-      begin: regex.concat(
-          r'[ ]+', '(', englishWord, r'[.]?[:]?([.][ ]|[ ])', '){3}'),
-    ));
+    contains.add(
+      Mode(
+        begin: regex.concat(
+          r'[ ]+',
+          '(',
+          englishWord,
+          r'[.]?[:]?([.][ ]|[ ])',
+          '){3}',
+        ),
+      ),
+    );
 
     return mode;
   }
@@ -810,55 +841,36 @@ class Highlight {
   Mode get C_BLOCK_COMMENT_MODE => COMMENT(r'/\*', r'\*/');
   Mode get HASH_COMMENT_MODE => COMMENT('#', r'$');
 
-  Mode get NUMBER_MODE => Mode(
-        scope: 'number',
-        begin: NUMBER_RE,
-        relevance: 0,
-      );
+  Mode get NUMBER_MODE => Mode(scope: 'number', begin: NUMBER_RE, relevance: 0);
 
-  Mode get C_NUMBER_MODE => Mode(
-        scope: 'number',
-        begin: C_NUMBER_RE,
-        relevance: 0,
-      );
+  Mode get C_NUMBER_MODE =>
+      Mode(scope: 'number', begin: C_NUMBER_RE, relevance: 0);
 
-  Mode get BINARY_NUMBER_MODE => Mode(
-        scope: 'number',
-        begin: BINARY_NUMBER_RE,
-        relevance: 0,
-      );
+  Mode get BINARY_NUMBER_MODE =>
+      Mode(scope: 'number', begin: BINARY_NUMBER_RE, relevance: 0);
 
   Mode get REGEXP_MODE => Mode(
-        scope: 'regexp',
-        begin: r'/(?=[^/\n]*\/)',
-        end: r'/[gimuy]*',
-        contains: [
-          BACKSLASH_ESCAPE,
-          Mode(
-            begin: r'\[',
-            end: r'\]',
-            relevance: 0,
-            contains: [BACKSLASH_ESCAPE],
-          ),
-        ],
-      );
-
-  Mode get TITLE_MODE => Mode(
-        scope: 'title',
-        begin: IDENT_RE,
+    scope: 'regexp',
+    begin: r'/(?=[^/\n]*\/)',
+    end: r'/[gimuy]*',
+    contains: [
+      BACKSLASH_ESCAPE,
+      Mode(
+        begin: r'\[',
+        end: r'\]',
         relevance: 0,
-      );
+        contains: [BACKSLASH_ESCAPE],
+      ),
+    ],
+  );
 
-  Mode get UNDERSCORE_TITLE_MODE => Mode(
-        scope: 'title',
-        begin: UNDERSCORE_IDENT_RE,
-        relevance: 0,
-      );
+  Mode get TITLE_MODE => Mode(scope: 'title', begin: IDENT_RE, relevance: 0);
 
-  Mode get METHOD_GUARD => Mode(
-        begin: '\\.\\s*$UNDERSCORE_IDENT_RE',
-        relevance: 0,
-      );
+  Mode get UNDERSCORE_TITLE_MODE =>
+      Mode(scope: 'title', begin: UNDERSCORE_IDENT_RE, relevance: 0);
+
+  Mode get METHOD_GUARD =>
+      Mode(begin: '\\.\\s*$UNDERSCORE_IDENT_RE', relevance: 0);
 
   Mode END_SAME_AS_BEGIN(Mode mode) {
     mode.onBegin = (RegExpMatch m, CallbackResponse resp) {
@@ -872,12 +884,12 @@ class Highlight {
 
   // regex utilities exposed for language definitions
   Map<String, dynamic> get regexHelpers => {
-        'concat': regex.concat,
-        'lookahead': regex.lookahead,
-        'either': regex.either,
-        'optional': regex.optional,
-        'anyNumberOfTimes': regex.anyNumberOfTimes,
-      };
+    'concat': regex.concat,
+    'lookahead': regex.lookahead,
+    'either': regex.either,
+    'optional': regex.optional,
+    'anyNumberOfTimes': regex.anyNumberOfTimes,
+  };
 }
 
 final hljs = Highlight();

@@ -8,9 +8,7 @@ Mode autohotkey(Highlight hljs) {
   return Mode(
     name: r'AutoHotkey',
     caseInsensitive: true,
-    aliases: [
-      r'ahk',
-    ],
+    aliases: [r'ahk'],
     keywords: {
       r'keyword':
           r'Break Continue Critical Exit ExitApp Gosub Goto New OnExit Pause return SetBatchLines SetTimer Suspend Thread Throw Until ahk_id ahk_class ahk_pid ahk_exe ahk_group',
@@ -24,9 +22,7 @@ Mode autohotkey(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'comment',
@@ -65,44 +61,19 @@ Mode autohotkey(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'variable',
-        begin: r'%[a-zA-Z0-9#_$@]+%',
-      ),
-      Mode(
-        scope: r'built_in',
-        begin: r'^\s*\w+\s*(,|%)',
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
+      Mode(scope: r'variable', begin: r'%[a-zA-Z0-9#_$@]+%'),
+      Mode(scope: r'built_in', begin: r'^\s*\w+\s*(,|%)'),
       Mode(
         scope: r'title',
         variants: [
-          Mode(
-            begin: r'^[^\n";]+::(?!=)',
-          ),
-          Mode(
-            begin: r'^[^\n";]+:(?!=)',
-            relevance: 0,
-          ),
+          Mode(begin: r'^[^\n";]+::(?!=)'),
+          Mode(begin: r'^[^\n";]+:(?!=)', relevance: 0),
         ],
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'^\s*#\w+',
-        end: r'$',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'built_in',
-        begin: r'A_[a-zA-Z0-9]+',
-      ),
-      Mode(
-        begin: r',\s*,',
-      ),
+      Mode(scope: r'meta', begin: r'^\s*#\w+', end: r'$', relevance: 0),
+      Mode(scope: r'built_in', begin: r'A_[a-zA-Z0-9]+'),
+      Mode(begin: r',\s*,'),
     ],
   );
 }

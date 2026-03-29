@@ -16,25 +16,18 @@ Mode actionscript(Highlight hljs) {
   _mode0.begin = r"'";
   _mode0.end = r"'";
   _mode0.illegal = r'\n';
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'string';
   _mode2.begin = r'"';
   _mode2.end = r'"';
   _mode2.illegal = r'\n';
-  _mode2.contains = [
-    _mode1,
-  ];
+  _mode2.contains = [_mode1];
   _mode3.scope = r'comment';
   _mode3.begin = r'//';
   _mode3.end = r'$';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -45,10 +38,7 @@ Mode actionscript(Highlight hljs) {
   _mode6.scope = r'comment';
   _mode6.begin = r'/\*';
   _mode6.end = r'\*/';
-  _mode6.contains = [
-    _mode7,
-    _mode8,
-  ];
+  _mode6.contains = [_mode7, _mode8];
   _mode7.scope = r'doctag';
   _mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -58,9 +48,7 @@ Mode actionscript(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'ActionScript',
-    aliases: [
-      r'as',
-    ],
+    aliases: [r'as'],
     keywords: {
       r'keyword': [
         r'as',
@@ -114,12 +102,7 @@ Mode actionscript(Highlight hljs) {
         r'while',
         r'with',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-        r'undefined',
-      ],
+      r'literal': [r'true', r'false', r'null', r'undefined'],
     },
     contains: [
       _mode0,
@@ -138,10 +121,7 @@ Mode actionscript(Highlight hljs) {
           r'\s+',
           r'[a-zA-Z_$][a-zA-Z0-9_$]*(\.[a-zA-Z_$][a-zA-Z0-9_$]*)*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
       Mode(
         match: [
@@ -149,18 +129,13 @@ Mode actionscript(Highlight hljs) {
           r'\s+',
           r'[a-zA-Z_$][a-zA-Z0-9_$]*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
       Mode(
         scope: r'meta',
         beginKeywords: r'import include',
         end: r';',
-        keywords: {
-          r'keyword': r'import include',
-        },
+        keywords: {r'keyword': r'import include'},
       ),
       Mode(
         beginKeywords: r'function',
@@ -168,11 +143,7 @@ Mode actionscript(Highlight hljs) {
         excludeEnd: true,
         illegal: r'\S',
         contains: [
-          Mode(
-            scope: r'title.function',
-            begin: r'[a-zA-Z]\w*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title.function', begin: r'[a-zA-Z]\w*', relevance: 0),
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -190,15 +161,10 @@ Mode actionscript(Highlight hljs) {
               ),
             ],
           ),
-          Mode(
-            begin: r':\s*([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)',
-          ),
+          Mode(begin: r':\s*([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)'),
         ],
       ),
-      Mode(
-        begin: r'\.\s*[a-zA-Z_]\w*',
-        relevance: 0,
-      ),
+      Mode(begin: r'\.\s*[a-zA-Z_]\w*', relevance: 0),
     ],
     illegal: r'#',
   );

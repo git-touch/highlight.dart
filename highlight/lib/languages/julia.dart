@@ -28,15 +28,8 @@ Mode julia(Highlight hljs) {
   _mode1.scope = r'string';
   _mode1.begin = r"'(.|\\[xXuU][a-zA-Z0-9]+)'";
   _mode2.scope = r'string';
-  _mode2.contains = [
-    _mode3,
-    _mode4,
-    _mode6,
-  ];
-  _mode2.variants = [
-    _mode16,
-    _mode17,
-  ];
+  _mode2.contains = [_mode3, _mode4, _mode6];
+  _mode2.variants = [_mode16, _mode17];
   _mode3.begin = r'\\[\s\S]';
   _mode3.relevance = 0;
   _mode4.scope = r'subst';
@@ -320,11 +313,7 @@ Mode julia(Highlight hljs) {
     _mode15,
   ];
   _mode5.scope = r'string';
-  _mode5.contains = [
-    _mode3,
-    _mode4,
-    _mode6,
-  ];
+  _mode5.contains = [_mode3, _mode4, _mode6];
   _mode5.begin = r'`';
   _mode5.end = r'`';
   _mode6.scope = r'variable';
@@ -332,10 +321,7 @@ Mode julia(Highlight hljs) {
   _mode7.scope = r'meta';
   _mode7.begin = r'@[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*';
   _mode8.scope = r'comment';
-  _mode8.variants = [
-    _mode9,
-    _mode10,
-  ];
+  _mode8.variants = [_mode9, _mode10];
   _mode9.begin = r'#=';
   _mode9.end = r'=#';
   _mode9.relevance = 10;
@@ -344,10 +330,7 @@ Mode julia(Highlight hljs) {
   _mode11.scope = r'comment';
   _mode11.begin = r'#';
   _mode11.end = r'$';
-  _mode11.contains = [
-    _mode12,
-    _mode13,
-  ];
+  _mode11.contains = [_mode12, _mode13];
   _mode12.scope = r'doctag';
   _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';

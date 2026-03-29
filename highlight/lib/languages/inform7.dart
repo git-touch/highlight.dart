@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode inform7(Highlight hljs) {
   return Mode(
     name: r'Inform 7',
-    aliases: [
-      r'i7',
-    ],
+    aliases: [r'i7'],
     caseInsensitive: true,
     keywords: {
       r'keyword':
@@ -19,13 +17,7 @@ Mode inform7(Highlight hljs) {
         begin: r'"',
         end: r'"',
         relevance: 0,
-        contains: [
-          Mode(
-            scope: r'subst',
-            begin: r'\[',
-            end: r'\]',
-          ),
-        ],
+        contains: [Mode(scope: r'subst', begin: r'\[', end: r'\]')],
       ),
       Mode(
         scope: r'section',
@@ -36,21 +28,9 @@ Mode inform7(Highlight hljs) {
         begin:
             r'^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\b',
         end: r':',
-        contains: [
-          Mode(
-            begin: r'\(This',
-            end: r'\)',
-          ),
-        ],
+        contains: [Mode(begin: r'\(This', end: r'\)')],
       ),
-      Mode(
-        scope: r'comment',
-        begin: r'\[',
-        end: r'\]',
-        contains: [
-          r'self',
-        ],
-      ),
+      Mode(scope: r'comment', begin: r'\[', end: r'\]', contains: [r'self']),
     ],
   );
 }

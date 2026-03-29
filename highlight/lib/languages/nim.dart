@@ -79,10 +79,7 @@ Mode nim(Highlight hljs) {
         r'xor',
         r'yield',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-      ],
+      r'literal': [r'true', r'false'],
       r'type': [
         r'int',
         r'int8',
@@ -131,52 +128,25 @@ Mode nim(Highlight hljs) {
         r'cstringarray',
         r'semistatic',
       ],
-      r'built_in': [
-        r'stdin',
-        r'stdout',
-        r'stderr',
-        r'result',
-      ],
+      r'built_in': [r'stdin', r'stdout', r'stderr', r'result'],
     },
     contains: [
-      Mode(
-        scope: r'meta',
-        begin: r'\{\.',
-        end: r'\.\}',
-        relevance: 10,
-      ),
+      Mode(scope: r'meta', begin: r'\{\.', end: r'\.\}', relevance: 10),
       Mode(
         scope: r'string',
         begin: r'[a-zA-Z]\w*"',
         end: r'"',
-        contains: [
-          Mode(
-            begin: r'""',
-          ),
-        ],
+        contains: [Mode(begin: r'""')],
       ),
-      Mode(
-        scope: r'string',
-        begin: r'([a-zA-Z]\w*)?"""',
-        end: r'"""',
-      ),
+      Mode(scope: r'string', begin: r'([a-zA-Z]\w*)?"""', end: r'"""'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'type',
-        begin: r'\b[A-Z]\w+\b',
-        relevance: 0,
-      ),
+      Mode(scope: r'type', begin: r'\b[A-Z]\w+\b', relevance: 0),
       Mode(
         scope: r'number',
         relevance: 0,
@@ -184,15 +154,9 @@ Mode nim(Highlight hljs) {
           Mode(
             begin: r"\b(0[xX][0-9a-fA-F][_0-9a-fA-F]*)('?[iIuU](8|16|32|64))?",
           ),
-          Mode(
-            begin: r"\b(0o[0-7][_0-7]*)('?[iIuUfF](8|16|32|64))?",
-          ),
-          Mode(
-            begin: r"\b(0(b|B)[01][_01]*)('?[iIuUfF](8|16|32|64))?",
-          ),
-          Mode(
-            begin: r"\b(\d[_\d]*)('?[iIuUfF](8|16|32|64))?",
-          ),
+          Mode(begin: r"\b(0o[0-7][_0-7]*)('?[iIuUfF](8|16|32|64))?"),
+          Mode(begin: r"\b(0(b|B)[01][_01]*)('?[iIuUfF](8|16|32|64))?"),
+          Mode(begin: r"\b(\d[_\d]*)('?[iIuUfF](8|16|32|64))?"),
         ],
       ),
       Mode(

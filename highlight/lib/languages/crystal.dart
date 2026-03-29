@@ -74,10 +74,7 @@ Mode crystal(Highlight hljs) {
   final Mode _mode68 = Mode();
   final Mode _mode69 = Mode();
   _mode0.scope = r'template-variable';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.variants = [_mode1, _mode2];
   _mode0.keywords = {
     r'$pattern': r'[a-zA-Z_]\w*[!?=]?',
     r'keyword':
@@ -106,10 +103,7 @@ Mode crystal(Highlight hljs) {
   _mode2.begin = r'\{%';
   _mode2.end = r'%\}';
   _mode3.scope = r'string';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode3.variants = [
     _mode57,
     _mode58,
@@ -152,130 +146,74 @@ Mode crystal(Highlight hljs) {
     _mode51,
   ];
   _mode6.scope = r'string';
-  _mode6.variants = [
-    _mode7,
-    _mode9,
-    _mode11,
-    _mode13,
-    _mode15,
-    _mode16,
-  ];
+  _mode6.variants = [_mode7, _mode9, _mode11, _mode13, _mode15, _mode16];
   _mode6.relevance = 0;
   _mode7.begin = r'%q\(';
   _mode7.end = r'\)';
-  _mode7.contains = [
-    _mode8,
-  ];
+  _mode7.contains = [_mode8];
   _mode8.begin = r'\(';
   _mode8.end = r'\)';
-  _mode8.contains = [
-    r'self',
-  ];
+  _mode8.contains = [r'self'];
   _mode9.begin = r'%q\[';
   _mode9.end = r'\]';
-  _mode9.contains = [
-    _mode10,
-  ];
+  _mode9.contains = [_mode10];
   _mode10.begin = r'\[';
   _mode10.end = r'\]';
-  _mode10.contains = [
-    r'self',
-  ];
+  _mode10.contains = [r'self'];
   _mode11.begin = r'%q\{';
   _mode11.end = r'\}';
-  _mode11.contains = [
-    _mode12,
-  ];
+  _mode11.contains = [_mode12];
   _mode12.begin = r'\{';
   _mode12.end = r'\}';
-  _mode12.contains = [
-    r'self',
-  ];
+  _mode12.contains = [r'self'];
   _mode13.begin = r'%q<';
   _mode13.end = r'>';
-  _mode13.contains = [
-    _mode14,
-  ];
+  _mode13.contains = [_mode14];
   _mode14.begin = r'<';
   _mode14.end = r'>';
-  _mode14.contains = [
-    r'self',
-  ];
+  _mode14.contains = [r'self'];
   _mode15.begin = r'%q\|';
   _mode15.end = r'\|';
   _mode16.begin = r"<<-'\w+'$";
   _mode16.end = r'^\s*\w+$';
   _mode17.scope = r'regexp';
-  _mode17.contains = [
-    _mode4,
-    _mode5,
-  ];
-  _mode17.variants = [
-    _mode18,
-    _mode20,
-    _mode22,
-    _mode24,
-    _mode26,
-  ];
+  _mode17.contains = [_mode4, _mode5];
+  _mode17.variants = [_mode18, _mode20, _mode22, _mode24, _mode26];
   _mode17.relevance = 0;
   _mode18.begin = r'%r\(';
   _mode18.end = r'\)';
-  _mode18.contains = [
-    _mode19,
-  ];
+  _mode18.contains = [_mode19];
   _mode19.begin = r'\(';
   _mode19.end = r'\)';
-  _mode19.contains = [
-    r'self',
-  ];
+  _mode19.contains = [r'self'];
   _mode20.begin = r'%r\[';
   _mode20.end = r'\]';
-  _mode20.contains = [
-    _mode21,
-  ];
+  _mode20.contains = [_mode21];
   _mode21.begin = r'\[';
   _mode21.end = r'\]';
-  _mode21.contains = [
-    r'self',
-  ];
+  _mode21.contains = [r'self'];
   _mode22.begin = r'%r\{';
   _mode22.end = r'\}';
-  _mode22.contains = [
-    _mode23,
-  ];
+  _mode22.contains = [_mode23];
   _mode23.begin = r'\{';
   _mode23.end = r'\}';
-  _mode23.contains = [
-    r'self',
-  ];
+  _mode23.contains = [r'self'];
   _mode24.begin = r'%r<';
   _mode24.end = r'>';
-  _mode24.contains = [
-    _mode25,
-  ];
+  _mode24.contains = [_mode25];
   _mode25.begin = r'<';
   _mode25.end = r'>';
-  _mode25.contains = [
-    r'self',
-  ];
+  _mode25.contains = [r'self'];
   _mode26.begin = r'%r\|';
   _mode26.end = r'\|';
   _mode27.begin =
       r'(?!%\})(!|!=|!==|%|%=|&|&&|&=|\*|\*=|\+|\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\?|\[|\{|\(|\^|\^=|\||\|=|\|\||~|\n|\b(case|if|select|unless|until|when|while)\b)\s*';
   _mode27.keywords = r'case if select unless until when while';
-  _mode27.contains = [
-    _mode28,
-  ];
+  _mode27.contains = [_mode28];
   _mode27.relevance = 0;
   _mode28.scope = r'regexp';
-  _mode28.contains = [
-    _mode4,
-    _mode5,
-  ];
-  _mode28.variants = [
-    _mode29,
-    _mode30,
-  ];
+  _mode28.contains = [_mode4, _mode5];
+  _mode28.variants = [_mode29, _mode30];
   _mode29.begin = r'//[a-z]*';
   _mode29.relevance = 0;
   _mode30.begin = r'/(?!\/)';
@@ -283,25 +221,18 @@ Mode crystal(Highlight hljs) {
   _mode31.scope = r'meta';
   _mode31.begin = r'@\[';
   _mode31.end = r'\]';
-  _mode31.contains = [
-    _mode32,
-  ];
+  _mode31.contains = [_mode32];
   _mode32.scope = r'string';
   _mode32.begin = r'"';
   _mode32.end = r'"';
   _mode32.illegal = r'\n';
-  _mode32.contains = [
-    _mode4,
-  ];
+  _mode32.contains = [_mode4];
   _mode33.scope = r'variable';
   _mode33.begin = r"(\$\W)|((\$|@@?)(\w+))(?=[^@$?])(?![A-Za-z])(?![@$?'])";
   _mode34.scope = r'comment';
   _mode34.begin = r'#';
   _mode34.end = r'$';
-  _mode34.contains = [
-    _mode35,
-    _mode36,
-  ];
+  _mode34.contains = [_mode35, _mode36];
   _mode35.scope = r'doctag';
   _mode35.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode35.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -313,11 +244,7 @@ Mode crystal(Highlight hljs) {
   _mode37.beginKeywords = r'class module struct';
   _mode37.end = r'$|;';
   _mode37.illegal = r'=';
-  _mode37.contains = [
-    _mode34,
-    _mode38,
-    _mode39,
-  ];
+  _mode37.contains = [_mode34, _mode38, _mode39];
   _mode38.scope = r'title';
   _mode38.begin = r'[A-Za-z_]\w*(::\w+)*(\?|!)?';
   _mode38.relevance = 0;
@@ -326,20 +253,14 @@ Mode crystal(Highlight hljs) {
   _mode40.beginKeywords = r'lib enum union';
   _mode40.end = r'$|;';
   _mode40.illegal = r'=';
-  _mode40.contains = [
-    _mode34,
-    _mode41,
-  ];
+  _mode40.contains = [_mode34, _mode41];
   _mode41.scope = r'title';
   _mode41.begin = r'[A-Za-z_]\w*(::\w+)*(\?|!)?';
   _mode41.relevance = 0;
   _mode42.beginKeywords = r'annotation';
   _mode42.end = r'$|;';
   _mode42.illegal = r'=';
-  _mode42.contains = [
-    _mode34,
-    _mode43,
-  ];
+  _mode42.contains = [_mode34, _mode43];
   _mode42.relevance = 2;
   _mode43.scope = r'title';
   _mode43.begin = r'[A-Za-z_]\w*(::\w+)*(\?|!)?';
@@ -347,9 +268,7 @@ Mode crystal(Highlight hljs) {
   _mode44.scope = r'function';
   _mode44.beginKeywords = r'def';
   _mode44.end = r'\B\b';
-  _mode44.contains = [
-    _mode45,
-  ];
+  _mode44.contains = [_mode45];
   _mode45.scope = r'title';
   _mode45.begin =
       r'[a-zA-Z_]\w*[!?=]?|[-+~]@|<<|>>|[=!]~|===?|<=>|[<>]=?|\*\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\*\*|\[\][=?]?';
@@ -358,9 +277,7 @@ Mode crystal(Highlight hljs) {
   _mode46.scope = r'function';
   _mode46.beginKeywords = r'fun macro';
   _mode46.end = r'\B\b';
-  _mode46.contains = [
-    _mode47,
-  ];
+  _mode46.contains = [_mode47];
   _mode46.relevance = 2;
   _mode47.scope = r'title';
   _mode47.begin =
@@ -372,21 +289,12 @@ Mode crystal(Highlight hljs) {
   _mode48.relevance = 0;
   _mode49.scope = r'symbol';
   _mode49.begin = r':';
-  _mode49.contains = [
-    _mode3,
-    _mode50,
-  ];
+  _mode49.contains = [_mode3, _mode50];
   _mode49.relevance = 0;
   _mode50.begin =
       r'[a-zA-Z_]\w*[!?=]?|[-+~]@|<<|>>|[=!]~|===?|<=>|[<>]=?|\*\*|[-/+%^&*~|]|//|//=|&[-+*]=?|&\*\*|\[\][=?]?';
   _mode51.scope = r'number';
-  _mode51.variants = [
-    _mode52,
-    _mode53,
-    _mode54,
-    _mode55,
-    _mode56,
-  ];
+  _mode51.variants = [_mode52, _mode53, _mode54, _mode55, _mode56];
   _mode51.relevance = 0;
   _mode52.begin = r'\b0b([01_]+)(_?[ui](8|16|32|64|128))?';
   _mode53.begin = r'\b0o([0-7_]+)(_?[ui](8|16|32|64|128))?';
@@ -402,53 +310,35 @@ Mode crystal(Highlight hljs) {
   _mode59.end = r'`';
   _mode60.begin = r'%[Qwi]?\(';
   _mode60.end = r'\)';
-  _mode60.contains = [
-    _mode61,
-  ];
+  _mode60.contains = [_mode61];
   _mode61.begin = r'\(';
   _mode61.end = r'\)';
-  _mode61.contains = [
-    r'self',
-  ];
+  _mode61.contains = [r'self'];
   _mode62.begin = r'%[Qwi]?\[';
   _mode62.end = r'\]';
-  _mode62.contains = [
-    _mode63,
-  ];
+  _mode62.contains = [_mode63];
   _mode63.begin = r'\[';
   _mode63.end = r'\]';
-  _mode63.contains = [
-    r'self',
-  ];
+  _mode63.contains = [r'self'];
   _mode64.begin = r'%[Qwi]?\{';
   _mode64.end = r'\}';
-  _mode64.contains = [
-    _mode65,
-  ];
+  _mode64.contains = [_mode65];
   _mode65.begin = r'\{';
   _mode65.end = r'\}';
-  _mode65.contains = [
-    r'self',
-  ];
+  _mode65.contains = [r'self'];
   _mode66.begin = r'%[Qwi]?<';
   _mode66.end = r'>';
-  _mode66.contains = [
-    _mode67,
-  ];
+  _mode66.contains = [_mode67];
   _mode67.begin = r'<';
   _mode67.end = r'>';
-  _mode67.contains = [
-    r'self',
-  ];
+  _mode67.contains = [r'self'];
   _mode68.begin = r'%[Qwi]?\|';
   _mode68.end = r'\|';
   _mode69.begin = r'<<-\w+$';
   _mode69.end = r'^\s*\w+$';
   return Mode(
     name: r'Crystal',
-    aliases: [
-      r'cr',
-    ],
+    aliases: [r'cr'],
     keywords: {
       r'$pattern': r'[a-zA-Z_]\w*[!?=]?',
       r'keyword':

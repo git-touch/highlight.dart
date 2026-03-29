@@ -13,10 +13,7 @@ Mode css(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'/\*';
   _mode0.end = r'\*/';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -32,39 +29,25 @@ Mode css(Highlight hljs) {
   _mode4.begin = r"'";
   _mode4.end = r"'";
   _mode4.illegal = r'\n';
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.scope = r'string';
   _mode6.begin = r'"';
   _mode6.end = r'"';
   _mode6.illegal = r'\n';
-  _mode6.contains = [
-    _mode5,
-  ];
+  _mode6.contains = [_mode5];
   return Mode(
     name: r'CSS',
     caseInsensitive: true,
     illegal: r"[=|'\$]",
-    keywords: {
-      r'keyframePosition': r'from to',
-    },
-    classNameAliases: {
-      r'keyframePosition': r'selector-tag',
-    },
+    keywords: {r'keyframePosition': r'from to'},
+    classNameAliases: {r'keyframePosition': r'selector-tag'},
     contains: [
       _mode0,
-      Mode(
-        begin: r'-(webkit|moz|ms|o)-(?=[a-z])',
-      ),
+      Mode(begin: r'-(webkit|moz|ms|o)-(?=[a-z])'),
       _mode3,
-      Mode(
-        scope: r'selector-id',
-        begin: r'#[A-Za-z0-9_-]+',
-        relevance: 0,
-      ),
+      Mode(scope: r'selector-id', begin: r'#[A-Za-z0-9_-]+', relevance: 0),
       Mode(
         scope: r'selector-class',
         begin: r'\.[a-zA-Z-][a-zA-Z0-9_-]*',
@@ -75,10 +58,7 @@ Mode css(Highlight hljs) {
         begin: r'\[',
         end: r'\]',
         illegal: r'$',
-        contains: [
-          _mode4,
-          _mode6,
-        ],
+        contains: [_mode4, _mode6],
       ),
       Mode(
         scope: r'selector-pseudo',
@@ -93,10 +73,7 @@ Mode css(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'attr',
-        begin: r'--[A-Za-z_][A-Za-z0-9_-]*',
-      ),
+      Mode(scope: r'attr', begin: r'--[A-Za-z_][A-Za-z0-9_-]*'),
       Mode(
         scope: r'attribute',
         begin:
@@ -111,10 +88,7 @@ Mode css(Highlight hljs) {
             scope: r'number',
             begin: r'#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b',
           ),
-          Mode(
-            scope: r'meta',
-            begin: r'!important',
-          ),
+          Mode(scope: r'meta', begin: r'!important'),
           _mode3,
           _mode4,
           _mode6,
@@ -122,9 +96,7 @@ Mode css(Highlight hljs) {
             begin: r'(url|data-uri)\(',
             end: r'\)',
             relevance: 0,
-            keywords: {
-              r'built_in': r'url data-uri',
-            },
+            keywords: {r'built_in': r'url data-uri'},
             contains: [
               _mode4,
               _mode6,
@@ -136,10 +108,7 @@ Mode css(Highlight hljs) {
               ),
             ],
           ),
-          Mode(
-            scope: r'built_in',
-            begin: r'[\w-]+(?=\()',
-          ),
+          Mode(scope: r'built_in', begin: r'[\w-]+(?=\()'),
         ],
       ),
       Mode(
@@ -148,10 +117,7 @@ Mode css(Highlight hljs) {
         relevance: 0,
         illegal: r':',
         contains: [
-          Mode(
-            scope: r'keyword',
-            begin: r'@-?\w[\w]*(-\w+)*',
-          ),
+          Mode(scope: r'keyword', begin: r'@-?\w[\w]*(-\w+)*'),
           Mode(
             begin: r'\s',
             endsWithParent: true,
@@ -164,10 +130,7 @@ Mode css(Highlight hljs) {
                   r'width update scripting scan resolution prefers-reduced-transparency prefers-reduced-motion prefers-contrast prefers-color-scheme pointer overflow-inline overflow-block orientation monochrome min-width min-height max-width max-height inverted-colors hover height grid forced-colors display-mode device-width device-height device-aspect-ratio color-index color-gamut color aspect-ratio any-pointer any-hover',
             },
             contains: [
-              Mode(
-                begin: r'[a-z-]+(?=:)',
-                scope: r'attribute',
-              ),
+              Mode(begin: r'[a-z-]+(?=:)', scope: r'attribute'),
               _mode4,
               _mode6,
               _mode3,

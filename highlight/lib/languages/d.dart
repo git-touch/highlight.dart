@@ -87,22 +87,9 @@ Mode d(Highlight hljs) {
         ],
         end: r'"[cwd]?',
       ),
-      Mode(
-        scope: r'string',
-        begin: r'[rq]"',
-        end: r'"[cwd]?',
-        relevance: 5,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'`',
-        end: r'`[cwd]?',
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'q"\{',
-        end: r'\}"',
-      ),
+      Mode(scope: r'string', begin: r'[rq]"', end: r'"[cwd]?', relevance: 5),
+      Mode(scope: r'string', begin: r'`', end: r'`[cwd]?'),
+      Mode(scope: r'string', begin: r'q"\{', end: r'\}"'),
       Mode(
         scope: r'number',
         begin:
@@ -122,22 +109,9 @@ Mode d(Highlight hljs) {
         end: r"'",
         illegal: r'.',
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'^#!',
-        end: r'$',
-        relevance: 5,
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'#(line)',
-        end: r'$',
-        relevance: 5,
-      ),
-      Mode(
-        scope: r'keyword',
-        begin: r'@[a-zA-Z_][a-zA-Z_\d]*',
-      ),
+      Mode(scope: r'meta', begin: r'^#!', end: r'$', relevance: 5),
+      Mode(scope: r'meta', begin: r'#(line)', end: r'$', relevance: 5),
+      Mode(scope: r'keyword', begin: r'@[a-zA-Z_][a-zA-Z_\d]*'),
     ],
   );
 }

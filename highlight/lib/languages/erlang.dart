@@ -57,10 +57,7 @@ Mode erlang(Highlight hljs) {
   _mode1.scope = r'comment';
   _mode1.begin = r'%';
   _mode1.end = r'$';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -96,9 +93,7 @@ Mode erlang(Highlight hljs) {
   _mode6.begin = r"'";
   _mode6.end = r"'";
   _mode6.illegal = r'\n';
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.begin = r'\\[\s\S]';
   _mode7.relevance = 0;
   _mode8.begin =
@@ -106,10 +101,7 @@ Mode erlang(Highlight hljs) {
   _mode8.end = r'\)';
   _mode8.returnBegin = true;
   _mode8.relevance = 0;
-  _mode8.contains = [
-    _mode9,
-    _mode10,
-  ];
+  _mode8.contains = [_mode9, _mode10];
   _mode9.begin =
       r"([a-z'][a-zA-Z0-9_']*:[a-z'][a-zA-Z0-9_']*|[a-z'][a-zA-Z0-9_']*)";
   _mode9.relevance = 0;
@@ -134,9 +126,7 @@ Mode erlang(Highlight hljs) {
     _mode32,
   ];
   _mode11.scope = r'string';
-  _mode11.contains = [
-    _mode7,
-  ];
+  _mode11.contains = [_mode7];
   _mode11.variants = [
     _mode12,
     _mode13,
@@ -177,9 +167,7 @@ Mode erlang(Highlight hljs) {
   _mode24.begin = r'"';
   _mode24.end = r'"';
   _mode24.illegal = r'\n';
-  _mode24.contains = [
-    _mode7,
-  ];
+  _mode24.contains = [_mode7];
   _mode25.scope = r'number';
   _mode25.begin =
       r'\b(\d+(_\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\d+(_\d+)*(\.\d+(_\d+)*)?([eE][-+]?\d+)?)';
@@ -209,10 +197,7 @@ Mode erlang(Highlight hljs) {
   _mode29.begin = r'#[a-zA-Z_]\w*';
   _mode29.relevance = 0;
   _mode29.returnBegin = true;
-  _mode29.contains = [
-    _mode30,
-    _mode31,
-  ];
+  _mode29.contains = [_mode30, _mode31];
   _mode30.begin = r'#[a-zA-Z_]\w*';
   _mode30.relevance = 0;
   _mode31.begin = r'\{';
@@ -237,9 +222,7 @@ Mode erlang(Highlight hljs) {
   _mode32.match = r'\$(\\([^0-9]|[0-9]{1,3}|)|.)';
   return Mode(
     name: r'Erlang',
-    aliases: [
-      r'erl',
-    ],
+    aliases: [r'erl'],
     keywords: {
       r'keyword':
           r'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if let not of orelse|10 query receive rem try when xor maybe else',
@@ -255,11 +238,7 @@ Mode erlang(Highlight hljs) {
         illegal: r'\(|#|//|/\*|\\|:|;',
         contains: [
           _mode0,
-          Mode(
-            scope: r'title',
-            begin: r"[a-z'][a-zA-Z0-9_']*",
-            relevance: 0,
-          ),
+          Mode(scope: r'title', begin: r"[a-z'][a-zA-Z0-9_']*", relevance: 0),
         ],
         starts: Mode(
           end: r';|\.',
@@ -297,12 +276,7 @@ Mode erlang(Highlight hljs) {
           r'keyword':
               r'-module|1.5 -record|1.5 -undef|1.5 -export|1.5 -ifdef|1.5 -ifndef|1.5 -author|1.5 -copyright|1.5 -doc|1.5 -moduledoc|1.5 -vsn|1.5 -import|1.5 -include|1.5 -include_lib|1.5 -compile|1.5 -define|1.5 -else|1.5 -endif|1.5 -file|1.5 -behaviour|1.5 -behavior|1.5 -spec|1.5 -on_load|1.5 -nifs|1.5',
         },
-        contains: [
-          _mode0,
-          _mode11,
-          _mode23,
-          _mode24,
-        ],
+        contains: [_mode0, _mode11, _mode23, _mode24],
       ),
       _mode25,
       _mode11,
@@ -313,9 +287,7 @@ Mode erlang(Highlight hljs) {
       _mode28,
       _mode26,
       _mode32,
-      Mode(
-        begin: r'\.$',
-      ),
+      Mode(begin: r'\.$'),
     ],
   );
 }

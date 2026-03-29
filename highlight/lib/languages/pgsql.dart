@@ -5,10 +5,7 @@ import '../highlight_core.dart';
 Mode pgsql(Highlight hljs) {
   return Mode(
     name: r'PostgreSQL',
-    aliases: [
-      r'postgres',
-      r'postgresql',
-    ],
+    aliases: [r'postgres', r'postgresql'],
     supersetOf: r'sql',
     caseInsensitive: true,
     keywords: {
@@ -22,128 +19,52 @@ Mode pgsql(Highlight hljs) {
       Mode(
         scope: r'keyword',
         variants: [
-          Mode(
-            begin: r'\bTEXT\s*SEARCH\b',
-          ),
-          Mode(
-            begin: r'\b(PRIMARY|FOREIGN|FOR(\s+NO)?)\s+KEY\b',
-          ),
-          Mode(
-            begin: r'\bPARALLEL\s+(UNSAFE|RESTRICTED|SAFE)\b',
-          ),
-          Mode(
-            begin: r'\bSTORAGE\s+(PLAIN|EXTERNAL|EXTENDED|MAIN)\b',
-          ),
-          Mode(
-            begin: r'\bMATCH\s+(FULL|PARTIAL|SIMPLE)\b',
-          ),
-          Mode(
-            begin: r'\bNULLS\s+(FIRST|LAST)\b',
-          ),
-          Mode(
-            begin: r'\bEVENT\s+TRIGGER\b',
-          ),
-          Mode(
-            begin: r'\b(MAPPING|OR)\s+REPLACE\b',
-          ),
-          Mode(
-            begin: r'\b(FROM|TO)\s+(PROGRAM|STDIN|STDOUT)\b',
-          ),
-          Mode(
-            begin: r'\b(SHARE|EXCLUSIVE)\s+MODE\b',
-          ),
-          Mode(
-            begin: r'\b(LEFT|RIGHT)\s+(OUTER\s+)?JOIN\b',
-          ),
+          Mode(begin: r'\bTEXT\s*SEARCH\b'),
+          Mode(begin: r'\b(PRIMARY|FOREIGN|FOR(\s+NO)?)\s+KEY\b'),
+          Mode(begin: r'\bPARALLEL\s+(UNSAFE|RESTRICTED|SAFE)\b'),
+          Mode(begin: r'\bSTORAGE\s+(PLAIN|EXTERNAL|EXTENDED|MAIN)\b'),
+          Mode(begin: r'\bMATCH\s+(FULL|PARTIAL|SIMPLE)\b'),
+          Mode(begin: r'\bNULLS\s+(FIRST|LAST)\b'),
+          Mode(begin: r'\bEVENT\s+TRIGGER\b'),
+          Mode(begin: r'\b(MAPPING|OR)\s+REPLACE\b'),
+          Mode(begin: r'\b(FROM|TO)\s+(PROGRAM|STDIN|STDOUT)\b'),
+          Mode(begin: r'\b(SHARE|EXCLUSIVE)\s+MODE\b'),
+          Mode(begin: r'\b(LEFT|RIGHT)\s+(OUTER\s+)?JOIN\b'),
           Mode(
             begin:
                 r'\b(FETCH|MOVE)\s+(NEXT|PRIOR|FIRST|LAST|ABSOLUTE|RELATIVE|FORWARD|BACKWARD)\b',
           ),
-          Mode(
-            begin: r'\bPRESERVE\s+ROWS\b',
-          ),
-          Mode(
-            begin: r'\bDISCARD\s+PLANS\b',
-          ),
-          Mode(
-            begin: r'\bREFERENCING\s+(OLD|NEW)\b',
-          ),
-          Mode(
-            begin: r'\bSKIP\s+LOCKED\b',
-          ),
-          Mode(
-            begin: r'\bGROUPING\s+SETS\b',
-          ),
+          Mode(begin: r'\bPRESERVE\s+ROWS\b'),
+          Mode(begin: r'\bDISCARD\s+PLANS\b'),
+          Mode(begin: r'\bREFERENCING\s+(OLD|NEW)\b'),
+          Mode(begin: r'\bSKIP\s+LOCKED\b'),
+          Mode(begin: r'\bGROUPING\s+SETS\b'),
           Mode(
             begin:
                 r'\b(BINARY|INSENSITIVE|SCROLL|NO\s+SCROLL)\s+(CURSOR|FOR)\b',
           ),
-          Mode(
-            begin: r'\b(WITH|WITHOUT)\s+HOLD\b',
-          ),
-          Mode(
-            begin: r'\bWITH\s+(CASCADED|LOCAL)\s+CHECK\s+OPTION\b',
-          ),
-          Mode(
-            begin: r'\bEXCLUDE\s+(TIES|NO\s+OTHERS)\b',
-          ),
-          Mode(
-            begin: r'\bFORMAT\s+(TEXT|XML|JSON|YAML)\b',
-          ),
-          Mode(
-            begin: r'\bSET\s+((SESSION|LOCAL)\s+)?NAMES\b',
-          ),
-          Mode(
-            begin: r'\bIS\s+(NOT\s+)?UNKNOWN\b',
-          ),
-          Mode(
-            begin: r'\bSECURITY\s+LABEL\b',
-          ),
-          Mode(
-            begin: r'\bSTANDALONE\s+(YES|NO|NO\s+VALUE)\b',
-          ),
-          Mode(
-            begin: r'\bWITH\s+(NO\s+)?DATA\b',
-          ),
-          Mode(
-            begin: r'\b(FOREIGN|SET)\s+DATA\b',
-          ),
-          Mode(
-            begin: r'\bSET\s+(CATALOG|CONSTRAINTS)\b',
-          ),
-          Mode(
-            begin: r'\b(WITH|FOR)\s+ORDINALITY\b',
-          ),
-          Mode(
-            begin: r'\bIS\s+(NOT\s+)?DOCUMENT\b',
-          ),
-          Mode(
-            begin: r'\bXML\s+OPTION\s+(DOCUMENT|CONTENT)\b',
-          ),
-          Mode(
-            begin: r'\b(STRIP|PRESERVE)\s+WHITESPACE\b',
-          ),
-          Mode(
-            begin: r'\bNO\s+(ACTION|MAXVALUE|MINVALUE)\b',
-          ),
-          Mode(
-            begin: r'\bPARTITION\s+BY\s+(RANGE|LIST|HASH)\b',
-          ),
-          Mode(
-            begin: r'\bAT\s+TIME\s+ZONE\b',
-          ),
-          Mode(
-            begin: r'\bGRANTED\s+BY\b',
-          ),
-          Mode(
-            begin: r'\bRETURN\s+(QUERY|NEXT)\b',
-          ),
-          Mode(
-            begin: r'\b(ATTACH|DETACH)\s+PARTITION\b',
-          ),
-          Mode(
-            begin: r'\bFORCE\s+ROW\s+LEVEL\s+SECURITY\b',
-          ),
+          Mode(begin: r'\b(WITH|WITHOUT)\s+HOLD\b'),
+          Mode(begin: r'\bWITH\s+(CASCADED|LOCAL)\s+CHECK\s+OPTION\b'),
+          Mode(begin: r'\bEXCLUDE\s+(TIES|NO\s+OTHERS)\b'),
+          Mode(begin: r'\bFORMAT\s+(TEXT|XML|JSON|YAML)\b'),
+          Mode(begin: r'\bSET\s+((SESSION|LOCAL)\s+)?NAMES\b'),
+          Mode(begin: r'\bIS\s+(NOT\s+)?UNKNOWN\b'),
+          Mode(begin: r'\bSECURITY\s+LABEL\b'),
+          Mode(begin: r'\bSTANDALONE\s+(YES|NO|NO\s+VALUE)\b'),
+          Mode(begin: r'\bWITH\s+(NO\s+)?DATA\b'),
+          Mode(begin: r'\b(FOREIGN|SET)\s+DATA\b'),
+          Mode(begin: r'\bSET\s+(CATALOG|CONSTRAINTS)\b'),
+          Mode(begin: r'\b(WITH|FOR)\s+ORDINALITY\b'),
+          Mode(begin: r'\bIS\s+(NOT\s+)?DOCUMENT\b'),
+          Mode(begin: r'\bXML\s+OPTION\s+(DOCUMENT|CONTENT)\b'),
+          Mode(begin: r'\b(STRIP|PRESERVE)\s+WHITESPACE\b'),
+          Mode(begin: r'\bNO\s+(ACTION|MAXVALUE|MINVALUE)\b'),
+          Mode(begin: r'\bPARTITION\s+BY\s+(RANGE|LIST|HASH)\b'),
+          Mode(begin: r'\bAT\s+TIME\s+ZONE\b'),
+          Mode(begin: r'\bGRANTED\s+BY\b'),
+          Mode(begin: r'\bRETURN\s+(QUERY|NEXT)\b'),
+          Mode(begin: r'\b(ATTACH|DETACH)\s+PARTITION\b'),
+          Mode(begin: r'\bFORCE\s+ROW\s+LEVEL\s+SECURITY\b'),
           Mode(
             begin:
                 r'\b(INCLUDING|EXCLUDING)\s+(COMMENTS|CONSTRAINTS|DEFAULTS|IDENTITY|INDEXES|STATISTICS|STORAGE|ALL)\b',
@@ -154,24 +75,14 @@ Mode pgsql(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        begin: r'\b(FORMAT|FAMILY|VERSION)\s*\(',
-      ),
-      Mode(
-        begin: r'\bINCLUDE\s*\(',
-        keywords: r'INCLUDE',
-      ),
-      Mode(
-        begin: r'\bRANGE(?!\s*(BETWEEN|UNBOUNDED|CURRENT|[-0-9]+))',
-      ),
+      Mode(begin: r'\b(FORMAT|FAMILY|VERSION)\s*\('),
+      Mode(begin: r'\bINCLUDE\s*\(', keywords: r'INCLUDE'),
+      Mode(begin: r'\bRANGE(?!\s*(BETWEEN|UNBOUNDED|CURRENT|[-0-9]+))'),
       Mode(
         begin:
             r'\b(VERSION|OWNER|TEMPLATE|TABLESPACE|CONNECTION\s+LIMIT|PROCEDURE|RESTRICT|JOIN|PARSER|COPY|START|END|COLLATION|INPUT|ANALYZE|STORAGE|LIKE|DEFAULT|DELIMITER|ENCODING|COLUMN|CONSTRAINT|TABLE|SCHEMA)\s*=',
       ),
-      Mode(
-        begin: r'\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b',
-        relevance: 10,
-      ),
+      Mode(begin: r'\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b', relevance: 10),
       Mode(
         begin: r'\bEXTRACT\s*\(',
         end: r'\bFROM\b',
@@ -183,15 +94,11 @@ Mode pgsql(Highlight hljs) {
       ),
       Mode(
         begin: r'\b(XMLELEMENT|XMLPI)\s*\(\s*NAME',
-        keywords: {
-          r'keyword': r'NAME',
-        },
+        keywords: {r'keyword': r'NAME'},
       ),
       Mode(
         begin: r'\b(XMLPARSE|XMLSERIALIZE)\s*\(\s*(DOCUMENT|CONTENT)',
-        keywords: {
-          r'keyword': r'DOCUMENT CONTENT',
-        },
+        keywords: {r'keyword': r'DOCUMENT CONTENT'},
       ),
       Mode(
         beginKeywords: r'CACHE INCREMENT MAXVALUE MINVALUE',
@@ -199,10 +106,7 @@ Mode pgsql(Highlight hljs) {
         returnEnd: true,
         keywords: r'BY CACHE INCREMENT MAXVALUE MINVALUE',
       ),
-      Mode(
-        scope: r'type',
-        begin: r'\b(WITH|WITHOUT)\s+TIME\s+ZONE\b',
-      ),
+      Mode(scope: r'type', begin: r'\b(WITH|WITHOUT)\s+TIME\s+ZONE\b'),
       Mode(
         scope: r'type',
         begin:
@@ -243,21 +147,13 @@ Mode pgsql(Highlight hljs) {
         scope: r'string',
         begin: r"'",
         end: r"'",
-        contains: [
-          Mode(
-            begin: r"''",
-          ),
-        ],
+        contains: [Mode(begin: r"''")],
       ),
       Mode(
         scope: r'string',
         begin: r"(e|E|u&|U&)'",
         end: r"'",
-        contains: [
-          Mode(
-            begin: r'\\.',
-          ),
-        ],
+        contains: [Mode(begin: r'\\.')],
         relevance: 10,
       ),
       hljs.END_SAME_AS_BEGIN(
@@ -289,11 +185,7 @@ Mode pgsql(Highlight hljs) {
       Mode(
         begin: r'"',
         end: r'"',
-        contains: [
-          Mode(
-            begin: r'""',
-          ),
-        ],
+        contains: [Mode(begin: r'""')],
       ),
       Mode(
         scope: r'number',
@@ -340,17 +232,9 @@ Mode pgsql(Highlight hljs) {
       Mode(
         scope: r'meta',
         variants: [
-          Mode(
-            begin: r'%(ROW)?TYPE',
-            relevance: 10,
-          ),
-          Mode(
-            begin: r'\$\d+',
-          ),
-          Mode(
-            begin: r'^#\w',
-            end: r'$',
-          ),
+          Mode(begin: r'%(ROW)?TYPE', relevance: 10),
+          Mode(begin: r'\$\d+'),
+          Mode(begin: r'^#\w', end: r'$'),
         ],
       ),
       Mode(

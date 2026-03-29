@@ -16,65 +16,33 @@ Mode awk(Highlight hljs) {
       Mode(
         scope: r'variable',
         variants: [
-          Mode(
-            begin: r'\$[\w\d#@][\w\d_]*',
-          ),
-          Mode(
-            begin: r'\$\{(.*?)\}',
-          ),
+          Mode(begin: r'\$[\w\d#@][\w\d_]*'),
+          Mode(begin: r'\$\{(.*?)\}'),
         ],
       ),
       Mode(
         scope: r'string',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         variants: [
-          Mode(
-            begin: r"(u|b)?r?'''",
-            end: r"'''",
-            relevance: 10,
-          ),
-          Mode(
-            begin: r'(u|b)?r?"""',
-            end: r'"""',
-            relevance: 10,
-          ),
-          Mode(
-            begin: r"(u|r|ur)'",
-            end: r"'",
-            relevance: 10,
-          ),
-          Mode(
-            begin: r'(u|r|ur)"',
-            end: r'"',
-            relevance: 10,
-          ),
-          Mode(
-            begin: r"(b|br)'",
-            end: r"'",
-          ),
-          Mode(
-            begin: r'(b|br)"',
-            end: r'"',
-          ),
+          Mode(begin: r"(u|b)?r?'''", end: r"'''", relevance: 10),
+          Mode(begin: r'(u|b)?r?"""', end: r'"""', relevance: 10),
+          Mode(begin: r"(u|r|ur)'", end: r"'", relevance: 10),
+          Mode(begin: r'(u|r|ur)"', end: r'"', relevance: 10),
+          Mode(begin: r"(b|br)'", end: r"'"),
+          Mode(begin: r'(b|br)"', end: r'"'),
           Mode(
             scope: r'string',
             begin: r"'",
             end: r"'",
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
         ],
       ),
@@ -84,14 +52,7 @@ Mode awk(Highlight hljs) {
         end: r'\/[gimuy]*',
         contains: [
           _mode0,
-          Mode(
-            begin: r'\[',
-            end: r'\]',
-            relevance: 0,
-            contains: [
-              _mode0,
-            ],
-          ),
+          Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [_mode0]),
         ],
       ),
       Mode(
@@ -112,11 +73,7 @@ Mode awk(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
     ],
   );
 }

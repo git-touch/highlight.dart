@@ -30,9 +30,12 @@ class MultiRegex {
     }
     final terminators = regexes.map((el) => el[1] as RegExp).toList();
     matcherRe = langRe(
-        regex.rewriteBackreferences(terminators.map((t) => t.pattern).toList(),
-            joinWith: '|'),
-        true);
+      regex.rewriteBackreferences(
+        terminators.map((t) => t.pattern).toList(),
+        joinWith: '|',
+      ),
+      true,
+    );
     lastIndex = 0;
   }
 
@@ -42,8 +45,9 @@ class MultiRegex {
       if (lastIndex > s.length) return null;
     }
 
-    final startIdx =
-        lastIndex < 0 ? 0 : (lastIndex > s.length ? s.length : lastIndex);
+    final startIdx = lastIndex < 0
+        ? 0
+        : (lastIndex > s.length ? s.length : lastIndex);
     Iterable<RegExpMatch> allMatches;
     try {
       allMatches = matcherRe!.allMatches(s, startIdx);
@@ -148,7 +152,9 @@ class ResumableMultiRegex {
 }
 
 ResumableMultiRegex buildModeRegex(
-    Mode mode, RegExp Function(String, bool) langRe) {
+  Mode mode,
+  RegExp Function(String, bool) langRe,
+) {
   final mm = ResumableMultiRegex(langRe);
 
   final contains = mode.contains ?? [];
@@ -200,10 +206,12 @@ Mode compileLanguage(Mode language) {
   RegExp langRe(String value, bool global) {
     final caseInsensitive = language.caseInsensitive == true;
     final unicodeRegex = language.unicodeRegex == true;
-    return RegExp(value,
-        multiLine: true,
-        caseSensitive: !caseInsensitive,
-        unicode: unicodeRegex);
+    return RegExp(
+      value,
+      multiLine: true,
+      caseSensitive: !caseInsensitive,
+      unicode: unicodeRegex,
+    );
   }
 
   Mode compileMode(Mode mode, Mode? parent) {
@@ -242,8 +250,10 @@ Mode compileLanguage(Mode language) {
     keywordPattern ??= r'\w+';
 
     if (mode.keywords != null) {
-      mode.compiledKeywords =
-          compileKeywords(mode.keywords, language.caseInsensitive == true);
+      mode.compiledKeywords = compileKeywords(
+        mode.keywords,
+        language.caseInsensitive == true,
+      );
     }
 
     mode.keywordPatternRe = langRe(keywordPattern, true);
@@ -316,11 +326,13 @@ Mode compileLanguage(Mode language) {
 
   if (language.contains != null && language.contains!.contains('self')) {
     throw StateError(
-        'ERR: contains `self` is not supported at the top-level of a language.');
+      'ERR: contains `self` is not supported at the top-level of a language.',
+    );
   }
 
-  language.classNameAliases =
-      Map<String, String>.from(language.classNameAliases ?? {});
+  language.classNameAliases = Map<String, String>.from(
+    language.classNameAliases ?? {},
+  );
 
   return compileMode(language, null);
 }

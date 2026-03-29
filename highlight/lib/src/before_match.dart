@@ -47,14 +47,13 @@ void beforeMatchExt(Mode mode, Mode? parent) {
   // Set the transformed fields
   mode.keywords = originalMode.keywords;
   mode.begin = regex.concat(
-      originalMode.beforeMatch, regex.lookahead(originalMode.begin));
+    originalMode.beforeMatch,
+    regex.lookahead(originalMode.begin),
+  );
 
   final childMode = originalMode.shallowCopy()
     ..endsParent = true
     ..beforeMatch = null;
-  mode.starts = Mode(
-    relevance: 0,
-    contains: [childMode],
-  );
+  mode.starts = Mode(relevance: 0, contains: [childMode]);
   mode.relevance = 0;
 }

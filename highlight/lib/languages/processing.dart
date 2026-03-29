@@ -8,9 +8,7 @@ Mode processing(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Processing',
-    aliases: [
-      r'pde',
-    ],
+    aliases: [r'pde'],
     keywords: {
       r'keyword': [
         r'abstract',
@@ -365,13 +363,7 @@ Mode processing(Highlight hljs) {
               r'[a-zA-Z]\w*',
             ],
           ),
-          Mode(
-            match: [
-              r'class',
-              r'\s+',
-              r'[a-zA-Z]\w*',
-            ],
-          ),
+          Mode(match: [r'class', r'\s+', r'[a-zA-Z]\w*']),
         ],
         scope: {
           1: r'keyword',
@@ -381,14 +373,8 @@ Mode processing(Highlight hljs) {
         },
       ),
       Mode(
-        match: [
-          r'new\s+',
-          r'[a-zA-Z]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          2: r'class.title',
-        },
+        match: [r'new\s+', r'[a-zA-Z]\w*'],
+        scope: {1: r'keyword', 2: r'class.title'},
       ),
       Mode(
         variants: [
@@ -406,13 +392,8 @@ Mode processing(Highlight hljs) {
       ),
       Mode(
         relevance: 0,
-        match: [
-          r'\.',
-          r'[a-zA-Z]\w*',
-        ],
-        scope: {
-          2: r'property',
-        },
+        match: [r'\.', r'[a-zA-Z]\w*'],
+        scope: {2: r'property'},
       ),
       Mode(
         scope: r'comment',
@@ -455,18 +436,14 @@ Mode processing(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',

@@ -21,9 +21,7 @@ Mode gcode(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'G-code (ISO 6983)',
-    aliases: [
-      r'nc',
-    ],
+    aliases: [r'nc'],
     caseInsensitive: true,
     disableAutodetect: true,
     keywords: {
@@ -111,18 +109,14 @@ Mode gcode(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -133,58 +127,28 @@ Mode gcode(Highlight hljs) {
       Mode(
         scope: r'title.function',
         variants: [
-          Mode(
-            match: r'\b[GM]\s*\d+(\.\d+)?',
-          ),
-          Mode(
-            begin: r'[GM]\s*\d+(\.\d+)?',
-            onBegin: _letterBoundaryCallback,
-          ),
-          Mode(
-            match: r'\bT\s*\d+',
-          ),
-          Mode(
-            begin: r'T\s*\d+',
-            onBegin: _letterBoundaryCallback,
-          ),
+          Mode(match: r'\b[GM]\s*\d+(\.\d+)?'),
+          Mode(begin: r'[GM]\s*\d+(\.\d+)?', onBegin: _letterBoundaryCallback),
+          Mode(match: r'\bT\s*\d+'),
+          Mode(begin: r'T\s*\d+', onBegin: _letterBoundaryCallback),
         ],
       ),
       Mode(
         scope: r'symbol',
         variants: [
-          Mode(
-            match: r'\bO\s*\d+',
-          ),
-          Mode(
-            begin: r'O\s*\d+',
-            onBegin: _letterBoundaryCallback,
-          ),
-          Mode(
-            match: r'\bO<.+>',
-          ),
-          Mode(
-            begin: r'O<.+>',
-            onBegin: _letterBoundaryCallback,
-          ),
-          Mode(
-            match: r'\*\s*\d+\s*$',
-          ),
+          Mode(match: r'\bO\s*\d+'),
+          Mode(begin: r'O\s*\d+', onBegin: _letterBoundaryCallback),
+          Mode(match: r'\bO<.+>'),
+          Mode(begin: r'O<.+>', onBegin: _letterBoundaryCallback),
+          Mode(match: r'\*\s*\d+\s*$'),
         ],
       ),
-      Mode(
-        scope: r'operator',
-        match: r'^N\s*\d+',
-      ),
-      Mode(
-        scope: r'variable',
-        match: r'-?#\s*\d+',
-      ),
+      Mode(scope: r'operator', match: r'^N\s*\d+'),
+      Mode(scope: r'variable', match: r'-?#\s*\d+'),
       Mode(
         scope: r'property',
         variants: [
-          Mode(
-            match: r'\b[ABCUVWXYZ]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
-          ),
+          Mode(match: r'\b[ABCUVWXYZ]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)'),
           Mode(
             begin: r'[ABCUVWXYZ]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
             onBegin: _letterBoundaryCallback,
@@ -194,9 +158,7 @@ Mode gcode(Highlight hljs) {
       Mode(
         scope: r'params',
         variants: [
-          Mode(
-            match: r'\b[FHIJKPQRS]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
-          ),
+          Mode(match: r'\b[FHIJKPQRS]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)'),
           Mode(
             begin: r'[FHIJKPQRS]\s*[+-]?((\.\d+)|(\d+)(\.\d*)?)',
             onBegin: _letterBoundaryCallback,

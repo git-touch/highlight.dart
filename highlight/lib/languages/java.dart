@@ -27,10 +27,7 @@ Mode java(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -41,10 +38,7 @@ Mode java(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -58,26 +52,18 @@ Mode java(Highlight hljs) {
   _mode7.begin = r"'";
   _mode7.end = r"'";
   _mode7.illegal = r'\n';
-  _mode7.contains = [
-    _mode6,
-  ];
+  _mode7.contains = [_mode6];
   _mode8.scope = r'string';
   _mode8.begin = r'"';
   _mode8.end = r'"';
   _mode8.illegal = r'\n';
-  _mode8.contains = [
-    _mode6,
-  ];
+  _mode8.contains = [_mode6];
   _mode9.scope = r'meta';
   _mode9.begin = r'@[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*';
-  _mode9.contains = [
-    _mode10,
-  ];
+  _mode9.contains = [_mode10];
   _mode10.begin = r'\(';
   _mode10.end = r'\)';
-  _mode10.contains = [
-    r'self',
-  ];
+  _mode10.contains = [r'self'];
   _mode11.scope = r'number';
   _mode11.variants = [
     _mode12,
@@ -105,9 +91,7 @@ Mode java(Highlight hljs) {
   _mode20.begin = r'\b0[bB][01](_*[01])*[lL]?\b';
   return Mode(
     name: r'Java',
-    aliases: [
-      r'jsp',
-    ],
+    aliases: [r'jsp'],
     keywords: {
       r'keyword': [
         r'synchronized',
@@ -155,11 +139,7 @@ Mode java(Highlight hljs) {
         r'goto',
         r'when',
       ],
-      r'literal': [
-        r'false',
-        r'true',
-        r'null',
-      ],
+      r'literal': [r'false', r'true', r'null'],
       r'type': [
         r'char',
         r'boolean',
@@ -170,10 +150,7 @@ Mode java(Highlight hljs) {
         r'short',
         r'double',
       ],
-      r'built_in': [
-        r'super',
-        r'this',
-      ],
+      r'built_in': [r'super', r'this'],
     },
     illegal: r'<\/|#',
     contains: [
@@ -182,14 +159,8 @@ Mode java(Highlight hljs) {
         begin: r'/\*\*',
         end: r'\*/',
         contains: [
-          Mode(
-            begin: r'\w+@',
-            relevance: 0,
-          ),
-          Mode(
-            scope: r'doctag',
-            begin: r'@[A-Za-z]+',
-          ),
+          Mode(begin: r'\w+@', relevance: 0),
+          Mode(scope: r'doctag', begin: r'@[A-Za-z]+'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -204,21 +175,10 @@ Mode java(Highlight hljs) {
         ],
         relevance: 0,
       ),
-      Mode(
-        begin: r'import java\.[a-z]+\.',
-        keywords: r'import',
-        relevance: 2,
-      ),
+      Mode(begin: r'import java\.[a-z]+\.', keywords: r'import', relevance: 2),
       _mode0,
       _mode3,
-      Mode(
-        begin: r'"""',
-        end: r'"""',
-        scope: r'string',
-        contains: [
-          _mode6,
-        ],
-      ),
+      Mode(begin: r'"""', end: r'"""', scope: r'string', contains: [_mode6]),
       _mode7,
       _mode8,
       Mode(
@@ -227,15 +187,9 @@ Mode java(Highlight hljs) {
           r'\s+',
           r'[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
-      Mode(
-        match: r'non-sealed',
-        scope: r'keyword',
-      ),
+      Mode(match: r'non-sealed', scope: r'keyword'),
       Mode(
         begin: [
           r'(?!else)[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*',
@@ -244,22 +198,11 @@ Mode java(Highlight hljs) {
           r'\s+',
           r'=(?!=)',
         ],
-        scope: {
-          1: r'type',
-          3: r'variable',
-          5: r'operator',
-        },
+        scope: {1: r'type', 3: r'variable', 5: r'operator'},
       ),
       Mode(
-        begin: [
-          r'record',
-          r'\s+',
-          r'[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        begin: [r'record', r'\s+', r'[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*'],
+        scope: {1: r'keyword', 3: r'title.class'},
         contains: [
           Mode(
             scope: r'params',
@@ -312,11 +255,7 @@ Mode java(Highlight hljs) {
                 r'goto',
                 r'when',
               ],
-              r'literal': [
-                r'false',
-                r'true',
-                r'null',
-              ],
+              r'literal': [r'false', r'true', r'null'],
               r'type': [
                 r'char',
                 r'boolean',
@@ -327,34 +266,24 @@ Mode java(Highlight hljs) {
                 r'short',
                 r'double',
               ],
-              r'built_in': [
-                r'super',
-                r'this',
-              ],
+              r'built_in': [r'super', r'this'],
             },
             relevance: 0,
-            contains: [
-              _mode3,
-            ],
+            contains: [_mode3],
             endsParent: true,
           ),
           _mode0,
           _mode3,
         ],
       ),
-      Mode(
-        beginKeywords: r'new throw return else',
-        relevance: 0,
-      ),
+      Mode(beginKeywords: r'new throw return else', relevance: 0),
       Mode(
         begin: [
           r'(?:[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*)*>)?(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*)*>)?)*>)?(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*)*>)?(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:<[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*(?:\s*,\s*[À-ʸa-zA-Z_$][À-ʸa-zA-Z_$0-9]*)*>)?)*>)?)*>)?\s+)',
           r'[a-zA-Z_]\w*',
           r'\s*(?=\()',
         ],
-        scope: {
-          2: r'title.function',
-        },
+        scope: {2: r'title.function'},
         keywords: {
           r'keyword': [
             r'synchronized',
@@ -402,11 +331,7 @@ Mode java(Highlight hljs) {
             r'goto',
             r'when',
           ],
-          r'literal': [
-            r'false',
-            r'true',
-            r'null',
-          ],
+          r'literal': [r'false', r'true', r'null'],
           r'type': [
             r'char',
             r'boolean',
@@ -417,10 +342,7 @@ Mode java(Highlight hljs) {
             r'short',
             r'double',
           ],
-          r'built_in': [
-            r'super',
-            r'this',
-          ],
+          r'built_in': [r'super', r'this'],
         },
         contains: [
           Mode(
@@ -474,11 +396,7 @@ Mode java(Highlight hljs) {
                 r'goto',
                 r'when',
               ],
-              r'literal': [
-                r'false',
-                r'true',
-                r'null',
-              ],
+              r'literal': [r'false', r'true', r'null'],
               r'type': [
                 r'char',
                 r'boolean',
@@ -489,19 +407,10 @@ Mode java(Highlight hljs) {
                 r'short',
                 r'double',
               ],
-              r'built_in': [
-                r'super',
-                r'this',
-              ],
+              r'built_in': [r'super', r'this'],
             },
             relevance: 0,
-            contains: [
-              _mode9,
-              _mode7,
-              _mode8,
-              _mode11,
-              _mode3,
-            ],
+            contains: [_mode9, _mode7, _mode8, _mode11, _mode3],
           ),
           _mode0,
           _mode3,

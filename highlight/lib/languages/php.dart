@@ -43,15 +43,8 @@ Mode php(Highlight hljs) {
   _mode0.end = r']';
   _mode0.endScope = r'meta';
   _mode0.keywords = {
-    r'literal': [
-      r'false',
-      r'null',
-      r'true',
-    ],
-    r'keyword': [
-      r'new',
-      r'array',
-    ],
+    r'literal': [r'false', r'null', r'true'],
+    r'keyword': [r'new', r'array'],
   };
   _mode0.contains = [
     _mode1,
@@ -66,15 +59,8 @@ Mode php(Highlight hljs) {
   _mode1.begin = r'\[';
   _mode1.end = r']';
   _mode1.keywords = {
-    r'literal': [
-      r'false',
-      r'null',
-      r'true',
-    ],
-    r'keyword': [
-      r'new',
-      r'array',
-    ],
+    r'literal': [r'false', r'null', r'true'],
+    r'keyword': [r'new', r'array'],
   };
   _mode1.contains = [
     r'self',
@@ -88,59 +74,35 @@ Mode php(Highlight hljs) {
   _mode2.scope = r'attr';
   _mode2.match =
       r'[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?![A-Za-z0-9])(?![$])(?=:)(?=(?!::))';
-  _mode3.variants = [
-    _mode4,
-    _mode5,
-    _mode6,
-    _mode7,
-    _mode8,
-  ];
+  _mode3.variants = [_mode4, _mode5, _mode6, _mode7, _mode8];
   _mode4.match = [
     r'::(?=(?!class\b))',
     r'[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?![A-Za-z0-9])(?![$])\b(?!\()',
   ];
-  _mode4.scope = {
-    2: r'variable.constant',
-  };
-  _mode5.match = [
-    r'::',
-    r'class',
-  ];
-  _mode5.scope = {
-    2: r'variable.language',
-  };
+  _mode4.scope = {2: r'variable.constant'};
+  _mode5.match = [r'::', r'class'];
+  _mode5.scope = {2: r'variable.language'};
   _mode6.match = [
     r'(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}(?![A-Za-z0-9])(?![$])',
     r'::(?=(?!class\b))',
     r'[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?![A-Za-z0-9])(?![$])\b(?!\()',
   ];
-  _mode6.scope = {
-    1: r'title.class',
-    3: r'variable.constant',
-  };
+  _mode6.scope = {1: r'title.class', 3: r'variable.constant'};
   _mode7.match = [
     r'(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}(?![A-Za-z0-9])(?![$])',
     r'::(?=(?!class\b))',
   ];
-  _mode7.scope = {
-    1: r'title.class',
-  };
+  _mode7.scope = {1: r'title.class'};
   _mode8.match = [
     r'(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}(?![A-Za-z0-9])(?![$])',
     r'::',
     r'class',
   ];
-  _mode8.scope = {
-    1: r'title.class',
-    3: r'variable.language',
-  };
+  _mode8.scope = {1: r'title.class', 3: r'variable.language'};
   _mode9.scope = r'comment';
   _mode9.begin = r'/\*';
   _mode9.end = r'\*/';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.contains = [_mode10, _mode11];
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -149,41 +111,25 @@ Mode php(Highlight hljs) {
   _mode11.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   _mode12.scope = r'string';
-  _mode12.variants = [
-    _mode13,
-    _mode18,
-    _mode19,
-    _mode20,
-  ];
+  _mode12.variants = [_mode13, _mode18, _mode19, _mode20];
   _mode13.scope = r'string';
   _mode13.begin = r'"';
   _mode13.end = r'"';
-  _mode13.contains = [
-    _mode14,
-    _mode15,
-  ];
+  _mode13.contains = [_mode14, _mode15];
   _mode14.begin = r'\\[\s\S]';
   _mode14.relevance = 0;
   _mode15.scope = r'subst';
-  _mode15.variants = [
-    _mode16,
-    _mode17,
-  ];
+  _mode15.variants = [_mode16, _mode17];
   _mode16.begin = r'\$\w+';
   _mode17.begin = r'\{\$';
   _mode17.end = r'\}';
   _mode18.scope = r'string';
   _mode18.begin = r"'";
   _mode18.end = r"'";
-  _mode18.contains = [
-    _mode14,
-  ];
+  _mode18.contains = [_mode14];
   _mode19.begin = r'<<<[ \t]*(?:(\w+)|"(\w+)")\n';
   _mode19.end = r'[ \t]*(\w+)\b';
-  _mode19.contains = [
-    _mode14,
-    _mode15,
-  ];
+  _mode19.contains = [_mode14, _mode15];
   _mode19.onBegin = (RegExpMatch m, CallbackResponse resp) {
     resp.data['_beginMatch'] = m.group(1) ?? m.group(2);
   };
@@ -199,36 +145,23 @@ Mode php(Highlight hljs) {
     if (resp.data['_beginMatch'] != m.group(1)) resp.ignoreMatch();
   };
   _mode21.scope = r'number';
-  _mode21.variants = [
-    _mode22,
-    _mode23,
-    _mode24,
-    _mode25,
-  ];
+  _mode21.variants = [_mode22, _mode23, _mode24, _mode25];
   _mode21.relevance = 0;
   _mode22.begin = r'\b0[bB][01]+(?:_[01]+)*\b';
   _mode23.begin = r'\b0[oO][0-7]+(?:_[0-7]+)*\b';
   _mode24.begin = r'\b0[xX][\da-fA-F]+(?:_[\da-fA-F]+)*\b';
   _mode25.begin =
       r'(?:\b\d+(?:_\d+)*(\.(?:\d+(?:_\d+)*))?|\B\.\d+)(?:[eE][+-]?\d+)?';
-  _mode26.variants = [
-    _mode27,
-  ];
+  _mode26.variants = [_mode27];
   _mode27.match = [
     r'new',
     '[ \t\n]+',
     r'(?!Error\b|AppendIterator\b|ArgumentCountError\b|ArithmeticError\b|ArrayIterator\b|ArrayObject\b|AssertionError\b|BadFunctionCallException\b|BadMethodCallException\b|CachingIterator\b|CallbackFilterIterator\b|CompileError\b|Countable\b|DirectoryIterator\b|DivisionByZeroError\b|DomainException\b|EmptyIterator\b|ErrorException\b|Exception\b|FilesystemIterator\b|FilterIterator\b|GlobIterator\b|InfiniteIterator\b|InvalidArgumentException\b|IteratorIterator\b|LengthException\b|LimitIterator\b|LogicException\b|MultipleIterator\b|NoRewindIterator\b|OutOfBoundsException\b|OutOfRangeException\b|OuterIterator\b|OverflowException\b|ParentIterator\b|ParseError\b|RangeException\b|RecursiveArrayIterator\b|RecursiveCachingIterator\b|RecursiveCallbackFilterIterator\b|RecursiveDirectoryIterator\b|RecursiveFilterIterator\b|RecursiveIterator\b|RecursiveIteratorIterator\b|RecursiveRegexIterator\b|RecursiveTreeIterator\b|RegexIterator\b|RuntimeException\b|SeekableIterator\b|SplDoublyLinkedList\b|SplFileInfo\b|SplFileObject\b|SplFixedArray\b|SplHeap\b|SplMaxHeap\b|SplMinHeap\b|SplObjectStorage\b|SplObserver\b|SplPriorityQueue\b|SplQueue\b|SplStack\b|SplSubject\b|SplTempFileObject\b|TypeError\b|UnderflowException\b|UnexpectedValueException\b|UnhandledMatchError\b|ArrayAccess\b|BackedEnum\b|Closure\b|Fiber\b|Generator\b|Iterator\b|IteratorAggregate\b|Serializable\b|Stringable\b|Throwable\b|Traversable\b|UnitEnum\b|WeakReference\b|WeakMap\b|Directory\b|__PHP_Incomplete_Class\b|parent\b|php_user_filter\b|self\b|static\b|stdClass\b)',
     r'(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}(?![A-Za-z0-9])(?![$])',
   ];
-  _mode27.scope = {
-    1: r'keyword',
-    4: r'title.class',
-  };
+  _mode27.scope = {1: r'keyword', 4: r'title.class'};
   _mode28.scope = r'meta';
-  _mode28.variants = [
-    _mode29,
-    _mode30,
-  ];
+  _mode28.variants = [_mode29, _mode30];
   _mode29.match =
       r'(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}(?![A-Za-z0-9])(?![$])';
   _mode30.match = r'[A-Z]+(?![A-Za-z0-9])(?![$])';
@@ -243,9 +176,7 @@ Mode php(Highlight hljs) {
     '[ \t\n]*',
     r'(?=(?=\())',
   ];
-  _mode32.scope = {
-    3: r'title.function.invoke',
-  };
+  _mode32.scope = {3: r'title.function.invoke'};
   _mode32.contains = [
     Mode(
       relevance: 0,
@@ -344,14 +275,7 @@ Mode php(Highlight hljs) {
           r'xor',
           r'yield',
         ],
-        r'literal': [
-          r'false',
-          r'FALSE',
-          r'null',
-          r'NULL',
-          r'true',
-          r'TRUE',
-        ],
+        r'literal': [r'false', r'FALSE', r'null', r'NULL', r'true', r'TRUE'],
         r'built_in': [
           r'Error|0',
           r'AppendIterator',
@@ -553,14 +477,7 @@ Mode php(Highlight hljs) {
         r'xor',
         r'yield',
       ],
-      r'literal': [
-        r'false',
-        r'FALSE',
-        r'null',
-        r'NULL',
-        r'true',
-        r'TRUE',
-      ],
+      r'literal': [r'false', r'FALSE', r'null', r'NULL', r'true', r'TRUE'],
       r'built_in': [
         r'Error|0',
         r'AppendIterator',
@@ -695,10 +612,7 @@ Mode php(Highlight hljs) {
         begin: r'/\*',
         end: r'\*/',
         contains: [
-          Mode(
-            scope: r'doctag',
-            match: r'@[A-Za-z]+',
-          ),
+          Mode(scope: r'doctag', match: r'@[A-Za-z]+'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -718,38 +632,19 @@ Mode php(Highlight hljs) {
         starts: Mode(
           scope: r'comment',
           end: r'\b\B',
-          contains: [
-            Mode(
-              match: r'\?>',
-              scope: r'meta',
-              endsParent: true,
-            ),
-          ],
+          contains: [Mode(match: r'\?>', scope: r'meta', endsParent: true)],
         ),
       ),
       Mode(
         scope: r'meta',
         variants: [
-          Mode(
-            begin: r'<\?php',
-            relevance: 10,
-          ),
-          Mode(
-            begin: r'<\?=',
-          ),
-          Mode(
-            begin: r'<\?',
-            relevance: 0.1,
-          ),
-          Mode(
-            begin: r'\?>',
-          ),
+          Mode(begin: r'<\?php', relevance: 10),
+          Mode(begin: r'<\?='),
+          Mode(begin: r'<\?', relevance: 0.1),
+          Mode(begin: r'\?>'),
         ],
       ),
-      Mode(
-        scope: r'variable.language',
-        match: r'\$this\b',
-      ),
+      Mode(scope: r'variable.language', match: r'\$this\b'),
       _mode31,
       _mode32,
       _mode3,
@@ -759,10 +654,7 @@ Mode php(Highlight hljs) {
           r'\s',
           r'[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?![A-Za-z0-9])(?![$])',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'variable.constant',
-        },
+        scope: {1: r'keyword', 3: r'variable.constant'},
       ),
       _mode26,
       Mode(
@@ -773,14 +665,9 @@ Mode php(Highlight hljs) {
         excludeEnd: true,
         illegal: r'[$%\[]',
         contains: [
-          Mode(
-            beginKeywords: r'use',
-          ),
+          Mode(beginKeywords: r'use'),
           _mode33,
-          Mode(
-            begin: r'=>',
-            endsParent: true,
-          ),
+          Mode(begin: r'=>', endsParent: true),
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -994,22 +881,14 @@ Mode php(Highlight hljs) {
       Mode(
         scope: r'class',
         variants: [
-          Mode(
-            beginKeywords: r'enum',
-            illegal: r'[($"]',
-          ),
-          Mode(
-            beginKeywords: r'class interface trait',
-            illegal: r'[:($"]',
-          ),
+          Mode(beginKeywords: r'enum', illegal: r'[($"]'),
+          Mode(beginKeywords: r'class interface trait', illegal: r'[:($"]'),
         ],
         relevance: 0,
         end: r'\{',
         excludeEnd: true,
         contains: [
-          Mode(
-            beginKeywords: r'extends implements',
-          ),
+          Mode(beginKeywords: r'extends implements'),
           _mode33,
         ],
       ),
@@ -1019,11 +898,7 @@ Mode php(Highlight hljs) {
         end: r';',
         illegal: r"[.']",
         contains: [
-          Mode(
-            scope: r'title.class',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title.class', begin: r'[a-zA-Z_]\w*', relevance: 0),
         ],
       ),
       Mode(
@@ -1031,10 +906,7 @@ Mode php(Highlight hljs) {
         relevance: 0,
         end: r';',
         contains: [
-          Mode(
-            match: r'\b(as|const|function)\b',
-            scope: r'keyword',
-          ),
+          Mode(match: r'\b(as|const|function)\b', scope: r'keyword'),
           _mode33,
         ],
       ),

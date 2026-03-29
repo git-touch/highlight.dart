@@ -13,10 +13,7 @@ Mode ada(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'--';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -27,11 +24,7 @@ Mode ada(Highlight hljs) {
   _mode3.begin = r'\s+:\s+';
   _mode3.end = r'\s*(:=|;|\)|=>|$)';
   _mode3.illegal = '[]\\{\\}%#\'"';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-    _mode6,
-  ];
+  _mode3.contains = [_mode4, _mode5, _mode6];
   _mode4.beginKeywords = r'loop for declare others';
   _mode4.endsParent = true;
   _mode5.scope = r'keyword';
@@ -118,10 +111,7 @@ Mode ada(Highlight hljs) {
         r'requeue',
         r'xor',
       ],
-      r'literal': [
-        r'True',
-        r'False',
-      ],
+      r'literal': [r'True', r'False'],
     },
     contains: [
       _mode0,
@@ -129,27 +119,16 @@ Mode ada(Highlight hljs) {
         scope: r'string',
         begin: r'"',
         end: r'"',
-        contains: [
-          Mode(
-            begin: r'""',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'""', relevance: 0)],
       ),
-      Mode(
-        scope: r'string',
-        begin: r"'.'",
-      ),
+      Mode(scope: r'string', begin: r"'.'"),
       Mode(
         scope: r'number',
         begin:
             r'\b(\d(_|\d)*#\w+(\.\w+)?#([eE][-+]?\d(_|\d)*)?|\d(_|\d)*(\.\d(_|\d)*)?([eE][-+]?\d(_|\d)*)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'symbol',
-        begin: r"'[A-Za-z](_?[A-Za-z0-9.])*",
-      ),
+      Mode(scope: r'symbol', begin: r"'[A-Za-z](_?[A-Za-z0-9.])*"),
       Mode(
         scope: r'title',
         begin: r'(\bwith\s+)?(\bprivate\s+)?\bpackage\s+(\bbody\s+)?',

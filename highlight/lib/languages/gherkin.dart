@@ -5,36 +5,18 @@ import '../highlight_core.dart';
 Mode gherkin(Highlight hljs) {
   return Mode(
     name: r'Gherkin',
-    aliases: [
-      r'feature',
-    ],
+    aliases: [r'feature'],
     keywords:
         r'Feature Background Ability Business Need Scenario Scenarios Scenario Outline Scenario Template Examples Given And Then But When',
     contains: [
-      Mode(
-        scope: r'symbol',
-        begin: r'\*',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'@[^@\s]+',
-      ),
+      Mode(scope: r'symbol', begin: r'\*', relevance: 0),
+      Mode(scope: r'meta', begin: r'@[^@\s]+'),
       Mode(
         begin: r'\|',
         end: r'\|\w*$',
-        contains: [
-          Mode(
-            scope: r'string',
-            begin: r'[^|]+',
-          ),
-        ],
+        contains: [Mode(scope: r'string', begin: r'[^|]+')],
       ),
-      Mode(
-        scope: r'variable',
-        begin: r'<',
-        end: r'>',
-      ),
+      Mode(scope: r'variable', begin: r'<', end: r'>'),
       Mode(
         scope: r'comment',
         begin: r'#',
@@ -53,22 +35,13 @@ Mode gherkin(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'string',
-        begin: r'"""',
-        end: r'"""',
-      ),
+      Mode(scope: r'string', begin: r'"""', end: r'"""'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
     ],
   );

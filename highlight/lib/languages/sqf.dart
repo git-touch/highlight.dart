@@ -16,10 +16,7 @@ Mode sqf(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -30,10 +27,7 @@ Mode sqf(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -43,16 +37,12 @@ Mode sqf(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   _mode6.begin = r'"';
   _mode6.end = r'"';
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.begin = r'""';
   _mode7.relevance = 0;
   _mode8.begin = r"'";
   _mode8.end = r"'";
-  _mode8.contains = [
-    _mode9,
-  ];
+  _mode8.contains = [_mode9];
   _mode9.begin = r"''";
   _mode9.relevance = 0;
   return Mode(
@@ -2583,48 +2573,19 @@ Mode sqf(Highlight hljs) {
     contains: [
       _mode0,
       _mode3,
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'variable',
-        begin: r'\b_+[a-zA-Z]\w*',
-      ),
-      Mode(
-        scope: r'title',
-        begin: r'[a-zA-Z][a-zA-Z_0-9]*_fnc_[a-zA-Z_0-9]+',
-      ),
-      Mode(
-        scope: r'string',
-        variants: [
-          _mode6,
-          _mode8,
-        ],
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
+      Mode(scope: r'variable', begin: r'\b_+[a-zA-Z]\w*'),
+      Mode(scope: r'title', begin: r'[a-zA-Z][a-zA-Z_0-9]*_fnc_[a-zA-Z_0-9]+'),
+      Mode(scope: r'string', variants: [_mode6, _mode8]),
       Mode(
         scope: r'meta',
         begin: r'#\s*[a-z]+\b',
         end: r'$',
         keywords: r'define undef ifdef ifndef else endif include if',
         contains: [
-          Mode(
-            begin: r'\\\n',
-            relevance: 0,
-          ),
-          Mode(
-            scope: r'string',
-            variants: [
-              _mode6,
-              _mode8,
-            ],
-          ),
-          Mode(
-            begin: r'<[^\n>]*>',
-            end: r'$',
-            illegal: r'\n',
-          ),
+          Mode(begin: r'\\\n', relevance: 0),
+          Mode(scope: r'string', variants: [_mode6, _mode8]),
+          Mode(begin: r'<[^\n>]*>', end: r'$', illegal: r'\n'),
           _mode0,
           _mode3,
         ],

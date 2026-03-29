@@ -215,38 +215,23 @@ Mode gradle(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         scope: r'regexp',
         begin: r'\/(?=[^/\n]*\/)',
         end: r'\/[gimuy]*',
         contains: [
           _mode0,
-          Mode(
-            begin: r'\[',
-            end: r'\]',
-            relevance: 0,
-            contains: [
-              _mode0,
-            ],
-          ),
+          Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [_mode0]),
         ],
       ),
     ],

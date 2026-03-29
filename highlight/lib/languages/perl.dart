@@ -55,14 +55,8 @@ Mode perl(Highlight hljs) {
   final Mode _mode49 = Mode();
   final Mode _mode50 = Mode();
   _mode0.scope = r'variable';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-    _mode3,
-  ];
-  _mode0.contains = [
-    _mode4,
-  ];
+  _mode0.variants = [_mode1, _mode2, _mode3];
+  _mode0.contains = [_mode4];
   _mode1.begin = r'\$\d';
   _mode2.begin =
       r'[$%@](?!")(\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)(?![A-Za-z])(?![@$%])';
@@ -73,10 +67,7 @@ Mode perl(Highlight hljs) {
   _mode5.scope = r'comment';
   _mode5.begin = r'#';
   _mode5.end = r'$';
-  _mode5.contains = [
-    _mode6,
-    _mode7,
-  ];
+  _mode5.contains = [_mode6, _mode7];
   _mode6.scope = r'doctag';
   _mode6.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode6.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -87,10 +78,7 @@ Mode perl(Highlight hljs) {
   _mode8.scope = r'comment';
   _mode8.begin = r'^=\w';
   _mode8.end = r'=cut';
-  _mode8.contains = [
-    _mode9,
-    _mode10,
-  ];
+  _mode8.contains = [_mode9, _mode10];
   _mode8.endsWithParent = true;
   _mode9.scope = r'doctag';
   _mode9.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -115,11 +103,7 @@ Mode perl(Highlight hljs) {
     _mode38,
   ];
   _mode12.scope = r'string';
-  _mode12.contains = [
-    _mode13,
-    _mode14,
-    _mode0,
-  ];
+  _mode12.contains = [_mode13, _mode14, _mode0];
   _mode12.variants = [
     _mode40,
     _mode41,
@@ -157,13 +141,7 @@ Mode perl(Highlight hljs) {
     _mode38,
   ];
   _mode15.scope = r'number';
-  _mode15.variants = [
-    _mode16,
-    _mode17,
-    _mode18,
-    _mode19,
-    _mode20,
-  ];
+  _mode15.variants = [_mode16, _mode17, _mode18, _mode19, _mode20];
   _mode15.relevance = 0;
   _mode16.match = r'0?\.[0-9][0-9_]+\b';
   _mode17.match = r'\bv?(0|[1-9][0-9_]*(\.[0-9_]+)?|[1-9][0-9_]*)\b';
@@ -174,18 +152,9 @@ Mode perl(Highlight hljs) {
       r'(\/\/|!|!=|!==|%|%=|&|&&|&=|\*|\*=|\+|\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\?|\[|\{|\(|\^|\^=|\||\|=|\|\||~|\b(split|return|print|reverse|grep)\b)\s*';
   _mode21.keywords = r'split return print reverse grep';
   _mode21.relevance = 0;
-  _mode21.contains = [
-    _mode5,
-    _mode22,
-    _mode27,
-  ];
+  _mode21.contains = [_mode5, _mode22, _mode27];
   _mode22.scope = r'regexp';
-  _mode22.variants = [
-    _mode23,
-    _mode24,
-    _mode25,
-    _mode26,
-  ];
+  _mode22.variants = [_mode23, _mode24, _mode25, _mode26];
   _mode22.relevance = 2;
   _mode23.begin =
       '(?:s|tr|y)(!|\\/|\\||\\?|\'|"|#)(?:\\\\.|[^\\\\\\/])*?\\1(?:\\\\.|[^\\\\\\/])*?\\1[dualxmsipngr]{0,12}';
@@ -196,14 +165,7 @@ Mode perl(Highlight hljs) {
   _mode26.begin =
       r'(?:s|tr|y)\{(?:\\.|[^\\\/])*?\}\{(?:\\.|[^\\\/])*?\}[dualxmsipngr]{0,12}';
   _mode27.scope = r'regexp';
-  _mode27.variants = [
-    _mode28,
-    _mode29,
-    _mode30,
-    _mode31,
-    _mode32,
-    _mode33,
-  ];
+  _mode27.variants = [_mode28, _mode29, _mode30, _mode31, _mode32, _mode33];
   _mode28.begin = r'(m|qr)\/\/';
   _mode28.relevance = 0;
   _mode29.begin = r'(?:(?:m|qr)?)\/(?:\\.|[^\\\/])*?\/[dualxmsipngr]{0,12}';
@@ -217,10 +179,7 @@ Mode perl(Highlight hljs) {
   _mode34.end = r'(\s*\(.*?\))?[;{]';
   _mode34.excludeEnd = true;
   _mode34.relevance = 5;
-  _mode34.contains = [
-    _mode35,
-    _mode4,
-  ];
+  _mode34.contains = [_mode35, _mode4];
   _mode35.scope = r'title';
   _mode35.begin = r'[a-zA-Z]\w*';
   _mode35.relevance = 0;
@@ -229,19 +188,13 @@ Mode perl(Highlight hljs) {
   _mode36.end = r'[;{]';
   _mode36.excludeEnd = true;
   _mode36.relevance = 5;
-  _mode36.contains = [
-    _mode35,
-    _mode4,
-    _mode15,
-  ];
+  _mode36.contains = [_mode35, _mode4, _mode15];
   _mode37.begin = r'-\w\b';
   _mode37.relevance = 0;
   _mode38.begin = r'^__DATA__$';
   _mode38.end = r'^__END__$';
   _mode38.subLanguage = r'mojolicious';
-  _mode38.contains = [
-    _mode39,
-  ];
+  _mode38.contains = [_mode39];
   _mode39.begin = r'^@@.*';
   _mode39.end = r'$';
   _mode39.scope = r'comment';
@@ -265,26 +218,19 @@ Mode perl(Highlight hljs) {
   _mode45.relevance = 5;
   _mode46.begin = r"'";
   _mode46.end = r"'";
-  _mode46.contains = [
-    _mode13,
-  ];
+  _mode46.contains = [_mode13];
   _mode47.begin = r'"';
   _mode47.end = r'"';
   _mode48.begin = r'`';
   _mode48.end = r'`';
-  _mode48.contains = [
-    _mode13,
-  ];
+  _mode48.contains = [_mode13];
   _mode49.begin = r'\{\w+\}';
   _mode49.relevance = 0;
   _mode50.begin = r'-?\w+\s*=>';
   _mode50.relevance = 0;
   return Mode(
     name: r'Perl',
-    aliases: [
-      r'pl',
-      r'pm',
-    ],
+    aliases: [r'pl', r'pm'],
     keywords: {
       r'$pattern': r'[\w.]+',
       r'keyword':

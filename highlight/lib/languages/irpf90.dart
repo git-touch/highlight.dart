@@ -23,9 +23,7 @@ Mode irpf90(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
       Mode(
@@ -33,9 +31,7 @@ Mode irpf90(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
       Mode(
@@ -43,16 +39,8 @@ Mode irpf90(Highlight hljs) {
         beginKeywords: r'subroutine function program',
         illegal: r'[${=\n]',
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
-          Mode(
-            scope: r'params',
-            begin: r'\(',
-            end: r'\)',
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
+          Mode(scope: r'params', begin: r'\(', end: r'\)'),
         ],
       ),
       Mode(
@@ -96,15 +84,9 @@ Mode irpf90(Highlight hljs) {
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'\b\d+\.(\d*)([de][+-]?\d+)?(_[a-z_\d]+)?',
-          ),
-          Mode(
-            begin: r'\b\d+([de][+-]?\d+)?(_[a-z_\d]+)?',
-          ),
-          Mode(
-            begin: r'\.\d+([de][+-]?\d+)?(_[a-z_\d]+)?',
-          ),
+          Mode(begin: r'\b\d+\.(\d*)([de][+-]?\d+)?(_[a-z_\d]+)?'),
+          Mode(begin: r'\b\d+([de][+-]?\d+)?(_[a-z_\d]+)?'),
+          Mode(begin: r'\.\d+([de][+-]?\d+)?(_[a-z_\d]+)?'),
         ],
         relevance: 0,
       ),

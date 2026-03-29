@@ -14,18 +14,13 @@ Mode scilab(Highlight hljs) {
   _mode1.scope = r'string';
   _mode1.begin = '\'|"';
   _mode1.end = '\'|"';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.begin = r'\\[\s\S]';
   _mode2.relevance = 0;
   _mode3.begin = r"''";
   return Mode(
     name: r'Scilab',
-    aliases: [
-      r'sci',
-    ],
+    aliases: [r'sci'],
     keywords: {
       r'$pattern': r'%?\w+',
       r'keyword':
@@ -41,30 +36,16 @@ Mode scilab(Highlight hljs) {
         beginKeywords: r'function',
         end: r'$',
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
-          Mode(
-            scope: r'params',
-            begin: r'\(',
-            end: r'\)',
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
+          Mode(scope: r'params', begin: r'\(', end: r'\)'),
         ],
       ),
-      Mode(
-        begin: r"[a-zA-Z_][a-zA-Z_0-9]*[\.']+",
-        relevance: 0,
-      ),
+      Mode(begin: r"[a-zA-Z_][a-zA-Z_0-9]*[\.']+", relevance: 0),
       Mode(
         begin: r'\[',
         end: r"\][\.']*",
         relevance: 0,
-        contains: [
-          _mode0,
-          _mode1,
-        ],
+        contains: [_mode0, _mode1],
       ),
       Mode(
         scope: r'comment',

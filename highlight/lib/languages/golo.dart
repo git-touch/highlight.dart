@@ -54,11 +54,7 @@ Mode golo(Highlight hljs) {
         r'list',
         r'array',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-      ],
+      r'literal': [r'true', r'false', r'null'],
     },
     contains: [
       Mode(
@@ -84,12 +80,7 @@ Mode golo(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'number',
@@ -97,10 +88,7 @@ Mode golo(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'@[A-Za-z]+',
-      ),
+      Mode(scope: r'meta', begin: r'@[A-Za-z]+'),
     ],
   );
 }

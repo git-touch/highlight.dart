@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode capnproto(Highlight hljs) {
   return Mode(
     name: r'Cap’n Proto',
-    aliases: [
-      r'capnp',
-    ],
+    aliases: [r'capnp'],
     keywords: {
       r'keyword': [
         r'struct',
@@ -48,10 +46,7 @@ Mode capnproto(Highlight hljs) {
         r'Capability',
         r'List',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-      ],
+      r'literal': [r'true', r'false'],
     },
     contains: [
       Mode(
@@ -59,18 +54,9 @@ Mode capnproto(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'#',
@@ -89,37 +75,14 @@ Mode capnproto(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'@0x[\w\d]{16};',
-        illegal: r'\n',
-      ),
-      Mode(
-        scope: r'symbol',
-        begin: r'@\d+\b',
-      ),
+      Mode(scope: r'meta', begin: r'@0x[\w\d]{16};', illegal: r'\n'),
+      Mode(scope: r'symbol', begin: r'@\d+\b'),
       Mode(
         variants: [
-          Mode(
-            match: [
-              r'(struct|enum|interface)',
-              r'\s+',
-              r'[a-zA-Z]\w*',
-            ],
-          ),
-          Mode(
-            match: [
-              r'extends',
-              r'\s*\(',
-              r'[a-zA-Z]\w*',
-              r'\s*\)',
-            ],
-          ),
+          Mode(match: [r'(struct|enum|interface)', r'\s+', r'[a-zA-Z]\w*']),
+          Mode(match: [r'extends', r'\s*\(', r'[a-zA-Z]\w*', r'\s*\)']),
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
     ],
   );

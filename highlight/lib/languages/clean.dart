@@ -8,10 +8,7 @@ Mode clean(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Clean',
-    aliases: [
-      r'icl',
-      r'dcl',
-    ],
+    aliases: [r'icl', r'dcl'],
     keywords: {
       r'keyword': [
         r'if',
@@ -90,18 +87,14 @@ Mode clean(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -109,9 +102,7 @@ Mode clean(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        begin: r'->|<-[|:]?|#!?|>>=|\{\||\|\}|:==|=:|<>',
-      ),
+      Mode(begin: r'->|<-[|:]?|#!?|>>=|\{\||\|\}|:==|=:|<>'),
     ],
   );
 }

@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode jboss_cli(Highlight hljs) {
   return Mode(
     name: r'JBoss CLI',
-    aliases: [
-      r'wildfly-cli',
-    ],
+    aliases: [r'wildfly-cli'],
     keywords: {
       r'$pattern': r'[a-z-]+',
       r'keyword':
@@ -38,26 +36,11 @@ Mode jboss_cli(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'params',
-        begin: r'--[\w\-=\/]+',
-      ),
-      Mode(
-        scope: r'function',
-        begin: r':[\w\-.]+',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'\B([\/.])[\w\-.\/=]+',
-      ),
+      Mode(scope: r'params', begin: r'--[\w\-=\/]+'),
+      Mode(scope: r'function', begin: r':[\w\-.]+', relevance: 0),
+      Mode(scope: r'string', begin: r'\B([\/.])[\w\-.\/=]+'),
       Mode(
         scope: r'params',
         begin: r'\(',
@@ -67,12 +50,7 @@ Mode jboss_cli(Highlight hljs) {
             begin: r'[\w-]+ *=',
             returnBegin: true,
             relevance: 0,
-            contains: [
-              Mode(
-                scope: r'attr',
-                begin: r'[\w-]+',
-              ),
-            ],
+            contains: [Mode(scope: r'attr', begin: r'[\w-]+')],
           ),
         ],
         relevance: 0,

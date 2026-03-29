@@ -33,10 +33,7 @@ Mode nix(Highlight hljs) {
   _mode1.scope = r'comment';
   _mode1.begin = r'#';
   _mode1.end = r'$';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -47,10 +44,7 @@ Mode nix(Highlight hljs) {
   _mode4.scope = r'comment';
   _mode4.begin = r'/\*';
   _mode4.end = r'\*/';
-  _mode4.contains = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.contains = [_mode5, _mode6];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -61,10 +55,7 @@ Mode nix(Highlight hljs) {
   _mode7.scope = r'comment';
   _mode7.begin = r'\/\*\*(?!\/)';
   _mode7.end = r'\*\/';
-  _mode7.contains = [
-    _mode8,
-    _mode9,
-  ];
+  _mode7.contains = [_mode8, _mode9];
   _mode7.subLanguage = r'markdown';
   _mode7.relevance = 0;
   _mode8.scope = r'doctag';
@@ -84,15 +75,9 @@ Mode nix(Highlight hljs) {
       begin: r"''",
       end: r"''",
       contains: [
-        Mode(
-          scope: r'char.escape',
-          match: r"''\$",
-        ),
+        Mode(scope: r'char.escape', match: r"''\$"),
         _mode12,
-        Mode(
-          scope: r'char.escape',
-          match: r"'''",
-        ),
+        Mode(scope: r'char.escape', match: r"'''"),
         _mode23,
       ],
     ),
@@ -100,10 +85,7 @@ Mode nix(Highlight hljs) {
       begin: r'"',
       end: r'"',
       contains: [
-        Mode(
-          scope: r'char.escape',
-          match: r'\\\$',
-        ),
+        Mode(scope: r'char.escape', match: r'\\\$'),
         _mode12,
         _mode23,
       ],
@@ -125,11 +107,7 @@ Mode nix(Highlight hljs) {
       r'then',
       r'with',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'null',
-    ],
+    r'literal': [r'true', r'false', r'null'],
     r'built_in': [
       r'abort',
       r'baseNameOf',
@@ -178,40 +156,24 @@ Mode nix(Highlight hljs) {
       r"[A-Za-z_][A-Za-z0-9_'-]*(\.[A-Za-z_][A-Za-z0-9_'-]*)*\s*=(?!=)";
   _mode16.returnBegin = true;
   _mode16.relevance = 0;
-  _mode16.contains = [
-    _mode17,
-  ];
+  _mode16.contains = [_mode17];
   _mode17.scope = r'attr';
   _mode17.match =
       r"[A-Za-z_][A-Za-z0-9_'-]*(\.[A-Za-z_][A-Za-z0-9_'-]*)*(?=\s*=)";
   _mode17.relevance = 0.2;
-  _mode18.variants = [
-    _mode19,
-    _mode20,
-    _mode21,
-  ];
+  _mode18.variants = [_mode19, _mode20, _mode21];
   _mode18.relevance = 0;
   _mode19.scope = r'operator';
   _mode19.beforeMatch = r'\s';
   _mode19.begin = r'-(?!>)';
-  _mode20.begin = [
-    r'\b\d+(\.\d+)?',
-    r'-',
-    r'(?!>)',
-  ];
-  _mode20.beginScope = {
-    1: r'number',
-    2: r'operator',
-  };
+  _mode20.begin = [r'\b\d+(\.\d+)?', r'-', r'(?!>)'];
+  _mode20.beginScope = {1: r'number', 2: r'operator'};
   _mode21.begin = [
     r'(?:==|=|\+\+|\+|<=|<\||<|>=|>|->|//|/|!=|!|\|\||\|>|\?|\*|&&)',
     r'-',
     r'(?!>)',
   ];
-  _mode21.beginScope = {
-    1: r'operator',
-    2: r'operator',
-  };
+  _mode21.beginScope = {1: r'operator', 2: r'operator'};
   _mode22.scope = r'operator';
   _mode22.match =
       r'(?:==|=|\+\+|\+|<=|<\||<|>=|>|->|//|/|!=|!|\|\||\|>|\?|\*|&&)(?!-)';
@@ -220,9 +182,7 @@ Mode nix(Highlight hljs) {
   _mode23.match = r'\\(?!\$).';
   return Mode(
     name: r'Nix',
-    aliases: [
-      r'nixos',
-    ],
+    aliases: [r'nixos'],
     keywords: {
       r'keyword': [
         r'assert',
@@ -236,11 +196,7 @@ Mode nix(Highlight hljs) {
         r'then',
         r'with',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-      ],
+      r'literal': [r'true', r'false', r'null'],
       r'built_in': [
         r'abort',
         r'baseNameOf',
@@ -276,16 +232,8 @@ Mode nix(Highlight hljs) {
       _mode16,
       _mode18,
       _mode22,
-      Mode(
-        scope: r'meta.prompt',
-        match: r'^nix-repl>(?=\s)',
-        relevance: 10,
-      ),
-      Mode(
-        scope: r'meta',
-        beforeMatch: r'\s+',
-        begin: r':([a-z]+|\?)',
-      ),
+      Mode(scope: r'meta.prompt', match: r'^nix-repl>(?=\s)', relevance: 10),
+      Mode(scope: r'meta', beforeMatch: r'\s+', begin: r':([a-z]+|\?)'),
     ],
   );
 }

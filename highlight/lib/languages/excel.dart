@@ -8,10 +8,7 @@ Mode excel(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Excel formulae',
-    aliases: [
-      r'xlsx',
-      r'xls',
-    ],
+    aliases: [r'xlsx', r'xls'],
     caseInsensitive: true,
     keywords: {
       r'$pattern': r'[a-zA-Z][\w\.]*',
@@ -557,15 +554,9 @@ Mode excel(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?(%)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?(%)?', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'\bN\(',

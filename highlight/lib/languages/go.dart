@@ -8,9 +8,7 @@ Mode go(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Go',
-    aliases: [
-      r'golang',
-    ],
+    aliases: [r'golang'],
     keywords: {
       r'keyword': [
         r'break',
@@ -61,12 +59,7 @@ Mode go(Highlight hljs) {
         r'uintptr',
         r'rune',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'iota',
-        r'nil',
-      ],
+      r'literal': [r'true', r'false', r'iota', r'nil'],
       r'built_in': [
         r'append',
         r'cap',
@@ -131,23 +124,16 @@ Mode go(Highlight hljs) {
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
           Mode(
             scope: r'string',
             begin: r"'",
             end: r"'",
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
-          Mode(
-            begin: r'`',
-            end: r'`',
-          ),
+          Mode(begin: r'`', end: r'`'),
         ],
       ),
       Mode(
@@ -163,34 +149,22 @@ Mode go(Highlight hljs) {
                 r'-?\b0[xX](_?[a-fA-F0-9])+((\.([a-fA-F0-9](_?[a-fA-F0-9])*)?)?[pP][+-]?\d(_?\d)*)?i?',
             relevance: 0,
           ),
-          Mode(
-            match: r'-?\b0[oO](_?[0-7])*i?',
-            relevance: 0,
-          ),
-          Mode(
-            match: r'-?\.\d(_?\d)*([eE][+-]?\d(_?\d)*)?i?',
-            relevance: 0,
-          ),
+          Mode(match: r'-?\b0[oO](_?[0-7])*i?', relevance: 0),
+          Mode(match: r'-?\.\d(_?\d)*([eE][+-]?\d(_?\d)*)?i?', relevance: 0),
           Mode(
             match: r'-?\b\d(_?\d)*(\.(\d(_?\d)*)?)?([eE][+-]?\d(_?\d)*)?i?',
             relevance: 0,
           ),
         ],
       ),
-      Mode(
-        begin: r':=',
-      ),
+      Mode(begin: r':='),
       Mode(
         scope: r'function',
         beginKeywords: r'func',
         end: r'\s*(\{|$)',
         excludeEnd: true,
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z]\w*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z]\w*', relevance: 0),
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -246,12 +220,7 @@ Mode go(Highlight hljs) {
                 r'uintptr',
                 r'rune',
               ],
-              r'literal': [
-                r'true',
-                r'false',
-                r'iota',
-                r'nil',
-              ],
+              r'literal': [r'true', r'false', r'iota', r'nil'],
               r'built_in': [
                 r'append',
                 r'cap',

@@ -12,31 +12,22 @@ Mode django(Highlight hljs) {
     r'name':
         r'truncatewords removetags linebreaksbr yesno get_digit timesince random striptags filesizeformat escape linebreaks length_is ljust rjust cut urlize fix_ampersands title floatformat capfirst pprint divisibleby add make_list unordered_list urlencode timeuntil urlizetrunc wordcount stringformat linenumbers slice date dictsort dictsortreversed default_if_none pluralize lower join center default truncatewords_html upper length phone2numeric wordwrap time addslashes slugify first escapejs force_escape iriencode last safe safeseq truncatechars localize unlocalize localtime utc timezone',
   };
-  _mode0.contains = [
-    _mode1,
-    _mode3,
-  ];
+  _mode0.contains = [_mode1, _mode3];
   _mode1.scope = r'string';
   _mode1.begin = r'"';
   _mode1.end = r'"';
   _mode1.illegal = r'\n';
-  _mode1.contains = [
-    _mode2,
-  ];
+  _mode1.contains = [_mode2];
   _mode2.begin = r'\\[\s\S]';
   _mode2.relevance = 0;
   _mode3.scope = r'string';
   _mode3.begin = r"'";
   _mode3.end = r"'";
   _mode3.illegal = r'\n';
-  _mode3.contains = [
-    _mode2,
-  ];
+  _mode3.contains = [_mode2];
   return Mode(
     name: r'Django',
-    aliases: [
-      r'jinja',
-    ],
+    aliases: [r'jinja'],
     caseInsensitive: true,
     subLanguage: r'xml',
     contains: [
@@ -91,9 +82,7 @@ Mode django(Highlight hljs) {
             starts: Mode(
               endsWithParent: true,
               keywords: r'in by as',
-              contains: [
-                _mode0,
-              ],
+              contains: [_mode0],
               relevance: 0,
             ),
           ),
@@ -103,9 +92,7 @@ Mode django(Highlight hljs) {
         scope: r'template-variable',
         begin: r'\{\{',
         end: r'\}\}',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
     ],
   );

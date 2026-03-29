@@ -10,14 +10,8 @@ Mode vbnet(Highlight hljs) {
   final Mode _mode4 = Mode();
   _mode0.scope = r'comment';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
-  _mode0.variants = [
-    _mode3,
-    _mode4,
-  ];
+  _mode0.contains = [_mode1, _mode2];
+  _mode0.variants = [_mode3, _mode4];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -29,13 +23,9 @@ Mode vbnet(Highlight hljs) {
   _mode4.begin = r'([\t ]|^)REM(?=\s)';
   return Mode(
     name: r'Visual Basic .NET',
-    aliases: [
-      r'vb',
-    ],
+    aliases: [r'vb'],
     caseInsensitive: true,
-    classNameAliases: {
-      r'label': r'symbol',
-    },
+    classNameAliases: {r'label': r'symbol'},
     keywords: {
       r'keyword':
           r'addhandler alias aggregate ansi as async assembly auto binary by byref byval call case catch class compare const continue custom declare default delegate dim distinct do each equals else elseif end enum erase error event exit explicit finally for friend from function get global goto group handles if implements imports in inherits interface into iterator join key let lib loop me mid module mustinherit mustoverride mybase myclass namespace narrowing new next notinheritable notoverridable of off on operator option optional order overloads overridable overrides paramarray partial preserve private property protected public raiseevent readonly redim removehandler resume return select set shadows shared skip static step stop structure strict sub synclock take text then throw to try unicode until using when where while widening with withevents writeonly yield',
@@ -47,20 +37,13 @@ Mode vbnet(Highlight hljs) {
     },
     illegal: r'//|\{|\}|endif|gosub|variant|wend|^\$ ',
     contains: [
-      Mode(
-        scope: r'string',
-        begin: r'"(""|[^/n])"C\b',
-      ),
+      Mode(scope: r'string', begin: r'"(""|[^/n])"C\b'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'""',
-          ),
-        ],
+        contains: [Mode(begin: r'""')],
       ),
       Mode(
         scope: r'literal',
@@ -68,12 +51,8 @@ Mode vbnet(Highlight hljs) {
           Mode(
             begin: r'# *(?:\d{4}-\d{1,2}-\d{1,2}|\d{1,2}\/\d{1,2}\/\d{4}) *#',
           ),
-          Mode(
-            begin: r'# *\d{1,2}(:\d{1,2}){1,2} *#',
-          ),
-          Mode(
-            begin: r'# *(\d|1[012])(:\d+){0,2} *(AM|PM) *#',
-          ),
+          Mode(begin: r'# *\d{1,2}(:\d{1,2}){1,2} *#'),
+          Mode(begin: r'# *(\d|1[012])(:\d+){0,2} *(AM|PM) *#'),
           Mode(
             begin:
                 r'# *(?:\d{4}-\d{1,2}-\d{1,2}|\d{1,2}\/\d{1,2}\/\d{4}) +(?:(\d|1[012])(:\d+){0,2} *(AM|PM)|\d{1,2}(:\d{1,2}){1,2}) *#',
@@ -88,34 +67,19 @@ Mode vbnet(Highlight hljs) {
             begin:
                 r'\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?',
           ),
-          Mode(
-            begin: r'\b\d[\d_]*((U?[SIL])|[%&])?',
-          ),
-          Mode(
-            begin: r'&H[\dA-F_]+((U?[SIL])|[%&])?',
-          ),
-          Mode(
-            begin: r'&O[0-7_]+((U?[SIL])|[%&])?',
-          ),
-          Mode(
-            begin: r'&B[01_]+((U?[SIL])|[%&])?',
-          ),
+          Mode(begin: r'\b\d[\d_]*((U?[SIL])|[%&])?'),
+          Mode(begin: r'&H[\dA-F_]+((U?[SIL])|[%&])?'),
+          Mode(begin: r'&O[0-7_]+((U?[SIL])|[%&])?'),
+          Mode(begin: r'&B[01_]+((U?[SIL])|[%&])?'),
         ],
       ),
-      Mode(
-        scope: r'label',
-        begin: r'^\w+:',
-      ),
+      Mode(scope: r'label', begin: r'^\w+:'),
       Mode(
         scope: r'comment',
         begin: r"'''",
         end: r'$',
         contains: [
-          Mode(
-            scope: r'doctag',
-            begin: r'<\/?',
-            end: r'>',
-          ),
+          Mode(scope: r'doctag', begin: r'<\/?', end: r'>'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -139,9 +103,7 @@ Mode vbnet(Highlight hljs) {
           r'keyword':
               r'const disable else elseif enable end externalsource if region then',
         },
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
     ],
   );

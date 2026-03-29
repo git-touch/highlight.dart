@@ -25,14 +25,8 @@ Mode abnf(Highlight hljs) {
       r'WSP',
     ],
     contains: [
-      Mode(
-        scope: r'operator',
-        match: r'=\/?',
-      ),
-      Mode(
-        scope: r'attribute',
-        match: r'^[a-zA-Z][a-zA-Z0-9-]*(?=\s*=)',
-      ),
+      Mode(scope: r'operator', match: r'=\/?'),
+      Mode(scope: r'attribute', match: r'^[a-zA-Z][a-zA-Z0-9-]*(?=\s*=)'),
       Mode(
         scope: r'comment',
         begin: r';',
@@ -51,39 +45,18 @@ Mode abnf(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'symbol',
-        match: r'%b[0-1]+(-[0-1]+|(\.[0-1]+)+)?',
-      ),
-      Mode(
-        scope: r'symbol',
-        match: r'%d[0-9]+(-[0-9]+|(\.[0-9]+)+)?',
-      ),
-      Mode(
-        scope: r'symbol',
-        match: r'%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+)?',
-      ),
-      Mode(
-        scope: r'symbol',
-        match: r'%[si](?=".*")',
-      ),
+      Mode(scope: r'symbol', match: r'%b[0-1]+(-[0-1]+|(\.[0-1]+)+)?'),
+      Mode(scope: r'symbol', match: r'%d[0-9]+(-[0-9]+|(\.[0-9]+)+)?'),
+      Mode(scope: r'symbol', match: r'%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+)?'),
+      Mode(scope: r'symbol', match: r'%[si](?=".*")'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
     ],
   );
 }

@@ -10,21 +10,13 @@ Mode bash(Highlight hljs) {
   final Mode _mode4 = Mode();
   final Mode _mode5 = Mode();
   _mode0.scope = r'variable';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.variants = [_mode1, _mode2];
   _mode1.begin = r'\$[\w\d#@][\w\d_]*(?![\w\d])(?![$])';
   _mode2.begin = r'\$\{';
   _mode2.end = r'\}';
-  _mode2.contains = [
-    r'self',
-    _mode3,
-  ];
+  _mode2.contains = [r'self', _mode3];
   _mode3.begin = r':-';
-  _mode3.contains = [
-    _mode0,
-  ];
+  _mode3.contains = [_mode0];
   _mode4.scope = r'string';
   _mode4.begin = r'"';
   _mode4.end = r'"';
@@ -35,20 +27,14 @@ Mode bash(Highlight hljs) {
       scope: r'subst',
       begin: r'\$\(',
       end: r'\)',
-      contains: [
-        _mode5,
-        _mode4,
-      ],
+      contains: [_mode5, _mode4],
     ),
   ];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   return Mode(
     name: r'Bash',
-    aliases: [
-      r'sh',
-      r'zsh',
-    ],
+    aliases: [r'sh', r'zsh'],
     keywords: {
       r'$pattern': r'\b[a-z][a-z0-9._-]+\b',
       r'keyword': [
@@ -70,10 +56,7 @@ Mode bash(Highlight hljs) {
         r'function',
         r'select',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-      ],
+      r'literal': [r'true', r'false'],
       r'built_in': [
         r'break',
         r'cd',
@@ -296,45 +279,25 @@ Mode bash(Highlight hljs) {
         relevance: 10,
         binary: r'(fish|bash|zsh|sh|csh|ksh|tcsh|dash|scsh)',
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'^#![ ]*\/',
-        end: r'$',
-        relevance: 0,
-      ),
+      Mode(scope: r'meta', begin: r'^#![ ]*\/', end: r'$', relevance: 0),
       Mode(
         scope: r'function',
         begin: r'\w[\w\d_]*\s*\(\s*\)\s*\{',
         returnBegin: true,
-        contains: [
-          Mode(
-            scope: r'title',
-            begin: r'\w[\w\d_]*',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(scope: r'title', begin: r'\w[\w\d_]*', relevance: 0)],
         relevance: 0,
       ),
       Mode(
         begin: r'\$?\(\(',
         end: r'\)\)',
         contains: [
-          Mode(
-            begin: r'\d+#[0-9a-f]+',
-            scope: r'number',
-          ),
-          Mode(
-            scope: r'number',
-            begin: r'\b\d+(\.\d+)?',
-            relevance: 0,
-          ),
+          Mode(begin: r'\d+#[0-9a-f]+', scope: r'number'),
+          Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
           _mode0,
         ],
       ),
       Mode(
-        scope: {
-          2: r'comment',
-        },
+        scope: {2: r'comment'},
         contains: [
           Mode(
             scope: r'doctag',
@@ -348,40 +311,23 @@ Mode bash(Highlight hljs) {
                 r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}",
           ),
         ],
-        match: [
-          r'(^|\s)',
-          r'#.*$',
-        ],
+        match: [r'(^|\s)', r'#.*$'],
       ),
       Mode(
         begin: r'<<-?\s*(?=\w+)',
         starts: Mode(
           contains: [
             hljs.END_SAME_AS_BEGIN(
-              Mode(
-                begin: r'(\w+)',
-                end: r'(\w+)',
-                scope: r'string',
-              ),
+              Mode(begin: r'(\w+)', end: r'(\w+)', scope: r'string'),
             ),
           ],
         ),
       ),
-      Mode(
-        match: r'(\/[a-z._-]+)+',
-      ),
+      Mode(match: r'(\/[a-z._-]+)+'),
       _mode4,
-      Mode(
-        match: r'\\"',
-      ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-      ),
-      Mode(
-        match: r"\\'",
-      ),
+      Mode(match: r'\\"'),
+      Mode(scope: r'string', begin: r"'", end: r"'"),
+      Mode(match: r"\\'"),
       _mode0,
     ],
   );

@@ -12,33 +12,11 @@ Mode php_template(Highlight hljs) {
         end: r'\?>',
         subLanguage: r'php',
         contains: [
-          Mode(
-            begin: r'/\*',
-            end: r'\*/',
-            skip: true,
-          ),
-          Mode(
-            begin: r'b"',
-            end: r'"',
-            skip: true,
-          ),
-          Mode(
-            begin: r"b'",
-            end: r"'",
-            skip: true,
-          ),
-          Mode(
-            scope: r'string',
-            begin: r"'",
-            end: r"'",
-            skip: true,
-          ),
-          Mode(
-            scope: r'string',
-            begin: r'"',
-            end: r'"',
-            skip: true,
-          ),
+          Mode(begin: r'/\*', end: r'\*/', skip: true),
+          Mode(begin: r'b"', end: r'"', skip: true),
+          Mode(begin: r"b'", end: r"'", skip: true),
+          Mode(scope: r'string', begin: r"'", end: r"'", skip: true),
+          Mode(scope: r'string', begin: r'"', end: r'"', skip: true),
         ],
       ),
     ],

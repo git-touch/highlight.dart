@@ -25,10 +25,7 @@ Mode prolog(Highlight hljs) {
   _mode0.begin = r'[a-z][A-Za-z0-9_]*';
   _mode0.relevance = 0;
   _mode1.scope = r'symbol';
-  _mode1.variants = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.variants = [_mode2, _mode3];
   _mode1.relevance = 0;
   _mode2.begin = r'[A-Z][a-zA-Z0-9_]*';
   _mode3.begin = r'_[A-Za-z0-9_]*';
@@ -71,18 +68,13 @@ Mode prolog(Highlight hljs) {
   _mode7.scope = r'comment';
   _mode7.begin = r'%';
   _mode7.end = r'$';
-  _mode7.contains = [
-    _mode8,
-  ];
+  _mode7.contains = [_mode8];
   _mode8.begin =
       r"\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b";
   _mode9.scope = r'comment';
   _mode9.begin = r'/\*';
   _mode9.end = r'\*/';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.contains = [_mode10, _mode11];
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -94,24 +86,18 @@ Mode prolog(Highlight hljs) {
   _mode12.begin = r'"';
   _mode12.end = r'"';
   _mode12.illegal = r'\n';
-  _mode12.contains = [
-    _mode13,
-  ];
+  _mode12.contains = [_mode13];
   _mode13.begin = r'\\[\s\S]';
   _mode13.relevance = 0;
   _mode14.scope = r'string';
   _mode14.begin = r"'";
   _mode14.end = r"'";
   _mode14.illegal = r'\n';
-  _mode14.contains = [
-    _mode13,
-  ];
+  _mode14.contains = [_mode13];
   _mode15.scope = r'string';
   _mode15.begin = r'`';
   _mode15.end = r'`';
-  _mode15.contains = [
-    _mode13,
-  ];
+  _mode15.contains = [_mode13];
   _mode16.scope = r'string';
   _mode16.begin = r"0'(\\'|.)";
   _mode17.scope = r'string';
@@ -136,9 +122,7 @@ Mode prolog(Highlight hljs) {
       _mode16,
       _mode17,
       _mode18,
-      Mode(
-        begin: r'\.$',
-      ),
+      Mode(begin: r'\.$'),
     ],
   );
 }

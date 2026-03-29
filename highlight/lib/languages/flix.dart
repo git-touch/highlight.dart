@@ -27,10 +27,7 @@ Mode flix(Highlight hljs) {
         r'yield',
         r'with',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-      ],
+      r'literal': [r'true', r'false'],
     },
     contains: [
       Mode(
@@ -69,18 +66,10 @@ Mode flix(Highlight hljs) {
           ),
         ],
       ),
+      Mode(scope: r'string', begin: r"'(.|\\[xXuU][a-zA-Z0-9]+)'"),
       Mode(
         scope: r'string',
-        begin: r"'(.|\\[xXuU][a-zA-Z0-9]+)'",
-      ),
-      Mode(
-        scope: r'string',
-        variants: [
-          Mode(
-            begin: r'"',
-            end: r'"',
-          ),
-        ],
+        variants: [Mode(begin: r'"', end: r'"')],
       ),
       Mode(
         scope: r'function',

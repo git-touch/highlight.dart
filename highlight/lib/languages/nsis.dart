@@ -344,28 +344,12 @@ Mode nsis(Highlight hljs) {
         relevance: 0,
       ),
       Mode(
-        match: [
-          r'Var',
-          r'\s+',
-          r'(?:\/GLOBAL\s+)?',
-          r'[A-Za-z][\w.]*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'params',
-          4: r'variable',
-        },
+        match: [r'Var', r'\s+', r'(?:\/GLOBAL\s+)?', r'[A-Za-z][\w.]*'],
+        scope: {1: r'keyword', 3: r'params', 4: r'variable'},
       ),
       Mode(
-        match: [
-          r'Function',
-          r'\s+',
-          r'(\.)?[a-zA-Z]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        match: [r'Function', r'\s+', r'(\.)?[a-zA-Z]\w*'],
+        scope: {1: r'keyword', 3: r'title.function'},
       ),
       Mode(
         beginKeywords:
@@ -374,25 +358,13 @@ Mode nsis(Highlight hljs) {
       Mode(
         scope: r'string',
         variants: [
-          Mode(
-            begin: r'"',
-            end: r'"',
-          ),
-          Mode(
-            begin: r"'",
-            end: r"'",
-          ),
-          Mode(
-            begin: r'`',
-            end: r'`',
-          ),
+          Mode(begin: r'"', end: r'"'),
+          Mode(begin: r"'", end: r"'"),
+          Mode(begin: r'`', end: r'`'),
         ],
         illegal: r'\n',
         contains: [
-          Mode(
-            scope: r'char.escape',
-            begin: r'\$(\\[nrt]|\$)',
-          ),
+          Mode(scope: r'char.escape', begin: r'\$(\\[nrt]|\$)'),
           Mode(
             scope: r'variable.constant',
             begin:
@@ -416,15 +388,8 @@ Mode nsis(Highlight hljs) {
         begin:
             r'(?:ARCHIVE|FILE_ATTRIBUTE_ARCHIVE|FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_OFFLINE|FILE_ATTRIBUTE_READONLY|FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_TEMPORARY|HKCR|HKCU|HKDD|HKEY_CLASSES_ROOT|HKEY_CURRENT_CONFIG|HKEY_CURRENT_USER|HKEY_DYN_DATA|HKEY_LOCAL_MACHINE|HKEY_PERFORMANCE_DATA|HKEY_USERS|HKLM|HKPD|HKU|IDABORT|IDCANCEL|IDIGNORE|IDNO|IDOK|IDRETRY|IDYES|MB_ABORTRETRYIGNORE|MB_DEFBUTTON1|MB_DEFBUTTON2|MB_DEFBUTTON3|MB_DEFBUTTON4|MB_ICONEXCLAMATION|MB_ICONINFORMATION|MB_ICONQUESTION|MB_ICONSTOP|MB_OK|MB_OKCANCEL|MB_RETRYCANCEL|MB_RIGHT|MB_RTLREADING|MB_SETFOREGROUND|MB_TOPMOST|MB_USERICON|MB_YESNO|NORMAL|OFFLINE|READONLY|SHCTX|SHELL_CONTEXT|SYSTEM|TEMPORARY)',
       ),
-      Mode(
-        scope: r'title.function',
-        begin: r'\w+::\w+',
-      ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'title.function', begin: r'\w+::\w+'),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
     ],
   );
 }

@@ -37,11 +37,7 @@ Mode powershell(Highlight hljs) {
   _mode0.end = r'$';
   _mode0.returnBegin = true;
   _mode0.relevance = 0;
-  _mode0.contains = [
-    _mode1,
-    _mode27,
-    _mode28,
-  ];
+  _mode0.contains = [_mode1, _mode27, _mode28];
   _mode1.begin = r'\[';
   _mode1.end = r'\]';
   _mode1.excludeBegin = true;
@@ -63,18 +59,10 @@ Mode powershell(Highlight hljs) {
     _mode26,
   ];
   _mode2.scope = r'comment';
-  _mode2.contains = [
-    _mode3,
-  ];
-  _mode2.variants = [
-    _mode6,
-    _mode7,
-  ];
+  _mode2.contains = [_mode3];
+  _mode2.variants = [_mode6, _mode7];
   _mode3.scope = r'doctag';
-  _mode3.variants = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.variants = [_mode4, _mode5];
   _mode4.begin =
       r'\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)';
   _mode5.begin =
@@ -89,25 +77,14 @@ Mode powershell(Highlight hljs) {
   _mode9.begin = r'\b\d+(\.\d+)?';
   _mode9.relevance = 0;
   _mode10.scope = r'string';
-  _mode10.variants = [
-    _mode11,
-    _mode12,
-  ];
-  _mode10.contains = [
-    _mode8,
-    _mode13,
-    _mode17,
-  ];
+  _mode10.variants = [_mode11, _mode12];
+  _mode10.contains = [_mode8, _mode13, _mode17];
   _mode11.begin = r'"';
   _mode11.end = r'"';
   _mode12.begin = r'@"';
   _mode12.end = r'^"@';
   _mode13.scope = r'variable';
-  _mode13.variants = [
-    _mode14,
-    _mode15,
-    _mode16,
-  ];
+  _mode13.variants = [_mode14, _mode15, _mode16];
   _mode14.begin = r'\$\B';
   _mode15.scope = r'keyword';
   _mode15.begin = r'\$this';
@@ -116,18 +93,13 @@ Mode powershell(Highlight hljs) {
   _mode17.begin = r'\$[A-z]';
   _mode17.end = r'[^A-z]';
   _mode18.scope = r'string';
-  _mode18.variants = [
-    _mode19,
-    _mode20,
-  ];
+  _mode18.variants = [_mode19, _mode20];
   _mode19.begin = r"'";
   _mode19.end = r"'";
   _mode20.begin = r"@'";
   _mode20.end = r"^'@";
   _mode21.scope = r'built_in';
-  _mode21.variants = [
-    _mode22,
-  ];
+  _mode21.variants = [_mode22];
   _mode22.begin =
       r'(Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|Move|New|Open|Optimize|Pop|Push|Redo|Remove|Rename|Reset|Resize|Search|Select|Set|Show|Skip|Split|Step|Switch|Undo|Unlock|Watch|Backup|Checkpoint|Compare|Compress|Convert|ConvertFrom|ConvertTo|Dismount|Edit|Expand|Export|Group|Import|Initialize|Limit|Merge|Mount|Out|Publish|Restore|Save|Sync|Unpublish|Update|Approve|Assert|Build|Complete|Confirm|Deny|Deploy|Disable|Enable|Install|Invoke|Register|Request|Restart|Resume|Start|Stop|Submit|Suspend|Uninstall|Unregister|Wait|Debug|Measure|Ping|Repair|Resolve|Test|Trace|Connect|Disconnect|Read|Receive|Send|Write|Block|Grant|Protect|Revoke|Unblock|Unprotect|Use|ForEach|Sort|Tee|Where)+(-)[\w\d]+';
   _mode23.scope = r'literal';
@@ -153,11 +125,7 @@ Mode powershell(Highlight hljs) {
   _mode28.endsParent = true;
   return Mode(
     name: r'PowerShell',
-    aliases: [
-      r'pwsh',
-      r'ps',
-      r'ps1',
-    ],
+    aliases: [r'pwsh', r'ps', r'ps1'],
     caseInsensitive: true,
     keywords: {
       r'$pattern': r'-?[A-z\.\-]+\b',
@@ -183,13 +151,7 @@ Mode powershell(Highlight hljs) {
         end: r'\s*[{]',
         excludeEnd: true,
         relevance: 0,
-        contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z]\w*',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(scope: r'title', begin: r'[a-zA-Z]\w*', relevance: 0)],
       ),
       Mode(
         scope: r'function',
@@ -199,24 +161,14 @@ Mode powershell(Highlight hljs) {
         returnBegin: true,
         relevance: 0,
         contains: [
-          Mode(
-            begin: r'function',
-            relevance: 0,
-            scope: r'keyword',
-          ),
-          Mode(
-            scope: r'title',
-            begin: r'\w[\w\d]*((-)[\w\d]+)*',
-            relevance: 0,
-          ),
+          Mode(begin: r'function', relevance: 0, scope: r'keyword'),
+          Mode(scope: r'title', begin: r'\w[\w\d]*((-)[\w\d]+)*', relevance: 0),
           Mode(
             begin: r'\(',
             end: r'\)',
             scope: r'params',
             relevance: 0,
-            contains: [
-              _mode13,
-            ],
+            contains: [_mode13],
           ),
         ],
       ),
@@ -240,11 +192,7 @@ Mode powershell(Highlight hljs) {
             begin:
                 r'(-and|-as|-band|-bnot|-bor|-bxor|-casesensitive|-ccontains|-ceq|-cge|-cgt|-cle|-clike|-clt|-cmatch|-cne|-cnotcontains|-cnotlike|-cnotmatch|-contains|-creplace|-csplit|-eq|-exact|-f|-file|-ge|-gt|-icontains|-ieq|-ige|-igt|-ile|-ilike|-ilt|-imatch|-in|-ine|-inotcontains|-inotlike|-inotmatch|-ireplace|-is|-isnot|-isplit|-join|-le|-like|-lt|-match|-ne|-not|-notcontains|-notin|-notlike|-notmatch|-or|-regex|-replace|-shl|-shr|-split|-wildcard|-xor)\b',
           ),
-          Mode(
-            scope: r'literal',
-            begin: r'(-){1,2}[\w\d-]+',
-            relevance: 0,
-          ),
+          Mode(scope: r'literal', begin: r'(-){1,2}[\w\d-]+', relevance: 0),
         ],
       ),
       _mode1,

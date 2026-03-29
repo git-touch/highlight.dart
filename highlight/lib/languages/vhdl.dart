@@ -212,9 +212,7 @@ Mode vhdl(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -225,16 +223,12 @@ Mode vhdl(Highlight hljs) {
       Mode(
         scope: r'string',
         begin: r"'(U|X|0|1|Z|W|L|H|-)'",
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'symbol',
         begin: r"'[A-Za-z](_?[A-Za-z0-9])*",
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
     ],
   );

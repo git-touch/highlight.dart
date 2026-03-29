@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode vbscript(Highlight hljs) {
   return Mode(
     name: r'VBScript',
-    aliases: [
-      r'vbs',
-    ],
+    aliases: [r'vbs'],
     caseInsensitive: true,
     keywords: {
       r'keyword': [
@@ -78,13 +76,7 @@ Mode vbscript(Highlight hljs) {
         r'scriptengineminorversion',
         r'scriptenginemajorversion',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-        r'nothing',
-        r'empty',
-      ],
+      r'literal': [r'true', r'false', r'null', r'nothing', r'empty'],
     },
     illegal: r'//',
     contains: [
@@ -198,11 +190,7 @@ Mode vbscript(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'""',
-          ),
-        ],
+        contains: [Mode(begin: r'""')],
       ),
       Mode(
         scope: r'comment',

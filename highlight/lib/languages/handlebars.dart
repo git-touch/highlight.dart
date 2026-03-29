@@ -59,15 +59,7 @@ Mode handlebars(Highlight hljs) {
   };
   _mode0.scope = r'name';
   _mode0.starts = _mode1;
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-    _mode5,
-    _mode6,
-    _mode8,
-    _mode11,
-    _mode12,
-  ];
+  _mode1.contains = [_mode2, _mode3, _mode5, _mode6, _mode8, _mode11, _mode12];
   _mode1.returnEnd = true;
   _mode1.end = r'\}\}';
   _mode2.scope = r'number';
@@ -77,26 +69,18 @@ Mode handlebars(Highlight hljs) {
   _mode3.begin = r'"';
   _mode3.end = r'"';
   _mode3.illegal = r'\n';
-  _mode3.contains = [
-    _mode4,
-  ];
+  _mode3.contains = [_mode4];
   _mode4.begin = r'\\[\s\S]';
   _mode4.relevance = 0;
   _mode5.scope = r'string';
   _mode5.begin = r"'";
   _mode5.end = r"'";
   _mode5.illegal = r'\n';
-  _mode5.contains = [
-    _mode4,
-  ];
+  _mode5.contains = [_mode4];
   _mode6.begin = r'as\s+\|';
-  _mode6.keywords = {
-    r'keyword': r'as',
-  };
+  _mode6.keywords = {r'keyword': r'as'};
   _mode6.end = r'\|';
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.begin = r'\w+';
   _mode8.scope = r'attr';
   _mode8.begin =
@@ -106,29 +90,16 @@ Mode handlebars(Highlight hljs) {
   _mode9.begin = r'=';
   _mode9.end = r'=';
   _mode9.starts = _mode10;
-  _mode10.contains = [
-    _mode2,
-    _mode3,
-    _mode5,
-    _mode11,
-    _mode12,
-  ];
+  _mode10.contains = [_mode2, _mode3, _mode5, _mode11, _mode12];
   _mode11.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
   _mode11.keywords = {
     r'$pattern': r'[\w.\/]+',
-    r'literal': [
-      r'true',
-      r'false',
-      r'undefined',
-      r'null',
-    ],
+    r'literal': [r'true', r'false', r'undefined', r'null'],
   };
   _mode12.begin = r'\(';
   _mode12.end = r'\)';
-  _mode12.contains = [
-    _mode13,
-  ];
+  _mode12.contains = [_mode13];
   _mode13.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
   _mode13.scope = r'name';
@@ -167,15 +138,7 @@ Mode handlebars(Highlight hljs) {
     ],
   };
   _mode13.starts = _mode14;
-  _mode14.contains = [
-    _mode2,
-    _mode3,
-    _mode5,
-    _mode6,
-    _mode8,
-    _mode11,
-    _mode12,
-  ];
+  _mode14.contains = [_mode2, _mode3, _mode5, _mode6, _mode8, _mode11, _mode12];
   _mode14.returnEnd = true;
   _mode14.end = r'\)';
   _mode15.begin =
@@ -253,36 +216,17 @@ Mode handlebars(Highlight hljs) {
     ],
   };
   _mode16.starts = _mode17;
-  _mode17.contains = [
-    _mode2,
-    _mode3,
-    _mode5,
-    _mode6,
-    _mode8,
-    _mode11,
-    _mode12,
-  ];
+  _mode17.contains = [_mode2, _mode3, _mode5, _mode6, _mode8, _mode11, _mode12];
   _mode17.returnEnd = true;
   _mode17.end = r'\}\}';
   return Mode(
     name: r'Handlebars',
-    aliases: [
-      r'hbs',
-      r'html.hbs',
-      r'html.handlebars',
-      r'htmlbars',
-    ],
+    aliases: [r'hbs', r'html.hbs', r'html.handlebars', r'htmlbars'],
     caseInsensitive: true,
     subLanguage: r'xml',
     contains: [
-      Mode(
-        begin: r'\\\{\{',
-        skip: true,
-      ),
-      Mode(
-        begin: r'\\\\(?=\{\{)',
-        skip: true,
-      ),
+      Mode(begin: r'\\\{\{', skip: true),
+      Mode(begin: r'\\\\(?=\{\{)', skip: true),
       Mode(
         scope: r'comment',
         begin: r'\{\{!--',
@@ -323,30 +267,20 @@ Mode handlebars(Highlight hljs) {
         scope: r'template-tag',
         begin: r'\{\{\{\{(?!\/)',
         end: r'\}\}\}\}',
-        contains: [
-          _mode0,
-        ],
-        starts: Mode(
-          end: r'\{\{\{\{\/',
-          returnEnd: true,
-          subLanguage: r'xml',
-        ),
+        contains: [_mode0],
+        starts: Mode(end: r'\{\{\{\{\/', returnEnd: true, subLanguage: r'xml'),
       ),
       Mode(
         scope: r'template-tag',
         begin: r'\{\{\{\{\/',
         end: r'\}\}\}\}',
-        contains: [
-          _mode15,
-        ],
+        contains: [_mode15],
       ),
       Mode(
         scope: r'template-tag',
         begin: r'\{\{#',
         end: r'\}\}',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'template-tag',
@@ -364,25 +298,19 @@ Mode handlebars(Highlight hljs) {
         scope: r'template-tag',
         begin: r'\{\{\/',
         end: r'\}\}',
-        contains: [
-          _mode15,
-        ],
+        contains: [_mode15],
       ),
       Mode(
         scope: r'template-variable',
         begin: r'\{\{\{',
         end: r'\}\}\}',
-        contains: [
-          _mode16,
-        ],
+        contains: [_mode16],
       ),
       Mode(
         scope: r'template-variable',
         begin: r'\{\{',
         end: r'\}\}',
-        contains: [
-          _mode16,
-        ],
+        contains: [_mode16],
       ),
     ],
   );

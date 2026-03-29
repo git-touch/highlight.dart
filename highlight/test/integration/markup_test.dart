@@ -18,7 +18,8 @@ void main() {
     if (!hljs.hasLanguage(language)) continue;
 
     for (final inputFile in langDir.listSync().whereType<File>().where(
-        (f) => f.path.endsWith('.txt') && !f.path.endsWith('.expect.txt'))) {
+      (f) => f.path.endsWith('.txt') && !f.path.endsWith('.expect.txt'),
+    )) {
       final name = p.basenameWithoutExtension(inputFile.path);
       final expectFile = File('${langDir.path}/$name.expect.txt');
       if (!expectFile.existsSync()) continue;

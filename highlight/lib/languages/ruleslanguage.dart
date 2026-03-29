@@ -56,18 +56,14 @@ Mode ruleslanguage(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -78,13 +74,8 @@ Mode ruleslanguage(Highlight hljs) {
       Mode(
         scope: r'literal',
         variants: [
-          Mode(
-            begin: r'#\s+',
-            relevance: 0,
-          ),
-          Mode(
-            begin: r'#[a-zA-Z .]+',
-          ),
+          Mode(begin: r'#\s+', relevance: 0),
+          Mode(begin: r'#[a-zA-Z .]+'),
         ],
       ),
     ],

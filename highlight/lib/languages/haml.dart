@@ -10,18 +10,14 @@ Mode haml(Highlight hljs) {
   _mode0.begin = r"'";
   _mode0.end = r"'";
   _mode0.illegal = r'\n';
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'string';
   _mode2.begin = r'"';
   _mode2.end = r'"';
   _mode2.illegal = r'\n';
-  _mode2.contains = [
-    _mode1,
-  ];
+  _mode2.contains = [_mode1];
   return Mode(
     name: r'HAML',
     caseInsensitive: true,
@@ -60,18 +56,9 @@ Mode haml(Highlight hljs) {
         scope: r'tag',
         begin: r'^\s*%',
         contains: [
-          Mode(
-            scope: r'selector-tag',
-            begin: r'\w+',
-          ),
-          Mode(
-            scope: r'selector-id',
-            begin: r'#[\w-]+',
-          ),
-          Mode(
-            scope: r'selector-class',
-            begin: r'\.[\w-]+',
-          ),
+          Mode(scope: r'selector-tag', begin: r'\w+'),
+          Mode(scope: r'selector-id', begin: r'#[\w-]+'),
+          Mode(scope: r'selector-class', begin: r'\.[\w-]+'),
           Mode(
             begin: r'\{\s*',
             end: r'\s*\}',
@@ -82,16 +69,10 @@ Mode haml(Highlight hljs) {
                 returnBegin: true,
                 endsWithParent: true,
                 contains: [
-                  Mode(
-                    scope: r'attr',
-                    begin: r':\w+',
-                  ),
+                  Mode(scope: r'attr', begin: r':\w+'),
                   _mode0,
                   _mode2,
-                  Mode(
-                    begin: r'\w+',
-                    relevance: 0,
-                  ),
+                  Mode(begin: r'\w+', relevance: 0),
                 ],
               ),
             ],
@@ -107,26 +88,17 @@ Mode haml(Highlight hljs) {
                 returnBegin: true,
                 endsWithParent: true,
                 contains: [
-                  Mode(
-                    scope: r'attr',
-                    begin: r'\w+',
-                    relevance: 0,
-                  ),
+                  Mode(scope: r'attr', begin: r'\w+', relevance: 0),
                   _mode0,
                   _mode2,
-                  Mode(
-                    begin: r'\w+',
-                    relevance: 0,
-                  ),
+                  Mode(begin: r'\w+', relevance: 0),
                 ],
               ),
             ],
           ),
         ],
       ),
-      Mode(
-        begin: r'^\s*[=~]\s*',
-      ),
+      Mode(begin: r'^\s*[=~]\s*'),
       Mode(
         begin: r'#\{',
         end: r'\}',

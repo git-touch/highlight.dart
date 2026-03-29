@@ -97,14 +97,7 @@ Mode rsl(Highlight hljs) {
         r'ycomp',
         r'zcomp',
       ],
-      r'type': [
-        r'matrix',
-        r'float',
-        r'color',
-        r'point',
-        r'normal',
-        r'vector',
-      ],
+      r'type': [r'matrix', r'float', r'color', r'point', r'normal', r'vector'],
     },
     illegal: r'</',
     contains: [
@@ -149,18 +142,14 @@ Mode rsl(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -168,26 +157,16 @@ Mode rsl(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'#',
-        end: r'$',
-      ),
+      Mode(scope: r'meta', begin: r'#', end: r'$'),
       Mode(
         match: [
           r'(surface|displacement|light|volume|imager)',
           r'\s+',
           r'[a-zA-Z]\w*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
-      Mode(
-        beginKeywords: r'illuminate illuminance gather',
-        end: r'\(',
-      ),
+      Mode(beginKeywords: r'illuminate illuminance gather', end: r'\('),
     ],
   );
 }

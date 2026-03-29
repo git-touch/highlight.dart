@@ -12,26 +12,17 @@ Mode angelscript(Highlight hljs) {
   _mode1.scope = r'built_in';
   _mode1.begin =
       r'\b(void|bool|int8|int16|int32|int64|int|uint8|uint16|uint32|uint64|uint|string|ref|array|double|float|auto|dictionary)';
-  _mode1.contains = [
-    _mode2,
-  ];
+  _mode1.contains = [_mode2];
   _mode2.scope = r'keyword';
   _mode2.begin = r'<';
   _mode2.end = r'>';
-  _mode2.contains = [
-    _mode1,
-    _mode3,
-  ];
+  _mode2.contains = [_mode1, _mode3];
   _mode3.scope = r'symbol';
   _mode3.begin = r'[a-zA-Z0-9_]+@';
-  _mode3.contains = [
-    _mode2,
-  ];
+  _mode3.contains = [_mode2];
   return Mode(
     name: r'AngelScript',
-    aliases: [
-      r'asc',
-    ],
+    aliases: [r'asc'],
     keywords: [
       r'for',
       r'in|0',
@@ -87,24 +78,16 @@ Mode angelscript(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
-      Mode(
-        scope: r'string',
-        begin: r'"""',
-        end: r'"""',
-      ),
+      Mode(scope: r'string', begin: r'"""', end: r'"""'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
       Mode(
@@ -143,21 +126,12 @@ Mode angelscript(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'string',
-        begin: r'^\s*\[',
-        end: r'\]',
-      ),
+      Mode(scope: r'string', begin: r'^\s*\[', end: r'\]'),
       Mode(
         beginKeywords: r'interface namespace',
         end: r'\{',
         illegal: r'[;.\-]',
-        contains: [
-          Mode(
-            scope: r'symbol',
-            begin: r'[a-zA-Z0-9_]+',
-          ),
-        ],
+        contains: [Mode(scope: r'symbol', begin: r'[a-zA-Z0-9_]+')],
       ),
       Mode(
         beginKeywords: r'class',
@@ -170,12 +144,7 @@ Mode angelscript(Highlight hljs) {
             contains: [
               Mode(
                 begin: r'[:,]\s*',
-                contains: [
-                  Mode(
-                    scope: r'symbol',
-                    begin: r'[a-zA-Z0-9_]+',
-                  ),
-                ],
+                contains: [Mode(scope: r'symbol', begin: r'[a-zA-Z0-9_]+')],
               ),
             ],
           ),
@@ -183,10 +152,7 @@ Mode angelscript(Highlight hljs) {
       ),
       _mode1,
       _mode3,
-      Mode(
-        scope: r'literal',
-        begin: r'\b(null|true|false)',
-      ),
+      Mode(scope: r'literal', begin: r'\b(null|true|false)'),
       Mode(
         scope: r'number',
         relevance: 0,

@@ -5,15 +5,9 @@ import '../highlight_core.dart';
 Mode json(Highlight hljs) {
   return Mode(
     name: r'JSON',
-    aliases: [
-      r'jsonc',
-    ],
+    aliases: [r'jsonc'],
     keywords: {
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-      ],
+      r'literal': [r'true', r'false', r'null'],
     },
     contains: [
       Mode(
@@ -21,27 +15,15 @@ Mode json(Highlight hljs) {
         begin: r'"(\\.|[^\\"\r\n])*"(?=\s*:)',
         relevance: 1.01,
       ),
-      Mode(
-        match: r'[{}[\],:]',
-        scope: r'punctuation',
-        relevance: 0,
-      ),
+      Mode(match: r'[{}[\],:]', scope: r'punctuation', relevance: 0),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'literal',
-        beginKeywords: r'true false null',
-      ),
+      Mode(scope: r'literal', beginKeywords: r'true false null'),
       Mode(
         scope: r'number',
         begin:

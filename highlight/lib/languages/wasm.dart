@@ -94,52 +94,23 @@ Mode wasm(Highlight hljs) {
         ],
       ),
       Mode(
-        match: [
-          r'(?:offset|align)',
-          r'\s*',
-          r'=',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'operator',
-        },
+        match: [r'(?:offset|align)', r'\s*', r'='],
+        scope: {1: r'keyword', 3: r'operator'},
       ),
+      Mode(scope: r'variable', begin: r'\$[\w_]+'),
+      Mode(match: r'(\((?!;)|\))+', scope: r'punctuation', relevance: 0),
       Mode(
-        scope: r'variable',
-        begin: r'\$[\w_]+',
-      ),
-      Mode(
-        match: r'(\((?!;)|\))+',
-        scope: r'punctuation',
-        relevance: 0,
-      ),
-      Mode(
-        begin: [
-          r'(?:func|call|call_indirect)',
-          r'\s+',
-          r'\$[^\s)]+',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        begin: [r'(?:func|call|call_indirect)', r'\s+', r'\$[^\s)]+'],
+        scope: {1: r'keyword', 3: r'title.function'},
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        match: r'(i32|i64|f32|f64)(?!\.)',
-        scope: r'type',
-      ),
+      Mode(match: r'(i32|i64|f32|f64)(?!\.)', scope: r'type'),
       Mode(
         scope: r'keyword',
         match:

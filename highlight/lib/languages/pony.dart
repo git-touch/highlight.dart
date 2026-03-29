@@ -15,38 +15,17 @@ Mode pony(Highlight hljs) {
       r'literal': r'this false true',
     },
     contains: [
-      Mode(
-        scope: r'type',
-        begin: r'\b_?[A-Z][\w]*',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'"""',
-        end: r'"""',
-        relevance: 10,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-        contains: [
-          _mode0,
-        ],
-      ),
+      Mode(scope: r'type', begin: r'\b_?[A-Z][\w]*', relevance: 0),
+      Mode(scope: r'string', begin: r'"""', end: r'"""', relevance: 10),
+      Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
-      Mode(
-        begin: r"[a-zA-Z]\w*'",
-        relevance: 0,
-      ),
+      Mode(begin: r"[a-zA-Z]\w*'", relevance: 0),
       Mode(
         scope: r'number',
         begin:

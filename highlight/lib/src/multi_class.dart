@@ -3,8 +3,9 @@ import 'regex.dart' as regex;
 
 void _remapScopeNames(Mode mode, List<dynamic> regexes, String key) {
   var offset = 0;
-  final scopeNames = (key == 'beginScope' ? mode.beginScope : mode.endScope)
-      as Map<dynamic, dynamic>;
+  final scopeNames =
+      (key == 'beginScope' ? mode.beginScope : mode.endScope)
+          as Map<dynamic, dynamic>;
   final emit = <int, bool>{};
   final positions = <dynamic, dynamic>{};
 
@@ -31,7 +32,8 @@ void _beginMultiClass(Mode mode) {
       mode.excludeBegin == true ||
       mode.returnBegin == true) {
     throw StateError(
-        'skip, excludeBegin, returnBegin not compatible with beginScope: {}');
+      'skip, excludeBegin, returnBegin not compatible with beginScope: {}',
+    );
   }
 
   if (mode.beginScope is! Map) {
@@ -48,7 +50,8 @@ void _endMultiClass(Mode mode) {
 
   if (mode.skip == true || mode.excludeEnd == true || mode.returnEnd == true) {
     throw StateError(
-        'skip, excludeEnd, returnEnd not compatible with endScope: {}');
+      'skip, excludeEnd, returnEnd not compatible with endScope: {}',
+    );
   }
 
   if (mode.endScope is! Map) {

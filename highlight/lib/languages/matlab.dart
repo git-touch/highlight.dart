@@ -6,9 +6,7 @@ Mode matlab(Highlight hljs) {
   final Mode _mode0 = Mode();
   final Mode _mode1 = Mode();
   _mode0.relevance = 0;
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r"('|\.')+";
   return Mode(
     name: r'Matlab',
@@ -25,22 +23,12 @@ Mode matlab(Highlight hljs) {
         beginKeywords: r'function',
         end: r'$',
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
           Mode(
             scope: r'params',
             variants: [
-              Mode(
-                begin: r'\(',
-                end: r'\)',
-              ),
-              Mode(
-                begin: r'\[',
-                end: r'\]',
-              ),
+              Mode(begin: r'\(', end: r'\)'),
+              Mode(begin: r'\[', end: r'\]'),
             ],
           ),
         ],
@@ -51,10 +39,7 @@ Mode matlab(Highlight hljs) {
         relevance: 0,
         starts: _mode0,
       ),
-      Mode(
-        begin: r"[a-zA-Z][a-zA-Z_0-9]*('|\.')+",
-        relevance: 0,
-      ),
+      Mode(begin: r"[a-zA-Z][a-zA-Z_0-9]*('|\.')+", relevance: 0),
       Mode(
         scope: r'number',
         begin:
@@ -66,26 +51,14 @@ Mode matlab(Highlight hljs) {
         scope: r'string',
         begin: r"'",
         end: r"'",
-        contains: [
-          Mode(
-            begin: r"''",
-          ),
-        ],
+        contains: [Mode(begin: r"''")],
       ),
-      Mode(
-        begin: r'\]|\}|\)',
-        relevance: 0,
-        starts: _mode0,
-      ),
+      Mode(begin: r'\]|\}|\)', relevance: 0, starts: _mode0),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
-        contains: [
-          Mode(
-            begin: r'""',
-          ),
-        ],
+        contains: [Mode(begin: r'""')],
         starts: _mode0,
       ),
       Mode(

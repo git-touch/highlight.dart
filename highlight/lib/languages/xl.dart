@@ -10,9 +10,7 @@ Mode xl(Highlight hljs) {
   _mode0.illegal = r'\n';
   return Mode(
     name: r'XL',
-    aliases: [
-      r'tao',
-    ],
+    aliases: [r'tao'],
     keywords: {
       r'$pattern': r'[a-zA-Z][a-zA-Z0-9_?]*',
       r'keyword': [
@@ -45,11 +43,7 @@ Mode xl(Highlight hljs) {
         r'block',
         r'tree',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'nil',
-      ],
+      r'literal': [r'true', r'false', r'nil'],
       r'built_in': [
         r'in',
         r'mod',
@@ -184,17 +178,8 @@ Mode xl(Highlight hljs) {
         ],
       ),
       _mode0,
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-        illegal: r'\n',
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'<<',
-        end: r'>>',
-      ),
+      Mode(scope: r'string', begin: r"'", end: r"'", illegal: r'\n'),
+      Mode(scope: r'string', begin: r'<<', end: r'>>'),
       Mode(
         scope: r'function',
         begin: r'[a-z][^\n]*->',
@@ -239,11 +224,7 @@ Mode xl(Highlight hljs) {
                   r'block',
                   r'tree',
                 ],
-                r'literal': [
-                  r'true',
-                  r'false',
-                  r'nil',
-                ],
+                r'literal': [r'true', r'false', r'nil'],
                 r'built_in': [
                   r'in',
                   r'mod',
@@ -379,11 +360,7 @@ Mode xl(Highlight hljs) {
             r'block',
             r'tree',
           ],
-          r'literal': [
-            r'true',
-            r'false',
-            r'nil',
-          ],
+          r'literal': [r'true', r'false', r'nil'],
           r'built_in': [
             r'in',
             r'mod',
@@ -480,19 +457,13 @@ Mode xl(Highlight hljs) {
             r'Charts',
           ],
         },
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
         begin: r'[0-9]+#[0-9A-Z_]+(\.[0-9-A-Z_]+)?#?([Ee][+-]?[0-9]+)?',
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
     ],
   );
 }

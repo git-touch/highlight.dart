@@ -9,19 +9,14 @@ Mode brainfuck(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Brainfuck',
-    aliases: [
-      r'bf',
-    ],
+    aliases: [r'bf'],
     contains: [
       Mode(
         scope: r'comment',
         begin: r'[^\[\]\.,\+\-<> \r\n]',
         end: r'[\[\]\.,\+\-<> \r\n]',
         contains: [
-          Mode(
-            match: r'[ ]+[^\[\]\.,\+\-<> \r\n]',
-            relevance: 0,
-          ),
+          Mode(match: r'[ ]+[^\[\]\.,\+\-<> \r\n]', relevance: 0),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -37,22 +32,9 @@ Mode brainfuck(Highlight hljs) {
         returnEnd: true,
         relevance: 0,
       ),
-      Mode(
-        scope: r'title',
-        begin: r'[\[\]]',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'[\.,]',
-        relevance: 0,
-      ),
-      Mode(
-        begin: r'(?=\+\+|--)',
-        contains: [
-          _mode0,
-        ],
-      ),
+      Mode(scope: r'title', begin: r'[\[\]]', relevance: 0),
+      Mode(scope: r'string', begin: r'[\.,]', relevance: 0),
+      Mode(begin: r'(?=\+\+|--)', contains: [_mode0]),
       _mode0,
     ],
   );

@@ -17,10 +17,7 @@ Mode roboconf(Highlight hljs) {
   _mode0.starts = _mode1;
   _mode1.end = r';';
   _mode1.relevance = 0;
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'variable';
   _mode2.begin = r'\.[a-zA-Z-_]+';
   _mode3.scope = r'keyword';
@@ -28,10 +25,7 @@ Mode roboconf(Highlight hljs) {
   _mode4.scope = r'comment';
   _mode4.begin = r'#';
   _mode4.end = r'$';
-  _mode4.contains = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.contains = [_mode5, _mode6];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -41,10 +35,7 @@ Mode roboconf(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'Roboconf',
-    aliases: [
-      r'graph',
-      r'instances',
-    ],
+    aliases: [r'graph', r'instances'],
     caseInsensitive: true,
     keywords: r'import',
     contains: [
@@ -52,10 +43,7 @@ Mode roboconf(Highlight hljs) {
         begin: r'^facet [a-zA-Z-_][^\n{]+\{',
         end: r'\}',
         keywords: r'facet',
-        contains: [
-          _mode0,
-          _mode4,
-        ],
+        contains: [_mode0, _mode4],
       ),
       Mode(
         begin: r'^\s*instance of [a-zA-Z-_][^\n{]+\{',
@@ -63,19 +51,12 @@ Mode roboconf(Highlight hljs) {
         keywords:
             r'name count channels instance-data instance-state instance of',
         illegal: r'\S',
-        contains: [
-          r'self',
-          _mode0,
-          _mode4,
-        ],
+        contains: [r'self', _mode0, _mode4],
       ),
       Mode(
         begin: r'^[a-zA-Z-_][^\n{]+\{',
         end: r'\}',
-        contains: [
-          _mode0,
-          _mode4,
-        ],
+        contains: [_mode0, _mode4],
       ),
       _mode4,
     ],

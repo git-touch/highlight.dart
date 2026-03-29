@@ -23,30 +23,17 @@ Mode mel(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
-      Mode(
-        scope: r'string',
-        begin: r'`',
-        end: r'`',
-        contains: [
-          _mode0,
-        ],
-      ),
-      Mode(
-        begin: r'[$%@](\^\w\b|#\w+|[^\s\w{]|\{\w+\}|\w+)',
-      ),
+      Mode(scope: r'string', begin: r'`', end: r'`', contains: [_mode0]),
+      Mode(begin: r'[$%@](\^\w\b|#\w+|[^\s\w{]|\{\w+\}|\w+)'),
       Mode(
         scope: r'comment',
         begin: r'//',

@@ -6,7 +6,7 @@ class DataNode {
   final List<dynamic> children; // List<String | DataNode>
 
   DataNode({this.scope, this.language, List<dynamic>? children})
-      : children = children ?? [];
+    : children = children ?? [];
 
   void add(dynamic child) => children.add(child);
 }
@@ -65,8 +65,9 @@ class TokenTree {
 
   static void collapse(DataNode node) {
     if (node.children.every((el) => el is String)) {
-      node.children.replaceRange(
-          0, node.children.length, [node.children.cast<String>().join('')]);
+      node.children.replaceRange(0, node.children.length, [
+        node.children.cast<String>().join(''),
+      ]);
     } else {
       for (final child in node.children) {
         if (child is DataNode) {

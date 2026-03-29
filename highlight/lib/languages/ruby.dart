@@ -68,10 +68,7 @@ Mode ruby(Highlight hljs) {
   final Mode _mode62 = Mode();
   final Mode _mode63 = Mode();
   _mode0.scope = r'string';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode0.variants = [
     _mode45,
     _mode46,
@@ -98,15 +95,8 @@ Mode ruby(Highlight hljs) {
   _mode2.begin = r'#\{';
   _mode2.end = r'\}';
   _mode2.keywords = {
-    r'variable.constant': [
-      r'__FILE__',
-      r'__LINE__',
-      r'__ENCODING__',
-    ],
-    r'variable.language': [
-      r'self',
-      r'super',
-    ],
+    r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+    r'variable.language': [r'self', r'super'],
     r'keyword': [
       r'alias',
       r'and',
@@ -160,11 +150,7 @@ Mode ruby(Highlight hljs) {
       r'private_constant',
       r'module_function',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'nil',
-    ],
+    r'literal': [r'true', r'false', r'nil'],
   };
   _mode2.contains = [
     _mode0,
@@ -186,24 +172,11 @@ Mode ruby(Highlight hljs) {
     _mode39,
     _mode42,
   ];
-  _mode3.variants = [
-    _mode4,
-    _mode5,
-  ];
-  _mode3.scope = {
-    2: r'title.class',
-    4: r'title.class.inherited',
-  };
+  _mode3.variants = [_mode4, _mode5];
+  _mode3.scope = {2: r'title.class', 4: r'title.class.inherited'};
   _mode3.keywords = {
-    r'variable.constant': [
-      r'__FILE__',
-      r'__LINE__',
-      r'__ENCODING__',
-    ],
-    r'variable.language': [
-      r'self',
-      r'super',
-    ],
+    r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+    r'variable.language': [r'self', r'super'],
     r'keyword': [
       r'alias',
       r'and',
@@ -257,11 +230,7 @@ Mode ruby(Highlight hljs) {
       r'private_constant',
       r'module_function',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'nil',
-    ],
+    r'literal': [r'true', r'false', r'nil'],
   };
   _mode4.match = [
     r'class\s+',
@@ -277,19 +246,10 @@ Mode ruby(Highlight hljs) {
     r'(include|extend)\s+',
     r'(?:\b([A-Z]+[a-z0-9]+)+|\b([A-Z]+[a-z0-9]+)+[A-Z]+)(::\w+)*',
   ];
-  _mode6.scope = {
-    2: r'title.class',
-  };
+  _mode6.scope = {2: r'title.class'};
   _mode6.keywords = {
-    r'variable.constant': [
-      r'__FILE__',
-      r'__LINE__',
-      r'__ENCODING__',
-    ],
-    r'variable.language': [
-      r'self',
-      r'super',
-    ],
+    r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+    r'variable.language': [r'self', r'super'],
     r'keyword': [
       r'alias',
       r'and',
@@ -343,20 +303,14 @@ Mode ruby(Highlight hljs) {
       r'private_constant',
       r'module_function',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'nil',
-    ],
+    r'literal': [r'true', r'false', r'nil'],
   };
   _mode7.relevance = 0;
   _mode7.match = [
     r'(?:\b([A-Z]+[a-z0-9]+)+|\b([A-Z]+[a-z0-9]+)+[A-Z]+)(::\w+)*',
     r'\.new[. (]',
   ];
-  _mode7.scope = {
-    1: r'title.class',
-  };
+  _mode7.scope = {1: r'title.class'};
   _mode8.relevance = 0;
   _mode8.match = r'\b[A-Z][A-Z_0-9]+\b';
   _mode8.scope = r'variable.constant';
@@ -368,17 +322,9 @@ Mode ruby(Highlight hljs) {
     r'\s+',
     r'([a-zA-Z_]\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\*\*|[-/+%^&*~`|]|\[\]=?)',
   ];
-  _mode10.scope = {
-    1: r'keyword',
-    3: r'title.function',
-  };
-  _mode10.contains = [
-    _mode11,
-  ];
-  _mode11.variants = [
-    _mode12,
-    _mode13,
-  ];
+  _mode10.scope = {1: r'keyword', 3: r'title.function'};
+  _mode10.contains = [_mode11];
+  _mode11.variants = [_mode12, _mode13];
   _mode11.contains = [
     _mode0,
     _mode3,
@@ -406,15 +352,8 @@ Mode ruby(Highlight hljs) {
   _mode13.excludeBegin = true;
   _mode13.endsParent = true;
   _mode13.keywords = {
-    r'variable.constant': [
-      r'__FILE__',
-      r'__LINE__',
-      r'__ENCODING__',
-    ],
-    r'variable.language': [
-      r'self',
-      r'super',
-    ],
+    r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+    r'variable.language': [r'self', r'super'],
     r'keyword': [
       r'alias',
       r'and',
@@ -468,11 +407,7 @@ Mode ruby(Highlight hljs) {
       r'private_constant',
       r'module_function',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'nil',
-    ],
+    r'literal': [r'true', r'false', r'nil'],
   };
   _mode14.begin = r'[a-zA-Z]\w*::';
   _mode15.scope = r'symbol';
@@ -480,23 +415,13 @@ Mode ruby(Highlight hljs) {
   _mode15.relevance = 0;
   _mode16.scope = r'symbol';
   _mode16.begin = r':(?!\s)';
-  _mode16.contains = [
-    _mode0,
-    _mode17,
-  ];
+  _mode16.contains = [_mode0, _mode17];
   _mode16.relevance = 0;
   _mode17.begin =
       r'([a-zA-Z_]\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\*\*|[-/+%^&*~`|]|\[\]=?)';
   _mode18.scope = r'number';
   _mode18.relevance = 0;
-  _mode18.variants = [
-    _mode19,
-    _mode20,
-    _mode21,
-    _mode22,
-    _mode23,
-    _mode24,
-  ];
+  _mode18.variants = [_mode19, _mode20, _mode21, _mode22, _mode23, _mode24];
   _mode19.begin =
       r'\b([1-9](_?[0-9])*|0)(\.([0-9](_?[0-9])*))?([eE][+-]?([0-9](_?[0-9])*)|r)?i?\b';
   _mode20.begin = r'\b0[dD][0-9](_?[0-9])*r?i?\b';
@@ -513,15 +438,8 @@ Mode ruby(Highlight hljs) {
   _mode26.excludeEnd = true;
   _mode26.relevance = 0;
   _mode26.keywords = {
-    r'variable.constant': [
-      r'__FILE__',
-      r'__LINE__',
-      r'__ENCODING__',
-    ],
-    r'variable.language': [
-      r'self',
-      r'super',
-    ],
+    r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+    r'variable.language': [r'self', r'super'],
     r'keyword': [
       r'alias',
       r'and',
@@ -575,36 +493,17 @@ Mode ruby(Highlight hljs) {
       r'private_constant',
       r'module_function',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'nil',
-    ],
+    r'literal': [r'true', r'false', r'nil'],
   };
   _mode27.begin =
       r'(!|!=|!==|%|%=|&|&&|&=|\*|\*=|\+|\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\?|\[|\{|\(|\^|\^=|\||\|=|\|\||~|unless)\s*';
   _mode27.keywords = r'unless';
-  _mode27.contains = [
-    _mode28,
-    _mode34,
-    _mode35,
-    _mode39,
-    _mode42,
-  ];
+  _mode27.contains = [_mode28, _mode34, _mode35, _mode39, _mode42];
   _mode27.relevance = 0;
   _mode28.scope = r'regexp';
-  _mode28.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode28.contains = [_mode1, _mode2];
   _mode28.illegal = r'\n';
-  _mode28.variants = [
-    _mode29,
-    _mode30,
-    _mode31,
-    _mode32,
-    _mode33,
-  ];
+  _mode28.variants = [_mode29, _mode30, _mode31, _mode32, _mode33];
   _mode29.begin = r'/';
   _mode29.end = r'/[a-z]*';
   _mode30.begin = r'%r\{';
@@ -620,11 +519,7 @@ Mode ruby(Highlight hljs) {
   _mode35.scope = r'comment';
   _mode35.begin = r'#';
   _mode35.end = r'$';
-  _mode35.contains = [
-    _mode36,
-    _mode37,
-    _mode38,
-  ];
+  _mode35.contains = [_mode36, _mode37, _mode38];
   _mode36.scope = r'doctag';
   _mode36.begin = r'@[A-Za-z]+';
   _mode37.scope = r'doctag';
@@ -637,11 +532,7 @@ Mode ruby(Highlight hljs) {
   _mode39.scope = r'comment';
   _mode39.begin = r'^=begin';
   _mode39.end = r'^=end';
-  _mode39.contains = [
-    _mode36,
-    _mode40,
-    _mode41,
-  ];
+  _mode39.contains = [_mode36, _mode40, _mode41];
   _mode39.relevance = 10;
   _mode40.scope = r'doctag';
   _mode40.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -653,10 +544,7 @@ Mode ruby(Highlight hljs) {
   _mode42.scope = r'comment';
   _mode42.begin = r'^__END__';
   _mode42.end = r'\b\B';
-  _mode42.contains = [
-    _mode43,
-    _mode44,
-  ];
+  _mode42.contains = [_mode43, _mode44];
   _mode43.scope = r'doctag';
   _mode43.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode43.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -693,9 +581,7 @@ Mode ruby(Highlight hljs) {
   _mode60.begin = r'\B\?\\(c|C-)[\x20-\x7e]';
   _mode61.begin = r'\B\?\\?\S';
   _mode62.begin = r"<<[-~]?'?(?=(\w+)(?=\W)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b)";
-  _mode62.contains = [
-    _mode63,
-  ];
+  _mode62.contains = [_mode63];
   _mode63.begin = r'(\w+)';
   _mode63.end = r'(\w+)';
   _mode63.onBegin = (RegExpMatch m, CallbackResponse resp) {
@@ -704,29 +590,13 @@ Mode ruby(Highlight hljs) {
   _mode63.onEnd = (RegExpMatch m, CallbackResponse resp) {
     if (resp.data['_beginMatch'] != m.group(1)) resp.ignoreMatch();
   };
-  _mode63.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode63.contains = [_mode1, _mode2];
   return Mode(
     name: r'Ruby',
-    aliases: [
-      r'rb',
-      r'gemspec',
-      r'podspec',
-      r'thor',
-      r'irb',
-    ],
+    aliases: [r'rb', r'gemspec', r'podspec', r'thor', r'irb'],
     keywords: {
-      r'variable.constant': [
-        r'__FILE__',
-        r'__LINE__',
-        r'__ENCODING__',
-      ],
-      r'variable.language': [
-        r'self',
-        r'super',
-      ],
+      r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+      r'variable.language': [r'self', r'super'],
       r'keyword': [
         r'alias',
         r'and',
@@ -780,11 +650,7 @@ Mode ruby(Highlight hljs) {
         r'private_constant',
         r'module_function',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'nil',
-      ],
+      r'literal': [r'true', r'false', r'nil'],
     },
     illegal: r'\/\*',
     contains: [
@@ -828,15 +694,8 @@ Mode ruby(Highlight hljs) {
         starts: Mode(
           end: r'$',
           keywords: {
-            r'variable.constant': [
-              r'__FILE__',
-              r'__LINE__',
-              r'__ENCODING__',
-            ],
-            r'variable.language': [
-              r'self',
-              r'super',
-            ],
+            r'variable.constant': [r'__FILE__', r'__LINE__', r'__ENCODING__'],
+            r'variable.language': [r'self', r'super'],
             r'keyword': [
               r'alias',
               r'and',
@@ -890,11 +749,7 @@ Mode ruby(Highlight hljs) {
               r'private_constant',
               r'module_function',
             ],
-            r'literal': [
-              r'true',
-              r'false',
-              r'nil',
-            ],
+            r'literal': [r'true', r'false', r'nil'],
           },
           contains: [
             _mode0,

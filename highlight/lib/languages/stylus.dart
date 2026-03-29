@@ -17,25 +17,18 @@ Mode stylus(Highlight hljs) {
   _mode0.begin = r'"';
   _mode0.end = r'"';
   _mode0.illegal = r'\n';
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'string';
   _mode2.begin = r"'";
   _mode2.end = r"'";
   _mode2.illegal = r'\n';
-  _mode2.contains = [
-    _mode1,
-  ];
+  _mode2.contains = [_mode1];
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -55,9 +48,7 @@ Mode stylus(Highlight hljs) {
   _mode9.begin = r'[\w-]+(?=\()';
   return Mode(
     name: r'Stylus',
-    aliases: [
-      r'styl',
-    ],
+    aliases: [r'styl'],
     caseInsensitive: false,
     keywords: r'if else for in',
     illegal:
@@ -113,10 +104,7 @@ Mode stylus(Highlight hljs) {
         begin: r'\[',
         end: r'\]',
         illegal: r'$',
-        contains: [
-          _mode2,
-          _mode0,
-        ],
+        contains: [_mode2, _mode0],
       ),
       Mode(
         scope: r'keyword',
@@ -129,9 +117,7 @@ Mode stylus(Highlight hljs) {
             r'attribute':
                 r'width update scripting scan resolution prefers-reduced-transparency prefers-reduced-motion prefers-contrast prefers-color-scheme pointer overflow-inline overflow-block orientation monochrome min-width min-height max-width max-height inverted-colors hover height grid forced-colors display-mode device-width device-height device-aspect-ratio color-index color-gamut color aspect-ratio any-pointer any-hover',
           },
-          contains: [
-            _mode7,
-          ],
+          contains: [_mode7],
         ),
       ),
       Mode(
@@ -147,28 +133,16 @@ Mode stylus(Highlight hljs) {
         illegal: r'[\n]',
         returnBegin: true,
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'\b[a-zA-Z][a-zA-Z0-9_-]*',
-          ),
+          Mode(scope: r'title', begin: r'\b[a-zA-Z][a-zA-Z0-9_-]*'),
           Mode(
             scope: r'params',
             begin: r'\(',
             end: r'\)',
-            contains: [
-              _mode6,
-              _mode8,
-              _mode2,
-              _mode7,
-              _mode0,
-            ],
+            contains: [_mode6, _mode8, _mode2, _mode7, _mode0],
           ),
         ],
       ),
-      Mode(
-        scope: r'attr',
-        begin: r'--[A-Za-z_][A-Za-z0-9_-]*',
-      ),
+      Mode(scope: r'attr', begin: r'--[A-Za-z_][A-Za-z0-9_-]*'),
       Mode(
         scope: r'attribute',
         begin:
@@ -182,10 +156,7 @@ Mode stylus(Highlight hljs) {
             _mode0,
             _mode7,
             _mode3,
-            Mode(
-              scope: r'meta',
-              begin: r'!important',
-            ),
+            Mode(scope: r'meta', begin: r'!important'),
             _mode9,
           ],
           illegal: r'\.',

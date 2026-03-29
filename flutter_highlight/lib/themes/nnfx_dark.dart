@@ -23,8 +23,11 @@ const nnfxDarkTheme = <String, HljsStyle>{
   'section': const HljsStyle(color: '#6699ff', bold: true),
   'selector-class': const HljsStyle(color: '#6699ff', bold: true),
   'selector-id': const HljsStyle(color: '#6699ff', bold: true),
-  'selector-pseudo':
-      const HljsStyle(color: '#6699ff', bold: true, italic: true),
+  'selector-pseudo': const HljsStyle(
+    color: '#6699ff',
+    bold: true,
+    italic: true,
+  ),
   'selector-tag': const HljsStyle(color: '#6699ff', bold: true),
   'string': const HljsStyle(color: '#bbccee'),
   'strong': const HljsStyle(bold: true),

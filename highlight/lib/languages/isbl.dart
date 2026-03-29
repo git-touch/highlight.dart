@@ -40,20 +40,14 @@ Mode isbl(Highlight hljs) {
   };
   _mode1.begin = r'[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*';
   _mode1.relevance = 0;
-  _mode1.contains = [
-    _mode2,
-    _mode0,
-  ];
+  _mode1.contains = [_mode2, _mode0];
   _mode2.scope = r'type';
   _mode2.begin =
       r':[ \t]*(IApplication|IAccessRights|IAccountRepository|IAccountSelectionRestrictions|IAction|IActionList|IAdministrationHistoryDescription|IAnchors|IApplication|IArchiveInfo|IAttachment|IAttachmentList|ICheckListBox|ICheckPointedList|IColumn|IComponent|IComponentDescription|IComponentToken|IComponentTokenFactory|IComponentTokenInfo|ICompRecordInfo|IConnection|IContents|IControl|IControlJob|IControlJobInfo|IControlList|ICrypto|ICrypto2|ICustomJob|ICustomJobInfo|ICustomListBox|ICustomObjectWizardStep|ICustomWork|ICustomWorkInfo|IDataSet|IDataSetAccessInfo|IDataSigner|IDateCriterion|IDateRequisite|IDateRequisiteDescription|IDateValue|IDeaAccessRights|IDeaObjectInfo|IDevelopmentComponentLock|IDialog|IDialogFactory|IDialogPickRequisiteItems|IDialogsFactory|IDICSFactory|IDocRequisite|IDocumentInfo|IDualListDialog|IECertificate|IECertificateInfo|IECertificates|IEditControl|IEditorForm|IEdmsExplorer|IEdmsObject|IEdmsObjectDescription|IEdmsObjectFactory|IEdmsObjectInfo|IEDocument|IEDocumentAccessRights|IEDocumentDescription|IEDocumentEditor|IEDocumentFactory|IEDocumentInfo|IEDocumentStorage|IEDocumentVersion|IEDocumentVersionListDialog|IEDocumentVersionSource|IEDocumentWizardStep|IEDocVerSignature|IEDocVersionState|IEnabledMode|IEncodeProvider|IEncrypter|IEvent|IEventList|IException|IExternalEvents|IExternalHandler|IFactory|IField|IFileDialog|IFolder|IFolderDescription|IFolderDialog|IFolderFactory|IFolderInfo|IForEach|IForm|IFormTitle|IFormWizardStep|IGlobalIDFactory|IGlobalIDInfo|IGrid|IHasher|IHistoryDescription|IHyperLinkControl|IImageButton|IImageControl|IInnerPanel|IInplaceHint|IIntegerCriterion|IIntegerList|IIntegerRequisite|IIntegerValue|IISBLEditorForm|IJob|IJobDescription|IJobFactory|IJobForm|IJobInfo|ILabelControl|ILargeIntegerCriterion|ILargeIntegerRequisite|ILargeIntegerValue|ILicenseInfo|ILifeCycleStage|IList|IListBox|ILocalIDInfo|ILocalization|ILock|IMemoryDataSet|IMessagingFactory|IMetadataRepository|INotice|INoticeInfo|INumericCriterion|INumericRequisite|INumericValue|IObject|IObjectDescription|IObjectImporter|IObjectInfo|IObserver|IPanelGroup|IPickCriterion|IPickProperty|IPickRequisite|IPickRequisiteDescription|IPickRequisiteItem|IPickRequisiteItems|IPickValue|IPrivilege|IPrivilegeList|IProcess|IProcessFactory|IProcessMessage|IProgress|IProperty|IPropertyChangeEvent|IQuery|IReference|IReferenceCriterion|IReferenceEnabledMode|IReferenceFactory|IReferenceHistoryDescription|IReferenceInfo|IReferenceRecordCardWizardStep|IReferenceRequisiteDescription|IReferencesFactory|IReferenceValue|IRefRequisite|IReport|IReportFactory|IRequisite|IRequisiteDescription|IRequisiteDescriptionList|IRequisiteFactory|IRichEdit|IRouteStep|IRule|IRuleList|ISchemeBlock|IScript|IScriptFactory|ISearchCriteria|ISearchCriterion|ISearchDescription|ISearchFactory|ISearchFolderInfo|ISearchForObjectDescription|ISearchResultRestrictions|ISecuredContext|ISelectDialog|IServerEvent|IServerEventFactory|IServiceDialog|IServiceFactory|ISignature|ISignProvider|ISignProvider2|ISignProvider3|ISimpleCriterion|IStringCriterion|IStringList|IStringRequisite|IStringRequisiteDescription|IStringValue|ISystemDialogsFactory|ISystemInfo|ITabSheet|ITask|ITaskAbortReasonInfo|ITaskCardWizardStep|ITaskDescription|ITaskFactory|ITaskInfo|ITaskRoute|ITextCriterion|ITextRequisite|ITextValue|ITreeListSelectDialog|IUser|IUserList|IValue|IView|IWebBrowserControl|IWizard|IWizardAction|IWizardFactory|IWizardFormElement|IWizardParam|IWizardPickParam|IWizardReferenceParam|IWizardStep|IWorkAccessRights|IWorkDescription|IWorkflowAskableParam|IWorkflowAskableParams|IWorkflowBlock|IWorkflowBlockResult|IWorkflowEnabledMode|IWorkflowParam|IWorkflowPickParam|IWorkflowReferenceParam|IWorkState|IWorkTreeCustomNode|IWorkTreeJobNode|IWorkTreeTaskNode|IXMLEditorForm|SBCrypto)';
   _mode2.end = r'[ \t]*=';
   _mode2.excludeEnd = true;
   _mode3.scope = r'string';
-  _mode3.variants = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.variants = [_mode4, _mode5];
   _mode4.begin = r'"';
   _mode4.end = r'"';
   _mode5.begin = r"'";
@@ -61,18 +55,12 @@ Mode isbl(Highlight hljs) {
   _mode6.scope = r'number';
   _mode6.begin = r'\b\d+(\.\d+)?';
   _mode6.relevance = 0;
-  _mode7.variants = [
-    _mode8,
-    _mode11,
-  ];
+  _mode7.variants = [_mode8, _mode11];
   _mode8.scope = r'comment';
   _mode8.begin = r'//';
   _mode8.end = r'$';
   _mode8.relevance = 0;
-  _mode8.contains = [
-    _mode9,
-    _mode10,
-  ];
+  _mode8.contains = [_mode9, _mode10];
   _mode9.begin =
       r"\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b";
   _mode10.scope = r'doctag';
@@ -82,10 +70,7 @@ Mode isbl(Highlight hljs) {
   _mode11.begin = r'/\*';
   _mode11.end = r'\*/';
   _mode11.relevance = 0;
-  _mode11.contains = [
-    _mode9,
-    _mode10,
-  ];
+  _mode11.contains = [_mode9, _mode10];
   return Mode(
     name: r'ISBL',
     caseInsensitive: true,

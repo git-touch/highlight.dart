@@ -194,12 +194,7 @@ Mode basic(Highlight hljs) {
         scope: r'string',
         begin: r'"',
         end: r'"|$',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'comment',
@@ -239,24 +234,14 @@ Mode basic(Highlight hljs) {
         ],
         relevance: 0,
       ),
-      Mode(
-        scope: r'symbol',
-        begin: r'^[0-9]+ ',
-        relevance: 10,
-      ),
+      Mode(scope: r'symbol', begin: r'^[0-9]+ ', relevance: 10),
       Mode(
         scope: r'number',
         begin: r'\b\d+(\.\d+)?([edED]\d+)?[#!]?',
         relevance: 0,
       ),
-      Mode(
-        scope: r'number',
-        begin: r'(&[hH][0-9a-fA-F]{1,4})',
-      ),
-      Mode(
-        scope: r'number',
-        begin: r'(&[oO][0-7]{1,6})',
-      ),
+      Mode(scope: r'number', begin: r'(&[hH][0-9a-fA-F]{1,4})'),
+      Mode(scope: r'number', begin: r'(&[oO][0-7]{1,6})'),
     ],
   );
 }

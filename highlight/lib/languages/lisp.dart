@@ -28,13 +28,7 @@ Mode lisp(Highlight hljs) {
   final Mode _mode22 = Mode();
   final Mode _mode23 = Mode();
   _mode0.scope = r'number';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-    _mode3,
-    _mode4,
-    _mode5,
-  ];
+  _mode0.variants = [_mode1, _mode2, _mode3, _mode4, _mode5];
   _mode1.begin = r'(-|\+)?\d+(\.\d+|\/\d+)?((d|e|f|l|s|D|E|F|L|S)(\+|-)?\d+)?';
   _mode1.relevance = 0;
   _mode2.begin = r'#(b|B)[0-1]+(/[0-1]+)?';
@@ -48,18 +42,13 @@ Mode lisp(Highlight hljs) {
   _mode7.scope = r'string';
   _mode7.begin = r'"';
   _mode7.end = r'"';
-  _mode7.contains = [
-    _mode8,
-  ];
+  _mode7.contains = [_mode8];
   _mode8.begin = r'\\[\s\S]';
   _mode8.relevance = 0;
   _mode9.scope = r'comment';
   _mode9.begin = r';';
   _mode9.end = r'$';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.contains = [_mode10, _mode11];
   _mode9.relevance = 0;
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -68,46 +57,24 @@ Mode lisp(Highlight hljs) {
   _mode10.relevance = 0;
   _mode11.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode12.contains = [
-    _mode0,
-    _mode7,
-    _mode13,
-    _mode14,
-    _mode15,
-    _mode16,
-  ];
-  _mode12.variants = [
-    _mode17,
-    _mode18,
-    _mode19,
-  ];
+  _mode12.contains = [_mode0, _mode7, _mode13, _mode14, _mode15, _mode16];
+  _mode12.variants = [_mode17, _mode18, _mode19];
   _mode13.begin = r'\*';
   _mode13.end = r'\*';
   _mode14.scope = r'symbol';
   _mode14.begin = r'[:&][a-zA-Z_\-+\*\/<=>&#][a-zA-Z0-9_\-+*\/<=>&#!]*';
   _mode15.begin = r'\(';
   _mode15.end = r'\)';
-  _mode15.contains = [
-    r'self',
-    _mode6,
-    _mode7,
-    _mode0,
-    _mode16,
-  ];
+  _mode15.contains = [r'self', _mode6, _mode7, _mode0, _mode16];
   _mode16.begin = r'[a-zA-Z_\-+\*\/<=>&#][a-zA-Z0-9_\-+*\/<=>&#!]*';
   _mode16.relevance = 0;
   _mode17.begin = r"['`]\(";
   _mode17.end = r'\)';
   _mode18.begin = r'\(quote ';
   _mode18.end = r'\)';
-  _mode18.keywords = {
-    r'name': r'quote',
-  };
+  _mode18.keywords = {r'name': r'quote'};
   _mode19.begin = r"'\|[^]*?\|";
-  _mode20.variants = [
-    _mode21,
-    _mode22,
-  ];
+  _mode20.variants = [_mode21, _mode22];
   _mode21.begin = r"'[a-zA-Z_\-+\*\/<=>&#][a-zA-Z0-9_\-+*\/<=>&#!]*";
   _mode22.begin =
       r"#'[a-zA-Z_\-+\*\/<=>&#][a-zA-Z0-9_\-+*\/<=>&#!]*(::[a-zA-Z_\-+\*\/<=>&#][a-zA-Z0-9_\-+*\/<=>&#!]*)*";
@@ -121,9 +88,7 @@ Mode lisp(Highlight hljs) {
           begin: r'[a-zA-Z_\-+\*\/<=>&#][a-zA-Z0-9_\-+*\/<=>&#!]*',
           relevance: 0,
         ),
-        Mode(
-          begin: r'\|[^]*?\|',
-        ),
+        Mode(begin: r'\|[^]*?\|'),
       ],
     ),
     Mode(
@@ -139,9 +104,7 @@ Mode lisp(Highlight hljs) {
         _mode9,
         _mode13,
         _mode14,
-        Mode(
-          begin: r'\|[^]*?\|',
-        ),
+        Mode(begin: r'\|[^]*?\|'),
         _mode16,
       ],
     ),
@@ -151,12 +114,7 @@ Mode lisp(Highlight hljs) {
     illegal: r'\S',
     contains: [
       _mode0,
-      Mode(
-        scope: r'meta',
-        begin: r'^#![ ]*\/',
-        end: r'$',
-        relevance: 0,
-      ),
+      Mode(scope: r'meta', begin: r'^#![ ]*\/', end: r'$', relevance: 0),
       _mode6,
       _mode7,
       _mode9,

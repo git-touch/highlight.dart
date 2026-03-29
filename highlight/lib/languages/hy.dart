@@ -25,18 +25,11 @@ Mode hy(Highlight hljs) {
   final Mode _mode19 = Mode();
   _mode0.begin = r'\(';
   _mode0.end = r'\)';
-  _mode0.contains = [
-    _mode1,
-    _mode4,
-    _mode5,
-  ];
+  _mode0.contains = [_mode1, _mode4, _mode5];
   _mode1.scope = r'comment';
   _mode1.begin = r'comment';
   _mode1.end = r'';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -70,9 +63,7 @@ Mode hy(Highlight hljs) {
   _mode6.scope = r'string';
   _mode6.begin = r'"';
   _mode6.end = r'"';
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.begin = r'\\[\s\S]';
   _mode7.relevance = 0;
   _mode8.scope = r'comment';
@@ -80,10 +71,7 @@ Mode hy(Highlight hljs) {
   _mode9.scope = r'comment';
   _mode9.begin = r'\^\{';
   _mode9.end = r'\}';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.contains = [_mode10, _mode11];
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -94,10 +82,7 @@ Mode hy(Highlight hljs) {
   _mode12.scope = r'comment';
   _mode12.begin = r';';
   _mode12.end = r'$';
-  _mode12.contains = [
-    _mode13,
-    _mode14,
-  ];
+  _mode12.contains = [_mode13, _mode14];
   _mode12.relevance = 0;
   _mode13.scope = r'doctag';
   _mode13.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -133,17 +118,10 @@ Mode hy(Highlight hljs) {
   _mode19.relevance = 0;
   return Mode(
     name: r'Hy',
-    aliases: [
-      r'hylang',
-    ],
+    aliases: [r'hylang'],
     illegal: r'\S',
     contains: [
-      Mode(
-        scope: r'meta',
-        begin: r'^#![ ]*\/',
-        end: r'$',
-        relevance: 0,
-      ),
+      Mode(scope: r'meta', begin: r'^#![ ]*\/', end: r'$', relevance: 0),
       _mode0,
       _mode6,
       _mode8,

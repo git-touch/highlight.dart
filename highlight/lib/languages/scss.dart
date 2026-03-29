@@ -16,10 +16,7 @@ Mode scss(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'/\*';
   _mode0.end = r'\*/';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -35,18 +32,14 @@ Mode scss(Highlight hljs) {
   _mode4.begin = r"'";
   _mode4.end = r"'";
   _mode4.illegal = r'\n';
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.scope = r'string';
   _mode6.begin = r'"';
   _mode6.end = r'"';
   _mode6.illegal = r'\n';
-  _mode6.contains = [
-    _mode5,
-  ];
+  _mode6.contains = [_mode5];
   _mode7.scope = r'variable';
   _mode7.begin = r'(\$[a-zA-Z-][a-zA-Z0-9_-]*)\b';
   _mode7.relevance = 0;
@@ -79,25 +72,14 @@ Mode scss(Highlight hljs) {
       ),
       _mode0,
       _mode3,
-      Mode(
-        scope: r'selector-id',
-        begin: r'#[A-Za-z0-9_-]+',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'selector-class',
-        begin: r'\.[A-Za-z0-9_-]+',
-        relevance: 0,
-      ),
+      Mode(scope: r'selector-id', begin: r'#[A-Za-z0-9_-]+', relevance: 0),
+      Mode(scope: r'selector-class', begin: r'\.[A-Za-z0-9_-]+', relevance: 0),
       Mode(
         scope: r'selector-attr',
         begin: r'\[',
         end: r'\]',
         illegal: r'$',
-        contains: [
-          _mode4,
-          _mode6,
-        ],
+        contains: [_mode4, _mode6],
       ),
       Mode(
         scope: r'selector-tag',
@@ -116,17 +98,8 @@ Mode scss(Highlight hljs) {
             r':(:)?(spelling-error|slotted|selection|placeholder|part|marker|grammar-error|first-line|first-letter|cue-region|cue|before|backdrop|after)',
       ),
       _mode7,
-      Mode(
-        begin: r'\(',
-        end: r'\)',
-        contains: [
-          _mode3,
-        ],
-      ),
-      Mode(
-        scope: r'attr',
-        begin: r'--[A-Za-z_][A-Za-z0-9_-]*',
-      ),
+      Mode(begin: r'\(', end: r'\)', contains: [_mode3]),
+      Mode(scope: r'attr', begin: r'--[A-Za-z_][A-Za-z0-9_-]*'),
       Mode(
         scope: r'attribute',
         begin:
@@ -147,19 +120,13 @@ Mode scss(Highlight hljs) {
           _mode3,
           _mode6,
           _mode4,
-          Mode(
-            scope: r'meta',
-            begin: r'!important',
-          ),
+          Mode(scope: r'meta', begin: r'!important'),
           _mode9,
         ],
       ),
       Mode(
         begin: r'@(page|font-face)',
-        keywords: {
-          r'$pattern': r'@[a-z-]+',
-          r'keyword': r'@page @font-face',
-        },
+        keywords: {r'$pattern': r'@[a-z-]+', r'keyword': r'@page @font-face'},
       ),
       Mode(
         begin: r'@',
@@ -172,14 +139,8 @@ Mode scss(Highlight hljs) {
               r'width update scripting scan resolution prefers-reduced-transparency prefers-reduced-motion prefers-contrast prefers-color-scheme pointer overflow-inline overflow-block orientation monochrome min-width min-height max-width max-height inverted-colors hover height grid forced-colors display-mode device-width device-height device-aspect-ratio color-index color-gamut color aspect-ratio any-pointer any-hover',
         },
         contains: [
-          Mode(
-            begin: r'@[a-z-]+',
-            scope: r'keyword',
-          ),
-          Mode(
-            begin: r'[a-z-]+(?=:)',
-            scope: r'attribute',
-          ),
+          Mode(begin: r'@[a-z-]+', scope: r'keyword'),
+          Mode(begin: r'[a-z-]+(?=:)', scope: r'attribute'),
           _mode7,
           _mode6,
           _mode4,

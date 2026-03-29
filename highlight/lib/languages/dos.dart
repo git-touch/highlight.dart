@@ -9,10 +9,7 @@ Mode dos(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'^\s*@?rem\b';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode0.relevance = 10;
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -23,10 +20,7 @@ Mode dos(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'Batch file (DOS)',
-    aliases: [
-      r'bat',
-      r'cmd',
-    ],
+    aliases: [r'bat', r'cmd'],
     caseInsensitive: true,
     illegal: r'\/\*',
     keywords: {
@@ -142,10 +136,7 @@ Mode dos(Highlight hljs) {
       ],
     },
     contains: [
-      Mode(
-        scope: r'variable',
-        begin: r'%%[^ ]|%[^ ]+?%|![^ ]+?!',
-      ),
+      Mode(scope: r'variable', begin: r'%%[^ ]|%[^ ]+?%|![^ ]+?!'),
       Mode(
         scope: r'function',
         begin: r'^\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\s+label)',
@@ -159,11 +150,7 @@ Mode dos(Highlight hljs) {
           _mode0,
         ],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+', relevance: 0),
       _mode0,
     ],
   );

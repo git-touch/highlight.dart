@@ -14,10 +14,7 @@ Mode lang_1c(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -31,17 +28,13 @@ Mode lang_1c(Highlight hljs) {
   _mode4.scope = r'string';
   _mode4.begin = r'"|\|';
   _mode4.end = r'"|$';
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'""';
   _mode6.begin = r"'";
   _mode6.end = r"'";
   _mode6.excludeBegin = true;
   _mode6.excludeEnd = true;
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.scope = r'number';
   _mode7.begin = r'\d{4}([\.\\/:-]?\d{2}){0,5}';
   return Mode(
@@ -69,9 +62,7 @@ Mode lang_1c(Highlight hljs) {
           r'keyword':
               r'далее возврат вызватьисключение выполнить для если и из или иначе иначеесли исключение каждого конецесли конецпопытки конеццикла не новый перейти перем по пока попытка прервать продолжить тогда цикл экспорт загрузитьизфайла вебклиент вместо внешнеесоединение клиент конецобласти мобильноеприложениеклиент мобильноеприложениесервер наклиенте наклиентенасервере наклиентенасерверебезконтекста насервере насерверебезконтекста область перед после сервер толстыйклиентобычноеприложение толстыйклиентуправляемоеприложение тонкийклиент ',
         },
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'function',
@@ -103,11 +94,7 @@ Mode lang_1c(Highlight hljs) {
                   r'keyword': r'знач',
                   r'literal': r'null истина ложь неопределено',
                 },
-                contains: [
-                  _mode3,
-                  _mode4,
-                  _mode6,
-                ],
+                contains: [_mode3, _mode4, _mode6],
               ),
               _mode0,
             ],
@@ -120,20 +107,11 @@ Mode lang_1c(Highlight hljs) {
         ],
       ),
       _mode0,
-      Mode(
-        scope: r'symbol',
-        begin: r'~',
-        end: r';|:',
-        excludeEnd: true,
-      ),
+      Mode(scope: r'symbol', begin: r'~', end: r';|:', excludeEnd: true),
       _mode3,
       _mode4,
       _mode6,
-      Mode(
-        match: r'[;()+\-:=,]',
-        scope: r'punctuation',
-        relevance: 0,
-      ),
+      Mode(match: r'[;()+\-:=,]', scope: r'punctuation', relevance: 0),
     ],
   );
 }

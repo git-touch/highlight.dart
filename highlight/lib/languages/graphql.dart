@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode graphql(Highlight hljs) {
   return Mode(
     name: r'GraphQL',
-    aliases: [
-      r'gql',
-    ],
+    aliases: [r'gql'],
     caseInsensitive: true,
     disableAutodetect: false,
     keywords: {
@@ -26,11 +24,7 @@ Mode graphql(Highlight hljs) {
         r'enum',
         r'on',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-      ],
+      r'literal': [r'true', r'false', r'null'],
     },
     contains: [
       Mode(
@@ -56,23 +50,10 @@ Mode graphql(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'punctuation',
-        match: r'[.]{3}',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
+      Mode(scope: r'punctuation', match: r'[.]{3}', relevance: 0),
       Mode(
         scope: r'punctuation',
         begin: r'[\!\(\)\:\=\[\]\{\|\}]{1}',
@@ -85,20 +66,13 @@ Mode graphql(Highlight hljs) {
         excludeEnd: true,
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        match: r'@\w+',
-        excludeEnd: true,
-      ),
+      Mode(scope: r'meta', match: r'@\w+', excludeEnd: true),
       Mode(
         scope: r'symbol',
         begin: r'[_A-Za-z][_0-9A-Za-z]*(?=\s*:)',
         relevance: 0,
       ),
     ],
-    illegal: [
-      r"[;<']",
-      r'BEGIN',
-    ],
+    illegal: [r"[;<']", r'BEGIN'],
   );
 }

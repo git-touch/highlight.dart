@@ -300,11 +300,7 @@ Mode sql(Highlight hljs) {
         r'last',
         r'view',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'unknown',
-      ],
+      r'literal': [r'true', r'false', r'unknown'],
       r'type': [
         r'bigint',
         r'binary',
@@ -458,32 +454,21 @@ Mode sql(Highlight hljs) {
           ],
         },
       ),
-      Mode(
-        scope: r'variable',
-        match: r'@[a-z0-9][a-z0-9_]*',
-      ),
+      Mode(scope: r'variable', match: r'@[a-z0-9][a-z0-9_]*'),
       Mode(
         scope: r'string',
         variants: [
           Mode(
             begin: r"'",
             end: r"'",
-            contains: [
-              Mode(
-                match: r"''",
-              ),
-            ],
+            contains: [Mode(match: r"''")],
           ),
         ],
       ),
       Mode(
         begin: r'"',
         end: r'"',
-        contains: [
-          Mode(
-            match: r'""',
-          ),
-        ],
+        contains: [Mode(match: r'""')],
       ),
       Mode(
         scope: r'number',

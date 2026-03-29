@@ -39,22 +39,14 @@ Mode r(Highlight hljs) {
                     match:
                         r'(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)',
                   ),
-                  Mode(
-                    match: r'`(?:\\.|[^`\\])+`',
-                  ),
+                  Mode(match: r'`(?:\\.|[^`\\])+`'),
                 ],
                 endsParent: true,
               ),
             ],
           ),
-          Mode(
-            scope: r'doctag',
-            match: r'@[a-zA-Z]+',
-          ),
-          Mode(
-            scope: r'keyword',
-            match: r'\\[a-zA-Z]+',
-          ),
+          Mode(scope: r'doctag', match: r'@[a-zA-Z]+'),
+          Mode(scope: r'keyword', match: r'\\[a-zA-Z]+'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -88,98 +80,44 @@ Mode r(Highlight hljs) {
       ),
       Mode(
         scope: r'string',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
         variants: [
-          hljs.END_SAME_AS_BEGIN(
-            Mode(
-              begin: r'[rR]"(-*)\(',
-              end: r'\)(-*)"',
-            ),
-          ),
-          hljs.END_SAME_AS_BEGIN(
-            Mode(
-              begin: r'[rR]"(-*)\{',
-              end: r'\}(-*)"',
-            ),
-          ),
-          hljs.END_SAME_AS_BEGIN(
-            Mode(
-              begin: r'[rR]"(-*)\[',
-              end: r'\](-*)"',
-            ),
-          ),
-          hljs.END_SAME_AS_BEGIN(
-            Mode(
-              begin: r"[rR]'(-*)\(",
-              end: r"\)(-*)'",
-            ),
-          ),
-          hljs.END_SAME_AS_BEGIN(
-            Mode(
-              begin: r"[rR]'(-*)\{",
-              end: r"\}(-*)'",
-            ),
-          ),
-          hljs.END_SAME_AS_BEGIN(
-            Mode(
-              begin: r"[rR]'(-*)\[",
-              end: r"\](-*)'",
-            ),
-          ),
-          Mode(
-            begin: r'"',
-            end: r'"',
-            relevance: 0,
-          ),
-          Mode(
-            begin: r"'",
-            end: r"'",
-            relevance: 0,
-          ),
+          hljs.END_SAME_AS_BEGIN(Mode(begin: r'[rR]"(-*)\(', end: r'\)(-*)"')),
+          hljs.END_SAME_AS_BEGIN(Mode(begin: r'[rR]"(-*)\{', end: r'\}(-*)"')),
+          hljs.END_SAME_AS_BEGIN(Mode(begin: r'[rR]"(-*)\[', end: r'\](-*)"')),
+          hljs.END_SAME_AS_BEGIN(Mode(begin: r"[rR]'(-*)\(", end: r"\)(-*)'")),
+          hljs.END_SAME_AS_BEGIN(Mode(begin: r"[rR]'(-*)\{", end: r"\}(-*)'")),
+          hljs.END_SAME_AS_BEGIN(Mode(begin: r"[rR]'(-*)\[", end: r"\](-*)'")),
+          Mode(begin: r'"', end: r'"', relevance: 0),
+          Mode(begin: r"'", end: r"'", relevance: 0),
         ],
       ),
       Mode(
         relevance: 0,
         variants: [
           Mode(
-            scope: {
-              1: r'operator',
-              2: r'number',
-            },
+            scope: {1: r'operator', 2: r'number'},
             match: [
               r'[=!<>:]=|\|\||&&|:::?|<-|<<-|->>|->|\|>|[-+*\/?!$&|:<=>@^~]|\*\*',
               r'(?:0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?|0[xX][0-9a-fA-F]+(?:[pP][+-]?\d+)?[Li]?|(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?)',
             ],
           ),
           Mode(
-            scope: {
-              1: r'operator',
-              2: r'number',
-            },
+            scope: {1: r'operator', 2: r'number'},
             match: [
               r'%[^%]*%',
               r'(?:0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?|0[xX][0-9a-fA-F]+(?:[pP][+-]?\d+)?[Li]?|(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?)',
             ],
           ),
           Mode(
-            scope: {
-              1: r'punctuation',
-              2: r'number',
-            },
+            scope: {1: r'punctuation', 2: r'number'},
             match: [
               r'(?:[()]|[{}]|\[\[|[[\]]|\\|,)',
               r'(?:0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?|0[xX][0-9a-fA-F]+(?:[pP][+-]?\d+)?[Li]?|(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?)',
             ],
           ),
           Mode(
-            scope: {
-              2: r'number',
-            },
+            scope: {2: r'number'},
             match: [
               r'[^a-zA-Z0-9._]|^',
               r'(?:0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?|0[xX][0-9a-fA-F]+(?:[pP][+-]?\d+)?[Li]?|(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?)',
@@ -188,9 +126,7 @@ Mode r(Highlight hljs) {
         ],
       ),
       Mode(
-        scope: {
-          3: r'operator',
-        },
+        scope: {3: r'operator'},
         match: [
           r'(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)',
           r'\s+',
@@ -206,9 +142,7 @@ Mode r(Highlight hljs) {
             match:
                 r'[=!<>:]=|\|\||&&|:::?|<-|<<-|->>|->|\|>|[-+*\/?!$&|:<=>@^~]|\*\*',
           ),
-          Mode(
-            match: r'%[^%]*%',
-          ),
+          Mode(match: r'%[^%]*%'),
         ],
       ),
       Mode(
@@ -219,11 +153,7 @@ Mode r(Highlight hljs) {
       Mode(
         begin: r'`',
         end: r'`',
-        contains: [
-          Mode(
-            begin: r'\\.',
-          ),
-        ],
+        contains: [Mode(begin: r'\\.')],
       ),
     ],
   );

@@ -9,10 +9,7 @@ Mode stan(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -22,9 +19,7 @@ Mode stan(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'Stan',
-    aliases: [
-      r'stanfuncs',
-    ],
+    aliases: [r'stanfuncs'],
     keywords: {
       r'$pattern': r'[a-zA-Z]\w*',
       r'title': [
@@ -329,10 +324,7 @@ Mode stan(Highlight hljs) {
         begin: r'#include\b',
         end: r'$',
         contains: [
-          Mode(
-            match: r'[a-z][a-z-._]+',
-            scope: r'string',
-          ),
+          Mode(match: r'[a-z][a-z-._]+', scope: r'string'),
           _mode0,
         ],
       ),
@@ -359,10 +351,7 @@ Mode stan(Highlight hljs) {
         begin: r'\/\*',
         end: r'\*\/',
         contains: [
-          Mode(
-            scope: r'doctag',
-            match: r'@(return|param)',
-          ),
+          Mode(scope: r'doctag', match: r'@(return|param)'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -384,17 +373,9 @@ Mode stan(Highlight hljs) {
       ),
       Mode(
         match: r'[<,]\s*(?:lower|upper|offset|multiplier)\s*=',
-        keywords: [
-          r'lower',
-          r'upper',
-          r'offset',
-          r'multiplier',
-        ],
+        keywords: [r'lower', r'upper', r'offset', r'multiplier'],
       ),
-      Mode(
-        scope: r'keyword',
-        match: r'\btarget(?=\s*\+=)',
-      ),
+      Mode(scope: r'keyword', match: r'\btarget(?=\s*\+=)'),
       Mode(
         match: [
           r'~\s*',
@@ -402,10 +383,7 @@ Mode stan(Highlight hljs) {
           r'(?:\(\))',
           r'\s*T(?=\s*\[)',
         ],
-        scope: {
-          2: r'built_in',
-          4: r'keyword',
-        },
+        scope: {2: r'built_in', 4: r'keyword'},
       ),
       Mode(
         scope: r'built_in',
@@ -490,9 +468,7 @@ Mode stan(Highlight hljs) {
           r'\s*',
           r'(?:bernoulli|bernoulli_logit|bernoulli_logit_glm|beta|beta_binomial|beta_proportion|binomial|binomial_logit|categorical|categorical_logit|categorical_logit_glm|cauchy|chi_square|dirichlet|discrete_range|double_exponential|exp_mod_normal|exponential|frechet|gamma|gaussian_dlm_obs|gumbel|hmm_latent|hypergeometric|inv_chi_square|inv_gamma|inv_wishart|inv_wishart_cholesky|lkj_corr|lkj_corr_cholesky|logistic|loglogistic|lognormal|multi_gp|multi_gp_cholesky|multinomial|multinomial_logit|multi_normal|multi_normal_cholesky|multi_normal_prec|multi_student_cholesky_t|multi_student_t|multi_student_t_cholesky|neg_binomial|neg_binomial_2|neg_binomial_2_log|neg_binomial_2_log_glm|normal|normal_id_glm|ordered_logistic|ordered_logistic_glm|ordered_probit|pareto|pareto_type_2|poisson|poisson_log|poisson_log_glm|rayleigh|scaled_inv_chi_square|skew_double_exponential|skew_normal|std_normal|std_normal_log|student_t|uniform|von_mises|weibull|wiener|wishart|wishart_cholesky)(?=\s*[\(.*\)])',
         ],
-        scope: {
-          3: r'built_in',
-        },
+        scope: {3: r'built_in'},
       ),
       Mode(
         begin: [
@@ -500,9 +476,7 @@ Mode stan(Highlight hljs) {
           r'\s*\w+(?=\s*[\(.*\)])',
           r'(?!.*/((?:bernoulli|bernoulli_logit|bernoulli_logit_glm|beta|beta_binomial|beta_proportion|binomial|binomial_logit|categorical|categorical_logit|categorical_logit_glm|cauchy|chi_square|dirichlet|discrete_range|double_exponential|exp_mod_normal|exponential|frechet|gamma|gaussian_dlm_obs|gumbel|hmm_latent|hypergeometric|inv_chi_square|inv_gamma|inv_wishart|inv_wishart_cholesky|lkj_corr|lkj_corr_cholesky|logistic|loglogistic|lognormal|multi_gp|multi_gp_cholesky|multinomial|multinomial_logit|multi_normal|multi_normal_cholesky|multi_normal_prec|multi_student_cholesky_t|multi_student_t|multi_student_t_cholesky|neg_binomial|neg_binomial_2|neg_binomial_2_log|neg_binomial_2_log_glm|normal|normal_id_glm|ordered_logistic|ordered_logistic_glm|ordered_probit|pareto|pareto_type_2|poisson|poisson_log|poisson_log_glm|rayleigh|scaled_inv_chi_square|skew_double_exponential|skew_normal|std_normal|std_normal_log|student_t|uniform|von_mises|weibull|wiener|wishart|wishart_cholesky)))',
         ],
-        scope: {
-          2: r'title.function',
-        },
+        scope: {2: r'title.function'},
       ),
       Mode(
         scope: r'title.function',
@@ -514,11 +488,7 @@ Mode stan(Highlight hljs) {
             r'(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)(?:[eE][+-]?\d+(?:_\d+)*)?i?(?!\w)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-      ),
+      Mode(scope: r'string', begin: r'"', end: r'"'),
     ],
   );
 }

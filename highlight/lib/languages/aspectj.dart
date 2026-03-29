@@ -17,10 +17,7 @@ Mode aspectj(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -31,10 +28,7 @@ Mode aspectj(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -46,18 +40,14 @@ Mode aspectj(Highlight hljs) {
   _mode6.begin = r"'";
   _mode6.end = r"'";
   _mode6.illegal = r'\n';
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.begin = r'\\[\s\S]';
   _mode7.relevance = 0;
   _mode8.scope = r'string';
   _mode8.begin = r'"';
   _mode8.end = r'"';
   _mode8.illegal = r'\n';
-  _mode8.contains = [
-    _mode7,
-  ];
+  _mode8.contains = [_mode7];
   _mode9.scope = r'title';
   _mode9.begin = r'[a-zA-Z_]\w*';
   _mode9.relevance = 0;
@@ -150,14 +140,8 @@ Mode aspectj(Highlight hljs) {
         begin: r'\/\*\*',
         end: r'\*\/',
         contains: [
-          Mode(
-            begin: r'\w+@',
-            relevance: 0,
-          ),
-          Mode(
-            scope: r'doctag',
-            begin: r'@[A-Za-z]+',
-          ),
+          Mode(begin: r'\w+@', relevance: 0),
+          Mode(scope: r'doctag', begin: r'@[A-Za-z]+'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -284,9 +268,7 @@ Mode aspectj(Highlight hljs) {
         keywords: r'class interface',
         illegal: r'[:"\[\]]',
         contains: [
-          Mode(
-            beginKeywords: r'extends implements',
-          ),
+          Mode(beginKeywords: r'extends implements'),
           _mode9,
         ],
       ),
@@ -299,9 +281,7 @@ Mode aspectj(Highlight hljs) {
           Mode(
             begin: r'[a-zA-Z_]\w*\s*\(',
             returnBegin: true,
-            contains: [
-              _mode9,
-            ],
+            contains: [_mode9],
           ),
         ],
       ),
@@ -476,10 +456,7 @@ Mode aspectj(Highlight hljs) {
           _mode8,
         ],
       ),
-      Mode(
-        beginKeywords: r'new throw',
-        relevance: 0,
-      ),
+      Mode(beginKeywords: r'new throw', relevance: 0),
       Mode(
         scope: r'function',
         begin: r'\w+ +\w+(\.\w+)?\s*\([^\)]*\)\s*((throws)[\w\s,]+)?[\{;]',
@@ -567,9 +544,7 @@ Mode aspectj(Highlight hljs) {
             begin: r'[a-zA-Z_]\w*\s*\(',
             returnBegin: true,
             relevance: 0,
-            contains: [
-              _mode9,
-            ],
+            contains: [_mode9],
           ),
           Mode(
             scope: r'params',
@@ -652,22 +627,14 @@ Mode aspectj(Highlight hljs) {
               r'precedence',
               r'thisAspectInstance',
             ],
-            contains: [
-              _mode6,
-              _mode8,
-              _mode10,
-              _mode3,
-            ],
+            contains: [_mode6, _mode8, _mode10, _mode3],
           ),
           _mode0,
           _mode3,
         ],
       ),
       _mode10,
-      Mode(
-        scope: r'meta',
-        begin: r'@[A-Za-z]+',
-      ),
+      Mode(scope: r'meta', begin: r'@[A-Za-z]+'),
     ],
   );
 }

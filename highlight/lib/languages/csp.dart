@@ -32,11 +32,7 @@ Mode csp(Highlight hljs) {
       ],
     },
     contains: [
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-      ),
+      Mode(scope: r'string', begin: r"'", end: r"'"),
       Mode(
         scope: r'attribute',
         begin: r'^Content',

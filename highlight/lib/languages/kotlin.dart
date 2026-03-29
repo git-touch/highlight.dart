@@ -29,10 +29,7 @@ Mode kotlin(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -43,18 +40,11 @@ Mode kotlin(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode7,
-    _mode8,
-  ];
+  _mode3.contains = [_mode4, _mode7, _mode8];
   _mode4.scope = r'comment';
   _mode4.begin = r'/\*';
   _mode4.end = r'\*/';
-  _mode4.contains = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.contains = [_mode5, _mode6];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -74,84 +64,47 @@ Mode kotlin(Highlight hljs) {
       r'@(?:file|property|field|get|set|receiver|param|setparam|delegate)\s*:(?:\s*[a-zA-Z_]\w*)?';
   _mode10.scope = r'meta';
   _mode10.begin = r'@[a-zA-Z_]\w*';
-  _mode10.contains = [
-    _mode11,
-  ];
+  _mode10.contains = [_mode11];
   _mode11.begin = r'\(';
   _mode11.end = r'\)';
-  _mode11.contains = [
-    _mode12,
-    r'self',
-  ];
+  _mode11.contains = [_mode12, r'self'];
   _mode12.scope = r'string';
-  _mode12.variants = [
-    _mode13,
-    _mode18,
-    _mode20,
-  ];
+  _mode12.variants = [_mode13, _mode18, _mode20];
   _mode13.begin = r'"""';
   _mode13.end = r'"""(?=[^"])';
-  _mode13.contains = [
-    _mode14,
-    _mode15,
-  ];
+  _mode13.contains = [_mode14, _mode15];
   _mode14.scope = r'variable';
   _mode14.begin = r'\$[a-zA-Z_]\w*';
   _mode15.scope = r'subst';
   _mode15.begin = r'\$\{';
   _mode15.end = r'\}';
-  _mode15.contains = [
-    _mode16,
-    _mode17,
-  ];
+  _mode15.contains = [_mode16, _mode17];
   _mode16.scope = r'number';
   _mode16.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
   _mode16.relevance = 0;
   _mode17.scope = r'string';
-  _mode17.variants = [
-    _mode13,
-    _mode18,
-    _mode20,
-  ];
+  _mode17.variants = [_mode13, _mode18, _mode20];
   _mode18.begin = r"'";
   _mode18.end = r"'";
   _mode18.illegal = r'\n';
-  _mode18.contains = [
-    _mode19,
-  ];
+  _mode18.contains = [_mode19];
   _mode19.begin = r'\\[\s\S]';
   _mode19.relevance = 0;
   _mode20.begin = r'"';
   _mode20.end = r'"';
   _mode20.illegal = r'\n';
-  _mode20.contains = [
-    _mode19,
-    _mode14,
-    _mode15,
-  ];
+  _mode20.contains = [_mode19, _mode14, _mode15];
   _mode21.scope = r'title';
   _mode21.begin = r'[a-zA-Z_]\w*';
   _mode21.relevance = 0;
   _mode22.variants = [
-    Mode(
-      scope: r'type',
-      begin: r'[a-zA-Z_]\w*',
-    ),
-    Mode(
-      begin: r'\(',
-      end: r'\)',
-      contains: [
-        _mode22,
-      ],
-    ),
+    Mode(scope: r'type', begin: r'[a-zA-Z_]\w*'),
+    Mode(begin: r'\(', end: r'\)', contains: [_mode22]),
   ];
   return Mode(
     name: r'Kotlin',
-    aliases: [
-      r'kt',
-      r'kts',
-    ],
+    aliases: [r'kt', r'kts'],
     keywords: {
       r'keyword':
           r'abstract as val var vararg get set class object open private protected public noinline crossinline dynamic final enum if else do while for when throw try catch finally import package is in fun override companion reified inline lateinit init interface annotation data sealed internal infix operator out by constructor super tailrec where const inner suspend typealias external expect actual',
@@ -165,10 +118,7 @@ Mode kotlin(Highlight hljs) {
         begin: r'/\*\*',
         end: r'\*/',
         contains: [
-          Mode(
-            scope: r'doctag',
-            begin: r'@[A-Za-z]+',
-          ),
+          Mode(scope: r'doctag', begin: r'@[A-Za-z]+'),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -189,18 +139,10 @@ Mode kotlin(Highlight hljs) {
         scope: r'keyword',
         begin: r'\b(break|continue|return|this)\b',
         starts: Mode(
-          contains: [
-            Mode(
-              scope: r'symbol',
-              begin: r'@\w+',
-            ),
-          ],
+          contains: [Mode(scope: r'symbol', begin: r'@\w+')],
         ),
       ),
-      Mode(
-        scope: r'symbol',
-        begin: r'[a-zA-Z_]\w*@',
-      ),
+      Mode(scope: r'symbol', begin: r'[a-zA-Z_]\w*@'),
       _mode9,
       _mode10,
       Mode(
@@ -222,9 +164,7 @@ Mode kotlin(Highlight hljs) {
             begin: r'[a-zA-Z_]\w*\s*\(',
             returnBegin: true,
             relevance: 0,
-            contains: [
-              _mode21,
-            ],
+            contains: [_mode21],
           ),
           Mode(
             scope: r'type',
@@ -251,11 +191,7 @@ Mode kotlin(Highlight hljs) {
                 begin: r':',
                 end: r'[=,\/]',
                 endsWithParent: true,
-                contains: [
-                  _mode22,
-                  _mode0,
-                  _mode3,
-                ],
+                contains: [_mode22, _mode0, _mode3],
                 relevance: 0,
               ),
               _mode0,
@@ -270,22 +206,14 @@ Mode kotlin(Highlight hljs) {
         ],
       ),
       Mode(
-        begin: [
-          r'class|interface|trait',
-          r'\s+',
-          r'[a-zA-Z_]\w*',
-        ],
-        beginScope: {
-          3: r'title.class',
-        },
+        begin: [r'class|interface|trait', r'\s+', r'[a-zA-Z_]\w*'],
+        beginScope: {3: r'title.class'},
         keywords: r'class interface trait',
         end: r'[:\{(]|$',
         excludeEnd: true,
         illegal: r'extends implements',
         contains: [
-          Mode(
-            beginKeywords: r'public protected internal private constructor',
-          ),
+          Mode(beginKeywords: r'public protected internal private constructor'),
           _mode21,
           Mode(
             scope: r'type',
@@ -307,12 +235,7 @@ Mode kotlin(Highlight hljs) {
         ],
       ),
       _mode17,
-      Mode(
-        scope: r'meta',
-        begin: r'^#!/usr/bin/env',
-        end: r'$',
-        illegal: '\n',
-      ),
+      Mode(scope: r'meta', begin: r'^#!/usr/bin/env', end: r'$', illegal: '\n'),
       Mode(
         scope: r'number',
         variants: [
@@ -324,28 +247,16 @@ Mode kotlin(Highlight hljs) {
             begin:
                 r'\b([0-9](_*[0-9])*)((\.([0-9](_*[0-9])*))[fFdD]?\b|\.([fFdD]\b)?)',
           ),
-          Mode(
-            begin: r'(\.([0-9](_*[0-9])*))[fFdD]?\b',
-          ),
-          Mode(
-            begin: r'\b([0-9](_*[0-9])*)[fFdD]\b',
-          ),
+          Mode(begin: r'(\.([0-9](_*[0-9])*))[fFdD]?\b'),
+          Mode(begin: r'\b([0-9](_*[0-9])*)[fFdD]\b'),
           Mode(
             begin:
                 r'\b0[xX](([0-9a-fA-F](_*[0-9a-fA-F])*)\.?|([0-9a-fA-F](_*[0-9a-fA-F])*)?\.([0-9a-fA-F](_*[0-9a-fA-F])*))[pP][+-]?([0-9](_*[0-9])*)[fFdD]?\b',
           ),
-          Mode(
-            begin: r'\b(0|[1-9](_*[0-9])*)[lL]?\b',
-          ),
-          Mode(
-            begin: r'\b0[xX]([0-9a-fA-F](_*[0-9a-fA-F])*)[lL]?\b',
-          ),
-          Mode(
-            begin: r'\b0(_*[0-7])*[lL]?\b',
-          ),
-          Mode(
-            begin: r'\b0[bB][01](_*[01])*[lL]?\b',
-          ),
+          Mode(begin: r'\b(0|[1-9](_*[0-9])*)[lL]?\b'),
+          Mode(begin: r'\b0[xX]([0-9a-fA-F](_*[0-9a-fA-F])*)[lL]?\b'),
+          Mode(begin: r'\b0(_*[0-7])*[lL]?\b'),
+          Mode(begin: r'\b0[bB][01](_*[01])*[lL]?\b'),
         ],
         relevance: 0,
       ),

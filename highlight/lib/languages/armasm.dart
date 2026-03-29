@@ -6,9 +6,7 @@ Mode armasm(Highlight hljs) {
   return Mode(
     name: r'ARM Assembly',
     caseInsensitive: true,
-    aliases: [
-      r'arm',
-    ],
+    aliases: [r'arm'],
     keywords: {
       r'$pattern': r'\.?[a-zA-Z]\w*',
       r'meta':
@@ -106,19 +104,9 @@ Mode armasm(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"[^\\]'",
-        relevance: 0,
-      ),
+      Mode(scope: r'string', begin: r"'", end: r"[^\\]'", relevance: 0),
       Mode(
         scope: r'title',
         begin: r'\|',
@@ -129,33 +117,19 @@ Mode armasm(Highlight hljs) {
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'[#$=]?0x[0-9a-f]+',
-          ),
-          Mode(
-            begin: r'[#$=]?0b[01]+',
-          ),
-          Mode(
-            begin: r'[#$=]\d+',
-          ),
-          Mode(
-            begin: r'\b\d+',
-          ),
+          Mode(begin: r'[#$=]?0x[0-9a-f]+'),
+          Mode(begin: r'[#$=]?0b[01]+'),
+          Mode(begin: r'[#$=]\d+'),
+          Mode(begin: r'\b\d+'),
         ],
         relevance: 0,
       ),
       Mode(
         scope: r'symbol',
         variants: [
-          Mode(
-            begin: r'^[ \t]*[a-z_\.\$][a-z0-9_\.\$]+:',
-          ),
-          Mode(
-            begin: r'^[a-z_\.\$][a-z0-9_\.\$]+',
-          ),
-          Mode(
-            begin: r'[=#]\w+',
-          ),
+          Mode(begin: r'^[ \t]*[a-z_\.\$][a-z0-9_\.\$]+:'),
+          Mode(begin: r'^[a-z_\.\$][a-z0-9_\.\$]+'),
+          Mode(begin: r'[=#]\w+'),
         ],
         relevance: 0,
       ),

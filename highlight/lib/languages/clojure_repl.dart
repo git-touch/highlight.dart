@@ -9,10 +9,7 @@ Mode clojure_repl(Highlight hljs) {
       Mode(
         scope: r'meta.prompt',
         begin: r'^([\w.-]+|\s*#_)?=>',
-        starts: Mode(
-          end: r'$',
-          subLanguage: r'clojure',
-        ),
+        starts: Mode(end: r'$', subLanguage: r'clojure'),
       ),
     ],
   );

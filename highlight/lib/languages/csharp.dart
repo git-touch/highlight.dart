@@ -41,10 +41,7 @@ Mode csharp(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -55,10 +52,7 @@ Mode csharp(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -66,26 +60,14 @@ Mode csharp(Highlight hljs) {
   _mode4.relevance = 0;
   _mode5.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode6.variants = [
-    _mode7,
-    _mode8,
-    _mode13,
-    _mode31,
-    _mode24,
-    _mode25,
-  ];
+  _mode6.variants = [_mode7, _mode8, _mode13, _mode31, _mode24, _mode25];
   _mode7.scope = r'string';
   _mode7.begin = r'"""("*)(?!")(.|\n)*?"""\1';
   _mode7.relevance = 1;
   _mode8.scope = r'string';
   _mode8.begin = r'\$@"';
   _mode8.end = r'"';
-  _mode8.contains = [
-    _mode9,
-    _mode10,
-    _mode11,
-    _mode12,
-  ];
+  _mode8.contains = [_mode9, _mode10, _mode11, _mode12];
   _mode9.begin = r'\{\{';
   _mode10.begin = r'\}\}';
   _mode11.begin = r'""';
@@ -214,12 +196,7 @@ Mode csharp(Highlight hljs) {
       r'uint',
       r'ushort',
     ],
-    r'literal': [
-      r'default',
-      r'false',
-      r'null',
-      r'true',
-    ],
+    r'literal': [r'default', r'false', r'null', r'true'],
   };
   _mode12.contains = [
     _mode8,
@@ -234,12 +211,7 @@ Mode csharp(Highlight hljs) {
   _mode13.begin = r'\$"';
   _mode13.end = r'"';
   _mode13.illegal = r'\n';
-  _mode13.contains = [
-    _mode14,
-    _mode15,
-    _mode16,
-    _mode17,
-  ];
+  _mode13.contains = [_mode14, _mode15, _mode16, _mode17];
   _mode14.begin = r'\{\{';
   _mode15.begin = r'\}\}';
   _mode16.begin = r'\\[\s\S]';
@@ -369,12 +341,7 @@ Mode csharp(Highlight hljs) {
       r'uint',
       r'ushort',
     ],
-    r'literal': [
-      r'default',
-      r'false',
-      r'null',
-      r'true',
-    ],
+    r'literal': [r'default', r'false', r'null', r'true'],
   };
   _mode17.illegal = r'\n';
   _mode17.contains = [
@@ -389,12 +356,7 @@ Mode csharp(Highlight hljs) {
   _mode18.scope = r'string';
   _mode18.begin = r'\$@"';
   _mode18.end = r'"';
-  _mode18.contains = [
-    _mode19,
-    _mode20,
-    _mode21,
-    _mode17,
-  ];
+  _mode18.contains = [_mode19, _mode20, _mode21, _mode17];
   _mode18.illegal = r'\n';
   _mode19.begin = r'\{\{';
   _mode20.begin = r'\}\}';
@@ -402,31 +364,21 @@ Mode csharp(Highlight hljs) {
   _mode22.scope = r'string';
   _mode22.begin = r'@"';
   _mode22.end = r'"';
-  _mode22.contains = [
-    _mode23,
-  ];
+  _mode22.contains = [_mode23];
   _mode22.illegal = r'\n';
   _mode23.begin = r'""';
   _mode24.scope = r'string';
   _mode24.begin = r"'";
   _mode24.end = r"'";
   _mode24.illegal = r'\n';
-  _mode24.contains = [
-    _mode16,
-  ];
+  _mode24.contains = [_mode16];
   _mode25.scope = r'string';
   _mode25.begin = r'"';
   _mode25.end = r'"';
   _mode25.illegal = r'\n';
-  _mode25.contains = [
-    _mode16,
-  ];
+  _mode25.contains = [_mode16];
   _mode26.scope = r'number';
-  _mode26.variants = [
-    _mode27,
-    _mode28,
-    _mode29,
-  ];
+  _mode26.variants = [_mode27, _mode28, _mode29];
   _mode26.relevance = 0;
   _mode27.begin = r"\b(0b[01']+)";
   _mode28.begin = r"(-?)\b([\d']+(\.[\d']*)?|\.[\d']+)(u|U|l|L|ul|UL|f|F|b|B)";
@@ -435,33 +387,22 @@ Mode csharp(Highlight hljs) {
   _mode30.scope = r'comment';
   _mode30.begin = r'/\*';
   _mode30.end = r'\*/';
-  _mode30.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode30.contains = [_mode4, _mode5];
   _mode30.illegal = r'\n';
   _mode31.scope = r'string';
   _mode31.begin = r'@"';
   _mode31.end = r'"';
-  _mode31.contains = [
-    _mode23,
-  ];
+  _mode31.contains = [_mode23];
   _mode32.scope = r'title';
   _mode32.begin = r'[a-zA-Z](\.?\w)*';
   _mode32.relevance = 0;
   _mode33.begin = r'<';
   _mode33.end = r'>';
-  _mode33.contains = [
-    _mode34,
-    _mode32,
-  ];
+  _mode33.contains = [_mode34, _mode32];
   _mode34.beginKeywords = r'in out';
   return Mode(
     name: r'C#',
-    aliases: [
-      r'cs',
-      r'c#',
-    ],
+    aliases: [r'cs', r'c#'],
     keywords: {
       r'keyword': [
         r'abstract',
@@ -584,12 +525,7 @@ Mode csharp(Highlight hljs) {
         r'uint',
         r'ushort',
       ],
-      r'literal': [
-        r'default',
-        r'false',
-        r'null',
-        r'true',
-      ],
+      r'literal': [r'default', r'false', r'null', r'true'],
     },
     illegal: r'::',
     contains: [
@@ -601,17 +537,9 @@ Mode csharp(Highlight hljs) {
           Mode(
             scope: r'doctag',
             variants: [
-              Mode(
-                begin: r'///',
-                relevance: 0,
-              ),
-              Mode(
-                begin: r'<!--|-->',
-              ),
-              Mode(
-                begin: r'</?',
-                end: r'>',
-              ),
+              Mode(begin: r'///', relevance: 0),
+              Mode(begin: r'<!--|-->'),
+              Mode(begin: r'</?', end: r'>'),
             ],
           ),
           Mode(
@@ -647,9 +575,7 @@ Mode csharp(Highlight hljs) {
         end: r'[{;=]',
         illegal: r'[^\s:,]',
         contains: [
-          Mode(
-            beginKeywords: r'where class',
-          ),
+          Mode(beginKeywords: r'where class'),
           _mode32,
           _mode33,
           _mode0,
@@ -661,23 +587,14 @@ Mode csharp(Highlight hljs) {
         relevance: 0,
         end: r'[{;=]',
         illegal: r'[^\s:]',
-        contains: [
-          _mode32,
-          _mode0,
-          _mode3,
-        ],
+        contains: [_mode32, _mode0, _mode3],
       ),
       Mode(
         beginKeywords: r'record',
         relevance: 0,
         end: r'[{;=]',
         illegal: r'[^\s:]',
-        contains: [
-          _mode32,
-          _mode33,
-          _mode0,
-          _mode3,
-        ],
+        contains: [_mode32, _mode33, _mode0, _mode3],
       ),
       Mode(
         scope: r'meta',
@@ -685,18 +602,9 @@ Mode csharp(Highlight hljs) {
         excludeBegin: true,
         end: r'\]',
         excludeEnd: true,
-        contains: [
-          Mode(
-            scope: r'string',
-            begin: r'"',
-            end: r'"',
-          ),
-        ],
+        contains: [Mode(scope: r'string', begin: r'"', end: r'"')],
       ),
-      Mode(
-        beginKeywords: r'new return throw await else',
-        relevance: 0,
-      ),
+      Mode(beginKeywords: r'new return throw await else', relevance: 0),
       Mode(
         scope: r'function',
         begin:
@@ -826,12 +734,7 @@ Mode csharp(Highlight hljs) {
             r'uint',
             r'ushort',
           ],
-          r'literal': [
-            r'default',
-            r'false',
-            r'null',
-            r'true',
-          ],
+          r'literal': [r'default', r'false', r'null', r'true'],
         },
         contains: [
           Mode(
@@ -843,18 +746,12 @@ Mode csharp(Highlight hljs) {
             begin: r'[a-zA-Z]\w*\s*(<[^=]+>\s*)?\(',
             returnBegin: true,
             contains: [
-              Mode(
-                scope: r'title',
-                begin: r'[a-zA-Z]\w*',
-                relevance: 0,
-              ),
+              Mode(scope: r'title', begin: r'[a-zA-Z]\w*', relevance: 0),
               _mode33,
             ],
             relevance: 0,
           ),
-          Mode(
-            match: r'\(\)',
-          ),
+          Mode(match: r'\(\)'),
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -983,28 +880,16 @@ Mode csharp(Highlight hljs) {
                 r'uint',
                 r'ushort',
               ],
-              r'literal': [
-                r'default',
-                r'false',
-                r'null',
-                r'true',
-              ],
+              r'literal': [r'default', r'false', r'null', r'true'],
             },
             relevance: 0,
-            contains: [
-              _mode6,
-              _mode26,
-              _mode3,
-            ],
+            contains: [_mode6, _mode26, _mode3],
           ),
           _mode0,
           _mode3,
         ],
       ),
-      Mode(
-        begin: r'@[a-zA-Z]\w*',
-        relevance: 0,
-      ),
+      Mode(begin: r'@[a-zA-Z]\w*', relevance: 0),
     ],
   );
 }

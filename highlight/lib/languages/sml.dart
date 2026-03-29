@@ -8,9 +8,7 @@ Mode sml(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'SML (Standard ML)',
-    aliases: [
-      r'ml',
-    ],
+    aliases: [r'ml'],
     keywords: {
       r'$pattern': r'[a-z_]\w*!?',
       r'keyword':
@@ -21,11 +19,7 @@ Mode sml(Highlight hljs) {
     },
     illegal: r'\/\/|>>',
     contains: [
-      Mode(
-        scope: r'literal',
-        begin: r'\[(\|\|)?\]|\(\)',
-        relevance: 0,
-      ),
+      Mode(scope: r'literal', begin: r'\[(\|\|)?\]|\(\)', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'\(\*',
@@ -45,49 +39,26 @@ Mode sml(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'symbol',
-        begin: r"'[A-Za-z_](?!')[\w']*",
-      ),
-      Mode(
-        scope: r'type',
-        begin: r"`[A-Z][\w']*",
-      ),
-      Mode(
-        scope: r'type',
-        begin: r"\b[A-Z][\w']*",
-        relevance: 0,
-      ),
-      Mode(
-        begin: r"[a-z_]\w*'[\w']*",
-      ),
+      Mode(scope: r'symbol', begin: r"'[A-Za-z_](?!')[\w']*"),
+      Mode(scope: r'type', begin: r"`[A-Z][\w']*"),
+      Mode(scope: r'type', begin: r"\b[A-Z][\w']*", relevance: 0),
+      Mode(begin: r"[a-z_]\w*'[\w']*"),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-        contains: [
-          _mode0,
-        ],
-      ),
+      Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
       Mode(
         scope: r'number',
         begin:
             r'\b(0[xX][a-fA-F0-9_]+[Lln]?|0[oO][0-7_]+[Lln]?|0[bB][01_]+[Lln]?|[0-9][0-9_]*([Lln]|(\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
         relevance: 0,
       ),
-      Mode(
-        begin: r'[-=]>',
-      ),
+      Mode(begin: r'[-=]>'),
     ],
   );
 }

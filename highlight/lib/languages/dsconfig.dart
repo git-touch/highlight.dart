@@ -21,28 +21,10 @@ Mode dsconfig(Highlight hljs) {
         illegal: r'!@#$%^&*()',
         relevance: 10,
       ),
-      Mode(
-        scope: r'built_in',
-        begin: r'--(\w+)',
-        end: r'\s',
-        excludeEnd: true,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-      ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'[\w\-?]+:\w+',
-        end: r'\W',
-        relevance: 0,
-      ),
+      Mode(scope: r'built_in', begin: r'--(\w+)', end: r'\s', excludeEnd: true),
+      Mode(scope: r'string', begin: r'"', end: r'"'),
+      Mode(scope: r'string', begin: r"'", end: r"'"),
+      Mode(scope: r'string', begin: r'[\w\-?]+:\w+', end: r'\W', relevance: 0),
       Mode(
         scope: r'string',
         begin: r'\w+(\-\w+)*',

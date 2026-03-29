@@ -12,9 +12,7 @@ Mode haxe(Highlight hljs) {
   _mode1.relevance = 0;
   return Mode(
     name: r'Haxe',
-    aliases: [
-      r'hx',
-    ],
+    aliases: [r'hx'],
     keywords: {
       r'keyword':
           r'abstract break case cast catch continue default do dynamic else enum extern final for function here if import in inline is macro never new override package private get set public return static super switch this throw trace try typedef untyped using var while Int Float String Bool Dynamic Void Array ',
@@ -28,16 +26,8 @@ Mode haxe(Highlight hljs) {
         end: r"'",
         contains: [
           _mode0,
-          Mode(
-            scope: r'subst',
-            begin: r'\$\{',
-            end: r'\}',
-          ),
-          Mode(
-            scope: r'subst',
-            begin: r'\$',
-            end: r'\W\}',
-          ),
+          Mode(scope: r'subst', begin: r'\$\{', end: r'\}'),
+          Mode(scope: r'subst', begin: r'\$', end: r'\W\}'),
         ],
       ),
       Mode(
@@ -45,9 +35,7 @@ Mode haxe(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'comment',
@@ -91,23 +79,13 @@ Mode haxe(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9_]+|(\b\d+(\.[\d_]*)?|\.[\d_]+)(([eE][-+]?\d+)|i32|u32|i64|f64)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'variable',
-        begin: r'\$[a-zA-Z_$][a-zA-Z0-9_$]*',
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'@:?',
-        end: r'\(|$',
-        excludeEnd: true,
-      ),
+      Mode(scope: r'variable', begin: r'\$[a-zA-Z_$][a-zA-Z0-9_$]*'),
+      Mode(scope: r'meta', begin: r'@:?', end: r'\(|$', excludeEnd: true),
       Mode(
         scope: r'meta',
         begin: r'#',
         end: r'$',
-        keywords: {
-          r'keyword': r'if else elseif end error',
-        },
+        keywords: {r'keyword': r'if else elseif end error'},
       ),
       Mode(
         scope: r'type',
@@ -135,9 +113,7 @@ Mode haxe(Highlight hljs) {
         scope: r'title.class',
         beginKeywords: r'enum',
         end: r'\{',
-        contains: [
-          _mode1,
-        ],
+        contains: [_mode1],
       ),
       Mode(
         scope: r'title.class',
@@ -167,9 +143,7 @@ Mode haxe(Highlight hljs) {
           ),
           _mode1,
         ],
-        keywords: {
-          r'keyword': r'abstract from to',
-        },
+        keywords: {r'keyword': r'abstract from to'},
       ),
       Mode(
         scope: r'title.class',
@@ -183,11 +157,7 @@ Mode haxe(Highlight hljs) {
             begin: r'\b(extends|implements) +',
             keywords: r'extends implements',
             contains: [
-              Mode(
-                scope: r'type',
-                begin: r'[a-zA-Z]\w*',
-                relevance: 0,
-              ),
+              Mode(scope: r'type', begin: r'[a-zA-Z]\w*', relevance: 0),
             ],
           ),
           _mode1,
@@ -199,9 +169,7 @@ Mode haxe(Highlight hljs) {
         end: r'\(',
         excludeEnd: true,
         illegal: r'\S',
-        contains: [
-          _mode1,
-        ],
+        contains: [_mode1],
       ),
     ],
     illegal: r'<\/',

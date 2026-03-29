@@ -5,10 +5,7 @@ import '../highlight_core.dart';
 Mode plaintext(Highlight hljs) {
   return Mode(
     name: r'Plain text',
-    aliases: [
-      r'text',
-      r'txt',
-    ],
+    aliases: [r'text', r'txt'],
     disableAutodetect: true,
   );
 }

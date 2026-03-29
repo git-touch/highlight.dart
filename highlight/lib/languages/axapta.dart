@@ -8,9 +8,7 @@ Mode axapta(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'X++',
-    aliases: [
-      r'x++',
-    ],
+    aliases: [r'x++'],
     keywords: {
       r'keyword': [
         r'abstract',
@@ -133,12 +131,7 @@ Mode axapta(Highlight hljs) {
         r'utcdatetime',
         r'var',
       ],
-      r'literal': [
-        r'default',
-        r'false',
-        r'null',
-        r'true',
-      ],
+      r'literal': [r'default', r'false', r'null', r'true'],
     },
     contains: [
       Mode(
@@ -182,18 +175,14 @@ Mode axapta(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -201,11 +190,7 @@ Mode axapta(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'#',
-        end: r'$',
-      ),
+      Mode(scope: r'meta', begin: r'#', end: r'$'),
       Mode(
         variants: [
           Mode(
@@ -216,17 +201,9 @@ Mode axapta(Highlight hljs) {
               r'[a-zA-Z_]\w*',
             ],
           ),
-          Mode(
-            match: [
-              r'class\s+',
-              r'[a-zA-Z_]\w*',
-            ],
-          ),
+          Mode(match: [r'class\s+', r'[a-zA-Z_]\w*']),
         ],
-        scope: {
-          2: r'title.class',
-          4: r'title.class.inherited',
-        },
+        scope: {2: r'title.class', 4: r'title.class.inherited'},
         keywords: {
           r'keyword': [
             r'abstract',
@@ -349,12 +326,7 @@ Mode axapta(Highlight hljs) {
             r'utcdatetime',
             r'var',
           ],
-          r'literal': [
-            r'default',
-            r'false',
-            r'null',
-            r'true',
-          ],
+          r'literal': [r'default', r'false', r'null', r'true'],
         },
       ),
     ],

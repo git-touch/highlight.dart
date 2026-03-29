@@ -7,10 +7,12 @@ String escapeHTML(String value) {
       .replaceAll("'", '&#x27;');
 }
 
-Map<String, dynamic> inherit(Map<String, dynamic> original,
-    [Map<String, dynamic>? obj1,
-    Map<String, dynamic>? obj2,
-    Map<String, dynamic>? obj3]) {
+Map<String, dynamic> inherit(
+  Map<String, dynamic> original, [
+  Map<String, dynamic>? obj1,
+  Map<String, dynamic>? obj2,
+  Map<String, dynamic>? obj3,
+]) {
   final result = <String, dynamic>{};
   original.forEach((key, value) {
     result[key] = value;

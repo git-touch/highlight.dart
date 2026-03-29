@@ -8,9 +8,7 @@ Mode reasonml(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'ReasonML',
-    aliases: [
-      r're',
-    ],
+    aliases: [r're'],
     keywords: {
       r'$pattern': r'[a-z_]\w*!?',
       r'keyword': [
@@ -87,18 +85,11 @@ Mode reasonml(Highlight hljs) {
         r'string',
         r'unit',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-      ],
+      r'literal': [r'true', r'false'],
     },
     illegal: r'(:-|:=|\$\{|\+=)',
     contains: [
-      Mode(
-        scope: r'literal',
-        match: r'\[(\|\|)?\]|\(\)',
-        relevance: 0,
-      ),
+      Mode(scope: r'literal', match: r'\[(\|\|)?\]|\(\)', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'//',
@@ -136,23 +127,10 @@ Mode reasonml(Highlight hljs) {
         ],
         illegal: r'^(#,\/\/)',
       ),
-      Mode(
-        scope: r'symbol',
-        match: r"\'[A-Za-z_](?!\')[\w\']*",
-      ),
-      Mode(
-        scope: r'type',
-        match: r"`[A-Z][\w\']*",
-      ),
-      Mode(
-        scope: r'type',
-        match: r"\b[A-Z][\w\']*",
-        relevance: 0,
-      ),
-      Mode(
-        match: r"[a-z_]\w*\'[\w\']*",
-        relevance: 0,
-      ),
+      Mode(scope: r'symbol', match: r"\'[A-Za-z_](?!\')[\w\']*"),
+      Mode(scope: r'type', match: r"`[A-Z][\w\']*"),
+      Mode(scope: r'type', match: r"\b[A-Z][\w\']*", relevance: 0),
+      Mode(match: r"[a-z_]\w*\'[\w\']*", relevance: 0),
       Mode(
         scope: r'operator',
         match: r'\s+(\|\||\+[\+\.]?|\*[\*\/\.]?|\/[\.]?|\.\.\.|\|>|&&|===?)\s+',
@@ -163,34 +141,17 @@ Mode reasonml(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-        contains: [
-          _mode0,
-        ],
-      ),
+      Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            match: r'\b0[xX][a-fA-F0-9_]+[Lln]?',
-          ),
-          Mode(
-            match: r'\b0[oO][0-7_]+[Lln]?',
-          ),
-          Mode(
-            match: r'\b0[bB][01_]+[Lln]?',
-          ),
-          Mode(
-            match: r'\b[0-9][0-9_]*([Lln]|(\.[0-9_]*)?([eE][-+]?[0-9_]+)?)',
-          ),
+          Mode(match: r'\b0[xX][a-fA-F0-9_]+[Lln]?'),
+          Mode(match: r'\b0[oO][0-7_]+[Lln]?'),
+          Mode(match: r'\b0[bB][01_]+[Lln]?'),
+          Mode(match: r'\b[0-9][0-9_]*([Lln]|(\.[0-9_]*)?([eE][-+]?[0-9_]+)?)'),
         ],
         relevance: 0,
       ),

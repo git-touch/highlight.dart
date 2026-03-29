@@ -17,23 +17,14 @@ Mode elm(Highlight hljs) {
   _mode0.begin = r'\(';
   _mode0.end = r'\)';
   _mode0.illegal = r'"';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'type';
   _mode1.begin = r'\b[A-Z][\w]*(\((\.\.|,|\w+)\))?';
-  _mode2.variants = [
-    _mode3,
-    _mode6,
-  ];
+  _mode2.variants = [_mode3, _mode6];
   _mode3.scope = r'comment';
   _mode3.begin = r'--';
   _mode3.end = r'$';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -44,11 +35,7 @@ Mode elm(Highlight hljs) {
   _mode6.scope = r'comment';
   _mode6.begin = r'\{-';
   _mode6.end = r'-\}';
-  _mode6.contains = [
-    r'self',
-    _mode7,
-    _mode8,
-  ];
+  _mode6.contains = [r'self', _mode7, _mode8];
   _mode7.scope = r'doctag';
   _mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -93,20 +80,14 @@ Mode elm(Highlight hljs) {
         beginKeywords: r'port effect module',
         end: r'exposing',
         keywords: r'port effect module where command subscription exposing',
-        contains: [
-          _mode0,
-          _mode2,
-        ],
+        contains: [_mode0, _mode2],
         illegal: r'\W\.|;',
       ),
       Mode(
         begin: r'import',
         end: r'$',
         keywords: r'import as exposing',
-        contains: [
-          _mode0,
-          _mode2,
-        ],
+        contains: [_mode0, _mode2],
         illegal: r'\W\.|;',
       ),
       Mode(
@@ -116,62 +97,29 @@ Mode elm(Highlight hljs) {
         contains: [
           _mode9,
           _mode0,
-          Mode(
-            begin: r'\{',
-            end: r'\}',
-            contains: [
-              _mode1,
-              _mode2,
-            ],
-          ),
+          Mode(begin: r'\{', end: r'\}', contains: [_mode1, _mode2]),
           _mode2,
         ],
       ),
       Mode(
         beginKeywords: r'infix infixl infixr',
         end: r'$',
-        contains: [
-          _mode10,
-          _mode2,
-        ],
+        contains: [_mode10, _mode2],
       ),
-      Mode(
-        begin: r'port',
-        end: r'$',
-        keywords: r'port',
-        contains: [
-          _mode2,
-        ],
-      ),
-      Mode(
-        scope: r'string',
-        begin: r"'\\?.",
-        end: r"'",
-        illegal: r'.',
-      ),
+      Mode(begin: r'port', end: r'$', keywords: r'port', contains: [_mode2]),
+      Mode(scope: r'string', begin: r"'\\?.", end: r"'", illegal: r'.'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       _mode10,
       _mode9,
-      Mode(
-        scope: r'title',
-        begin: r"^[_a-z][\w']*",
-        relevance: 0,
-      ),
+      Mode(scope: r'title', begin: r"^[_a-z][\w']*", relevance: 0),
       _mode2,
-      Mode(
-        begin: r'->|<-',
-      ),
+      Mode(begin: r'->|<-'),
     ],
     illegal: r';',
   );

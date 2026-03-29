@@ -1,7 +1,7 @@
 import 'mode_compiler.dart';
 
-typedef ModeCallback = void Function(
-    RegExpMatch match, CallbackResponse response);
+typedef ModeCallback =
+    void Function(RegExpMatch match, CallbackResponse response);
 
 class CallbackResponse {
   final Map<String, dynamic> data;
@@ -149,7 +149,8 @@ class Mode {
       match: match,
       beginScope: beginScope ?? this.beginScope,
       endScope: endScope ?? this.endScope,
-      contains: contains ??
+      contains:
+          contains ??
           (this.contains != null ? List.from(this.contains!) : null),
       keywords: keywords ?? this.keywords,
       illegal: illegal ?? this.illegal,
@@ -171,8 +172,9 @@ class Mode {
       caseInsensitive: caseInsensitive,
       unicodeRegex: unicodeRegex,
       disableAutodetect: disableAutodetect,
-      classNameAliases:
-          classNameAliases != null ? Map.from(classNameAliases!) : null,
+      classNameAliases: classNameAliases != null
+          ? Map.from(classNameAliases!)
+          : null,
       supersetOf: supersetOf,
       compilerExtensions: compilerExtensions,
       binary: binary,

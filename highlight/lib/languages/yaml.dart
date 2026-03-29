@@ -38,11 +38,7 @@ Mode yaml(Highlight hljs) {
   final Mode _mode32 = Mode();
   final Mode _mode33 = Mode();
   _mode0.scope = r'attr';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-    _mode3,
-  ];
+  _mode0.variants = [_mode1, _mode2, _mode3];
   _mode1.begin = r'[\w*@][\w*@ :()\./-]*:(?=[ \t]|$)';
   _mode2.begin = r'"[\w*@][\w*@ :()\./-]*":(?=[ \t]|$)';
   _mode3.begin = r"'[\w*@][\w*@ :()\./-]*':(?=[ \t]|$)";
@@ -75,10 +71,7 @@ Mode yaml(Highlight hljs) {
   _mode14.scope = r'comment';
   _mode14.begin = r'#';
   _mode14.end = r'$';
-  _mode14.contains = [
-    _mode15,
-    _mode16,
-  ];
+  _mode14.contains = [_mode15, _mode16];
   _mode15.scope = r'doctag';
   _mode15.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode15.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -87,9 +80,7 @@ Mode yaml(Highlight hljs) {
   _mode16.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   _mode17.beginKeywords = r'true false yes no null';
-  _mode17.keywords = {
-    r'literal': r'true false yes no null',
-  };
+  _mode17.keywords = {r'literal': r'true false yes no null'};
   _mode18.scope = r'number';
   _mode18.begin =
       r'\b[0-9]{4}(-[0-9][0-9]){0,2}([Tt \t][0-9][0-9]?(:[0-9][0-9]){2})?(\.[0-9]*)?([ \t])*(Z|[-+][0-9][0-9]?(:[0-9][0-9])?)?\b';
@@ -99,9 +90,7 @@ Mode yaml(Highlight hljs) {
   _mode19.relevance = 0;
   _mode20.begin = r'\{';
   _mode20.end = r'\}';
-  _mode20.contains = [
-    _mode21,
-  ];
+  _mode20.contains = [_mode21];
   _mode20.illegal = r'\n';
   _mode20.relevance = 0;
   _mode21.end = r',';
@@ -132,37 +121,24 @@ Mode yaml(Highlight hljs) {
   ];
   _mode22.begin = r'\[';
   _mode22.end = r'\]';
-  _mode22.contains = [
-    _mode21,
-  ];
+  _mode22.contains = [_mode21];
   _mode22.illegal = r'\n';
   _mode22.relevance = 0;
   _mode23.scope = r'string';
   _mode23.relevance = 0;
   _mode23.begin = r"'";
   _mode23.end = r"'";
-  _mode23.contains = [
-    _mode24,
-  ];
+  _mode23.contains = [_mode24];
   _mode24.match = r"''";
   _mode24.scope = r'char.escape';
   _mode24.relevance = 0;
   _mode25.scope = r'string';
   _mode25.relevance = 0;
-  _mode25.variants = [
-    _mode26,
-    _mode28,
-    _mode29,
-  ];
-  _mode25.contains = [
-    _mode30,
-    _mode31,
-  ];
+  _mode25.variants = [_mode26, _mode28, _mode29];
+  _mode25.contains = [_mode30, _mode31];
   _mode26.begin = r"'";
   _mode26.end = r"'";
-  _mode26.contains = [
-    _mode27,
-  ];
+  _mode26.contains = [_mode27];
   _mode27.begin = r"''";
   _mode27.relevance = 0;
   _mode28.begin = r'"';
@@ -171,10 +147,7 @@ Mode yaml(Highlight hljs) {
   _mode30.begin = r'\\[\s\S]';
   _mode30.relevance = 0;
   _mode31.scope = r'template-variable';
-  _mode31.variants = [
-    _mode32,
-    _mode33,
-  ];
+  _mode31.variants = [_mode32, _mode33];
   _mode32.begin = r'\{\{';
   _mode32.end = r'\}\}';
   _mode33.begin = r'%\{';
@@ -182,9 +155,7 @@ Mode yaml(Highlight hljs) {
   return Mode(
     name: r'YAML',
     caseInsensitive: true,
-    aliases: [
-      r'yml',
-    ],
+    aliases: [r'yml'],
     contains: [
       _mode0,
       _mode4,
@@ -208,18 +179,10 @@ Mode yaml(Highlight hljs) {
         scope: r'string',
         relevance: 0,
         variants: [
-          Mode(
-            begin: r'"',
-            end: r'"',
-          ),
-          Mode(
-            begin: r'\S+',
-          ),
+          Mode(begin: r'"', end: r'"'),
+          Mode(begin: r'\S+'),
         ],
-        contains: [
-          _mode30,
-          _mode31,
-        ],
+        contains: [_mode30, _mode31],
       ),
     ],
   );

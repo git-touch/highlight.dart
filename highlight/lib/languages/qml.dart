@@ -15,10 +15,7 @@ Mode qml(Highlight hljs) {
   _mode1.scope = r'comment';
   _mode1.begin = r'//';
   _mode1.end = r'$';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -29,10 +26,7 @@ Mode qml(Highlight hljs) {
   _mode4.scope = r'comment';
   _mode4.begin = r'/\*';
   _mode4.end = r'\*/';
-  _mode4.contains = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.contains = [_mode5, _mode6];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -42,9 +36,7 @@ Mode qml(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'QML',
-    aliases: [
-      r'qt',
-    ],
+    aliases: [r'qt'],
     caseInsensitive: false,
     keywords: {
       r'keyword':
@@ -54,27 +46,20 @@ Mode qml(Highlight hljs) {
           r'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent encodeURI encodeURIComponent escape unescape Object Function Boolean Error EvalError InternalError RangeError ReferenceError StopIteration SyntaxError TypeError URIError Number Math Date String RegExp Array Float32Array Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect Behavior bool color coordinate date double enumeration font geocircle georectangle geoshape int list matrix4x4 parent point quaternion real rect size string url variant vector2d vector3d vector4d Promise',
     },
     contains: [
-      Mode(
-        scope: r'meta',
-        begin: '^\\s*[\'"]use (strict|asm)[\'"]',
-      ),
+      Mode(scope: r'meta', begin: '^\\s*[\'"]use (strict|asm)[\'"]'),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
@@ -82,11 +67,7 @@ Mode qml(Highlight hljs) {
         end: r'`',
         contains: [
           _mode0,
-          Mode(
-            scope: r'subst',
-            begin: r'\$\{',
-            end: r'\}',
-          ),
+          Mode(scope: r'subst', begin: r'\$\{', end: r'\}'),
         ],
       ),
       _mode1,
@@ -94,12 +75,8 @@ Mode qml(Highlight hljs) {
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'\b(0[bB][01]+)',
-          ),
-          Mode(
-            begin: r'\b(0[oO][0-7]+)',
-          ),
+          Mode(begin: r'\b(0[bB][01]+)'),
+          Mode(begin: r'\b(0[oO][0-7]+)'),
           Mode(
             begin:
                 r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
@@ -120,14 +97,7 @@ Mode qml(Highlight hljs) {
             end: r'\/[gimuy]*',
             contains: [
               _mode0,
-              Mode(
-                begin: r'\[',
-                end: r'\]',
-                relevance: 0,
-                contains: [
-                  _mode0,
-                ],
-              ),
+              Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [_mode0]),
             ],
           ),
           Mode(
@@ -174,18 +144,12 @@ Mode qml(Highlight hljs) {
             end: r'\)',
             excludeBegin: true,
             excludeEnd: true,
-            contains: [
-              _mode1,
-              _mode4,
-            ],
+            contains: [_mode1, _mode4],
           ),
         ],
         illegal: r'\[|%',
       ),
-      Mode(
-        begin: r'\.[a-zA-Z]\w*',
-        relevance: 0,
-      ),
+      Mode(begin: r'\.[a-zA-Z]\w*', relevance: 0),
       Mode(
         scope: r'attribute',
         begin: r'\bid\s*:',

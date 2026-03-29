@@ -36,11 +36,7 @@ Mode clojure(Highlight hljs) {
   _mode0.relevance = 0;
   _mode1.begin = r'\(';
   _mode1.end = r'\)';
-  _mode1.contains = [
-    _mode2,
-    _mode26,
-    _mode27,
-  ];
+  _mode1.contains = [_mode2, _mode26, _mode27];
   _mode2.beginKeywords =
       r'def defonce defprotocol defstruct defmulti defmethod defn- defn defmacro deftype defrecord';
   _mode2.keywords = {
@@ -69,12 +65,7 @@ Mode clojure(Highlight hljs) {
   _mode3.excludeEnd = true;
   _mode3.endsParent = true;
   _mode4.scope = r'character';
-  _mode4.variants = [
-    _mode5,
-    _mode6,
-    _mode7,
-    _mode8,
-  ];
+  _mode4.variants = [_mode5, _mode6, _mode7, _mode8];
   _mode5.match = r'\\o[0-3]?[0-7]{1,2}';
   _mode6.match = r'\\u[0-9a-fA-F]{4}';
   _mode7.match = r'\\(newline|space|tab|formfeed|backspace|return)';
@@ -83,24 +74,17 @@ Mode clojure(Highlight hljs) {
   _mode9.scope = r'regex';
   _mode9.begin = r'#"';
   _mode9.end = r'"';
-  _mode9.contains = [
-    _mode10,
-  ];
+  _mode9.contains = [_mode10];
   _mode10.begin = r'\\[\s\S]';
   _mode10.relevance = 0;
   _mode11.scope = r'string';
   _mode11.begin = r'"';
   _mode11.end = r'"';
-  _mode11.contains = [
-    _mode10,
-  ];
+  _mode11.contains = [_mode10];
   _mode12.scope = r'comment';
   _mode12.begin = r';';
   _mode12.end = r'$';
-  _mode12.contains = [
-    _mode13,
-    _mode14,
-  ];
+  _mode12.contains = [_mode13, _mode14];
   _mode12.relevance = 0;
   _mode13.scope = r'doctag';
   _mode13.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -131,14 +115,7 @@ Mode clojure(Highlight hljs) {
   ];
   _mode17.scope = r'number';
   _mode17.relevance = 0;
-  _mode17.variants = [
-    _mode18,
-    _mode19,
-    _mode20,
-    _mode21,
-    _mode22,
-    _mode23,
-  ];
+  _mode17.variants = [_mode18, _mode19, _mode20, _mode21, _mode22, _mode23];
   _mode18.match = r'[-+]?0[xX][0-9a-fA-F]+N?';
   _mode19.match = r'[-+]?0[0-7]+N?';
   _mode20.match = r'[-+]?[1-9][0-9]?[rR][0-9a-zA-Z]+N?';
@@ -176,10 +153,7 @@ Mode clojure(Highlight hljs) {
   ];
   return Mode(
     name: r'Clojure',
-    aliases: [
-      r'clj',
-      r'edn',
-    ],
+    aliases: [r'clj', r'edn'],
     illegal: r'\S',
     contains: [
       _mode0,

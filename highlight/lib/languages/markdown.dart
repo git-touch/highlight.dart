@@ -26,20 +26,9 @@ Mode markdown(Highlight hljs) {
   _mode0.end = r'>';
   _mode0.subLanguage = r'xml';
   _mode0.relevance = 0;
-  _mode1.variants = [
-    _mode2,
-    _mode3,
-    _mode4,
-    _mode5,
-    _mode6,
-  ];
+  _mode1.variants = [_mode2, _mode3, _mode4, _mode5, _mode6];
   _mode1.returnBegin = true;
-  _mode1.contains = [
-    _mode7,
-    _mode8,
-    _mode9,
-    _mode10,
-  ];
+  _mode1.contains = [_mode7, _mode8, _mode9, _mode10];
   _mode2.begin = r'\[.+?\]\[.*?\]';
   _mode2.relevance = 0;
   _mode3.begin =
@@ -71,24 +60,11 @@ Mode markdown(Highlight hljs) {
   _mode10.excludeBegin = true;
   _mode10.excludeEnd = true;
   _mode11.scope = r'strong';
-  _mode11.contains = [
-    _mode12,
-    _mode0,
-    _mode1,
-  ];
-  _mode11.variants = [
-    _mode15,
-    _mode16,
-  ];
+  _mode11.contains = [_mode12, _mode0, _mode1];
+  _mode11.variants = [_mode15, _mode16];
   _mode12.scope = r'emphasis';
-  _mode12.contains = [
-    _mode0,
-    _mode1,
-  ];
-  _mode12.variants = [
-    _mode13,
-    _mode14,
-  ];
+  _mode12.contains = [_mode0, _mode1];
+  _mode12.variants = [_mode13, _mode14];
   _mode13.begin = r'\*(?![*\s])';
   _mode13.end = r'\*';
   _mode14.begin = r'_(?![_\s])';
@@ -99,31 +75,14 @@ Mode markdown(Highlight hljs) {
   _mode16.begin = r'\*{2}(?!\s)';
   _mode16.end = r'\*{2}';
   _mode17.scope = r'emphasis';
-  _mode17.contains = [
-    _mode18,
-    _mode0,
-    _mode1,
-  ];
-  _mode17.variants = [
-    _mode13,
-    _mode14,
-  ];
+  _mode17.contains = [_mode18, _mode0, _mode1];
+  _mode17.variants = [_mode13, _mode14];
   _mode18.scope = r'strong';
-  _mode18.contains = [
-    _mode0,
-    _mode1,
-  ];
-  _mode18.variants = [
-    _mode15,
-    _mode16,
-  ];
+  _mode18.contains = [_mode0, _mode1];
+  _mode18.variants = [_mode15, _mode16];
   return Mode(
     name: r'Markdown',
-    aliases: [
-      r'md',
-      r'mkdown',
-      r'mkd',
-    ],
+    aliases: [r'md', r'mkdown', r'mkd'],
     contains: [
       Mode(
         scope: r'section',
@@ -131,28 +90,16 @@ Mode markdown(Highlight hljs) {
           Mode(
             begin: r'^#{1,6}',
             end: r'$',
-            contains: [
-              _mode0,
-              _mode1,
-              _mode11,
-              _mode17,
-            ],
+            contains: [_mode0, _mode1, _mode11, _mode17],
           ),
           Mode(
             begin: r'(?=^.+?\n[=-]{2,}$)',
             contains: [
-              Mode(
-                begin: r'^[=-]*$',
-              ),
+              Mode(begin: r'^[=-]*$'),
               Mode(
                 begin: r'^',
                 end: r'\n',
-                contains: [
-                  _mode0,
-                  _mode1,
-                  _mode11,
-                  _mode17,
-                ],
+                contains: [_mode0, _mode1, _mode11, _mode17],
               ),
             ],
           ),
@@ -170,50 +117,25 @@ Mode markdown(Highlight hljs) {
       Mode(
         scope: r'quote',
         begin: r'^>\s+',
-        contains: [
-          _mode0,
-          _mode1,
-          _mode11,
-          _mode17,
-        ],
+        contains: [_mode0, _mode1, _mode11, _mode17],
         end: r'$',
       ),
       Mode(
         scope: r'code',
         variants: [
-          Mode(
-            begin: r'(`{3,})[^`](.|\n)*?\1`*[ ]*',
-          ),
-          Mode(
-            begin: r'(~{3,})[^~](.|\n)*?\1~*[ ]*',
-          ),
-          Mode(
-            begin: r'```',
-            end: r'```+[ ]*$',
-          ),
-          Mode(
-            begin: r'~~~',
-            end: r'~~~+[ ]*$',
-          ),
-          Mode(
-            begin: r'`.+?`',
-          ),
+          Mode(begin: r'(`{3,})[^`](.|\n)*?\1`*[ ]*'),
+          Mode(begin: r'(~{3,})[^~](.|\n)*?\1~*[ ]*'),
+          Mode(begin: r'```', end: r'```+[ ]*$'),
+          Mode(begin: r'~~~', end: r'~~~+[ ]*$'),
+          Mode(begin: r'`.+?`'),
           Mode(
             begin: r'(?=^( {4}|\t))',
-            contains: [
-              Mode(
-                begin: r'^( {4}|\t)',
-                end: r'(\n)$',
-              ),
-            ],
+            contains: [Mode(begin: r'^( {4}|\t)', end: r'(\n)$')],
             relevance: 0,
           ),
         ],
       ),
-      Mode(
-        begin: r'^[-\*]{3,}',
-        end: r'$',
-      ),
+      Mode(begin: r'^[-\*]{3,}', end: r'$'),
       _mode1,
       Mode(
         begin: r'^\[[^\n]+\]:',
@@ -226,12 +148,7 @@ Mode markdown(Highlight hljs) {
             excludeBegin: true,
             excludeEnd: true,
           ),
-          Mode(
-            scope: r'link',
-            begin: r':\s*',
-            end: r'$',
-            excludeBegin: true,
-          ),
+          Mode(scope: r'link', begin: r':\s*', end: r'$', excludeBegin: true),
         ],
       ),
       Mode(

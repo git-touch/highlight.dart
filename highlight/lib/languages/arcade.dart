@@ -24,25 +24,18 @@ Mode arcade(Highlight hljs) {
   _mode0.begin = r"'";
   _mode0.end = r"'";
   _mode0.illegal = r'\n';
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'string';
   _mode2.begin = r'"';
   _mode2.end = r'"';
   _mode2.illegal = r'\n';
-  _mode2.contains = [
-    _mode1,
-  ];
+  _mode2.contains = [_mode1];
   _mode3.scope = r'string';
   _mode3.begin = r'`';
   _mode3.end = r'`';
-  _mode3.contains = [
-    _mode1,
-    _mode4,
-  ];
+  _mode3.contains = [_mode1, _mode4];
   _mode4.scope = r'subst';
   _mode4.begin = r'\$\{';
   _mode4.end = r'\}';
@@ -297,19 +290,9 @@ Mode arcade(Highlight hljs) {
       r'Year|0',
     ],
   };
-  _mode4.contains = [
-    _mode0,
-    _mode2,
-    _mode3,
-    _mode5,
-    _mode9,
-  ];
+  _mode4.contains = [_mode0, _mode2, _mode3, _mode5, _mode9];
   _mode5.scope = r'number';
-  _mode5.variants = [
-    _mode6,
-    _mode7,
-    _mode8,
-  ];
+  _mode5.variants = [_mode6, _mode7, _mode8];
   _mode5.relevance = 0;
   _mode6.begin = r'\b(0[bB][01]+)';
   _mode7.begin = r'\b(0[oO][0-7]+)';
@@ -318,23 +301,15 @@ Mode arcade(Highlight hljs) {
   _mode9.scope = r'regexp';
   _mode9.begin = r'\/(?=[^/\n]*\/)';
   _mode9.end = r'\/[gimuy]*';
-  _mode9.contains = [
-    _mode1,
-    _mode10,
-  ];
+  _mode9.contains = [_mode1, _mode10];
   _mode10.begin = r'\[';
   _mode10.end = r'\]';
   _mode10.relevance = 0;
-  _mode10.contains = [
-    _mode1,
-  ];
+  _mode10.contains = [_mode1];
   _mode11.scope = r'comment';
   _mode11.begin = r'//';
   _mode11.end = r'$';
-  _mode11.contains = [
-    _mode12,
-    _mode13,
-  ];
+  _mode11.contains = [_mode12, _mode13];
   _mode12.scope = r'doctag';
   _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -345,10 +320,7 @@ Mode arcade(Highlight hljs) {
   _mode14.scope = r'comment';
   _mode14.begin = r'/\*';
   _mode14.end = r'\*/';
-  _mode14.contains = [
-    _mode15,
-    _mode16,
-  ];
+  _mode14.contains = [_mode15, _mode16];
   _mode15.scope = r'doctag';
   _mode15.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode15.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -657,12 +629,8 @@ Mode arcade(Highlight hljs) {
               Mode(
                 scope: r'params',
                 variants: [
-                  Mode(
-                    begin: r'[A-Za-z_][0-9A-Za-z_]*',
-                  ),
-                  Mode(
-                    begin: r'\(\s*\)',
-                  ),
+                  Mode(begin: r'[A-Za-z_][0-9A-Za-z_]*'),
+                  Mode(begin: r'\(\s*\)'),
                   Mode(
                     begin: r'\(',
                     end: r'\)',
@@ -965,9 +933,7 @@ Mode arcade(Highlight hljs) {
         ],
         illegal: r'\[|%',
       ),
-      Mode(
-        begin: r'\$[(.]',
-      ),
+      Mode(begin: r'\$[(.]'),
     ],
     illegal: r'#(?!!)',
   );

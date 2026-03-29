@@ -11,11 +11,7 @@ Mode accesslog(Highlight hljs) {
         begin: r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?\b',
         relevance: 5,
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+\b',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+\b', relevance: 0),
       Mode(
         scope: r'string',
         begin: r'"(?:GET|POST|HEAD|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE)',
@@ -33,12 +29,7 @@ Mode accesslog(Highlight hljs) {
         ],
         illegal: r'\n',
         relevance: 5,
-        contains: [
-          Mode(
-            begin: r"HTTP\/[12]\.\d'",
-            relevance: 5,
-          ),
-        ],
+        contains: [Mode(begin: r"HTTP\/[12]\.\d'", relevance: 5)],
       ),
       Mode(
         scope: r'string',

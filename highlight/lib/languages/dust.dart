@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode dust(Highlight hljs) {
   return Mode(
     name: r'Dust',
-    aliases: [
-      r'dst',
-    ],
+    aliases: [r'dst'],
     caseInsensitive: true,
     subLanguage: r'xml',
     contains: [
@@ -29,12 +27,7 @@ Mode dust(Highlight hljs) {
                   begin: r'"',
                   end: r'"',
                   illegal: r'\n',
-                  contains: [
-                    Mode(
-                      begin: r'\\[\s\S]',
-                      relevance: 0,
-                    ),
-                  ],
+                  contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
                 ),
               ],
             ),

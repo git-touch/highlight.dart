@@ -34,27 +34,15 @@ Mode c(Highlight hljs) {
     r'keyword':
         r'if else elif endif define undef warning error line pragma _Pragma ifdef ifndef elifdef elifndef include',
   };
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-    _mode7,
-    _mode8,
-    _mode12,
-  ];
+  _mode0.contains = [_mode1, _mode2, _mode7, _mode8, _mode12];
   _mode1.begin = r'\\\n';
   _mode1.relevance = 0;
   _mode2.scope = r'string';
-  _mode2.variants = [
-    _mode3,
-    _mode5,
-    _mode6,
-  ];
+  _mode2.variants = [_mode3, _mode5, _mode6];
   _mode3.begin = r'(u8?|U|L)?"';
   _mode3.end = r'"';
   _mode3.illegal = r'\n';
-  _mode3.contains = [
-    _mode4,
-  ];
+  _mode3.contains = [_mode4];
   _mode4.begin = r'\\[\s\S]';
   _mode4.relevance = 0;
   _mode5.begin =
@@ -68,11 +56,7 @@ Mode c(Highlight hljs) {
   _mode8.scope = r'comment';
   _mode8.begin = r'//';
   _mode8.end = r'$';
-  _mode8.contains = [
-    _mode9,
-    _mode10,
-    _mode11,
-  ];
+  _mode8.contains = [_mode9, _mode10, _mode11];
   _mode9.begin = r'\\\n';
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -84,10 +68,7 @@ Mode c(Highlight hljs) {
   _mode12.scope = r'comment';
   _mode12.begin = r'/\*';
   _mode12.end = r'\*/';
-  _mode12.contains = [
-    _mode13,
-    _mode14,
-  ];
+  _mode12.contains = [_mode13, _mode14];
   _mode13.scope = r'doctag';
   _mode13.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode13.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -96,19 +77,11 @@ Mode c(Highlight hljs) {
   _mode14.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   _mode15.scope = r'type';
-  _mode15.variants = [
-    _mode16,
-    _mode17,
-  ];
+  _mode15.variants = [_mode16, _mode17];
   _mode16.begin = r'\b[a-z\d_]*_t\b';
   _mode17.match = r'\batomic_[a-z]{3,6}\b';
   _mode18.scope = r'number';
-  _mode18.variants = [
-    _mode19,
-    _mode20,
-    _mode21,
-    _mode22,
-  ];
+  _mode18.variants = [_mode19, _mode20, _mode21, _mode22];
   _mode18.relevance = 0;
   _mode19.match = r"\b(0b[01']+)";
   _mode20.match =
@@ -117,16 +90,10 @@ Mode c(Highlight hljs) {
       r"(-?)\b(0[xX][a-fA-F0-9]+(?:'[a-fA-F0-9]+)*(?:\.[a-fA-F0-9]*(?:'[a-fA-F0-9]*)*)?(?:[pP][-+]?[0-9]+)?(l|L)?(u|U)?)";
   _mode22.match = r"(-?)\b\d+(?:'\d+)*(?:\.\d*(?:'\d*)*)?(?:[eE][-+]?\d+)?";
   _mode23.scope = r'string';
-  _mode23.variants = [
-    _mode3,
-    _mode5,
-    _mode6,
-  ];
+  _mode23.variants = [_mode3, _mode5, _mode6];
   return Mode(
     name: r'C',
-    aliases: [
-      r'h',
-    ],
+    aliases: [r'h'],
     keywords: {
       r'keyword': [
         r'asm',
@@ -213,18 +180,9 @@ Mode c(Highlight hljs) {
     contains: [
       Mode(
         variants: [
-          Mode(
-            begin: r'=',
-            end: r';',
-          ),
-          Mode(
-            begin: r'\(',
-            end: r'\)',
-          ),
-          Mode(
-            beginKeywords: r'new throw return else',
-            end: r';',
-          ),
+          Mode(begin: r'=', end: r';'),
+          Mode(begin: r'\(', end: r'\)'),
+          Mode(beginKeywords: r'new throw return else', end: r';'),
         ],
         keywords: {
           r'keyword': [
@@ -598,10 +556,7 @@ Mode c(Highlight hljs) {
             ],
             relevance: 0,
           ),
-          Mode(
-            relevance: 0,
-            match: r',',
-          ),
+          Mode(relevance: 0, match: r','),
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -779,14 +734,7 @@ Mode c(Highlight hljs) {
                       r'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan vfprintf vprintf vsprintf endl initializer_list unique_ptr',
                 },
                 relevance: 0,
-                contains: [
-                  r'self',
-                  _mode8,
-                  _mode12,
-                  _mode23,
-                  _mode18,
-                  _mode15,
-                ],
+                contains: [r'self', _mode8, _mode12, _mode23, _mode18, _mode15],
               ),
             ],
           ),
@@ -892,14 +840,8 @@ Mode c(Highlight hljs) {
         beginKeywords: r'enum class struct union',
         end: r'[{;:<>=]',
         contains: [
-          Mode(
-            beginKeywords: r'final class struct',
-          ),
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z]\w*',
-            relevance: 0,
-          ),
+          Mode(beginKeywords: r'final class struct'),
+          Mode(scope: r'title', begin: r'[a-zA-Z]\w*', relevance: 0),
         ],
       ),
     ],

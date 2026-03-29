@@ -6,9 +6,7 @@ Mode mipsasm(Highlight hljs) {
   return Mode(
     name: r'MIPS Assembly',
     caseInsensitive: true,
-    aliases: [
-      r'mips',
-    ],
+    aliases: [r'mips'],
     keywords: {
       r'$pattern': r'\.?[a-zA-Z]\w*',
       r'meta':
@@ -64,19 +62,9 @@ Mode mipsasm(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"[^\\]'",
-        relevance: 0,
-      ),
+      Mode(scope: r'string', begin: r"'", end: r"[^\\]'", relevance: 0),
       Mode(
         scope: r'title',
         begin: r'\|',
@@ -87,27 +75,17 @@ Mode mipsasm(Highlight hljs) {
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'0x[0-9a-f]+',
-          ),
-          Mode(
-            begin: r'\b-?\d+',
-          ),
+          Mode(begin: r'0x[0-9a-f]+'),
+          Mode(begin: r'\b-?\d+'),
         ],
         relevance: 0,
       ),
       Mode(
         scope: r'symbol',
         variants: [
-          Mode(
-            begin: r'^\s*[a-z_\.\$][a-z0-9_\.\$]+:',
-          ),
-          Mode(
-            begin: r'^\s*[0-9]+:',
-          ),
-          Mode(
-            begin: r'[0-9]+[bf]',
-          ),
+          Mode(begin: r'^\s*[a-z_\.\$][a-z0-9_\.\$]+:'),
+          Mode(begin: r'^\s*[0-9]+:'),
+          Mode(begin: r'[0-9]+[bf]'),
         ],
         relevance: 0,
       ),

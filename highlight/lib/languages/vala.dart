@@ -21,13 +21,7 @@ Mode vala(Highlight hljs) {
         end: r'\{',
         excludeEnd: true,
         illegal: r'[^,:\n\s\.]',
-        contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0)],
       ),
       Mode(
         scope: r'comment',
@@ -65,29 +59,20 @@ Mode vala(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'string',
-        begin: r'"""',
-        end: r'"""',
-        relevance: 5,
-      ),
+      Mode(scope: r'string', begin: r'"""', end: r'"""', relevance: 5),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
@@ -95,11 +80,7 @@ Mode vala(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'^#',
-        end: r'$',
-      ),
+      Mode(scope: r'meta', begin: r'^#', end: r'$'),
     ],
   );
 }

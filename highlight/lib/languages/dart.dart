@@ -14,87 +14,39 @@ Mode dart(Highlight hljs) {
   final Mode _mode8 = Mode();
   _mode0.scope = r'string';
   _mode0.variants = [
-    Mode(
-      begin: r"r'''",
-      end: r"'''",
-    ),
-    Mode(
-      begin: r'r"""',
-      end: r'"""',
-    ),
-    Mode(
-      begin: r"r'",
-      end: r"'",
-      illegal: r'\n',
-    ),
-    Mode(
-      begin: r'r"',
-      end: r'"',
-      illegal: r'\n',
-    ),
-    Mode(
-      begin: r"'''",
-      end: r"'''",
-      contains: [
-        _mode1,
-        _mode2,
-        _mode4,
-      ],
-    ),
-    Mode(
-      begin: r'"""',
-      end: r'"""',
-      contains: [
-        _mode1,
-        _mode2,
-        _mode4,
-      ],
-    ),
+    Mode(begin: r"r'''", end: r"'''"),
+    Mode(begin: r'r"""', end: r'"""'),
+    Mode(begin: r"r'", end: r"'", illegal: r'\n'),
+    Mode(begin: r'r"', end: r'"', illegal: r'\n'),
+    Mode(begin: r"'''", end: r"'''", contains: [_mode1, _mode2, _mode4]),
+    Mode(begin: r'"""', end: r'"""', contains: [_mode1, _mode2, _mode4]),
     Mode(
       begin: r"'",
       end: r"'",
       illegal: r'\n',
-      contains: [
-        _mode1,
-        _mode2,
-        _mode4,
-      ],
+      contains: [_mode1, _mode2, _mode4],
     ),
     Mode(
       begin: r'"',
       end: r'"',
       illegal: r'\n',
-      contains: [
-        _mode1,
-        _mode2,
-        _mode4,
-      ],
+      contains: [_mode1, _mode2, _mode4],
     ),
   ];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'subst';
-  _mode2.variants = [
-    _mode3,
-  ];
+  _mode2.variants = [_mode3];
   _mode3.begin = r'\$[A-Za-z0-9_]+';
   _mode4.scope = r'subst';
-  _mode4.variants = [
-    _mode5,
-  ];
+  _mode4.variants = [_mode5];
   _mode4.keywords = r'true false null this is new super';
-  _mode4.contains = [
-    _mode6,
-    _mode0,
-  ];
+  _mode4.contains = [_mode6, _mode0];
   _mode5.begin = r'\$\{';
   _mode5.end = r'\}';
   _mode6.scope = r'number';
   _mode6.relevance = 0;
-  _mode6.variants = [
-    _mode7,
-    _mode8,
-  ];
+  _mode6.variants = [_mode7, _mode8];
   _mode7.match = r'\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\b';
   _mode8.match = r'\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\b';
   return Mode(
@@ -259,12 +211,7 @@ Mode dart(Highlight hljs) {
         begin: r'\/{3,} ?',
         end: r'$',
         contains: [
-          Mode(
-            subLanguage: r'markdown',
-            begin: r'.',
-            end: r'$',
-            relevance: 0,
-          ),
+          Mode(subLanguage: r'markdown', begin: r'.', end: r'$', relevance: 0),
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -320,24 +267,13 @@ Mode dart(Highlight hljs) {
         end: r'\{',
         excludeEnd: true,
         contains: [
-          Mode(
-            beginKeywords: r'extends implements',
-          ),
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
+          Mode(beginKeywords: r'extends implements'),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
         ],
       ),
       _mode6,
-      Mode(
-        scope: r'meta',
-        begin: r'@[A-Za-z]+',
-      ),
-      Mode(
-        begin: r'=>',
-      ),
+      Mode(scope: r'meta', begin: r'@[A-Za-z]+'),
+      Mode(begin: r'=>'),
     ],
   );
 }

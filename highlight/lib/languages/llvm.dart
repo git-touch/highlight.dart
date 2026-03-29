@@ -12,10 +12,7 @@ Mode llvm(Highlight hljs) {
           r'void half bfloat float double fp128 x86_fp80 ppc_fp128 x86_amx x86_mmx ptr label token metadata opaque',
     },
     contains: [
-      Mode(
-        scope: r'type',
-        begin: r'\bi\d+(?=\s|\b)',
-      ),
+      Mode(scope: r'type', begin: r'\bi\d+(?=\s|\b)'),
       Mode(
         scope: r'comment',
         begin: r';\s*$',
@@ -56,75 +53,38 @@ Mode llvm(Highlight hljs) {
         scope: r'string',
         begin: r'"',
         end: r'"',
-        contains: [
-          Mode(
-            scope: r'char.escape',
-            match: r'\\\d\d',
-          ),
-        ],
+        contains: [Mode(scope: r'char.escape', match: r'\\\d\d')],
       ),
       Mode(
         scope: r'title',
         variants: [
-          Mode(
-            begin: r'@([-a-zA-Z$._][\w$.-]*)',
-          ),
-          Mode(
-            begin: r'@\d+',
-          ),
-          Mode(
-            begin: r'!([-a-zA-Z$._][\w$.-]*)',
-          ),
-          Mode(
-            begin: r'!\d+([-a-zA-Z$._][\w$.-]*)',
-          ),
-          Mode(
-            begin: r'!\d+',
-          ),
+          Mode(begin: r'@([-a-zA-Z$._][\w$.-]*)'),
+          Mode(begin: r'@\d+'),
+          Mode(begin: r'!([-a-zA-Z$._][\w$.-]*)'),
+          Mode(begin: r'!\d+([-a-zA-Z$._][\w$.-]*)'),
+          Mode(begin: r'!\d+'),
         ],
       ),
-      Mode(
-        scope: r'punctuation',
-        relevance: 0,
-        begin: r',',
-      ),
-      Mode(
-        scope: r'operator',
-        relevance: 0,
-        begin: r'=',
-      ),
+      Mode(scope: r'punctuation', relevance: 0, begin: r','),
+      Mode(scope: r'operator', relevance: 0, begin: r'='),
       Mode(
         scope: r'variable',
         variants: [
-          Mode(
-            begin: r'%([-a-zA-Z$._][\w$.-]*)',
-          ),
-          Mode(
-            begin: r'%\d+',
-          ),
-          Mode(
-            begin: r'#\d+',
-          ),
+          Mode(begin: r'%([-a-zA-Z$._][\w$.-]*)'),
+          Mode(begin: r'%\d+'),
+          Mode(begin: r'#\d+'),
         ],
       ),
       Mode(
         scope: r'symbol',
-        variants: [
-          Mode(
-            begin: r'^\s*[a-z]+:',
-          ),
-        ],
+        variants: [Mode(begin: r'^\s*[a-z]+:')],
         relevance: 0,
       ),
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'[su]?0[xX][KMLHR]?[a-fA-F0-9]+',
-          ),
-          Mode(
-            begin: r'[-+]?\d+(?:[.]\d+)?(?:[eE][-+]?\d+(?:[.]\d+)?)?',
-          ),
+          Mode(begin: r'[su]?0[xX][KMLHR]?[a-fA-F0-9]+'),
+          Mode(begin: r'[-+]?\d+(?:[.]\d+)?(?:[eE][-+]?\d+(?:[.]\d+)?)?'),
         ],
         relevance: 0,
       ),

@@ -16,9 +16,7 @@ Mode tp(Highlight hljs) {
   _mode2.begin = r'"';
   _mode2.end = r'"';
   _mode2.illegal = r'\n';
-  _mode2.contains = [
-    _mode3,
-  ];
+  _mode2.contains = [_mode3];
   _mode3.begin = r'\\[\s\S]';
   _mode3.relevance = 0;
   return Mode(
@@ -113,31 +111,16 @@ Mode tp(Highlight hljs) {
         begin:
             r'(AR|P|PAYLOAD|PR|R|SR|RSR|LBL|VR|UALM|MESSAGE|UTOOL|UFRAME|TIMER|TIMER_OVERFLOW|JOINT_MAX_SPEED|RESUME_PROG|DIAG_REC)\[',
         end: r'\]',
-        contains: [
-          r'self',
-          _mode0,
-          _mode1,
-        ],
+        contains: [r'self', _mode0, _mode1],
       ),
       Mode(
         scope: r'built_in',
         begin: r'(AI|AO|DI|DO|F|RI|RO|UI|UO|GI|GO|SI|SO)\[',
         end: r'\]',
-        contains: [
-          r'self',
-          _mode0,
-          _mode2,
-          _mode1,
-        ],
+        contains: [r'self', _mode0, _mode2, _mode1],
       ),
-      Mode(
-        scope: r'keyword',
-        begin: r'/(PROG|ATTR|MN|POS|END)\b',
-      ),
-      Mode(
-        scope: r'keyword',
-        begin: r'(CALL|RUN|POINT_LOGIC|LBL)\b',
-      ),
+      Mode(scope: r'keyword', begin: r'/(PROG|ATTR|MN|POS|END)\b'),
+      Mode(scope: r'keyword', begin: r'(CALL|RUN|POINT_LOGIC|LBL)\b'),
       Mode(
         scope: r'keyword',
         begin: r'\b(ACC|CNT|Skip|Offset|PSPD|RT_LD|AP_LD|Tool_Offset)',
@@ -202,21 +185,14 @@ Mode tp(Highlight hljs) {
         ],
       ),
       _mode2,
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-      ),
+      Mode(scope: r'string', begin: r"'", end: r"'"),
       Mode(
         scope: r'number',
         begin:
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'variable',
-        begin: r'\$[A-Za-z0-9_]+',
-      ),
+      Mode(scope: r'variable', begin: r'\$[A-Za-z0-9_]+'),
     ],
   );
 }

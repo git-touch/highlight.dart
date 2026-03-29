@@ -27,13 +27,7 @@ Mode scheme(Highlight hljs) {
   final Mode _mode21 = Mode();
   final Mode _mode22 = Mode();
   _mode0.scope = r'number';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-    _mode3,
-    _mode4,
-    _mode5,
-  ];
+  _mode0.variants = [_mode1, _mode2, _mode3, _mode4, _mode5];
   _mode1.begin = r'(-|\+)?\d+([./]\d+)?';
   _mode1.relevance = 0;
   _mode2.begin = r'(-|\+)?\d+([./]\d+)?[+\-](-|\+)?\d+([./]\d+)?i';
@@ -45,45 +39,25 @@ Mode scheme(Highlight hljs) {
   _mode6.begin = r'"';
   _mode6.end = r'"';
   _mode6.illegal = r'\n';
-  _mode6.contains = [
-    _mode7,
-  ];
+  _mode6.contains = [_mode7];
   _mode7.begin = r'\\[\s\S]';
   _mode7.relevance = 0;
   _mode8.scope = r'symbol';
   _mode8.begin = "'[^\\(\\)\\[\\]\\{\\}\",'`;#|\\\\\\s]+";
-  _mode9.variants = [
-    _mode10,
-    _mode11,
-  ];
-  _mode9.contains = [
-    _mode12,
-  ];
+  _mode9.variants = [_mode10, _mode11];
+  _mode9.contains = [_mode12];
   _mode10.begin = r"'";
   _mode11.begin = r'`';
   _mode12.begin = r'\(';
   _mode12.end = r'\)';
-  _mode12.contains = [
-    r'self',
-    _mode13,
-    _mode6,
-    _mode0,
-    _mode14,
-    _mode8,
-  ];
+  _mode12.contains = [r'self', _mode13, _mode6, _mode0, _mode14, _mode8];
   _mode13.scope = r'literal';
   _mode13.begin = '(#t|#f|#\\\\[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+|#\\\\.)';
   _mode14.begin = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
   _mode14.relevance = 0;
   _mode15.variants = [
-    Mode(
-      begin: r'\(',
-      end: r'\)',
-    ),
-    Mode(
-      begin: r'\[',
-      end: r'\]',
-    ),
+    Mode(begin: r'\(', end: r'\)'),
+    Mode(begin: r'\[', end: r'\]'),
   ];
   _mode15.contains = [
     Mode(
@@ -95,18 +69,10 @@ Mode scheme(Highlight hljs) {
         Mode(
           endsParent: true,
           variants: [
-            Mode(
-              begin: r'\(',
-              end: r'\)',
-            ),
-            Mode(
-              begin: r'\[',
-              end: r'\]',
-            ),
+            Mode(begin: r'\(', end: r'\)'),
+            Mode(begin: r'\[', end: r'\]'),
           ],
-          contains: [
-            _mode14,
-          ],
+          contains: [_mode14],
         ),
       ],
     ),
@@ -138,10 +104,7 @@ Mode scheme(Highlight hljs) {
   _mode17.scope = r'comment';
   _mode17.begin = r';';
   _mode17.end = r'$';
-  _mode17.contains = [
-    _mode18,
-    _mode19,
-  ];
+  _mode17.contains = [_mode18, _mode19];
   _mode17.relevance = 0;
   _mode18.scope = r'doctag';
   _mode18.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -153,10 +116,7 @@ Mode scheme(Highlight hljs) {
   _mode20.scope = r'comment';
   _mode20.begin = r'#\|';
   _mode20.end = r'\|#';
-  _mode20.contains = [
-    _mode21,
-    _mode22,
-  ];
+  _mode20.contains = [_mode21, _mode22];
   _mode21.scope = r'doctag';
   _mode21.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode21.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -166,17 +126,10 @@ Mode scheme(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'Scheme',
-    aliases: [
-      r'scm',
-    ],
+    aliases: [r'scm'],
     illegal: r'\S',
     contains: [
-      Mode(
-        scope: r'meta',
-        begin: r'^#![ ]*\/',
-        end: r'$',
-        relevance: 0,
-      ),
+      Mode(scope: r'meta', begin: r'^#![ ]*\/', end: r'$', relevance: 0),
       _mode0,
       _mode6,
       _mode8,

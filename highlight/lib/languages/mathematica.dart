@@ -2,7 +2,8 @@
 
 import '../highlight_core.dart';
 
-final Set<String> _mathematicaSystemSymbols = r'''
+final Set<String> _mathematicaSystemSymbols =
+    r'''
 AASTriangle
 AbelianGroup
 Abort
@@ -7237,17 +7238,14 @@ $WolframDocumentsDirectory
 $WolframID
 $WolframUUID
 '''
-    .trim()
-    .split('\n')
-    .toSet();
+        .trim()
+        .split('\n')
+        .toSet();
 
 Mode mathematica(Highlight hljs) {
   return Mode(
     name: r'Mathematica',
-    aliases: [
-      r'mma',
-      r'wl',
-    ],
+    aliases: [r'mma', r'wl'],
     classNameAliases: {
       r'brace': r'punctuation',
       r'pattern': r'type',
@@ -7312,21 +7310,13 @@ Mode mathematica(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'named-character',
-        begin: r'\\\[[$a-zA-Z][$a-zA-Z0-9]+\]',
-      ),
+      Mode(scope: r'named-character', begin: r'\\\[[$a-zA-Z][$a-zA-Z0-9]+\]'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'number',
@@ -7339,11 +7329,7 @@ Mode mathematica(Highlight hljs) {
         relevance: 0,
         begin: r"[+\-*/,;.:@~=><&|_`'^?!%]+",
       ),
-      Mode(
-        scope: r'brace',
-        relevance: 0,
-        begin: r'[[\](){}]',
-      ),
+      Mode(scope: r'brace', relevance: 0, begin: r'[[\](){}]'),
     ],
   );
 }

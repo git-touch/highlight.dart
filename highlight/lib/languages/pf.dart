@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode pf(Highlight hljs) {
   return Mode(
     name: r'Packet Filter config',
-    aliases: [
-      r'pf.conf',
-    ],
+    aliases: [r'pf.conf'],
     keywords: {
       r'$pattern': r'[a-z0-9_<>-]+',
       r'built_in': r'block match pass load anchor|5 antispoof|10 set table',
@@ -34,33 +32,16 @@ Mode pf(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'variable',
-        begin: r'\$[\w\d#@][\w\d_]*',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'variable',
-        begin: r'<(?!\/)',
-        end: r'>',
-      ),
+      Mode(scope: r'variable', begin: r'\$[\w\d#@][\w\d_]*', relevance: 0),
+      Mode(scope: r'variable', begin: r'<(?!\/)', end: r'>'),
     ],
   );
 }

@@ -15,16 +15,26 @@ const _commonKeywords = [
 const _defaultKeywordScope = 'keyword';
 
 Map<String, List<dynamic>> compileKeywords(
-    dynamic rawKeywords, bool caseInsensitive,
-    [String scopeName = _defaultKeywordScope]) {
+  dynamic rawKeywords,
+  bool caseInsensitive, [
+  String scopeName = _defaultKeywordScope,
+]) {
   final compiledKeywords = <String, List<dynamic>>{};
 
   if (rawKeywords is String) {
     _compileList(
-        compiledKeywords, scopeName, rawKeywords.split(' '), caseInsensitive);
+      compiledKeywords,
+      scopeName,
+      rawKeywords.split(' '),
+      caseInsensitive,
+    );
   } else if (rawKeywords is List) {
-    _compileList(compiledKeywords, scopeName,
-        rawKeywords.map((e) => e.toString()).toList(), caseInsensitive);
+    _compileList(
+      compiledKeywords,
+      scopeName,
+      rawKeywords.map((e) => e.toString()).toList(),
+      caseInsensitive,
+    );
   } else if (rawKeywords is Map) {
     for (final entry in rawKeywords.entries) {
       final key = entry.key.toString();
@@ -37,8 +47,12 @@ Map<String, List<dynamic>> compileKeywords(
   return compiledKeywords;
 }
 
-void _compileList(Map<String, List<dynamic>> compiled, String scopeName,
-    List<String> keywordList, bool caseInsensitive) {
+void _compileList(
+  Map<String, List<dynamic>> compiled,
+  String scopeName,
+  List<String> keywordList,
+  bool caseInsensitive,
+) {
   if (caseInsensitive) {
     keywordList = keywordList.map((x) => x.toLowerCase()).toList();
   }
@@ -47,7 +61,7 @@ void _compileList(Map<String, List<dynamic>> compiled, String scopeName,
     final pair = keyword.split('|');
     compiled[pair[0]] = [
       scopeName,
-      _scoreForKeyword(pair[0], pair.length > 1 ? pair[1] : null)
+      _scoreForKeyword(pair[0], pair.length > 1 ? pair[1] : null),
     ];
   }
 }

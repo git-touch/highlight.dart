@@ -8,9 +8,7 @@ Mode dockerfile(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Dockerfile',
-    aliases: [
-      r'docker',
-    ],
+    aliases: [r'docker'],
     caseInsensitive: true,
     keywords: [
       r'from',
@@ -46,31 +44,20 @@ Mode dockerfile(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         beginKeywords:
             r'run cmd entrypoint volume add copy workdir label healthcheck shell',
-        starts: Mode(
-          end: r'[^\\]$',
-          subLanguage: r'bash',
-        ),
+        starts: Mode(end: r'[^\\]$', subLanguage: r'bash'),
       ),
     ],
     illegal: r'</',

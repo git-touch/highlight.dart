@@ -426,12 +426,7 @@ Mode coq(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'comment',
@@ -457,15 +452,8 @@ Mode coq(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'type',
-        excludeBegin: true,
-        begin: r'\|\s*',
-        end: r'\w+',
-      ),
-      Mode(
-        begin: r'[-=]>',
-      ),
+      Mode(scope: r'type', excludeBegin: true, begin: r'\|\s*', end: r'\w+'),
+      Mode(begin: r'[-=]>'),
     ],
   );
 }

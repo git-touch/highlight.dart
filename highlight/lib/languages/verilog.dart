@@ -8,11 +8,7 @@ Mode verilog(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Verilog',
-    aliases: [
-      r'v',
-      r'sv',
-      r'svh',
-    ],
+    aliases: [r'v', r'sv', r'svh'],
     caseInsensitive: false,
     keywords: {
       r'$pattern': r'\$?[\w]+(\$[\w]+)*',
@@ -265,9 +261,7 @@ Mode verilog(Highlight hljs) {
         r'xnor',
         r'xor',
       ],
-      r'literal': [
-        r'null',
-      ],
+      r'literal': [r'null'],
       r'built_in': [
         r'$finish',
         r'$stop',
@@ -512,44 +506,25 @@ Mode verilog(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
       ),
       Mode(
         scope: r'number',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         variants: [
-          Mode(
-            begin: r"\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)",
-          ),
-          Mode(
-            begin: r"\B(('([bhodBHOD]))[0-9xzXZa-fA-F_]+)",
-          ),
-          Mode(
-            begin: r'\b[0-9][0-9_]*',
-            relevance: 0,
-          ),
+          Mode(begin: r"\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)"),
+          Mode(begin: r"\B(('([bhodBHOD]))[0-9xzXZa-fA-F_]+)"),
+          Mode(begin: r'\b[0-9][0-9_]*', relevance: 0),
         ],
       ),
       Mode(
         scope: r'variable',
         variants: [
-          Mode(
-            begin: r'#\((?!parameter).+\)',
-          ),
-          Mode(
-            begin: r'\.\w+',
-            relevance: 0,
-          ),
+          Mode(begin: r'#\((?!parameter).+\)'),
+          Mode(begin: r'\.\w+', relevance: 0),
         ],
       ),
-      Mode(
-        scope: r'variable.constant',
-        match: r'`(?:__FILE__|__LINE__)',
-      ),
+      Mode(scope: r'variable.constant', match: r'`(?:__FILE__|__LINE__)'),
       Mode(
         scope: r'meta',
         begin:

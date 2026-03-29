@@ -9,10 +9,7 @@ Mode fortran(Highlight hljs) {
   return Mode(
     name: r'Fortran',
     caseInsensitive: true,
-    aliases: [
-      r'f90',
-      r'f95',
-    ],
+    aliases: [r'f90', r'f95'],
     keywords: {
       r'$pattern': r'\b[a-z][a-z0-9_]+\b|\.[a-z][a-z0-9_]+\.',
       r'keyword': [
@@ -218,10 +215,7 @@ Mode fortran(Highlight hljs) {
         r'equivalence',
         r'data',
       ],
-      r'literal': [
-        r'.False.',
-        r'.True.',
-      ],
+      r'literal': [r'.False.', r'.True.'],
       r'built_in': [
         r'alog',
         r'alog10',
@@ -516,18 +510,14 @@ Mode fortran(Highlight hljs) {
             begin: r"'",
             end: r"'",
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
         ],
       ),
@@ -536,22 +526,11 @@ Mode fortran(Highlight hljs) {
         beginKeywords: r'subroutine function program',
         illegal: r'[${=\n]',
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
-          Mode(
-            scope: r'params',
-            begin: r'\(',
-            end: r'\)',
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
+          Mode(scope: r'params', begin: r'\(', end: r'\)'),
         ],
       ),
-      Mode(
-        begin: r'^C\s*=(?!=)',
-        relevance: 0,
-      ),
+      Mode(begin: r'^C\s*=(?!=)', relevance: 0),
       Mode(
         variants: [
           Mode(
@@ -616,15 +595,9 @@ Mode fortran(Highlight hljs) {
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'\b\d+\.(\d*)([de][+-]?\d+)?(_[a-z_\d]+)?',
-          ),
-          Mode(
-            begin: r'\b\d+([de][+-]?\d+)?(_[a-z_\d]+)?',
-          ),
-          Mode(
-            begin: r'\.\d+([de][+-]?\d+)?(_[a-z_\d]+)?',
-          ),
+          Mode(begin: r'\b\d+\.(\d*)([de][+-]?\d+)?(_[a-z_\d]+)?'),
+          Mode(begin: r'\b\d+([de][+-]?\d+)?(_[a-z_\d]+)?'),
+          Mode(begin: r'\.\d+([de][+-]?\d+)?(_[a-z_\d]+)?'),
         ],
         relevance: 0,
       ),

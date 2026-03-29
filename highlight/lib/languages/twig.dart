@@ -14,9 +14,7 @@ Mode twig(Highlight hljs) {
   _mode0.match = r'\|(?=[A-Za-z_]+:?)';
   _mode0.beginScope = r'punctuation';
   _mode0.relevance = 0;
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.match = r'[A-Za-z_]+:?';
   _mode1.keywords = [
     r'abs',
@@ -135,22 +133,14 @@ Mode twig(Highlight hljs) {
     ],
   };
   _mode2.relevance = 0;
-  _mode2.contains = [
-    _mode3,
-  ];
+  _mode2.contains = [_mode3];
   _mode3.begin = r'\(';
   _mode3.end = r'\)';
   _mode3.excludeBegin = true;
   _mode3.excludeEnd = true;
-  _mode3.contains = [
-    _mode4,
-    _mode7,
-  ];
+  _mode3.contains = [_mode4, _mode7];
   _mode4.scope = r'string';
-  _mode4.variants = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.variants = [_mode5, _mode6];
   _mode5.begin = r"'";
   _mode5.end = r"'";
   _mode6.begin = r'"';
@@ -159,9 +149,7 @@ Mode twig(Highlight hljs) {
   _mode7.match = r'\d+';
   return Mode(
     name: r'Twig',
-    aliases: [
-      r'craftcms',
-    ],
+    aliases: [r'craftcms'],
     caseInsensitive: true,
     subLanguage: r'xml',
     contains: [
@@ -184,10 +172,7 @@ Mode twig(Highlight hljs) {
         ],
       ),
       Mode(
-        beginScope: {
-          1: r'template-tag',
-          3: r'name',
-        },
+        beginScope: {1: r'template-tag', 3: r'name'},
         relevance: 2,
         endScope: r'template-tag',
         begin: [
@@ -197,45 +182,22 @@ Mode twig(Highlight hljs) {
         ],
         end: r'%\}',
         keywords: r'in',
-        contains: [
-          _mode0,
-          _mode2,
-          _mode4,
-          _mode7,
-        ],
+        contains: [_mode0, _mode2, _mode4, _mode7],
       ),
       Mode(
-        beginScope: {
-          1: r'template-tag',
-          3: r'name',
-        },
+        beginScope: {1: r'template-tag', 3: r'name'},
         relevance: 1,
         endScope: r'template-tag',
-        begin: [
-          r'\{%',
-          r'\s*',
-          r'(?:[a-z_]+)',
-        ],
+        begin: [r'\{%', r'\s*', r'(?:[a-z_]+)'],
         end: r'%\}',
         keywords: r'in',
-        contains: [
-          _mode0,
-          _mode2,
-          _mode4,
-          _mode7,
-        ],
+        contains: [_mode0, _mode2, _mode4, _mode7],
       ),
       Mode(
         scope: r'template-variable',
         begin: r'\{\{',
         end: r'\}\}',
-        contains: [
-          r'self',
-          _mode0,
-          _mode2,
-          _mode4,
-          _mode7,
-        ],
+        contains: [r'self', _mode0, _mode2, _mode4, _mode7],
       ),
     ],
   );

@@ -10,14 +10,9 @@ Mode julia_repl(Highlight hljs) {
         scope: r'meta.prompt',
         begin: r'^julia>',
         relevance: 10,
-        starts: Mode(
-          end: r'^(?![ ]{6})',
-          subLanguage: r'julia',
-        ),
+        starts: Mode(end: r'^(?![ ]{6})', subLanguage: r'julia'),
       ),
     ],
-    aliases: [
-      r'jldoctest',
-    ],
+    aliases: [r'jldoctest'],
   );
 }

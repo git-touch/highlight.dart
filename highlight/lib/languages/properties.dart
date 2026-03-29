@@ -30,12 +30,8 @@ Mode properties(Highlight hljs) {
       Mode(
         returnBegin: true,
         variants: [
-          Mode(
-            begin: r'([^\\:= \t\f\n]|\\.)+[ \t\f]*[:=][ \t\f]*',
-          ),
-          Mode(
-            begin: r'([^\\:= \t\f\n]|\\.)+[ \t\f]+',
-          ),
+          Mode(begin: r'([^\\:= \t\f\n]|\\.)+[ \t\f]*[:=][ \t\f]*'),
+          Mode(begin: r'([^\\:= \t\f\n]|\\.)+[ \t\f]+'),
         ],
         contains: [
           Mode(
@@ -52,20 +48,13 @@ Mode properties(Highlight hljs) {
             end: r'$',
             relevance: 0,
             contains: [
-              Mode(
-                begin: r'\\\\',
-              ),
-              Mode(
-                begin: r'\\\n',
-              ),
+              Mode(begin: r'\\\\'),
+              Mode(begin: r'\\\n'),
             ],
           ),
         ),
       ),
-      Mode(
-        scope: r'attr',
-        begin: r'([^\\:= \t\f\n]|\\.)+[ \t\f]*$',
-      ),
+      Mode(scope: r'attr', begin: r'([^\\:= \t\f\n]|\\.)+[ \t\f]*$'),
     ],
   );
 }

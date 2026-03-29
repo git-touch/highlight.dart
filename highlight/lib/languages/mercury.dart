@@ -8,10 +8,7 @@ Mode mercury(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Mercury',
-    aliases: [
-      r'm',
-      r'moo',
-    ],
+    aliases: [r'm', r'moo'],
     keywords: {
       r'keyword':
           r'module use_module import_module include_module end_module initialise mutable initialize finalize finalise interface implementation pred mode func type inst solver any_pred any_func is semidet det nondet multi erroneous failure cc_nondet cc_multi typeclass instance where pragma promise external trace atomic or_else require_complete_switch require_det require_semidet require_multi require_nondet require_cc_multi require_cc_nondet require_erroneous require_failure',
@@ -24,35 +21,18 @@ Mode mercury(Highlight hljs) {
       Mode(
         scope: r'built_in',
         variants: [
-          Mode(
-            begin: r'<=>',
-          ),
-          Mode(
-            begin: r'<=',
-            relevance: 0,
-          ),
-          Mode(
-            begin: r'=>',
-            relevance: 0,
-          ),
-          Mode(
-            begin: r'/\\',
-          ),
-          Mode(
-            begin: r'\\/',
-          ),
+          Mode(begin: r'<=>'),
+          Mode(begin: r'<=', relevance: 0),
+          Mode(begin: r'=>', relevance: 0),
+          Mode(begin: r'/\\'),
+          Mode(begin: r'\\/'),
         ],
       ),
       Mode(
         scope: r'built_in',
         variants: [
-          Mode(
-            begin: r':-\|-->',
-          ),
-          Mode(
-            begin: r'=',
-            relevance: 0,
-          ),
+          Mode(begin: r':-\|-->'),
+          Mode(begin: r'=', relevance: 0),
         ],
       ),
       Mode(
@@ -91,23 +71,14 @@ Mode mercury(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'number',
-        begin: r"0'.\|0[box][0-9a-fA-F]*",
-      ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r"0'.\|0[box][0-9a-fA-F]*"),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 0,
       ),
       Mode(
@@ -126,12 +97,8 @@ Mode mercury(Highlight hljs) {
         ],
         relevance: 0,
       ),
-      Mode(
-        begin: r':-',
-      ),
-      Mode(
-        begin: r'\.$',
-      ),
+      Mode(begin: r':-'),
+      Mode(begin: r'\.$'),
     ],
   );
 }

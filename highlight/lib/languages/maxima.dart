@@ -15,43 +15,25 @@ Mode maxima(Highlight hljs) {
       r'symbol': r'_ __ %|0 %%|0',
     },
     contains: [
-      Mode(
-        scope: r'comment',
-        begin: r'/\*',
-        end: r'\*/',
-        contains: [
-          r'self',
-        ],
-      ),
+      Mode(scope: r'comment', begin: r'/\*', end: r'\*/', contains: [r'self']),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'number',
         relevance: 0,
         variants: [
-          Mode(
-            begin: r'\b(\d+|\d+\.|\.\d+|\d+\.\d+)[Ee][-+]?\d+\b',
-          ),
+          Mode(begin: r'\b(\d+|\d+\.|\.\d+|\d+\.\d+)[Ee][-+]?\d+\b'),
           Mode(
             begin: r'\b(\d+|\d+\.|\.\d+|\d+\.\d+)[Bb][-+]?\d+\b',
             relevance: 10,
           ),
-          Mode(
-            begin: r'\b(\.\d+|\d+\.\d+)\b',
-          ),
-          Mode(
-            begin: r'\b(\d+|0[0-9A-Za-z]+)\.?\b',
-          ),
+          Mode(begin: r'\b(\.\d+|\d+\.\d+)\b'),
+          Mode(begin: r'\b(\d+|0[0-9A-Za-z]+)\.?\b'),
         ],
       ),
     ],

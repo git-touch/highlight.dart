@@ -43,10 +43,7 @@ Mode x86asm(Highlight hljs) {
                 r'\b(?:([0-9][0-9_]*)?\.[0-9_]*(?:[eE][+-]?[0-9_]+)?|(0[Xx])?[0-9][0-9_]*(\.[0-9_]*)?(?:[pP](?:[+-]?[0-9_]+)?)?)\b',
             relevance: 0,
           ),
-          Mode(
-            begin: r'\$[0-9][0-9A-Fa-f]*',
-            relevance: 0,
-          ),
+          Mode(begin: r'\$[0-9][0-9A-Fa-f]*', relevance: 0),
           Mode(
             begin:
                 r'\b(?:[0-9A-Fa-f][0-9A-Fa-f_]*[Hh]|[0-9][0-9_]*[DdTt]?|[0-7][0-7_]*[QqOo]|[0-1][0-1_]*[BbYy])\b',
@@ -62,53 +59,27 @@ Mode x86asm(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'string',
         variants: [
-          Mode(
-            begin: r"'",
-            end: r"[^\\]'",
-          ),
-          Mode(
-            begin: r'`',
-            end: r'[^\\]`',
-          ),
+          Mode(begin: r"'", end: r"[^\\]'"),
+          Mode(begin: r'`', end: r'[^\\]`'),
         ],
         relevance: 0,
       ),
       Mode(
         scope: r'symbol',
         variants: [
-          Mode(
-            begin: r'^\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\s+label)',
-          ),
-          Mode(
-            begin: r'^\s*%%[A-Za-z0-9_$#@~.?]*:',
-          ),
+          Mode(begin: r'^\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\s+label)'),
+          Mode(begin: r'^\s*%%[A-Za-z0-9_$#@~.?]*:'),
         ],
         relevance: 0,
       ),
-      Mode(
-        scope: r'subst',
-        begin: r'%[0-9]+',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'subst',
-        begin: r'%!S+',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'^\s*\.[\w_-]+',
-      ),
+      Mode(scope: r'subst', begin: r'%[0-9]+', relevance: 0),
+      Mode(scope: r'subst', begin: r'%!S+', relevance: 0),
+      Mode(scope: r'meta', begin: r'^\s*\.[\w_-]+'),
     ],
   );
 }

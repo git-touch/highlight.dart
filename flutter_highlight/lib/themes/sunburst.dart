@@ -10,7 +10,10 @@ const sunburstTheme = <String, HljsStyle>{
   'doctag': const HljsStyle(underline: true),
   'emphasis': const HljsStyle(italic: true),
   'formula': const HljsStyle(
-      color: '#f8f8f8', backgroundColor: '#0e2231', italic: true),
+    color: '#f8f8f8',
+    backgroundColor: '#0e2231',
+    italic: true,
+  ),
   'keyword': const HljsStyle(color: '#e28964'),
   'link': const HljsStyle(color: '#e9c062'),
   'meta': const HljsStyle(color: '#8996a8'),

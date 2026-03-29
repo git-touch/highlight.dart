@@ -17,16 +17,18 @@ String optional(dynamic re) {
   return concat('(?:', re, ')?');
 }
 
-String concat(dynamic arg0,
-    [dynamic arg1,
-    dynamic arg2,
-    dynamic arg3,
-    dynamic arg4,
-    dynamic arg5,
-    dynamic arg6,
-    dynamic arg7,
-    dynamic arg8,
-    dynamic arg9]) {
+String concat(
+  dynamic arg0, [
+  dynamic arg1,
+  dynamic arg2,
+  dynamic arg3,
+  dynamic arg4,
+  dynamic arg5,
+  dynamic arg6,
+  dynamic arg7,
+  dynamic arg8,
+  dynamic arg9,
+]) {
   final args = <dynamic>[
     arg0,
     arg1,
@@ -37,7 +39,7 @@ String concat(dynamic arg0,
     arg6,
     arg7,
     arg8,
-    arg9
+    arg9,
   ];
   return args
       .where((x) => x != null)
@@ -46,26 +48,28 @@ String concat(dynamic arg0,
       .join('');
 }
 
-String either(dynamic arg0,
-    [dynamic arg1,
-    dynamic arg2,
-    dynamic arg3,
-    dynamic arg4,
-    dynamic arg5,
-    dynamic arg6,
-    dynamic arg7,
-    dynamic arg8,
-    dynamic arg9,
-    dynamic arg10,
-    dynamic arg11,
-    dynamic arg12,
-    dynamic arg13,
-    dynamic arg14,
-    dynamic arg15,
-    dynamic arg16,
-    dynamic arg17,
-    dynamic arg18,
-    dynamic arg19]) {
+String either(
+  dynamic arg0, [
+  dynamic arg1,
+  dynamic arg2,
+  dynamic arg3,
+  dynamic arg4,
+  dynamic arg5,
+  dynamic arg6,
+  dynamic arg7,
+  dynamic arg8,
+  dynamic arg9,
+  dynamic arg10,
+  dynamic arg11,
+  dynamic arg12,
+  dynamic arg13,
+  dynamic arg14,
+  dynamic arg15,
+  dynamic arg16,
+  dynamic arg17,
+  dynamic arg18,
+  dynamic arg19,
+]) {
   var args = <dynamic>[
     arg0,
     arg1,
@@ -124,11 +128,15 @@ bool startsWith(RegExp? re, String lexeme) {
   return match != null && match.start == 0;
 }
 
-final _backrefRe =
-    RegExp(r'\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\.', dotAll: true);
+final _backrefRe = RegExp(
+  r'\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\.',
+  dotAll: true,
+);
 
-String rewriteBackreferences(List<dynamic> regexps,
-    {required String joinWith}) {
+String rewriteBackreferences(
+  List<dynamic> regexps, {
+  required String joinWith,
+}) {
   var numCaptures = 0;
 
   return regexps
@@ -163,5 +171,7 @@ String rewriteBackreferences(List<dynamic> regexps,
 
 String escapeRegExp(String value) {
   return value.replaceAllMapped(
-      RegExp(r'[-/\\^$*+?.()|[\]{}]'), (m) => '\\${m[0]}');
+    RegExp(r'[-/\\^$*+?.()|[\]{}]'),
+    (m) => '\\${m[0]}',
+  );
 }

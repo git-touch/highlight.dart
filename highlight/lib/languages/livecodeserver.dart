@@ -16,10 +16,7 @@ Mode livecodeserver(Highlight hljs) {
   final Mode _mode10 = Mode();
   final Mode _mode11 = Mode();
   _mode0.scope = r'variable';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.variants = [_mode1, _mode2];
   _mode0.relevance = 0;
   _mode1.begin = r'\b([gtps][A-Z]{1}[a-zA-Z0-9]*)(\[.+\])?(?:\s*?)';
   _mode2.begin = r'\$_[A-Z]+';
@@ -30,18 +27,14 @@ Mode livecodeserver(Highlight hljs) {
   _mode4.begin = r"'";
   _mode4.end = r"'";
   _mode4.illegal = r'\n';
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.scope = r'string';
   _mode6.begin = r'"';
   _mode6.end = r'"';
   _mode6.illegal = r'\n';
-  _mode6.contains = [
-    _mode5,
-  ];
+  _mode6.contains = [_mode5];
   _mode7.scope = r'number';
   _mode7.begin = r'\b(0b[01]+)';
   _mode7.relevance = 0;
@@ -52,10 +45,7 @@ Mode livecodeserver(Highlight hljs) {
   _mode9.scope = r'title';
   _mode9.begin = r'[a-zA-Z]\w*';
   _mode9.relevance = 0;
-  _mode9.variants = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.variants = [_mode10, _mode11];
   _mode10.begin = r'\b_*rig[A-Z][A-Za-z0-9_\-]*';
   _mode11.begin = r'\b_[a-z0-9\-]+';
   return Mode(
@@ -71,61 +61,32 @@ Mode livecodeserver(Highlight hljs) {
     },
     contains: [
       _mode0,
-      Mode(
-        scope: r'keyword',
-        begin: r'\bend\sif\b',
-      ),
+      Mode(scope: r'keyword', begin: r'\bend\sif\b'),
       Mode(
         scope: r'function',
         beginKeywords: r'function',
         end: r'$',
-        contains: [
-          _mode0,
-          _mode3,
-          _mode4,
-          _mode6,
-          _mode7,
-          _mode8,
-          _mode9,
-        ],
+        contains: [_mode0, _mode3, _mode4, _mode6, _mode7, _mode8, _mode9],
       ),
       Mode(
         scope: r'function',
         begin: r'\bend\s+',
         end: r'$',
         keywords: r'end',
-        contains: [
-          _mode3,
-          _mode9,
-        ],
+        contains: [_mode3, _mode9],
         relevance: 0,
       ),
       Mode(
         beginKeywords: r'command on',
         end: r'$',
-        contains: [
-          _mode0,
-          _mode3,
-          _mode4,
-          _mode6,
-          _mode7,
-          _mode8,
-          _mode9,
-        ],
+        contains: [_mode0, _mode3, _mode4, _mode6, _mode7, _mode8, _mode9],
       ),
       Mode(
         scope: r'meta',
         variants: [
-          Mode(
-            begin: r'<\?(rev|lc|livecode)',
-            relevance: 10,
-          ),
-          Mode(
-            begin: r'<\?',
-          ),
-          Mode(
-            begin: r'\?>',
-          ),
+          Mode(begin: r'<\?(rev|lc|livecode)', relevance: 10),
+          Mode(begin: r'<\?'),
+          Mode(begin: r'\?>'),
         ],
       ),
       _mode4,

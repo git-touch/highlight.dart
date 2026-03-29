@@ -12,10 +12,7 @@ Mode n1ql(Highlight hljs) {
   _mode1.scope = r'comment';
   _mode1.begin = r'/\*';
   _mode1.end = r'\*/';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -201,12 +198,7 @@ Mode n1ql(Highlight hljs) {
             r'work',
             r'xor',
           ],
-          r'literal': [
-            r'true',
-            r'false',
-            r'null',
-            r'missing|5',
-          ],
+          r'literal': [r'true', r'false', r'null', r'missing|5'],
           r'built_in': [
             r'array_agg',
             r'array_append',
@@ -343,30 +335,9 @@ Mode n1ql(Highlight hljs) {
           ],
         },
         contains: [
-          Mode(
-            scope: r'string',
-            begin: r"'",
-            end: r"'",
-            contains: [
-              _mode0,
-            ],
-          ),
-          Mode(
-            scope: r'string',
-            begin: r'"',
-            end: r'"',
-            contains: [
-              _mode0,
-            ],
-          ),
-          Mode(
-            scope: r'symbol',
-            begin: r'`',
-            end: r'`',
-            contains: [
-              _mode0,
-            ],
-          ),
+          Mode(scope: r'string', begin: r"'", end: r"'", contains: [_mode0]),
+          Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
+          Mode(scope: r'symbol', begin: r'`', end: r'`', contains: [_mode0]),
           Mode(
             scope: r'number',
             begin:

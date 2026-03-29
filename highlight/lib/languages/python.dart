@@ -38,15 +38,7 @@ Mode python(Highlight hljs) {
   _mode0.begin = r'^(>>>|\.\.\.) ';
   _mode1.scope = r'number';
   _mode1.relevance = 0;
-  _mode1.variants = [
-    _mode2,
-    _mode3,
-    _mode4,
-    _mode5,
-    _mode6,
-    _mode7,
-    _mode8,
-  ];
+  _mode1.variants = [_mode2, _mode3, _mode4, _mode5, _mode6, _mode7, _mode8];
   _mode2.begin =
       r'(\b([0-9](_?[0-9])*)|((\b([0-9](_?[0-9])*))?\.([0-9](_?[0-9])*)|\b([0-9](_?[0-9])*)\.))[eE][+-]?([0-9](_?[0-9])*)[jJ]?(?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
   _mode3.begin =
@@ -62,9 +54,7 @@ Mode python(Highlight hljs) {
   _mode8.begin =
       r'\b([0-9](_?[0-9])*)[jJ](?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
   _mode9.scope = r'string';
-  _mode9.contains = [
-    _mode10,
-  ];
+  _mode9.contains = [_mode10];
   _mode9.variants = [
     _mode11,
     _mode12,
@@ -83,26 +73,15 @@ Mode python(Highlight hljs) {
   _mode10.relevance = 0;
   _mode11.begin = r"([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''";
   _mode11.end = r"'''";
-  _mode11.contains = [
-    _mode10,
-    _mode0,
-  ];
+  _mode11.contains = [_mode10, _mode0];
   _mode11.relevance = 10;
   _mode12.begin = r'([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""';
   _mode12.end = r'"""';
-  _mode12.contains = [
-    _mode10,
-    _mode0,
-  ];
+  _mode12.contains = [_mode10, _mode0];
   _mode12.relevance = 10;
   _mode13.begin = r"([fF][rR]|[rR][fF]|[fF])'''";
   _mode13.end = r"'''";
-  _mode13.contains = [
-    _mode10,
-    _mode0,
-    _mode14,
-    _mode15,
-  ];
+  _mode13.contains = [_mode10, _mode0, _mode14, _mode15];
   _mode14.begin = r'\{\{';
   _mode14.relevance = 0;
   _mode15.scope = r'subst';
@@ -242,19 +221,10 @@ Mode python(Highlight hljs) {
     ],
   };
   _mode15.illegal = r'#';
-  _mode15.contains = [
-    _mode9,
-    _mode1,
-    _mode0,
-  ];
+  _mode15.contains = [_mode9, _mode1, _mode0];
   _mode16.begin = r'([fF][rR]|[rR][fF]|[fF])"""';
   _mode16.end = r'"""';
-  _mode16.contains = [
-    _mode10,
-    _mode0,
-    _mode14,
-    _mode15,
-  ];
+  _mode16.contains = [_mode10, _mode0, _mode14, _mode15];
   _mode17.begin = r"([uU]|[rR])'";
   _mode17.end = r"'";
   _mode17.relevance = 10;
@@ -267,39 +237,24 @@ Mode python(Highlight hljs) {
   _mode20.end = r'"';
   _mode21.begin = r"([fF][rR]|[rR][fF]|[fF])'";
   _mode21.end = r"'";
-  _mode21.contains = [
-    _mode10,
-    _mode14,
-    _mode15,
-  ];
+  _mode21.contains = [_mode10, _mode14, _mode15];
   _mode22.begin = r'([fF][rR]|[rR][fF]|[fF])"';
   _mode22.end = r'"';
-  _mode22.contains = [
-    _mode10,
-    _mode14,
-    _mode15,
-  ];
+  _mode22.contains = [_mode10, _mode14, _mode15];
   _mode23.scope = r'string';
   _mode23.begin = r"'";
   _mode23.end = r"'";
   _mode23.illegal = r'\n';
-  _mode23.contains = [
-    _mode10,
-  ];
+  _mode23.contains = [_mode10];
   _mode24.scope = r'string';
   _mode24.begin = r'"';
   _mode24.end = r'"';
   _mode24.illegal = r'\n';
-  _mode24.contains = [
-    _mode10,
-  ];
+  _mode24.contains = [_mode10];
   _mode25.scope = r'comment';
   _mode25.begin = r'#';
   _mode25.end = r'$';
-  _mode25.contains = [
-    _mode26,
-    _mode27,
-  ];
+  _mode25.contains = [_mode26, _mode27];
   _mode26.scope = r'doctag';
   _mode26.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode26.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -308,10 +263,7 @@ Mode python(Highlight hljs) {
   _mode27.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   _mode28.scope = r'params';
-  _mode28.variants = [
-    _mode29,
-    _mode30,
-  ];
+  _mode28.variants = [_mode29, _mode30];
   _mode29.scope = r'';
   _mode29.begin = r'\(\s*\)';
   _mode29.skip = true;
@@ -452,20 +404,10 @@ Mode python(Highlight hljs) {
       r'Union',
     ],
   };
-  _mode30.contains = [
-    r'self',
-    _mode0,
-    _mode1,
-    _mode9,
-    _mode25,
-  ];
+  _mode30.contains = [r'self', _mode0, _mode1, _mode9, _mode25];
   return Mode(
     name: r'Python',
-    aliases: [
-      r'py',
-      r'gyp',
-      r'ipython',
-    ],
+    aliases: [r'py', r'gyp', r'ipython'],
     unicodeRegex: true,
     keywords: {
       r'$pattern': r'[A-Za-z]\w+|__\w+__',
@@ -604,18 +546,9 @@ Mode python(Highlight hljs) {
     contains: [
       _mode0,
       _mode1,
-      Mode(
-        scope: r'variable.language',
-        match: r'\bself\b',
-      ),
-      Mode(
-        beginKeywords: r'if',
-        relevance: 0,
-      ),
-      Mode(
-        match: r'\bor\b',
-        scope: r'keyword',
-      ),
+      Mode(scope: r'variable.language', match: r'\bself\b'),
+      Mode(beginKeywords: r'if', relevance: 0),
+      Mode(match: r'\bor\b', scope: r'keyword'),
       _mode9,
       Mode(
         scope: r'comment',
@@ -755,30 +688,15 @@ Mode python(Highlight hljs) {
           ],
         },
         contains: [
-          Mode(
-            begin: r'# type:',
-          ),
-          Mode(
-            begin: r'#',
-            end: r'\b\B',
-            endsWithParent: true,
-          ),
+          Mode(begin: r'# type:'),
+          Mode(begin: r'#', end: r'\b\B', endsWithParent: true),
         ],
       ),
       _mode25,
       Mode(
-        match: [
-          r'\bdef',
-          r'\s+',
-          r'[\p{XID_Start}_]\p{XID_Continue}*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
-        contains: [
-          _mode28,
-        ],
+        match: [r'\bdef', r'\s+', r'[\p{XID_Start}_]\p{XID_Continue}*'],
+        scope: {1: r'keyword', 3: r'title.function'},
+        contains: [_mode28],
       ),
       Mode(
         variants: [
@@ -794,28 +712,16 @@ Mode python(Highlight hljs) {
             ],
           ),
           Mode(
-            match: [
-              r'\bclass',
-              r'\s+',
-              r'[\p{XID_Start}_]\p{XID_Continue}*',
-            ],
+            match: [r'\bclass', r'\s+', r'[\p{XID_Start}_]\p{XID_Continue}*'],
           ),
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-          6: r'title.class.inherited',
-        },
+        scope: {1: r'keyword', 3: r'title.class', 6: r'title.class.inherited'},
       ),
       Mode(
         scope: r'meta',
         begin: r'^[\t ]*@',
         end: r'(?=#)|$',
-        contains: [
-          _mode1,
-          _mode28,
-          _mode9,
-        ],
+        contains: [_mode1, _mode28, _mode9],
       ),
     ],
   );

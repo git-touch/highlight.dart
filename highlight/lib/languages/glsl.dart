@@ -58,11 +58,7 @@ Mode glsl(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'#',
-        end: r'$',
-      ),
+      Mode(scope: r'meta', begin: r'#', end: r'$'),
     ],
   );
 }

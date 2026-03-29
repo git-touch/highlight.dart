@@ -6,12 +6,7 @@ Mode smali(Highlight hljs) {
   return Mode(
     name: r'Smali',
     contains: [
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-        relevance: 0,
-      ),
+      Mode(scope: r'string', begin: r'"', end: r'"', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'#',
@@ -34,17 +29,9 @@ Mode smali(Highlight hljs) {
       Mode(
         scope: r'keyword',
         variants: [
-          Mode(
-            begin: r'\s*\.end\s[a-zA-Z0-9]*',
-          ),
-          Mode(
-            begin: r'^[ ]*\.[a-zA-Z]*',
-            relevance: 0,
-          ),
-          Mode(
-            begin: r'\s:[a-zA-Z_0-9]*',
-            relevance: 0,
-          ),
+          Mode(begin: r'\s*\.end\s[a-zA-Z0-9]*'),
+          Mode(begin: r'^[ ]*\.[a-zA-Z]*', relevance: 0),
+          Mode(begin: r'\s:[a-zA-Z_0-9]*', relevance: 0),
           Mode(
             begin:
                 r'\s(transient|constructor|abstract|final|synthetic|public|private|protected|static|bridge|system)',
@@ -70,14 +57,8 @@ Mode smali(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'class',
-        begin: 'L[^(;:\n]*;',
-        relevance: 0,
-      ),
-      Mode(
-        begin: r'[vp][0-9]+',
-      ),
+      Mode(scope: r'class', begin: 'L[^(;:\n]*;', relevance: 0),
+      Mode(begin: r'[vp][0-9]+'),
     ],
   );
 }

@@ -8,9 +8,7 @@ Mode rust(Highlight hljs) {
   _mode0.relevance = 0;
   return Mode(
     name: r'Rust',
-    aliases: [
-      r'rs',
-    ],
+    aliases: [r'rs'],
     keywords: {
       r'$pattern': r'[a-zA-Z]\w*!?',
       r'type': [
@@ -91,14 +89,7 @@ Mode rust(Highlight hljs) {
         r'while',
         r'yield',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'Some',
-        r'None',
-        r'Ok',
-        r'Err',
-      ],
+      r'literal': [r'true', r'false', r'Some', r'None', r'Ok', r'Err'],
       r'built_in': [
         r'drop ',
         r'Copy',
@@ -204,24 +195,12 @@ Mode rust(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'string',
-        begin: r'b?"',
-        end: r'"',
-        contains: [
-          _mode0,
-        ],
-      ),
-      Mode(
-        scope: r'symbol',
-        begin: r"'[a-zA-Z_][a-zA-Z0-9_]*(?!')",
-      ),
+      Mode(scope: r'string', begin: r'b?"', end: r'"', contains: [_mode0]),
+      Mode(scope: r'symbol', begin: r"'[a-zA-Z_][a-zA-Z0-9_]*(?!')"),
       Mode(
         scope: r'string',
         variants: [
-          Mode(
-            begin: r'b?r(#*)"(.|\n)*?"\1(?!#)',
-          ),
+          Mode(begin: r'b?r(#*)"(.|\n)*?"\1(?!#)'),
           Mode(
             begin: r"b?'",
             end: r"'",
@@ -237,12 +216,8 @@ Mode rust(Highlight hljs) {
       Mode(
         scope: r'number',
         variants: [
-          Mode(
-            begin: r'\b0b([01_]+)([ui](8|16|32|64|128|size)|f(32|64))?',
-          ),
-          Mode(
-            begin: r'\b0o([0-7_]+)([ui](8|16|32|64|128|size)|f(32|64))?',
-          ),
+          Mode(begin: r'\b0b([01_]+)([ui](8|16|32|64|128|size)|f(32|64))?'),
+          Mode(begin: r'\b0o([0-7_]+)([ui](8|16|32|64|128|size)|f(32|64))?'),
           Mode(
             begin: r'\b0x([A-Fa-f0-9_]+)([ui](8|16|32|64|128|size)|f(32|64))?',
           ),
@@ -254,68 +229,28 @@ Mode rust(Highlight hljs) {
         relevance: 0,
       ),
       Mode(
-        begin: [
-          r'fn',
-          r'\s+',
-          r'(r#)?[a-zA-Z_]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        begin: [r'fn', r'\s+', r'(r#)?[a-zA-Z_]\w*'],
+        scope: {1: r'keyword', 3: r'title.function'},
       ),
       Mode(
         scope: r'meta',
         begin: r'#!?\[',
         end: r'\]',
         contains: [
-          Mode(
-            scope: r'string',
-            begin: r'"',
-            end: r'"',
-            contains: [
-              _mode0,
-            ],
-          ),
+          Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
         ],
       ),
       Mode(
-        begin: [
-          r'let',
-          r'\s+',
-          r'(?:mut\s+)?',
-          r'(r#)?[a-zA-Z_]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'keyword',
-          4: r'variable',
-        },
+        begin: [r'let', r'\s+', r'(?:mut\s+)?', r'(r#)?[a-zA-Z_]\w*'],
+        scope: {1: r'keyword', 3: r'keyword', 4: r'variable'},
       ),
       Mode(
-        begin: [
-          r'for',
-          r'\s+',
-          r'(r#)?[a-zA-Z_]\w*',
-          r'\s+',
-          r'in',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'variable',
-          5: r'keyword',
-        },
+        begin: [r'for', r'\s+', r'(r#)?[a-zA-Z_]\w*', r'\s+', r'in'],
+        scope: {1: r'keyword', 3: r'variable', 5: r'keyword'},
       ),
       Mode(
-        begin: [
-          r'type',
-          r'\s+',
-          r'(r#)?[a-zA-Z_]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        begin: [r'type', r'\s+', r'(r#)?[a-zA-Z_]\w*'],
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
       Mode(
         begin: [
@@ -323,10 +258,7 @@ Mode rust(Highlight hljs) {
           r'\s+',
           r'(r#)?[a-zA-Z_]\w*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
       Mode(
         begin: r'[a-zA-Z]\w*::',
@@ -423,10 +355,7 @@ Mode rust(Highlight hljs) {
           ],
         },
       ),
-      Mode(
-        scope: r'punctuation',
-        begin: r'->',
-      ),
+      Mode(scope: r'punctuation', begin: r'->'),
       Mode(
         scope: r'title.function.invoke',
         relevance: 0,

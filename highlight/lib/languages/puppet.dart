@@ -14,10 +14,7 @@ Mode puppet(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'#';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -28,14 +25,8 @@ Mode puppet(Highlight hljs) {
   _mode3.scope = r'variable';
   _mode3.begin = r'\$([A-Za-z_]|::)(\w|::)*';
   _mode4.scope = r'string';
-  _mode4.contains = [
-    _mode5,
-    _mode3,
-  ];
-  _mode4.variants = [
-    _mode6,
-    _mode7,
-  ];
+  _mode4.contains = [_mode5, _mode3];
+  _mode4.variants = [_mode6, _mode7];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.begin = r"'";
@@ -44,9 +35,7 @@ Mode puppet(Highlight hljs) {
   _mode7.end = r'"';
   return Mode(
     name: r'Puppet',
-    aliases: [
-      r'pp',
-    ],
+    aliases: [r'pp'],
     contains: [
       _mode0,
       _mode3,
@@ -56,11 +45,7 @@ Mode puppet(Highlight hljs) {
         end: r'\{|;',
         illegal: r'=',
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'([A-Za-z_]|::)(\w|::)*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title', begin: r'([A-Za-z_]|::)(\w|::)*', relevance: 0),
           _mode0,
         ],
       ),
@@ -68,11 +53,7 @@ Mode puppet(Highlight hljs) {
         beginKeywords: r'define',
         end: r'\{',
         contains: [
-          Mode(
-            scope: r'section',
-            begin: r'[a-zA-Z]\w*',
-            endsParent: true,
-          ),
+          Mode(scope: r'section', begin: r'[a-zA-Z]\w*', endsParent: true),
         ],
       ),
       Mode(
@@ -80,11 +61,7 @@ Mode puppet(Highlight hljs) {
         returnBegin: true,
         end: r'\S',
         contains: [
-          Mode(
-            scope: r'keyword',
-            begin: r'[a-zA-Z]\w*',
-            relevance: 0.2,
-          ),
+          Mode(scope: r'keyword', begin: r'[a-zA-Z]\w*', relevance: 0.2),
           Mode(
             begin: r'\{',
             end: r'\}',
@@ -104,12 +81,7 @@ Mode puppet(Highlight hljs) {
                 begin: r'[a-zA-Z_]+\s*=>',
                 returnBegin: true,
                 end: r'=>',
-                contains: [
-                  Mode(
-                    scope: r'attr',
-                    begin: r'[a-zA-Z]\w*',
-                  ),
-                ],
+                contains: [Mode(scope: r'attr', begin: r'[a-zA-Z]\w*')],
               ),
               Mode(
                 scope: r'number',

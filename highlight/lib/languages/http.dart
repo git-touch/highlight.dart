@@ -12,9 +12,7 @@ Mode http(Highlight hljs) {
   _mode0.scope = r'attribute';
   _mode0.begin = r'^[A-Za-z][A-Za-z0-9-]*(?=\:\s)';
   _mode0.starts = _mode1;
-  _mode1.contains = [
-    _mode2,
-  ];
+  _mode1.contains = [_mode2];
   _mode2.scope = r'punctuation';
   _mode2.begin = r': ';
   _mode2.relevance = 0;
@@ -27,32 +25,17 @@ Mode http(Highlight hljs) {
   _mode5.endsWithParent = true;
   return Mode(
     name: r'HTTP',
-    aliases: [
-      r'https',
-    ],
+    aliases: [r'https'],
     illegal: r'\S',
     contains: [
       Mode(
         begin: r'^(?=HTTP/([32]|1\.[01]) \d{3})',
         end: r'$',
         contains: [
-          Mode(
-            scope: r'meta',
-            begin: r'HTTP/([32]|1\.[01])',
-          ),
-          Mode(
-            scope: r'number',
-            begin: r'\b\d{3}\b',
-          ),
+          Mode(scope: r'meta', begin: r'HTTP/([32]|1\.[01])'),
+          Mode(scope: r'number', begin: r'\b\d{3}\b'),
         ],
-        starts: Mode(
-          end: r'\b\B',
-          illegal: r'\S',
-          contains: [
-            _mode0,
-            _mode4,
-          ],
-        ),
+        starts: Mode(end: r'\b\B', illegal: r'\S', contains: [_mode0, _mode4]),
       ),
       Mode(
         begin: r'(?=^[A-Z]+ (.*?) HTTP/([32]|1\.[01])$)',
@@ -65,23 +48,10 @@ Mode http(Highlight hljs) {
             excludeBegin: true,
             excludeEnd: true,
           ),
-          Mode(
-            scope: r'meta',
-            begin: r'HTTP/([32]|1\.[01])',
-          ),
-          Mode(
-            scope: r'keyword',
-            begin: r'[A-Z]+',
-          ),
+          Mode(scope: r'meta', begin: r'HTTP/([32]|1\.[01])'),
+          Mode(scope: r'keyword', begin: r'[A-Z]+'),
         ],
-        starts: Mode(
-          end: r'\b\B',
-          illegal: r'\S',
-          contains: [
-            _mode0,
-            _mode4,
-          ],
-        ),
+        starts: Mode(end: r'\b\B', illegal: r'\S', contains: [_mode0, _mode4]),
       ),
       Mode(
         scope: r'attribute',

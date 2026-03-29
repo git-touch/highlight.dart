@@ -138,46 +138,22 @@ Mode sas(Highlight hljs) {
       ],
     },
     contains: [
+      Mode(scope: r'keyword', begin: r'^\s*(proc [\w\d_]+|data|run|quit)[\s;]'),
+      Mode(scope: r'variable', begin: r'&[a-zA-Z_&][a-zA-Z0-9_]*\.?'),
       Mode(
-        scope: r'keyword',
-        begin: r'^\s*(proc [\w\d_]+|data|run|quit)[\s;]',
+        begin: [r'^\s*', r'datalines;|cards;', r'(?:.*\n)+', r'^\s*;\s*$'],
+        scope: {2: r'keyword', 3: r'string'},
       ),
       Mode(
-        scope: r'variable',
-        begin: r'&[a-zA-Z_&][a-zA-Z0-9_]*\.?',
-      ),
-      Mode(
-        begin: [
-          r'^\s*',
-          r'datalines;|cards;',
-          r'(?:.*\n)+',
-          r'^\s*;\s*$',
-        ],
-        scope: {
-          2: r'keyword',
-          3: r'string',
-        },
-      ),
-      Mode(
-        begin: [
-          r'%mend|%macro',
-          r'\s+',
-          r'[a-zA-Z_&][a-zA-Z0-9_]*',
-        ],
-        scope: {
-          1: r'built_in',
-          3: r'title.function',
-        },
+        begin: [r'%mend|%macro', r'\s+', r'[a-zA-Z_&][a-zA-Z0-9_]*'],
+        scope: {1: r'built_in', 3: r'title.function'},
       ),
       Mode(
         scope: r'built_in',
         begin:
             r'%(?:bquote|nrbquote|cmpres|qcmpres|compstor|datatyp|display|do|else|end|eval|global|goto|if|index|input|keydef|label|left|length|let|local|lowcase|macro|mend|nrbquote|nrquote|nrstr|put|qcmpres|qleft|qlowcase|qscan|qsubstr|qsysfunc|qtrim|quote|qupcase|scan|str|substr|superq|syscall|sysevalf|sysexec|sysfunc|sysget|syslput|sysprod|sysrc|sysrput|then|to|trim|unquote|until|upcase|verify|while|window)',
       ),
-      Mode(
-        scope: r'title.function',
-        begin: r'%[a-zA-Z_][a-zA-Z_0-9]*',
-      ),
+      Mode(scope: r'title.function', begin: r'%[a-zA-Z_][a-zA-Z_0-9]*'),
       Mode(
         scope: r'meta',
         begin:
@@ -191,18 +167,14 @@ Mode sas(Highlight hljs) {
             begin: r"'",
             end: r"'",
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
         ],
       ),

@@ -18,10 +18,7 @@ Mode scala(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -32,10 +29,7 @@ Mode scala(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -46,10 +40,7 @@ Mode scala(Highlight hljs) {
   _mode6.begin = r'\\[\s\S]';
   _mode6.relevance = 0;
   _mode7.scope = r'subst';
-  _mode7.variants = [
-    _mode8,
-    _mode9,
-  ];
+  _mode7.variants = [_mode8, _mode9];
   _mode8.begin = r'\$[A-Za-z0-9_]+';
   _mode9.begin = r'\$\{';
   _mode9.end = r'\}';
@@ -69,59 +60,29 @@ Mode scala(Highlight hljs) {
     },
     contains: [
       Mode(
-        begin: [
-          r'//>',
-          r'\s+',
-          r'using',
-          r'\s+',
-          r'\S+',
-        ],
-        beginScope: {
-          1: r'comment',
-          3: r'keyword',
-          5: r'type',
-        },
+        begin: [r'//>', r'\s+', r'using', r'\s+', r'\S+'],
+        beginScope: {1: r'comment', 3: r'keyword', 5: r'type'},
         end: r'$',
-        contains: [
-          Mode(
-            scope: r'string',
-            begin: r'\S+',
-          ),
-        ],
+        contains: [Mode(scope: r'string', begin: r'\S+')],
       ),
       _mode0,
       _mode3,
       Mode(
         scope: r'string',
         variants: [
-          Mode(
-            begin: r'"""',
-            end: r'"""',
-          ),
-          Mode(
-            begin: r'"',
-            end: r'"',
-            illegal: r'\n',
-            contains: [
-              _mode6,
-            ],
-          ),
+          Mode(begin: r'"""', end: r'"""'),
+          Mode(begin: r'"', end: r'"', illegal: r'\n', contains: [_mode6]),
           Mode(
             begin: r'[a-z]+"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode6,
-              _mode7,
-            ],
+            contains: [_mode6, _mode7],
           ),
           Mode(
             scope: r'string',
             begin: r'[a-z]+"""',
             end: r'"""',
-            contains: [
-              _mode7,
-            ],
+            contains: [_mode7],
             relevance: 10,
           ),
         ],
@@ -131,9 +92,7 @@ Mode scala(Highlight hljs) {
         scope: r'function',
         beginKeywords: r'def',
         end: r'(?=[:={\[(\n;])',
-        contains: [
-          _mode11,
-        ],
+        contains: [_mode11],
       ),
       Mode(
         scope: r'class',
@@ -143,21 +102,14 @@ Mode scala(Highlight hljs) {
         contains: [
           _mode0,
           _mode3,
-          Mode(
-            beginKeywords: r'extends with',
-            relevance: 10,
-          ),
+          Mode(beginKeywords: r'extends with', relevance: 10),
           Mode(
             begin: r'\[',
             end: r'\]',
             excludeBegin: true,
             excludeEnd: true,
             relevance: 0,
-            contains: [
-              _mode10,
-              _mode0,
-              _mode3,
-            ],
+            contains: [_mode10, _mode0, _mode3],
           ),
           Mode(
             scope: r'params',
@@ -166,11 +118,7 @@ Mode scala(Highlight hljs) {
             excludeBegin: true,
             excludeEnd: true,
             relevance: 0,
-            contains: [
-              _mode10,
-              _mode0,
-              _mode3,
-            ],
+            contains: [_mode10, _mode0, _mode3],
           ),
           _mode11,
         ],
@@ -182,48 +130,20 @@ Mode scala(Highlight hljs) {
         relevance: 0,
       ),
       Mode(
-        begin: [
-          r'^\s*',
-          r'extension',
-          r'\s+(?=[[(])',
-        ],
-        beginScope: {
-          2: r'keyword',
-        },
+        begin: [r'^\s*', r'extension', r'\s+(?=[[(])'],
+        beginScope: {2: r'keyword'},
       ),
       Mode(
-        begin: [
-          r'^\s*',
-          r'end',
-          r'\s+',
-          r'(extension\b)?',
-        ],
-        beginScope: {
-          2: r'keyword',
-          4: r'keyword',
-        },
+        begin: [r'^\s*', r'end', r'\s+', r'(extension\b)?'],
+        beginScope: {2: r'keyword', 4: r'keyword'},
       ),
+      Mode(match: r'\.inline\b'),
+      Mode(begin: r'\binline(?=\s)', keywords: r'inline'),
       Mode(
-        match: r'\.inline\b',
+        begin: [r'\(\s*', r'using', r'\s+(?!\))'],
+        beginScope: {2: r'keyword'},
       ),
-      Mode(
-        begin: r'\binline(?=\s)',
-        keywords: r'inline',
-      ),
-      Mode(
-        begin: [
-          r'\(\s*',
-          r'using',
-          r'\s+(?!\))',
-        ],
-        beginScope: {
-          2: r'keyword',
-        },
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'@[A-Za-z]+',
-      ),
+      Mode(scope: r'meta', begin: r'@[A-Za-z]+'),
     ],
   );
 }

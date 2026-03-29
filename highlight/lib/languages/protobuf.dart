@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode protobuf(Highlight hljs) {
   return Mode(
     name: r'Protocol Buffers',
-    aliases: [
-      r'proto',
-    ],
+    aliases: [r'proto'],
     keywords: {
       r'keyword': [
         r'package',
@@ -36,10 +34,7 @@ Mode protobuf(Highlight hljs) {
         r'string',
         r'bytes',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-      ],
+      r'literal': [r'true', r'false'],
     },
     contains: [
       Mode(
@@ -47,18 +42,9 @@ Mode protobuf(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
         scope: r'comment',
         begin: r'//',
@@ -96,14 +82,8 @@ Mode protobuf(Highlight hljs) {
         ],
       ),
       Mode(
-        match: [
-          r'(message|enum|service)\s+',
-          r'[a-zA-Z]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          2: r'title.class',
-        },
+        match: [r'(message|enum|service)\s+', r'[a-zA-Z]\w*'],
+        scope: {1: r'keyword', 2: r'title.class'},
       ),
       Mode(
         scope: r'function',
@@ -112,9 +92,7 @@ Mode protobuf(Highlight hljs) {
         excludeEnd: true,
         keywords: r'rpc returns',
       ),
-      Mode(
-        begin: r'^\s*[A-Z_]+(?=\s*=[^\n]+;$)',
-      ),
+      Mode(begin: r'^\s*[A-Z_]+(?=\s*=[^\n]+;$)'),
     ],
   );
 }

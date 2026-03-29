@@ -34,10 +34,7 @@ Mode lasso(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'<!--';
   _mode0.end = r'-->';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode0.relevance = 0;
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -51,18 +48,13 @@ Mode lasso(Highlight hljs) {
   _mode3.starts = _mode4;
   _mode4.end = r'\[/noprocess\]';
   _mode4.returnEnd = true;
-  _mode4.contains = [
-    _mode0,
-  ];
+  _mode4.contains = [_mode0];
   _mode5.scope = r'meta';
   _mode5.begin = r'\[/noprocess|<\?(lasso(script)?|=)';
   _mode6.scope = r'comment';
   _mode6.begin = r'//';
   _mode6.end = r'$';
-  _mode6.contains = [
-    _mode7,
-    _mode8,
-  ];
+  _mode6.contains = [_mode7, _mode8];
   _mode7.scope = r'doctag';
   _mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -73,10 +65,7 @@ Mode lasso(Highlight hljs) {
   _mode9.scope = r'comment';
   _mode9.begin = r'/\*';
   _mode9.end = r'\*/';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.contains = [_mode10, _mode11];
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -91,24 +80,17 @@ Mode lasso(Highlight hljs) {
   _mode13.scope = r'string';
   _mode13.begin = r"'";
   _mode13.end = r"'";
-  _mode13.contains = [
-    _mode14,
-  ];
+  _mode13.contains = [_mode14];
   _mode14.begin = r'\\[\s\S]';
   _mode14.relevance = 0;
   _mode15.scope = r'string';
   _mode15.begin = r'"';
   _mode15.end = r'"';
-  _mode15.contains = [
-    _mode14,
-  ];
+  _mode15.contains = [_mode14];
   _mode16.scope = r'string';
   _mode16.begin = r'`';
   _mode16.end = r'`';
-  _mode17.variants = [
-    _mode18,
-    _mode19,
-  ];
+  _mode17.variants = [_mode18, _mode19];
   _mode18.begin = r'[#$][a-zA-Z_][\w.]*';
   _mode19.begin = r'#';
   _mode19.end = r'\d+';
@@ -118,36 +100,26 @@ Mode lasso(Highlight hljs) {
   _mode20.end = r'[a-zA-Z_][\w.]*';
   _mode20.illegal = r'\W';
   _mode21.scope = r'params';
-  _mode21.variants = [
-    _mode22,
-    _mode23,
-  ];
+  _mode21.variants = [_mode22, _mode23];
   _mode22.begin = r'-(?!infinity)[a-zA-Z_][\w.]*';
   _mode22.relevance = 0;
   _mode23.begin = r'(\.\.\.)';
   _mode24.begin = r'(->|\.)\s*';
   _mode24.relevance = 0;
-  _mode24.contains = [
-    _mode25,
-  ];
+  _mode24.contains = [_mode25];
   _mode25.scope = r'symbol';
   _mode25.begin = r"'[a-zA-Z_][\w.]*'";
   _mode26.scope = r'class';
   _mode26.beginKeywords = r'define';
   _mode26.returnEnd = true;
   _mode26.end = r'\(|=>';
-  _mode26.contains = [
-    _mode27,
-  ];
+  _mode26.contains = [_mode27];
   _mode27.scope = r'title';
   _mode27.begin = r'[a-zA-Z_][\w.]*(=(?!>))?|[-+*/%](?!>)';
   _mode27.relevance = 0;
   return Mode(
     name: r'Lasso',
-    aliases: [
-      r'ls',
-      r'lassoscript',
-    ],
+    aliases: [r'ls', r'lassoscript'],
     caseInsensitive: true,
     keywords: {
       r'$pattern': r'[a-zA-Z_][\w.]*|&[lg]t;',
@@ -167,9 +139,7 @@ Mode lasso(Highlight hljs) {
           end: r'\[|<\?(lasso(script)?|=)',
           returnEnd: true,
           relevance: 0,
-          contains: [
-            _mode0,
-          ],
+          contains: [_mode0],
         ),
       ),
       _mode3,
@@ -196,9 +166,7 @@ Mode lasso(Highlight hljs) {
               starts: Mode(
                 end: r'\[noprocess\]|<\?(lasso(script)?|=)',
                 returnEnd: true,
-                contains: [
-                  _mode0,
-                ],
+                contains: [_mode0],
               ),
             ),
             _mode3,
@@ -217,17 +185,8 @@ Mode lasso(Highlight hljs) {
           ],
         ),
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'\[',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'^#!',
-        end: r'lasso9$',
-        relevance: 10,
-      ),
+      Mode(scope: r'meta', begin: r'\[', relevance: 0),
+      Mode(scope: r'meta', begin: r'^#!', end: r'lasso9$', relevance: 10),
       _mode6,
       _mode9,
       _mode12,

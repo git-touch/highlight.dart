@@ -5,10 +5,7 @@ import '../highlight_core.dart';
 Mode q(Highlight hljs) {
   return Mode(
     name: r'Q',
-    aliases: [
-      r'k',
-      r'kdb',
-    ],
+    aliases: [r'k', r'kdb'],
     keywords: {
       r'$pattern': r'(`?)[A-Za-z0-9_]+\b',
       r'keyword': r'do while select delete by update from',
@@ -42,12 +39,7 @@ Mode q(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'number',

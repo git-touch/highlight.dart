@@ -11,38 +11,22 @@ Mode taggerscript(Highlight hljs) {
         begin: r'\$noop\(',
         end: r'\)',
         contains: [
-          Mode(
-            begin: r'\\[()]',
-          ),
+          Mode(begin: r'\\[()]'),
           Mode(
             begin: r'\(',
             end: r'\)',
             contains: [
-              Mode(
-                begin: r'\\[()]',
-              ),
+              Mode(begin: r'\\[()]'),
               r'self',
             ],
           ),
         ],
         relevance: 10,
       ),
-      Mode(
-        scope: r'keyword',
-        begin: r'\$[_a-zA-Z0-9]+(?=\()',
-      ),
-      Mode(
-        scope: r'variable',
-        begin: r'%[_a-zA-Z0-9:]+%',
-      ),
-      Mode(
-        scope: r'symbol',
-        begin: r'\\[\\nt$%,()]',
-      ),
-      Mode(
-        scope: r'symbol',
-        begin: r'\\u[a-fA-F0-9]{4}',
-      ),
+      Mode(scope: r'keyword', begin: r'\$[_a-zA-Z0-9]+(?=\()'),
+      Mode(scope: r'variable', begin: r'%[_a-zA-Z0-9:]+%'),
+      Mode(scope: r'symbol', begin: r'\\[\\nt$%,()]'),
+      Mode(scope: r'symbol', begin: r'\\u[a-fA-F0-9]{4}'),
     ],
   );
 }

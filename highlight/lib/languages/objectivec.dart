@@ -13,10 +13,7 @@ Mode objectivec(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -27,10 +24,7 @@ Mode objectivec(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -42,18 +36,9 @@ Mode objectivec(Highlight hljs) {
   _mode6.relevance = 0;
   return Mode(
     name: r'Objective-C',
-    aliases: [
-      r'mm',
-      r'objc',
-      r'obj-c',
-      r'obj-c++',
-      r'objective-c++',
-    ],
+    aliases: [r'mm', r'objc', r'obj-c', r'obj-c++', r'objective-c++'],
     keywords: {
-      r'variable.language': [
-        r'this',
-        r'super',
-      ],
+      r'variable.language': [r'this', r'super'],
       r'$pattern': r'[a-zA-Z@][a-zA-Z0-9_]*',
       r'keyword': [
         r'while',
@@ -226,30 +211,19 @@ Mode objectivec(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode6,
-        ],
+        contains: [_mode6],
       ),
       Mode(
         scope: r'string',
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode6,
-        ],
+        contains: [_mode6],
       ),
       Mode(
         scope: r'string',
         variants: [
-          Mode(
-            begin: r'@"',
-            end: r'"',
-            illegal: r'\n',
-            contains: [
-              _mode6,
-            ],
-          ),
+          Mode(begin: r'@"', end: r'"', illegal: r'\n', contains: [_mode6]),
         ],
       ),
       Mode(
@@ -261,25 +235,15 @@ Mode objectivec(Highlight hljs) {
               r'if else elif endif define undef warning error line pragma ifdef ifndef include',
         },
         contains: [
-          Mode(
-            begin: r'\\\n',
-            relevance: 0,
-          ),
+          Mode(begin: r'\\\n', relevance: 0),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode6,
-            ],
+            contains: [_mode6],
           ),
-          Mode(
-            scope: r'string',
-            begin: r'<.*?>',
-            end: r'$',
-            illegal: r'\n',
-          ),
+          Mode(scope: r'string', begin: r'<.*?>', end: r'$', illegal: r'\n'),
           _mode0,
           _mode3,
         ],
@@ -298,18 +262,9 @@ Mode objectivec(Highlight hljs) {
             r'@implementation',
           ],
         },
-        contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0)],
       ),
-      Mode(
-        begin: r'\.[a-zA-Z_]\w*',
-        relevance: 0,
-      ),
+      Mode(begin: r'\.[a-zA-Z_]\w*', relevance: 0),
     ],
   );
 }

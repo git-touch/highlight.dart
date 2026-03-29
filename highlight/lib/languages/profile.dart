@@ -29,9 +29,7 @@ Mode profile(Highlight hljs) {
       Mode(
         begin: r'function calls',
         end: r'$',
-        contains: [
-          _mode0,
-        ],
+        contains: [_mode0],
         relevance: 10,
       ),
       Mode(
@@ -39,18 +37,14 @@ Mode profile(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode1,
-        ],
+        contains: [_mode1],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode1,
-        ],
+        contains: [_mode1],
       ),
       Mode(
         scope: r'string',

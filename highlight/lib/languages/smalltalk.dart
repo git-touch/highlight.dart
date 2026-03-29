@@ -12,9 +12,7 @@ Mode smalltalk(Highlight hljs) {
   _mode0.begin = r"'";
   _mode0.end = r"'";
   _mode0.illegal = r'\n';
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'number';
@@ -27,17 +25,8 @@ Mode smalltalk(Highlight hljs) {
   _mode4.begin = r'\$.{1}';
   return Mode(
     name: r'Smalltalk',
-    aliases: [
-      r'st',
-    ],
-    keywords: [
-      r'self',
-      r'super',
-      r'nil',
-      r'true',
-      r'false',
-      r'thisContext',
-    ],
+    aliases: [r'st'],
+    keywords: [r'self', r'super', r'nil', r'true', r'false', r'thisContext'],
     contains: [
       Mode(
         scope: r'comment',
@@ -58,15 +47,8 @@ Mode smalltalk(Highlight hljs) {
         ],
       ),
       _mode0,
-      Mode(
-        scope: r'type',
-        begin: r'\b[A-Z][A-Za-z0-9_]*',
-        relevance: 0,
-      ),
-      Mode(
-        begin: r'[a-z][a-zA-Z0-9_]*:',
-        relevance: 0,
-      ),
+      Mode(scope: r'type', begin: r'\b[A-Z][A-Za-z0-9_]*', relevance: 0),
+      Mode(begin: r'[a-z][a-zA-Z0-9_]*:', relevance: 0),
       _mode2,
       _mode3,
       _mode4,
@@ -75,21 +57,12 @@ Mode smalltalk(Highlight hljs) {
         returnBegin: true,
         end: r'\|',
         illegal: r'\S',
-        contains: [
-          Mode(
-            begin: r'(\|[ ]*)?[a-z][a-zA-Z0-9_]*',
-          ),
-        ],
+        contains: [Mode(begin: r'(\|[ ]*)?[a-z][a-zA-Z0-9_]*')],
       ),
       Mode(
         begin: r'#\(',
         end: r'\)',
-        contains: [
-          _mode0,
-          _mode4,
-          _mode2,
-          _mode3,
-        ],
+        contains: [_mode0, _mode4, _mode2, _mode3],
       ),
     ],
   );

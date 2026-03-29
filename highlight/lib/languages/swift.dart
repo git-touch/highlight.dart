@@ -113,10 +113,7 @@ Mode swift(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -127,11 +124,7 @@ Mode swift(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    r'self',
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [r'self', _mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -142,21 +135,10 @@ Mode swift(Highlight hljs) {
   _mode6.begin = r'<';
   _mode6.end = r'>';
   _mode6.keywords = r'repeat each';
-  _mode6.contains = [
-    _mode0,
-    _mode3,
-    _mode7,
-  ];
+  _mode6.contains = [_mode0, _mode3, _mode7];
   _mode7.match = r'(?=\b[A-Z])';
   _mode7.relevance = 0;
-  _mode7.contains = [
-    _mode8,
-    _mode9,
-    _mode10,
-    _mode11,
-    _mode12,
-    _mode13,
-  ];
+  _mode7.contains = [_mode8, _mode9, _mode10, _mode11, _mode12, _mode13];
   _mode8.scope = r'type';
   _mode8.match =
       r'(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])+';
@@ -278,11 +260,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode13.contains = [
     _mode0,
@@ -296,28 +274,19 @@ Mode swift(Highlight hljs) {
     _mode21,
     _mode7,
   ];
-  _mode14.match = [
-    r'\.',
-    r'(?:\bProtocol\b|\bType\b|\binit\b|\bself\b)',
-  ];
-  _mode14.scope = {
-    2: r'keyword',
-  };
+  _mode14.match = [r'\.', r'(?:\bProtocol\b|\bType\b|\binit\b|\bself\b)'];
+  _mode14.scope = {2: r'keyword'};
   _mode15.match =
       r'\.(?:actor|any|associatedtype|async|await|as\?|as!|as|borrowing|break|case|catch|class|consume|consuming|continue|convenience|copy|default|defer|deinit|didSet|distributed|do|dynamic|each|else|enum|extension|fallthrough|fileprivate\(set\)|fileprivate|final|for|func|get|guard|if|import|indirect|infix|init\?|init!|inout|internal\(set\)|internal|in|is|isolated|nonisolated|lazy|let|macro|mutating|nonmutating|open\(set\)|open|operator|optional|override|package|postfix|precedencegroup|prefix|private\(set\)|private|protocol|public\(set\)|public|repeat|required|rethrows|return|set|some|static|struct|subscript|super|switch|throws|throw|try\?|try!|try|typealias|unowned\(safe\)|unowned\(unsafe\)|unowned|var|weak|where|while|willSet)';
   _mode15.relevance = 0;
-  _mode16.variants = [
-    _mode17,
-  ];
+  _mode16.variants = [_mode17];
   _mode17.scope = r'keyword';
   _mode17.match =
       r'(?:\bas\?\B|\bas!\B|\bfileprivate\(set\)\B|\binit\?\B|\binit!\B|\binternal\(set\)\B|\bopen\(set\)\B|\bprivate\(set\)\B|\bpublic\(set\)\B|\btry\?\B|\btry!\B|\bunowned\(safe\)\B|\bunowned\(unsafe\)\B|\bAny\b|\bSelf\b|\binit\b|\bself\b)';
   _mode18.match = r'(@|#(un)?)available';
   _mode18.scope = r'keyword';
   _mode18.starts = _mode19;
-  _mode19.contains = [
-    _mode20,
-  ];
+  _mode19.contains = [_mode20];
   _mode20.begin = r'\(';
   _mode20.end = r'\)';
   _mode20.keywords = [
@@ -333,32 +302,19 @@ Mode swift(Highlight hljs) {
     r'tvOSApplicationExtension',
     r'swift',
   ];
-  _mode20.contains = [
-    _mode21,
-    _mode22,
-    _mode25,
-    _mode30,
-  ];
+  _mode20.contains = [_mode21, _mode22, _mode25, _mode30];
   _mode21.match = r'->';
   _mode21.relevance = 0;
   _mode22.scope = r'operator';
   _mode22.relevance = 0;
-  _mode22.variants = [
-    _mode23,
-    _mode24,
-  ];
+  _mode22.variants = [_mode23, _mode24];
   _mode23.match =
       r'(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])(?:(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])|[\u0300-\u036F]|[\u1DC0-\u1DFF]|[\u20D0-\u20FF]|[\uFE00-\uFE0F]|[\uFE20-\uFE2F])*';
   _mode24.match =
       r'\.(\.|(?:(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])|[\u0300-\u036F]|[\u1DC0-\u1DFF]|[\u20D0-\u20FF]|[\uFE00-\uFE0F]|[\uFE20-\uFE2F]))+';
   _mode25.scope = r'number';
   _mode25.relevance = 0;
-  _mode25.variants = [
-    _mode26,
-    _mode27,
-    _mode28,
-    _mode29,
-  ];
+  _mode25.variants = [_mode26, _mode27, _mode28, _mode29];
   _mode26.match = r'\b(([0-9]_*)+)(\.(([0-9]_*)+))?([eE][+-]?(([0-9]_*)+))?\b';
   _mode27.match =
       r'\b0x(([0-9a-fA-F]_*)+)(\.(([0-9a-fA-F]_*)+))?([pP][+-]?(([0-9]_*)+))?\b';
@@ -377,16 +333,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode31.begin = r'"""';
   _mode31.end = r'"""';
-  _mode31.contains = [
-    _mode32,
-    _mode35,
-    _mode36,
-  ];
+  _mode31.contains = [_mode32, _mode35, _mode36];
   _mode32.scope = r'subst';
-  _mode32.variants = [
-    _mode33,
-    _mode34,
-  ];
+  _mode32.variants = [_mode33, _mode34];
   _mode33.match = '\\\\[0\\\\tnr"\']';
   _mode34.match = r'\\u\{[0-9a-fA-F]{1,8}\}';
   _mode35.scope = r'subst';
@@ -500,11 +449,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode36.contains = [
     _mode14,
@@ -553,16 +498,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode43.begin = r'#"""';
   _mode43.end = r'"""#';
-  _mode43.contains = [
-    _mode44,
-    _mode47,
-    _mode48,
-  ];
+  _mode43.contains = [_mode44, _mode47, _mode48];
   _mode44.scope = r'subst';
-  _mode44.variants = [
-    _mode45,
-    _mode46,
-  ];
+  _mode44.variants = [_mode45, _mode46];
   _mode45.match = '\\\\#[0\\\\tnr"\']';
   _mode46.match = r'\\#u\{[0-9a-fA-F]{1,8}\}';
   _mode47.scope = r'subst';
@@ -676,11 +614,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode48.contains = [
     _mode14,
@@ -716,16 +650,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode50.begin = r'##"""';
   _mode50.end = r'"""##';
-  _mode50.contains = [
-    _mode51,
-    _mode54,
-    _mode55,
-  ];
+  _mode50.contains = [_mode51, _mode54, _mode55];
   _mode51.scope = r'subst';
-  _mode51.variants = [
-    _mode52,
-    _mode53,
-  ];
+  _mode51.variants = [_mode52, _mode53];
   _mode52.match = '\\\\##[0\\\\tnr"\']';
   _mode53.match = r'\\##u\{[0-9a-fA-F]{1,8}\}';
   _mode54.scope = r'subst';
@@ -839,11 +766,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode55.contains = [
     _mode14,
@@ -879,16 +802,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode57.begin = r'###"""';
   _mode57.end = r'"""###';
-  _mode57.contains = [
-    _mode58,
-    _mode61,
-    _mode62,
-  ];
+  _mode57.contains = [_mode58, _mode61, _mode62];
   _mode58.scope = r'subst';
-  _mode58.variants = [
-    _mode59,
-    _mode60,
-  ];
+  _mode58.variants = [_mode59, _mode60];
   _mode59.match = '\\\\###[0\\\\tnr"\']';
   _mode60.match = r'\\###u\{[0-9a-fA-F]{1,8}\}';
   _mode61.scope = r'subst';
@@ -1002,11 +918,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode62.contains = [
     _mode14,
@@ -1042,15 +954,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode64.begin = r'"';
   _mode64.end = r'"';
-  _mode64.contains = [
-    _mode65,
-    _mode68,
-  ];
+  _mode64.contains = [_mode65, _mode68];
   _mode65.scope = r'subst';
-  _mode65.variants = [
-    _mode66,
-    _mode67,
-  ];
+  _mode65.variants = [_mode66, _mode67];
   _mode66.match = '\\\\[0\\\\tnr"\']';
   _mode67.match = r'\\u\{[0-9a-fA-F]{1,8}\}';
   _mode68.scope = r'subst';
@@ -1162,11 +1068,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode68.contains = [
     _mode14,
@@ -1202,15 +1104,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode70.begin = r'#"';
   _mode70.end = r'"#';
-  _mode70.contains = [
-    _mode71,
-    _mode74,
-  ];
+  _mode70.contains = [_mode71, _mode74];
   _mode71.scope = r'subst';
-  _mode71.variants = [
-    _mode72,
-    _mode73,
-  ];
+  _mode71.variants = [_mode72, _mode73];
   _mode72.match = '\\\\#[0\\\\tnr"\']';
   _mode73.match = r'\\#u\{[0-9a-fA-F]{1,8}\}';
   _mode74.scope = r'subst';
@@ -1322,11 +1218,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode74.contains = [
     _mode14,
@@ -1362,15 +1254,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode76.begin = r'##"';
   _mode76.end = r'"##';
-  _mode76.contains = [
-    _mode77,
-    _mode80,
-  ];
+  _mode76.contains = [_mode77, _mode80];
   _mode77.scope = r'subst';
-  _mode77.variants = [
-    _mode78,
-    _mode79,
-  ];
+  _mode77.variants = [_mode78, _mode79];
   _mode78.match = '\\\\##[0\\\\tnr"\']';
   _mode79.match = r'\\##u\{[0-9a-fA-F]{1,8}\}';
   _mode80.scope = r'subst';
@@ -1482,11 +1368,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode80.contains = [
     _mode14,
@@ -1522,15 +1404,9 @@ Mode swift(Highlight hljs) {
   ];
   _mode82.begin = r'###"';
   _mode82.end = r'"###';
-  _mode82.contains = [
-    _mode83,
-    _mode86,
-  ];
+  _mode82.contains = [_mode83, _mode86];
   _mode83.scope = r'subst';
-  _mode83.variants = [
-    _mode84,
-    _mode85,
-  ];
+  _mode83.variants = [_mode84, _mode85];
   _mode84.match = '\\\\###[0\\\\tnr"\']';
   _mode85.match = r'\\###u\{[0-9a-fA-F]{1,8}\}';
   _mode86.scope = r'subst';
@@ -1642,11 +1518,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode86.contains = [
     _mode14,
@@ -1793,11 +1665,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode90.contains = [
     _mode91,
@@ -1822,10 +1690,7 @@ Mode swift(Highlight hljs) {
       r'(?:(?=(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*\s*:)|(?=(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*\s+(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*\s*:))';
   _mode91.end = r':';
   _mode91.relevance = 0;
-  _mode91.contains = [
-    _mode92,
-    _mode93,
-  ];
+  _mode91.contains = [_mode92, _mode93];
   _mode92.scope = r'keyword';
   _mode92.match = r'\b_\b';
   _mode93.scope = r'params';
@@ -1939,11 +1804,7 @@ Mode swift(Highlight hljs) {
       r'#sourceLocation',
       r'#warning',
     ],
-    r'literal': [
-      r'false',
-      r'nil',
-      r'true',
-    ],
+    r'literal': [r'false', r'nil', r'true'],
   };
   _mode94.contains = [
     r'self',
@@ -1973,56 +1834,34 @@ Mode swift(Highlight hljs) {
   _mode95.keywords = r'_|0';
   _mode95.relevance = 0;
   _mode96.scope = r'regexp';
-  _mode96.variants = [
-    _mode97,
-    _mode101,
-    _mode103,
-    _mode105,
-  ];
+  _mode96.variants = [_mode97, _mode101, _mode103, _mode105];
   _mode97.begin = r'###\/';
   _mode97.end = r'\/###';
-  _mode97.contains = [
-    _mode98,
-    _mode99,
-    _mode100,
-  ];
+  _mode97.contains = [_mode98, _mode99, _mode100];
   _mode98.begin = r'\\[\s\S]';
   _mode98.relevance = 0;
   _mode99.begin = r'\[';
   _mode99.end = r'\]';
   _mode99.relevance = 0;
-  _mode99.contains = [
-    _mode98,
-  ];
+  _mode99.contains = [_mode98];
   _mode100.scope = r'comment';
   _mode100.begin = r'#(?!.*\/###)';
   _mode100.end = r'$';
   _mode101.begin = r'##\/';
   _mode101.end = r'\/##';
-  _mode101.contains = [
-    _mode98,
-    _mode99,
-    _mode102,
-  ];
+  _mode101.contains = [_mode98, _mode99, _mode102];
   _mode102.scope = r'comment';
   _mode102.begin = r'#(?!.*\/##)';
   _mode102.end = r'$';
   _mode103.begin = r'#\/';
   _mode103.end = r'\/#';
-  _mode103.contains = [
-    _mode98,
-    _mode99,
-    _mode104,
-  ];
+  _mode103.contains = [_mode98, _mode99, _mode104];
   _mode104.scope = r'comment';
   _mode104.begin = r'#(?!.*\/#)';
   _mode104.end = r'$';
   _mode105.begin = r'\/[^\s](?=[^/\n]*\/)';
   _mode105.end = r'\/';
-  _mode105.contains = [
-    _mode98,
-    _mode99,
-  ];
+  _mode105.contains = [_mode98, _mode99];
   _mode106.match = r'\s+';
   _mode106.relevance = 0;
   return Mode(
@@ -2132,11 +1971,7 @@ Mode swift(Highlight hljs) {
         r'#sourceLocation',
         r'#warning',
       ],
-      r'literal': [
-        r'false',
-        r'nil',
-        r'true',
-      ],
+      r'literal': [r'false', r'nil', r'true'],
     },
     contains: [
       _mode0,
@@ -2147,33 +1982,14 @@ Mode swift(Highlight hljs) {
           r'\s+',
           r'(?:`(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*`|(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*|(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])(?:(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])|[\u0300-\u036F]|[\u1DC0-\u1DFF]|[\u20D0-\u20FF]|[\uFE00-\uFE0F]|[\uFE20-\uFE2F])*)',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
-        contains: [
-          _mode6,
-          _mode90,
-          _mode106,
-        ],
-        illegal: [
-          r'\[',
-          r'%',
-        ],
+        scope: {1: r'keyword', 3: r'title.function'},
+        contains: [_mode6, _mode90, _mode106],
+        illegal: [r'\[', r'%'],
       ),
       Mode(
-        match: [
-          r'\b(?:subscript|init[?!]?)',
-          r'\s*(?=[<(])',
-        ],
-        scope: {
-          1: r'keyword',
-        },
-        contains: [
-          _mode6,
-          _mode90,
-          _mode106,
-        ],
+        match: [r'\b(?:subscript|init[?!]?)', r'\s*(?=[<(])'],
+        scope: {1: r'keyword'},
+        contains: [_mode6, _mode90, _mode106],
         illegal: r'\[|%',
       ),
       Mode(
@@ -2184,22 +2000,11 @@ Mode swift(Highlight hljs) {
           r'\s+',
           r'\b[A-Za-z_][A-Za-z0-9_]*\b',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'keyword',
-          5: r'title.function',
-        },
+        scope: {1: r'keyword', 3: r'keyword', 5: r'title.function'},
       ),
       Mode(
-        match: [
-          r'class\b',
-          r'\s+',
-          r'var\b',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'keyword',
-        },
+        match: [r'class\b', r'\s+', r'var\b'],
+        scope: {1: r'keyword', 3: r'keyword'},
       ),
       Mode(
         begin: [
@@ -2208,10 +2013,7 @@ Mode swift(Highlight hljs) {
           r'(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])(?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*',
           r'\s*',
         ],
-        beginScope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        beginScope: {1: r'keyword', 3: r'title.class'},
         keywords: {
           r'$pattern': r'(?:\b\w+|#\w+)',
           r'keyword': [
@@ -2317,11 +2119,7 @@ Mode swift(Highlight hljs) {
             r'#sourceLocation',
             r'#warning',
           ],
-          r'literal': [
-            r'false',
-            r'nil',
-            r'true',
-          ],
+          r'literal': [r'false', r'nil', r'true'],
         },
         contains: [
           _mode6,
@@ -2436,11 +2234,7 @@ Mode swift(Highlight hljs) {
                 r'#sourceLocation',
                 r'#warning',
               ],
-              r'literal': [
-                r'false',
-                r'nil',
-                r'true',
-              ],
+              r'literal': [r'false', r'nil', r'true'],
             },
             contains: [
               Mode(
@@ -2462,10 +2256,7 @@ Mode swift(Highlight hljs) {
           r'\s+',
           r'(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])(?:(?:[/=\-+!*%<>&|^~?]|[\u00A1-\u00A7]|[\u00A9\u00AB]|[\u00AC\u00AE]|[\u00B0\u00B1]|[\u00B6\u00BB\u00BF\u00D7\u00F7]|[\u2016-\u2017]|[\u2020-\u2027]|[\u2030-\u203E]|[\u2041-\u2053]|[\u2055-\u205E]|[\u2190-\u23FF]|[\u2500-\u2775]|[\u2794-\u2BFF]|[\u2E00-\u2E7F]|[\u3001-\u3003]|[\u3008-\u3020]|[\u3030])|[\u0300-\u036F]|[\u1DC0-\u1DFF]|[\u20D0-\u20FF]|[\uFE00-\uFE0F]|[\uFE20-\uFE2F])*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title',
-        },
+        scope: {1: r'keyword', 3: r'title'},
       ),
       Mode(
         begin: [
@@ -2473,13 +2264,8 @@ Mode swift(Highlight hljs) {
           r'\s+',
           r'[A-Z](?:(?:[a-zA-Z_]|[\u00A8\u00AA\u00AD\u00AF\u00B2-\u00B5\u00B7-\u00BA]|[\u00BC-\u00BE\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]|[\u0100-\u02FF\u0370-\u167F\u1681-\u180D\u180F-\u1DBF]|[\u1E00-\u1FFF]|[\u200B-\u200D\u202A-\u202E\u203F-\u2040\u2054\u2060-\u206F]|[\u2070-\u20CF\u2100-\u218F\u2460-\u24FF\u2776-\u2793]|[\u2C00-\u2DFF\u2E80-\u2FFF]|[\u3004-\u3007\u3021-\u302F\u3031-\u303F\u3040-\uD7FF]|[\uF900-\uFD3D\uFD40-\uFDCF\uFDF0-\uFE1F\uFE30-\uFE44]|[\uFE47-\uFEFE\uFF00-\uFFFD])|\d|[\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F])*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title',
-        },
-        contains: [
-          _mode7,
-        ],
+        scope: {1: r'keyword', 3: r'title'},
+        contains: [_mode7],
         keywords: [
           r'assignment',
           r'associativity',
@@ -2497,10 +2283,7 @@ Mode swift(Highlight hljs) {
       Mode(
         beginKeywords: r'import',
         end: r'$',
-        contains: [
-          _mode0,
-          _mode3,
-        ],
+        contains: [_mode0, _mode3],
         relevance: 0,
       ),
       _mode96,

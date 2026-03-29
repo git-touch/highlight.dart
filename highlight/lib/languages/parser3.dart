@@ -73,18 +73,9 @@ Mode parser3(Highlight hljs) {
         scope: r'title',
         begin: r'@[\w\-]+\[[\w^;\-]*\](?:\[[\w^;\-]*\])?(?:.*)$',
       ),
-      Mode(
-        scope: r'variable',
-        begin: r'\$\{?[\w\-.:]+\}?',
-      ),
-      Mode(
-        scope: r'keyword',
-        begin: r'\^[\w\-.:]+',
-      ),
-      Mode(
-        scope: r'number',
-        begin: r'\^#[0-9a-fA-F]+',
-      ),
+      Mode(scope: r'variable', begin: r'\$\{?[\w\-.:]+\}?'),
+      Mode(scope: r'keyword', begin: r'\^[\w\-.:]+'),
+      Mode(scope: r'number', begin: r'\^#[0-9a-fA-F]+'),
       Mode(
         scope: r'number',
         begin:

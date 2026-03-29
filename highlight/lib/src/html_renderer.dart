@@ -23,7 +23,7 @@ String scopeToCSSClass(String name, {required String prefix}) {
     final first = pieces.removeAt(0);
     return [
       '$prefix$first',
-      ...pieces.asMap().entries.map((e) => '${e.value}${"_" * (e.key + 1)}')
+      ...pieces.asMap().entries.map((e) => '${e.value}${"_" * (e.key + 1)}'),
     ].join(' ');
   }
   return '$prefix$name';
@@ -34,7 +34,7 @@ class HTMLRenderer implements HTMLRendererInterface {
   final String classPrefix;
 
   HTMLRenderer(TokenTree parseTree, Map<String, dynamic> options)
-      : classPrefix = (options['classPrefix'] as String?) ?? 'hljs-' {
+    : classPrefix = (options['classPrefix'] as String?) ?? 'hljs-' {
     parseTree.walk(this);
   }
 

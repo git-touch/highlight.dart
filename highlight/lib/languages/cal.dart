@@ -10,9 +10,7 @@ Mode cal(Highlight hljs) {
   _mode0.scope = r'string';
   _mode0.begin = r"'";
   _mode0.end = r"'";
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r"''";
   _mode2.scope = r'string';
   _mode2.begin = r'(#\d+)+';
@@ -55,23 +53,11 @@ Mode cal(Highlight hljs) {
     },
     illegal: r'\/\*',
     contains: [
-      Mode(
-        match: r'[\w]+(?=\=)',
-        scope: r'attribute',
-        relevance: 0,
-      ),
+      Mode(match: r'[\w]+(?=\=)', scope: r'attribute', relevance: 0),
       _mode0,
       _mode2,
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?(DT|D|T)',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'"',
-        end: r'"',
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?(DT|D|T)', relevance: 0),
+      Mode(scope: r'string', begin: r'"', end: r'"'),
       _mode3,
       Mode(
         match: [
@@ -85,24 +71,11 @@ Mode cal(Highlight hljs) {
           r'$',
         ],
         relevance: 3,
-        scope: {
-          1: r'keyword',
-          3: r'type',
-          5: r'number',
-          7: r'title',
-        },
+        scope: {1: r'keyword', 3: r'type', 5: r'number', 7: r'title'},
       ),
       Mode(
-        match: [
-          r'procedure',
-          r'\s+',
-          r'[a-zA-Z_][\w@]*',
-          r'\s*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        match: [r'procedure', r'\s+', r'[a-zA-Z_][\w@]*', r'\s*'],
+        scope: {1: r'keyword', 3: r'title.function'},
         contains: [
           Mode(
             scope: r'params',
@@ -136,11 +109,7 @@ Mode cal(Highlight hljs) {
               r'with',
               r'var',
             ],
-            contains: [
-              _mode0,
-              _mode2,
-              _mode3,
-            ],
+            contains: [_mode0, _mode2, _mode3],
           ),
           Mode(
             scope: r'comment',

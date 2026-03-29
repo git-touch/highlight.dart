@@ -10,18 +10,11 @@ Mode node_repl(Highlight hljs) {
         scope: r'meta.prompt',
         starts: Mode(
           end: r' |$',
-          starts: Mode(
-            end: r'$',
-            subLanguage: r'javascript',
-          ),
+          starts: Mode(end: r'$', subLanguage: r'javascript'),
         ),
         variants: [
-          Mode(
-            begin: r'^>(?=[ ]|$)',
-          ),
-          Mode(
-            begin: r'^\.\.\.(?=[ ]|$)',
-          ),
+          Mode(begin: r'^>(?=[ ]|$)'),
+          Mode(begin: r'^\.\.\.(?=[ ]|$)'),
         ],
       ),
     ],

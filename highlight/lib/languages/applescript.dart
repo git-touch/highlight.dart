@@ -12,9 +12,7 @@ Mode applescript(Highlight hljs) {
   _mode0.scope = r'string';
   _mode0.begin = r'"';
   _mode0.end = r'"';
-  _mode0.contains = [
-    _mode1,
-  ];
+  _mode0.contains = [_mode1];
   _mode1.begin = r'\\[\s\S]';
   _mode1.relevance = 0;
   _mode2.scope = r'number';
@@ -24,10 +22,7 @@ Mode applescript(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'--';
   _mode3.end = r'$';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -37,9 +32,7 @@ Mode applescript(Highlight hljs) {
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'AppleScript',
-    aliases: [
-      r'osascript',
-    ],
+    aliases: [r'osascript'],
     keywords: {
       r'keyword':
           r'about above after against and around as at back before beginning behind below beneath beside between but by considering contain contains continue copy div does eighth else end equal equals error every exit fifth first for fourth from front get given global if ignoring in into is it its last local me middle mod my ninth not of on onto or over prop property put ref reference repeat returning script second set seventh since sixth some tell tenth that the|0 then third through thru timeout times to transaction try until where while whose with without',
@@ -56,10 +49,7 @@ Mode applescript(Highlight hljs) {
         begin:
             r'\b(?:clipboard info|the clipboard|info for|list (disks|folder)|mount volume|path to|(close|open for) access|(get|set) eof|current date|do shell script|get volume settings|random number|set volume|system attribute|system info|time to GMT|(load|run|store) script|scripting components|ASCII (character|number)|localized string|choose (application|color|file|file name|folder|from list|remote application|URL)|display (alert|dialog))\b',
       ),
-      Mode(
-        scope: r'built_in',
-        begin: r'^\s*return\b',
-      ),
+      Mode(scope: r'built_in', begin: r'^\s*return\b'),
       Mode(
         scope: r'literal',
         begin: r'\b(text item delimiters|current application|missing value)\b',
@@ -73,20 +63,12 @@ Mode applescript(Highlight hljs) {
         beginKeywords: r'on',
         illegal: r'[${=;\n]',
         contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
+          Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
           Mode(
             scope: r'params',
             begin: r'\(',
             end: r'\)',
-            contains: [
-              r'self',
-              _mode2,
-              _mode0,
-            ],
+            contains: [r'self', _mode2, _mode0],
           ),
         ],
       ),

@@ -10,10 +10,7 @@ Mode ebnf(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'\(\*';
   _mode0.end = r'\*\)';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -28,19 +25,13 @@ Mode ebnf(Highlight hljs) {
     illegal: r'\S',
     contains: [
       _mode0,
-      Mode(
-        scope: r'attribute',
-        begin: r'^[ ]*[a-zA-Z]+([\s_-]+[a-zA-Z]+)*',
-      ),
+      Mode(scope: r'attribute', begin: r'^[ ]*[a-zA-Z]+([\s_-]+[a-zA-Z]+)*'),
       Mode(
         begin: r'=',
         end: r'[.;]',
         contains: [
           _mode0,
-          Mode(
-            scope: r'meta',
-            begin: r'\?.*\?',
-          ),
+          Mode(scope: r'meta', begin: r'\?.*\?'),
           Mode(
             scope: r'string',
             variants: [
@@ -49,23 +40,16 @@ Mode ebnf(Highlight hljs) {
                 begin: r"'",
                 end: r"'",
                 illegal: r'\n',
-                contains: [
-                  _mode3,
-                ],
+                contains: [_mode3],
               ),
               Mode(
                 scope: r'string',
                 begin: r'"',
                 end: r'"',
                 illegal: r'\n',
-                contains: [
-                  _mode3,
-                ],
+                contains: [_mode3],
               ),
-              Mode(
-                begin: r'`',
-                end: r'`',
-              ),
+              Mode(begin: r'`', end: r'`'),
             ],
           ),
         ],

@@ -14,10 +14,7 @@ Mode lua(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'--(?!\[=*\[)';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -28,17 +25,11 @@ Mode lua(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'--\[=*\[';
   _mode3.end = r'\]=*\]';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-    _mode6,
-  ];
+  _mode3.contains = [_mode4, _mode5, _mode6];
   _mode3.relevance = 10;
   _mode4.begin = r'\[=*\[';
   _mode4.end = r'\]=*\]';
-  _mode4.contains = [
-    r'self',
-  ];
+  _mode4.contains = [r'self'];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -50,9 +41,7 @@ Mode lua(Highlight hljs) {
   _mode7.relevance = 0;
   return Mode(
     name: r'Lua',
-    aliases: [
-      r'pluto',
-    ],
+    aliases: [r'pluto'],
     keywords: {
       r'$pattern': r'[a-zA-Z_]\w*',
       r'literal': r'true false nil',
@@ -78,10 +67,7 @@ Mode lua(Highlight hljs) {
             scope: r'params',
             begin: r'\(',
             endsWithParent: true,
-            contains: [
-              _mode0,
-              _mode3,
-            ],
+            contains: [_mode0, _mode3],
           ),
           _mode0,
           _mode3,
@@ -98,26 +84,20 @@ Mode lua(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [
-          _mode7,
-        ],
+        contains: [_mode7],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          _mode7,
-        ],
+        contains: [_mode7],
       ),
       Mode(
         scope: r'string',
         begin: r'\[=*\[',
         end: r'\]=*\]',
-        contains: [
-          _mode4,
-        ],
+        contains: [_mode4],
         relevance: 5,
       ),
     ],

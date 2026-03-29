@@ -26,18 +26,11 @@ Mode groovy(Highlight hljs) {
   final Mode _mode20 = Mode();
   final Mode _mode21 = Mode();
   final Mode _mode22 = Mode();
-  _mode0.variants = [
-    _mode1,
-    _mode4,
-    _mode7,
-  ];
+  _mode0.variants = [_mode1, _mode4, _mode7];
   _mode1.scope = r'comment';
   _mode1.begin = r'//';
   _mode1.end = r'$';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -48,10 +41,7 @@ Mode groovy(Highlight hljs) {
   _mode4.scope = r'comment';
   _mode4.begin = r'/\*';
   _mode4.end = r'\*/';
-  _mode4.contains = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.contains = [_mode5, _mode6];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -62,12 +52,7 @@ Mode groovy(Highlight hljs) {
   _mode7.scope = r'comment';
   _mode7.begin = r'/\*\*';
   _mode7.end = r'\*/';
-  _mode7.contains = [
-    _mode8,
-    _mode9,
-    _mode10,
-    _mode11,
-  ];
+  _mode7.contains = [_mode8, _mode9, _mode10, _mode11];
   _mode7.relevance = 0;
   _mode8.begin = r'\w+@';
   _mode8.relevance = 0;
@@ -81,13 +66,7 @@ Mode groovy(Highlight hljs) {
   _mode11.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   _mode12.scope = r'string';
-  _mode12.variants = [
-    _mode13,
-    _mode14,
-    _mode15,
-    _mode16,
-    _mode18,
-  ];
+  _mode12.variants = [_mode13, _mode14, _mode15, _mode16, _mode18];
   _mode13.begin = r'"""';
   _mode13.end = r'"""';
   _mode14.begin = r"'''";
@@ -99,27 +78,18 @@ Mode groovy(Highlight hljs) {
   _mode16.begin = r"'";
   _mode16.end = r"'";
   _mode16.illegal = r'\n';
-  _mode16.contains = [
-    _mode17,
-  ];
+  _mode16.contains = [_mode17];
   _mode17.begin = r'\\[\s\S]';
   _mode17.relevance = 0;
   _mode18.scope = r'string';
   _mode18.begin = r'"';
   _mode18.end = r'"';
   _mode18.illegal = r'\n';
-  _mode18.contains = [
-    _mode17,
-  ];
+  _mode18.contains = [_mode17];
   _mode19.scope = r'regexp';
   _mode19.begin = r'~?\/[^\/\n]+\/';
-  _mode19.contains = [
-    _mode17,
-  ];
-  _mode20.variants = [
-    _mode21,
-    _mode22,
-  ];
+  _mode19.contains = [_mode17];
+  _mode20.variants = [_mode21, _mode22];
   _mode21.scope = r'number';
   _mode21.begin = r'\b(0b[01]+)';
   _mode21.relevance = 0;
@@ -203,32 +173,15 @@ Mode groovy(Highlight hljs) {
           r'\s+',
           r'[a-zA-Z_]\w*',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'@[A-Za-z]+',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'attr',
-        begin: r'[A-Za-z0-9_$]+[ 	]*:',
-        relevance: 0,
-      ),
+      Mode(scope: r'meta', begin: r'@[A-Za-z]+', relevance: 0),
+      Mode(scope: r'attr', begin: r'[A-Za-z0-9_$]+[ 	]*:', relevance: 0),
       Mode(
         begin: r'\?',
         end: r':',
         relevance: 0,
-        contains: [
-          _mode0,
-          _mode12,
-          _mode19,
-          _mode20,
-          r'self',
-        ],
+        contains: [_mode0, _mode12, _mode19, _mode20, r'self'],
       ),
       Mode(
         scope: r'symbol',

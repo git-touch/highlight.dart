@@ -9,19 +9,12 @@ Mode bnf(Highlight hljs) {
   return Mode(
     name: r'Backus–Naur Form',
     contains: [
-      Mode(
-        scope: r'attribute',
-        begin: r'<',
-        end: r'>',
-      ),
+      Mode(scope: r'attribute', begin: r'<', end: r'>'),
       Mode(
         begin: r'::=',
         end: r'$',
         contains: [
-          Mode(
-            begin: r'<',
-            end: r'>',
-          ),
+          Mode(begin: r'<', end: r'>'),
           Mode(
             scope: r'comment',
             begin: r'//',
@@ -63,18 +56,14 @@ Mode bnf(Highlight hljs) {
             begin: r"'",
             end: r"'",
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
         ],
       ),

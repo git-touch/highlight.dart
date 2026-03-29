@@ -80,28 +80,15 @@ Mode typescript(Highlight hljs) {
   final Mode _mode40 = Mode();
   final Mode _mode41 = Mode();
   _mode0.scope = r'comment';
-  _mode0.variants = [
-    _mode1,
-    _mode9,
-    _mode12,
-  ];
+  _mode0.variants = [_mode1, _mode9, _mode12];
   _mode1.scope = r'comment';
   _mode1.begin = r'\/\*\*(?!\/)';
   _mode1.end = r'\*/';
-  _mode1.contains = [
-    _mode2,
-    _mode7,
-    _mode8,
-  ];
+  _mode1.contains = [_mode2, _mode7, _mode8];
   _mode1.relevance = 0;
   _mode2.begin = r'(?=@[A-Za-z]+)';
   _mode2.relevance = 0;
-  _mode2.contains = [
-    _mode3,
-    _mode4,
-    _mode5,
-    _mode6,
-  ];
+  _mode2.contains = [_mode3, _mode4, _mode5, _mode6];
   _mode3.scope = r'doctag';
   _mode3.begin = r'@[A-Za-z]+';
   _mode4.scope = r'type';
@@ -126,10 +113,7 @@ Mode typescript(Highlight hljs) {
   _mode9.scope = r'comment';
   _mode9.begin = r'/\*';
   _mode9.end = r'\*/';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-  ];
+  _mode9.contains = [_mode10, _mode11];
   _mode10.scope = r'doctag';
   _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -140,10 +124,7 @@ Mode typescript(Highlight hljs) {
   _mode12.scope = r'comment';
   _mode12.begin = r'//';
   _mode12.end = r'$';
-  _mode12.contains = [
-    _mode13,
-    _mode14,
-  ];
+  _mode12.contains = [_mode13, _mode14];
   _mode13.scope = r'doctag';
   _mode13.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode13.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -155,27 +136,20 @@ Mode typescript(Highlight hljs) {
   _mode15.begin = r"'";
   _mode15.end = r"'";
   _mode15.illegal = r'\n';
-  _mode15.contains = [
-    _mode16,
-  ];
+  _mode15.contains = [_mode16];
   _mode16.begin = r'\\[\s\S]';
   _mode16.relevance = 0;
   _mode17.scope = r'string';
   _mode17.begin = r'"';
   _mode17.end = r'"';
   _mode17.illegal = r'\n';
-  _mode17.contains = [
-    _mode16,
-  ];
+  _mode17.contains = [_mode16];
   _mode18.begin = r'.?html`';
   _mode18.end = r'';
   _mode18.starts = _mode19;
   _mode19.end = r'`';
   _mode19.returnEnd = false;
-  _mode19.contains = [
-    _mode16,
-    _mode20,
-  ];
+  _mode19.contains = [_mode16, _mode20];
   _mode19.subLanguage = r'xml';
   _mode20.scope = r'subst';
   _mode20.begin = r'\$\{';
@@ -235,14 +209,7 @@ Mode typescript(Highlight hljs) {
       r'override',
       r'satisfies',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'null',
-      r'undefined',
-      r'NaN',
-      r'Infinity',
-    ],
+    r'literal': [r'true', r'false', r'null', r'undefined', r'NaN', r'Infinity'],
     r'built_in': [
       r'setInterval',
       r'setTimeout',
@@ -348,28 +315,19 @@ Mode typescript(Highlight hljs) {
   _mode21.starts = _mode22;
   _mode22.end = r'`';
   _mode22.returnEnd = false;
-  _mode22.contains = [
-    _mode16,
-    _mode20,
-  ];
+  _mode22.contains = [_mode16, _mode20];
   _mode22.subLanguage = r'css';
   _mode23.begin = r'.?gql`';
   _mode23.end = r'';
   _mode23.starts = _mode24;
   _mode24.end = r'`';
   _mode24.returnEnd = false;
-  _mode24.contains = [
-    _mode16,
-    _mode20,
-  ];
+  _mode24.contains = [_mode16, _mode20];
   _mode24.subLanguage = r'graphql';
   _mode25.scope = r'string';
   _mode25.begin = r'`';
   _mode25.end = r'`';
-  _mode25.contains = [
-    _mode16,
-    _mode20,
-  ];
+  _mode25.contains = [_mode16, _mode20];
   _mode26.match = r'\$\d+';
   _mode27.scope = r'number';
   _mode27.variants = [
@@ -448,14 +406,7 @@ Mode typescript(Highlight hljs) {
       r'override',
       r'satisfies',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'null',
-      r'undefined',
-      r'NaN',
-      r'Infinity',
-    ],
+    r'literal': [r'true', r'false', r'null', r'undefined', r'NaN', r'Infinity'],
     r'built_in': [
       r'setInterval',
       r'setTimeout',
@@ -613,14 +564,7 @@ Mode typescript(Highlight hljs) {
       r'override',
       r'satisfies',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'null',
-      r'undefined',
-      r'NaN',
-      r'Infinity',
-    ],
+    r'literal': [r'true', r'false', r'null', r'undefined', r'NaN', r'Infinity'],
     r'built_in': [
       r'setInterval',
       r'setTimeout',
@@ -846,14 +790,7 @@ Mode typescript(Highlight hljs) {
       r'override',
       r'satisfies',
     ],
-    r'literal': [
-      r'true',
-      r'false',
-      r'null',
-      r'undefined',
-      r'NaN',
-      r'Infinity',
-    ],
+    r'literal': [r'true', r'false', r'null', r'undefined', r'NaN', r'Infinity'],
     r'built_in': [
       r'setInterval',
       r'setTimeout',
@@ -956,20 +893,11 @@ Mode typescript(Highlight hljs) {
     _mode35,
     _mode36,
     _mode37,
-    [
-      _mode38,
-      _mode39,
-      _mode40,
-    ],
+    [_mode38, _mode39, _mode40],
   ];
   return Mode(
     name: r'TypeScript',
-    aliases: [
-      r'ts',
-      r'tsx',
-      r'mts',
-      r'cts',
-    ],
+    aliases: [r'ts', r'tsx', r'mts', r'cts'],
     keywords: {
       r'$pattern': r'[A-Za-z$_][0-9A-Za-z$_]*',
       r'keyword': [
@@ -1136,27 +1064,14 @@ Mode typescript(Highlight hljs) {
         _mode35,
         _mode36,
         _mode37,
-        [
-          _mode38,
-          _mode39,
-          _mode40,
-        ],
+        [_mode38, _mode39, _mode40],
       ],
       r'CLASS_REFERENCE': _mode38,
     },
     illegal: r'#(?![$_A-z])',
     contains: [
-      Mode(
-        scope: r'meta',
-        begin: r'^#![ ]*\/',
-        end: r'$',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'meta',
-        relevance: 10,
-        begin: '^\\s*[\'"]use strict[\'"]',
-      ),
+      Mode(scope: r'meta', begin: r'^#![ ]*\/', end: r'$', relevance: 0),
+      Mode(scope: r'meta', relevance: 10, begin: '^\\s*[\'"]use strict[\'"]'),
       _mode15,
       _mode17,
       _mode18,
@@ -1164,9 +1079,7 @@ Mode typescript(Highlight hljs) {
       _mode23,
       _mode25,
       _mode0,
-      Mode(
-        match: r'\$\d+',
-      ),
+      Mode(match: r'\$\d+'),
       _mode27,
       _mode38,
       _mode39,
@@ -1181,13 +1094,8 @@ Mode typescript(Highlight hljs) {
           r'(?=(\([^()]*(\([^()]*(\([^()]*\)[^()]*)*\)[^()]*)*\)|[a-zA-Z_]\w*)\s*=>)',
         ],
         keywords: r'async',
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
-        contains: [
-          _mode41,
-        ],
+        scope: {1: r'keyword', 3: r'title.function'},
+        contains: [_mode41],
       ),
       Mode(
         begin:
@@ -1202,14 +1110,7 @@ Mode typescript(Highlight hljs) {
             end: r'\/[gimuy]*',
             contains: [
               _mode16,
-              Mode(
-                begin: r'\[',
-                end: r'\]',
-                relevance: 0,
-                contains: [
-                  _mode16,
-                ],
-              ),
+              Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [_mode16]),
             ],
           ),
           Mode(
@@ -1222,14 +1123,8 @@ Mode typescript(Highlight hljs) {
               Mode(
                 scope: r'params',
                 variants: [
-                  Mode(
-                    begin: r'[a-zA-Z_]\w*',
-                    relevance: 0,
-                  ),
-                  Mode(
-                    begin: r'\(\s*\)',
-                    skip: true,
-                  ),
+                  Mode(begin: r'[a-zA-Z_]\w*', relevance: 0),
+                  Mode(begin: r'\(\s*\)', skip: true),
                   Mode(
                     begin: r'(\s*)\(',
                     end: r'\)',
@@ -1400,34 +1295,19 @@ Mode typescript(Highlight hljs) {
                       _mode35,
                       _mode36,
                       _mode37,
-                      [
-                        _mode38,
-                        _mode39,
-                        _mode40,
-                      ],
+                      [_mode38, _mode39, _mode40],
                     ],
                   ),
                 ],
               ),
             ],
           ),
-          Mode(
-            begin: r',',
-            relevance: 0,
-          ),
-          Mode(
-            match: r'\s+',
-            relevance: 0,
-          ),
+          Mode(begin: r',', relevance: 0),
+          Mode(match: r'\s+', relevance: 0),
           Mode(
             variants: [
-              Mode(
-                begin: r'<>',
-                end: r'</>',
-              ),
-              Mode(
-                match: r'<[A-Za-z0-9\\._:-]+\s*\/>',
-              ),
+              Mode(begin: r'<>', end: r'</>'),
+              Mode(match: r'<[A-Za-z0-9\\._:-]+\s*\/>'),
               Mode(
                 begin: r'<[A-Za-z0-9\\._:-]+',
                 onBegin: _isTrulyOpeningTag,
@@ -1440,9 +1320,7 @@ Mode typescript(Highlight hljs) {
                 begin: r'<[A-Za-z0-9\\._:-]+',
                 end: r'\/[A-Za-z0-9\\._:-]+>|\/>',
                 skip: true,
-                contains: [
-                  r'self',
-                ],
+                contains: [r'self'],
               ),
             ],
           ),
@@ -1458,27 +1336,15 @@ Mode typescript(Highlight hljs) {
               r'(?=\s*\()',
             ],
           ),
-          Mode(
-            match: [
-              r'function',
-              r'\s*(?=\()',
-            ],
-          ),
+          Mode(match: [r'function', r'\s*(?=\()']),
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        scope: {1: r'keyword', 3: r'title.function'},
         label: r'func.def',
-        contains: [
-          _mode41,
-        ],
+        contains: [_mode41],
         illegal: r'%',
         relevance: 0,
       ),
-      Mode(
-        beginKeywords: r'while if switch catch for',
-      ),
+      Mode(beginKeywords: r'while if switch catch for'),
       Mode(
         begin:
             r'\b(?!function)[a-zA-Z_]\w*\([^()]*(\([^()]*(\([^()]*\)[^()]*)*\)[^()]*)*\)\s*\{',
@@ -1493,10 +1359,7 @@ Mode typescript(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        match: r'\.\.\.',
-        relevance: 0,
-      ),
+      Mode(match: r'\.\.\.', relevance: 0),
       Mode(
         begin: r'\.(?=[A-Za-z$_][0-9A-Za-z$_]*(?![0-9A-Za-z$_(]))',
         end: r'[A-Za-z$_][0-9A-Za-z$_]*',
@@ -1505,20 +1368,11 @@ Mode typescript(Highlight hljs) {
         scope: r'property',
         relevance: 0,
       ),
+      Mode(match: r'\$[A-Za-z$_][0-9A-Za-z$_]*', relevance: 0),
       Mode(
-        match: r'\$[A-Za-z$_][0-9A-Za-z$_]*',
-        relevance: 0,
-      ),
-      Mode(
-        match: [
-          r'\bconstructor(?=\s*\()',
-        ],
-        scope: {
-          1: r'title.function',
-        },
-        contains: [
-          _mode41,
-        ],
+        match: [r'\bconstructor(?=\s*\()'],
+        scope: {1: r'title.function'},
+        contains: [_mode41],
       ),
       Mode(
         match:
@@ -1551,50 +1405,24 @@ Mode typescript(Highlight hljs) {
             },
           ),
           Mode(
-            match: [
-              r'class',
-              r'\s+',
-              r'[A-Za-z$_][0-9A-Za-z$_]*',
-            ],
-            scope: {
-              1: r'keyword',
-              3: r'title.class',
-            },
+            match: [r'class', r'\s+', r'[A-Za-z$_][0-9A-Za-z$_]*'],
+            scope: {1: r'keyword', 3: r'title.class'},
           ),
         ],
       ),
       Mode(
-        match: [
-          r'get|set',
-          r'\s+',
-          r'[A-Za-z$_][0-9A-Za-z$_]*',
-          r'(?=\()',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        match: [r'get|set', r'\s+', r'[A-Za-z$_][0-9A-Za-z$_]*', r'(?=\()'],
+        scope: {1: r'keyword', 3: r'title.function'},
         contains: [
-          Mode(
-            begin: r'\(\)',
-          ),
+          Mode(begin: r'\(\)'),
           _mode41,
         ],
       ),
-      Mode(
-        match: r'\$[(.]',
-      ),
+      Mode(match: r'\$[(.]'),
       _mode37,
       Mode(
-        begin: [
-          r'namespace',
-          r'\s+',
-          r'[a-zA-Z]\w*',
-        ],
-        beginScope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        begin: [r'namespace', r'\s+', r'[a-zA-Z]\w*'],
+        beginScope: {1: r'keyword', 3: r'title.class'},
       ),
       Mode(
         beginKeywords: r'interface',
@@ -1615,9 +1443,7 @@ Mode typescript(Highlight hljs) {
             r'unknown',
           ],
         },
-        contains: [
-          _mode38,
-        ],
+        contains: [_mode38],
       ),
       _mode40,
     ],

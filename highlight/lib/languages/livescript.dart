@@ -34,32 +34,18 @@ Mode livescript(Highlight hljs) {
   _mode2.end = r'(\s*/)?';
   _mode2.relevance = 0;
   _mode3.scope = r'string';
-  _mode3.variants = [
-    _mode4,
-    _mode6,
-    _mode7,
-    _mode18,
-    _mode19,
-  ];
+  _mode3.variants = [_mode4, _mode6, _mode7, _mode18, _mode19];
   _mode4.begin = r"'''";
   _mode4.end = r"'''";
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.begin = r"'";
   _mode6.end = r"'";
-  _mode6.contains = [
-    _mode5,
-  ];
+  _mode6.contains = [_mode5];
   _mode7.begin = r'"""';
   _mode7.end = r'"""';
-  _mode7.contains = [
-    _mode5,
-    _mode8,
-    _mode17,
-  ];
+  _mode7.contains = [_mode5, _mode8, _mode17];
   _mode8.scope = r'subst';
   _mode8.begin = r'#\{';
   _mode8.end = r'\}';
@@ -218,32 +204,16 @@ Mode livescript(Highlight hljs) {
       r'print',
     ],
   };
-  _mode8.contains = [
-    _mode0,
-    _mode1,
-    _mode3,
-    _mode9,
-    _mode15,
-    _mode16,
-  ];
+  _mode8.contains = [_mode0, _mode1, _mode3, _mode9, _mode15, _mode16];
   _mode9.scope = r'regexp';
-  _mode9.variants = [
-    _mode10,
-    _mode14,
-  ];
+  _mode9.variants = [_mode10, _mode14];
   _mode10.begin = r'//';
   _mode10.end = r'//[gim]*';
-  _mode10.contains = [
-    _mode8,
-    _mode11,
-  ];
+  _mode10.contains = [_mode8, _mode11];
   _mode11.scope = r'comment';
   _mode11.begin = r'#';
   _mode11.end = r'$';
-  _mode11.contains = [
-    _mode12,
-    _mode13,
-  ];
+  _mode11.contains = [_mode12, _mode13];
   _mode12.scope = r'doctag';
   _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -418,19 +388,13 @@ Mode livescript(Highlight hljs) {
   };
   _mode18.begin = r'"';
   _mode18.end = r'"';
-  _mode18.contains = [
-    _mode5,
-    _mode8,
-    _mode17,
-  ];
+  _mode18.contains = [_mode5, _mode8, _mode17];
   _mode19.begin = r'\\';
   _mode19.end = r'(\s|$)';
   _mode19.excludeEnd = true;
   return Mode(
     name: r'LiveScript',
-    aliases: [
-      r'ls',
-    ],
+    aliases: [r'ls'],
     keywords: {
       r'keyword': [
         r'as',
@@ -613,9 +577,7 @@ Mode livescript(Highlight hljs) {
         ],
       ),
       _mode11,
-      Mode(
-        begin: r'(#=>|=>|\|>>|-?->|!->)',
-      ),
+      Mode(begin: r'(#=>|=>|\|>>|-?->|!->)'),
       Mode(
         scope: r'function',
         contains: [
@@ -836,10 +798,7 @@ Mode livescript(Highlight hljs) {
             ],
           ),
         ],
-        scope: {
-          2: r'title.class',
-          4: r'title.class.inherited',
-        },
+        scope: {2: r'title.class', 4: r'title.class.inherited'},
         keywords: {
           r'keyword': [
             r'as',

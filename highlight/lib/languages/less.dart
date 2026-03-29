@@ -59,10 +59,7 @@ Mode less(Highlight hljs) {
   _mode0.scope = r'comment';
   _mode0.begin = r'//';
   _mode0.end = r'$';
-  _mode0.contains = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.contains = [_mode1, _mode2];
   _mode1.scope = r'doctag';
   _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -73,10 +70,7 @@ Mode less(Highlight hljs) {
   _mode3.scope = r'comment';
   _mode3.begin = r'/\*';
   _mode3.end = r'\*/';
-  _mode3.contains = [
-    _mode4,
-    _mode5,
-  ];
+  _mode3.contains = [_mode4, _mode5];
   _mode4.scope = r'doctag';
   _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -173,10 +167,7 @@ Mode less(Highlight hljs) {
   _mode21.scope = r'built_in';
   _mode21.begin = r'[\w-]+(?=\()';
   _mode22.scope = r'variable';
-  _mode22.variants = [
-    _mode23,
-    _mode24,
-  ];
+  _mode22.variants = [_mode23, _mode24];
   _mode22.starts = _mode25;
   _mode23.begin = r'@[\w-]+\s*:';
   _mode23.relevance = 15;
@@ -217,13 +208,8 @@ Mode less(Highlight hljs) {
   _mode27.begin =
       r'[\w-]+:(:)?(where|visited|valid|user-invalid|target-within|target|spelling-error|slotted|selection|scope|root|right|required|read-write|read-only|placeholder-shown|placeholder|past|part|out-of-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-col|nth-last-child|nth-col|nth-child|not|marker|local-link|link|left|last-of-type|last-child|lang|is|invalid|indeterminate|in-range|hover|host-context|host|has|grammar-error|future|fullscreen|focus-within|focus-visible|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|drop|disabled|dir|defined|default|current|cue-region|cue|checked|blank|before|backdrop|any-link|after|active)';
   _mode27.returnBegin = true;
-  _mode27.contains = [
-    _mode28,
-  ];
-  _mode28.variants = [
-    _mode29,
-    _mode30,
-  ];
+  _mode27.contains = [_mode28];
+  _mode28.variants = [_mode29, _mode30];
   _mode28.returnBegin = true;
   _mode28.returnEnd = true;
   _mode28.illegal = '[<=\'\$"]';
@@ -294,26 +280,19 @@ Mode less(Highlight hljs) {
   _mode40.begin = r'\[';
   _mode40.end = r'\]';
   _mode40.illegal = r'$';
-  _mode40.contains = [
-    _mode41,
-    _mode43,
-  ];
+  _mode40.contains = [_mode41, _mode43];
   _mode41.scope = r'string';
   _mode41.begin = r"'";
   _mode41.end = r"'";
   _mode41.illegal = r'\n';
-  _mode41.contains = [
-    _mode42,
-  ];
+  _mode41.contains = [_mode42];
   _mode42.begin = r'\\[\s\S]';
   _mode42.relevance = 0;
   _mode43.scope = r'string';
   _mode43.begin = r'"';
   _mode43.end = r'"';
   _mode43.illegal = r'\n';
-  _mode43.contains = [
-    _mode42,
-  ];
+  _mode43.contains = [_mode42];
   _mode44.scope = r'selector-pseudo';
   _mode44.begin =
       r':(where|visited|valid|user-invalid|target-within|target|scope|root|right|required|read-write|read-only|placeholder-shown|past|out-of-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-col|nth-last-child|nth-col|nth-child|not|local-link|link|left|last-of-type|last-child|lang|is|invalid|indeterminate|in-range|hover|host-context|host|has|future|fullscreen|focus-within|focus-visible|focus|first-of-type|first-child|first|enabled|empty|drop|disabled|dir|defined|default|current|checked|blank|any-link|active)';
@@ -346,11 +325,7 @@ Mode less(Highlight hljs) {
   _mode48.returnBegin = true;
   _mode48.end = r'[;}]';
   _mode48.relevance = 0;
-  _mode48.contains = [
-    _mode49,
-    _mode50,
-    _mode51,
-  ];
+  _mode48.contains = [_mode49, _mode50, _mode51];
   _mode49.begin = r'-(webkit|moz|ms|o)-';
   _mode50.scope = r'attr';
   _mode50.begin = r'--[A-Za-z_][A-Za-z0-9_-]*';

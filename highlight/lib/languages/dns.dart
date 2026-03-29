@@ -5,10 +5,7 @@ import '../highlight_core.dart';
 Mode dns(Highlight hljs) {
   return Mode(
     name: r'DNS Zone',
-    aliases: [
-      r'bind',
-      r'zone',
-    ],
+    aliases: [r'bind', r'zone'],
     keywords: [
       r'IN',
       r'A',
@@ -69,10 +66,7 @@ Mode dns(Highlight hljs) {
         ],
         relevance: 0,
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b',
-      ),
+      Mode(scope: r'meta', begin: r'^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b'),
       Mode(
         scope: r'number',
         begin:
@@ -83,11 +77,7 @@ Mode dns(Highlight hljs) {
         begin:
             r'((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]).){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\b',
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+[dhwm]?',
-        relevance: 0,
-      ),
+      Mode(scope: r'number', begin: r'\b\d+[dhwm]?', relevance: 0),
     ],
   );
 }

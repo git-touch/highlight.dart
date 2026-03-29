@@ -14,21 +14,9 @@ Mode vim(Highlight hljs) {
     },
     illegal: r';',
     contains: [
-      Mode(
-        scope: r'number',
-        begin: r'\b\d+(\.\d+)?',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'string',
-        begin: r"'",
-        end: r"'",
-        illegal: r'\n',
-      ),
-      Mode(
-        scope: r'string',
-        begin: r'"(\\"|\n\\|[^"\n])*"',
-      ),
+      Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
+      Mode(scope: r'string', begin: r"'", end: r"'", illegal: r'\n'),
+      Mode(scope: r'string', begin: r'"(\\"|\n\\|[^"\n])*"'),
       Mode(
         scope: r'comment',
         begin: r'"',
@@ -47,34 +35,15 @@ Mode vim(Highlight hljs) {
           ),
         ],
       ),
+      Mode(scope: r'variable', begin: r'[bwtglsav]:[\w\d_]+'),
       Mode(
-        scope: r'variable',
-        begin: r'[bwtglsav]:[\w\d_]+',
-      ),
-      Mode(
-        begin: [
-          r'\b(?:function|function!)',
-          r'\s+',
-          r'[a-zA-Z]\w*',
-        ],
-        scope: {
-          1: r'keyword',
-          3: r'title',
-        },
+        begin: [r'\b(?:function|function!)', r'\s+', r'[a-zA-Z]\w*'],
+        scope: {1: r'keyword', 3: r'title'},
         end: r'$',
         relevance: 0,
-        contains: [
-          Mode(
-            scope: r'params',
-            begin: r'\(',
-            end: r'\)',
-          ),
-        ],
+        contains: [Mode(scope: r'params', begin: r'\(', end: r'\)')],
       ),
-      Mode(
-        scope: r'symbol',
-        begin: r'<[\w-]+>',
-      ),
+      Mode(scope: r'symbol', begin: r'<[\w-]+>'),
     ],
   );
 }

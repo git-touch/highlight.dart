@@ -24,23 +24,15 @@ Mode moonscript(Highlight hljs) {
   _mode1.end = r'(\s*/)?';
   _mode1.relevance = 0;
   _mode2.scope = r'string';
-  _mode2.variants = [
-    _mode3,
-    _mode5,
-  ];
+  _mode2.variants = [_mode3, _mode5];
   _mode3.begin = r"'";
   _mode3.end = r"'";
-  _mode3.contains = [
-    _mode4,
-  ];
+  _mode3.contains = [_mode4];
   _mode4.begin = r'\\[\s\S]';
   _mode4.relevance = 0;
   _mode5.begin = r'"';
   _mode5.end = r'"';
-  _mode5.contains = [
-    _mode4,
-    _mode6,
-  ];
+  _mode5.contains = [_mode4, _mode6];
   _mode6.scope = r'subst';
   _mode6.begin = r'#\{';
   _mode6.end = r'\}';
@@ -51,13 +43,7 @@ Mode moonscript(Highlight hljs) {
     r'built_in':
         r'_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table',
   };
-  _mode6.contains = [
-    _mode0,
-    _mode2,
-    _mode7,
-    _mode8,
-    _mode9,
-  ];
+  _mode6.contains = [_mode0, _mode2, _mode7, _mode8, _mode9];
   _mode7.scope = r'built_in';
   _mode7.begin = r'@__[a-zA-Z]\w*';
   _mode8.begin = r'@[a-zA-Z]\w*';
@@ -68,9 +54,7 @@ Mode moonscript(Highlight hljs) {
   _mode11.scope = r'params';
   _mode11.begin = r'\([^\(]';
   _mode11.returnBegin = true;
-  _mode11.contains = [
-    _mode12,
-  ];
+  _mode11.contains = [_mode12];
   _mode12.begin = r'\(';
   _mode12.end = r'\)';
   _mode12.keywords = {
@@ -80,19 +64,10 @@ Mode moonscript(Highlight hljs) {
     r'built_in':
         r'_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table',
   };
-  _mode12.contains = [
-    r'self',
-    _mode0,
-    _mode2,
-    _mode7,
-    _mode8,
-    _mode9,
-  ];
+  _mode12.contains = [r'self', _mode0, _mode2, _mode7, _mode8, _mode9];
   return Mode(
     name: r'MoonScript',
-    aliases: [
-      r'moon',
-    ],
+    aliases: [r'moon'],
     keywords: {
       r'keyword':
           r'if then not for in while do return else elseif break continue switch and or unless when class extends super local import export from using',
@@ -130,10 +105,7 @@ Mode moonscript(Highlight hljs) {
         begin: r'^\s*[A-Za-z$_][0-9A-Za-z$_]*\s*=\s*(\(.*\)\s*)?\B[-=]>',
         end: r'[-=]>',
         returnBegin: true,
-        contains: [
-          _mode10,
-          _mode11,
-        ],
+        contains: [_mode10, _mode11],
       ),
       Mode(
         begin: r'[\(,:=]\s*',
@@ -144,9 +116,7 @@ Mode moonscript(Highlight hljs) {
             begin: r'(\(.*\)\s*)?\B[-=]>',
             end: r'[-=]>',
             returnBegin: true,
-            contains: [
-              _mode11,
-            ],
+            contains: [_mode11],
           ),
         ],
       ),
@@ -160,9 +130,7 @@ Mode moonscript(Highlight hljs) {
             beginKeywords: r'extends',
             endsWithParent: true,
             illegal: r'[:="\[\]]',
-            contains: [
-              _mode10,
-            ],
+            contains: [_mode10],
           ),
           _mode10,
         ],

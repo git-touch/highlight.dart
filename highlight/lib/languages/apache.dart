@@ -11,9 +11,7 @@ Mode apache(Highlight hljs) {
   _mode1.relevance = 0;
   return Mode(
     name: r'Apache config',
-    aliases: [
-      r'apacheconf',
-    ],
+    aliases: [r'apacheconf'],
     caseInsensitive: true,
     contains: [
       Mode(
@@ -40,18 +38,13 @@ Mode apache(Highlight hljs) {
         end: r'>',
         contains: [
           _mode0,
-          Mode(
-            scope: r'number',
-            begin: r':\d{1,5}',
-          ),
+          Mode(scope: r'number', begin: r':\d{1,5}'),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [
-              _mode1,
-            ],
+            contains: [_mode1],
             relevance: 0,
           ),
         ],
@@ -83,44 +76,27 @@ Mode apache(Highlight hljs) {
         starts: Mode(
           end: r'$',
           relevance: 0,
-          keywords: {
-            r'literal': r'on off all deny allow',
-          },
+          keywords: {r'literal': r'on off all deny allow'},
           contains: [
-            Mode(
-              scope: r'punctuation',
-              match: r'\\\n',
-            ),
-            Mode(
-              scope: r'meta',
-              begin: r'\s\[',
-              end: r'\]$',
-            ),
+            Mode(scope: r'punctuation', match: r'\\\n'),
+            Mode(scope: r'meta', begin: r'\s\[', end: r'\]$'),
             Mode(
               scope: r'variable',
               begin: r'[\$%]\{',
               end: r'\}',
               contains: [
                 r'self',
-                Mode(
-                  scope: r'number',
-                  begin: r'[$%]\d+',
-                ),
+                Mode(scope: r'number', begin: r'[$%]\d+'),
               ],
             ),
             _mode0,
-            Mode(
-              scope: r'number',
-              begin: r'\b\d+',
-            ),
+            Mode(scope: r'number', begin: r'\b\d+'),
             Mode(
               scope: r'string',
               begin: r'"',
               end: r'"',
               illegal: r'\n',
-              contains: [
-                _mode1,
-              ],
+              contains: [_mode1],
             ),
           ],
         ),

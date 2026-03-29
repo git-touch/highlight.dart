@@ -94,11 +94,7 @@ Mode monkey(Highlight hljs) {
         r'HALFPI',
         r'TWOPI',
       ],
-      r'literal': [
-        r'true',
-        r'false',
-        r'null',
-      ],
+      r'literal': [r'true', r'false', r'null'],
     },
     illegal: r'\/\*',
     contains: [
@@ -141,18 +137,9 @@ Mode monkey(Highlight hljs) {
       ),
       Mode(
         variants: [
-          Mode(
-            match: [
-              r'(function|method)',
-              r'\s+',
-              r'[a-zA-Z_]\w*',
-            ],
-          ),
+          Mode(match: [r'(function|method)', r'\s+', r'[a-zA-Z_]\w*']),
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.function',
-        },
+        scope: {1: r'keyword', 3: r'title.function'},
       ),
       Mode(
         variants: [
@@ -164,67 +151,34 @@ Mode monkey(Highlight hljs) {
             ],
           ),
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
-      Mode(
-        scope: r'variable.language',
-        begin: r'\b(self|super)\b',
-      ),
+      Mode(scope: r'variable.language', begin: r'\b(self|super)\b'),
       Mode(
         scope: r'meta',
         begin: r'\s*#',
         end: r'$',
-        keywords: {
-          r'keyword': r'if else elseif endif end then',
-        },
+        keywords: {r'keyword': r'if else elseif endif end then'},
       ),
-      Mode(
-        match: [
-          r'^\s*',
-          r'strict\b',
-        ],
-        scope: {
-          2: r'meta',
-        },
-      ),
+      Mode(match: [r'^\s*', r'strict\b'], scope: {2: r'meta'}),
       Mode(
         beginKeywords: r'alias',
         end: r'=',
-        contains: [
-          Mode(
-            scope: r'title',
-            begin: r'[a-zA-Z_]\w*',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0)],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'number',
         relevance: 0,
         variants: [
-          Mode(
-            begin: r'[$][a-fA-F0-9]+',
-          ),
-          Mode(
-            scope: r'number',
-            begin: r'\b\d+(\.\d+)?',
-            relevance: 0,
-          ),
+          Mode(begin: r'[$][a-fA-F0-9]+'),
+          Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
         ],
       ),
     ],

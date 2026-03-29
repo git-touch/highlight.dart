@@ -31,8 +31,8 @@ void main() {
     if (!hljs.hasLanguage(fixtureLanguage)) continue;
 
     for (final inputFile in langDir.listSync().whereType<File>().where(
-          (File file) => file.path.endsWith('.txt'),
-        )) {
+      (File file) => file.path.endsWith('.txt'),
+    )) {
       final fixtureName = p.basenameWithoutExtension(inputFile.path);
       test('detect/$fixtureLanguage/$fixtureName', () {
         final input = inputFile.readAsStringSync();

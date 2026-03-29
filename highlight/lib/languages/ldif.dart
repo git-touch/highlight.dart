@@ -6,19 +6,9 @@ Mode ldif(Highlight hljs) {
   return Mode(
     name: r'LDIF',
     contains: [
-      Mode(
-        scope: r'attribute',
-        match: r'^dn(?=:)',
-        relevance: 10,
-      ),
-      Mode(
-        scope: r'attribute',
-        match: r'^\w+(?=:)',
-      ),
-      Mode(
-        scope: r'literal',
-        match: r'^-',
-      ),
+      Mode(scope: r'attribute', match: r'^dn(?=:)', relevance: 10),
+      Mode(scope: r'attribute', match: r'^\w+(?=:)'),
+      Mode(scope: r'literal', match: r'^-'),
       Mode(
         scope: r'comment',
         begin: r'#',

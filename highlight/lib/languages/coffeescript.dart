@@ -37,30 +37,18 @@ Mode coffeescript(Highlight hljs) {
   _mode2.end = r'(\s*/)?';
   _mode2.relevance = 0;
   _mode3.scope = r'string';
-  _mode3.variants = [
-    _mode4,
-    _mode6,
-    _mode7,
-    _mode20,
-  ];
+  _mode3.variants = [_mode4, _mode6, _mode7, _mode20];
   _mode4.begin = r"'''";
   _mode4.end = r"'''";
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.begin = r"'";
   _mode6.end = r"'";
-  _mode6.contains = [
-    _mode5,
-  ];
+  _mode6.contains = [_mode5];
   _mode7.begin = r'"""';
   _mode7.end = r'"""';
-  _mode7.contains = [
-    _mode5,
-    _mode8,
-  ];
+  _mode7.contains = [_mode5, _mode8];
   _mode8.scope = r'subst';
   _mode8.begin = r'#\{';
   _mode8.end = r'\}';
@@ -193,33 +181,16 @@ Mode coffeescript(Highlight hljs) {
       r'print',
     ],
   };
-  _mode8.contains = [
-    _mode0,
-    _mode1,
-    _mode3,
-    _mode9,
-    _mode16,
-    _mode17,
-  ];
+  _mode8.contains = [_mode0, _mode1, _mode3, _mode9, _mode16, _mode17];
   _mode9.scope = r'regexp';
-  _mode9.variants = [
-    _mode10,
-    _mode14,
-    _mode15,
-  ];
+  _mode9.variants = [_mode10, _mode14, _mode15];
   _mode10.begin = r'///';
   _mode10.end = r'///';
-  _mode10.contains = [
-    _mode8,
-    _mode11,
-  ];
+  _mode10.contains = [_mode8, _mode11];
   _mode11.scope = r'comment';
   _mode11.begin = r'#';
   _mode11.end = r'$';
-  _mode11.contains = [
-    _mode12,
-    _mode13,
-  ];
+  _mode11.contains = [_mode12, _mode13];
   _mode12.scope = r'doctag';
   _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -234,26 +205,18 @@ Mode coffeescript(Highlight hljs) {
   _mode17.subLanguage = r'javascript';
   _mode17.excludeBegin = true;
   _mode17.excludeEnd = true;
-  _mode17.variants = [
-    _mode18,
-    _mode19,
-  ];
+  _mode17.variants = [_mode18, _mode19];
   _mode18.begin = r'```';
   _mode18.end = r'```';
   _mode19.begin = r'`';
   _mode19.end = r'`';
   _mode20.begin = r'"';
   _mode20.end = r'"';
-  _mode20.contains = [
-    _mode5,
-    _mode8,
-  ];
+  _mode20.contains = [_mode5, _mode8];
   _mode21.scope = r'params';
   _mode21.begin = r'\([^\(]';
   _mode21.returnBegin = true;
-  _mode21.contains = [
-    _mode22,
-  ];
+  _mode21.contains = [_mode22];
   _mode22.begin = r'\(';
   _mode22.end = r'\)';
   _mode22.keywords = {
@@ -396,11 +359,7 @@ Mode coffeescript(Highlight hljs) {
   ];
   return Mode(
     name: r'CoffeeScript',
-    aliases: [
-      r'coffee',
-      r'cson',
-      r'iced',
-    ],
+    aliases: [r'coffee', r'cson', r'iced'],
     keywords: {
       r'keyword': [
         r'as',
@@ -580,9 +539,7 @@ Mode coffeescript(Highlight hljs) {
             begin: r'(\(.*\)\s*)?\B[-=]>',
             end: r'[-=]>',
             returnBegin: true,
-            contains: [
-              _mode21,
-            ],
+            contains: [_mode21],
           ),
         ],
       ),
@@ -596,17 +553,9 @@ Mode coffeescript(Highlight hljs) {
               r'[A-Za-z$_][0-9A-Za-z$_]*',
             ],
           ),
-          Mode(
-            match: [
-              r'class\s+',
-              r'[A-Za-z$_][0-9A-Za-z$_]*',
-            ],
-          ),
+          Mode(match: [r'class\s+', r'[A-Za-z$_][0-9A-Za-z$_]*']),
         ],
-        scope: {
-          2: r'title.class',
-          4: r'title.class.inherited',
-        },
+        scope: {2: r'title.class', 4: r'title.class.inherited'},
         keywords: {
           r'keyword': [
             r'as',

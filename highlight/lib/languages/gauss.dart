@@ -32,10 +32,7 @@ Mode gauss(Highlight hljs) {
   _mode1.scope = r'comment';
   _mode1.begin = r'//';
   _mode1.end = r'$';
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-  ];
+  _mode1.contains = [_mode2, _mode3];
   _mode2.scope = r'doctag';
   _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -46,10 +43,7 @@ Mode gauss(Highlight hljs) {
   _mode4.scope = r'comment';
   _mode4.begin = r'/\*';
   _mode4.end = r'\*/';
-  _mode4.contains = [
-    _mode5,
-    _mode6,
-  ];
+  _mode4.contains = [_mode5, _mode6];
   _mode5.scope = r'doctag';
   _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -60,10 +54,7 @@ Mode gauss(Highlight hljs) {
   _mode7.scope = r'comment';
   _mode7.begin = r'@';
   _mode7.end = r'@';
-  _mode7.contains = [
-    _mode8,
-    _mode9,
-  ];
+  _mode7.contains = [_mode8, _mode9];
   _mode8.scope = r'doctag';
   _mode8.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode8.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -74,9 +65,7 @@ Mode gauss(Highlight hljs) {
   _mode10.scope = r'string';
   _mode10.begin = r'"';
   _mode10.end = r'"';
-  _mode10.contains = [
-    _mode11,
-  ];
+  _mode10.contains = [_mode11];
   _mode10.relevance = 0;
   _mode11.begin = r'\\[\s\S]';
   _mode11.relevance = 0;
@@ -87,21 +76,13 @@ Mode gauss(Highlight hljs) {
   _mode12.excludeEnd = true;
   _mode12.endsWithParent = true;
   _mode12.relevance = 0;
-  _mode12.contains = [
-    _mode13,
-    _mode0,
-    _mode4,
-    _mode7,
-    _mode14,
-  ];
+  _mode12.contains = [_mode13, _mode0, _mode4, _mode7, _mode14];
   _mode13.scope = r'literal';
   _mode13.begin = r'\.\.\.';
   _mode14.begin = r'\bstruct\s+';
   _mode14.end = r'\s';
   _mode14.keywords = r'struct';
-  _mode14.contains = [
-    _mode15,
-  ];
+  _mode14.contains = [_mode15];
   _mode15.scope = r'type';
   _mode15.begin = r'[a-zA-Z_]\w*';
   _mode15.relevance = 0;
@@ -140,12 +121,7 @@ Mode gauss(Highlight hljs) {
         r'DB_AFTER_LAST_ROW DB_ALL_TABLES DB_BATCH_OPERATIONS DB_BEFORE_FIRST_ROW DB_BLOB DB_EVENT_NOTIFICATIONS DB_FINISH_QUERY DB_HIGH_PRECISION DB_LAST_INSERT_ID DB_LOW_PRECISION_DOUBLE DB_LOW_PRECISION_INT32 DB_LOW_PRECISION_INT64 DB_LOW_PRECISION_NUMBERS DB_MULTIPLE_RESULT_SETS DB_NAMED_PLACEHOLDERS DB_POSITIONAL_PLACEHOLDERS DB_PREPARED_QUERIES DB_QUERY_SIZE DB_SIMPLE_LOCKING DB_SYSTEM_TABLES DB_TABLES DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR',
   };
   _mode19.relevance = 0;
-  _mode19.contains = [
-    _mode20,
-    _mode18,
-    _mode21,
-    _mode17,
-  ];
+  _mode19.contains = [_mode20, _mode18, _mode21, _mode17];
   _mode20.beginKeywords =
       r'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile continue create debug declare delete disable dlibrary dllcall do dos ed edit else elseif enable end endfor endif endp endo errorlog errorlogat expr external fn for format goto gosub graph if keyword let lib library line load loadarray loadexe loadf loadk loadm loadp loads loadx local locate loopnextindex lprint lpwidth lshow matrix msym ndpclex new open output outwidth plot plotsym pop prcsn print printdos proc push retp return rndcon rndmod rndmult rndseed run save saveall screen scroll setarray show sparse stop string struct system trace trap threadfor threadendfor threadbegin threadjoin threadstat threadend until use while winprint ne ge le gt lt and xor or not eq eqv';
   _mode21.scope = r'built_in';
@@ -153,9 +129,7 @@ Mode gauss(Highlight hljs) {
   _mode21.relevance = 0;
   return Mode(
     name: r'GAUSS',
-    aliases: [
-      r'gss',
-    ],
+    aliases: [r'gss'],
     caseInsensitive: true,
     keywords: {
       r'keyword':
@@ -181,23 +155,13 @@ Mode gauss(Highlight hljs) {
               r'define definecs|10 undef ifdef ifndef iflight ifdllcall ifmac ifos2win ifunix else endif lineson linesoff srcfile srcline',
         },
         contains: [
-          Mode(
-            begin: r'\\\n',
-            relevance: 0,
-          ),
+          Mode(begin: r'\\\n', relevance: 0),
           Mode(
             beginKeywords: r'include',
             end: r'$',
-            keywords: {
-              r'keyword': r'include',
-            },
+            keywords: {r'keyword': r'include'},
             contains: [
-              Mode(
-                scope: r'string',
-                begin: r'"',
-                end: r'"',
-                illegal: r'\n',
-              ),
+              Mode(scope: r'string', begin: r'"', end: r'"', illegal: r'\n'),
             ],
           ),
           _mode1,
@@ -215,45 +179,25 @@ Mode gauss(Highlight hljs) {
         beginKeywords: r'proc keyword',
         end: r';',
         excludeEnd: true,
-        contains: [
-          _mode12,
-          _mode16,
-          _mode0,
-          _mode4,
-          _mode7,
-        ],
+        contains: [_mode12, _mode16, _mode0, _mode4, _mode7],
       ),
       Mode(
         scope: r'function',
         beginKeywords: r'fn',
         end: r'=',
         excludeEnd: true,
-        contains: [
-          _mode12,
-          _mode16,
-          _mode0,
-          _mode4,
-          _mode7,
-        ],
+        contains: [_mode12, _mode16, _mode0, _mode4, _mode7],
       ),
       Mode(
         beginKeywords: r'for threadfor',
         end: r';',
         relevance: 0,
-        contains: [
-          _mode4,
-          _mode7,
-          _mode17,
-        ],
+        contains: [_mode4, _mode7, _mode17],
       ),
       Mode(
         variants: [
-          Mode(
-            begin: r'[a-zA-Z_]\w*\.[a-zA-Z_]\w*',
-          ),
-          Mode(
-            begin: r'[a-zA-Z_]\w*\s*=',
-          ),
+          Mode(begin: r'[a-zA-Z_]\w*\.[a-zA-Z_]\w*'),
+          Mode(begin: r'[a-zA-Z_]\w*\s*='),
         ],
         relevance: 0,
       ),

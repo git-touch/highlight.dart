@@ -5,9 +5,7 @@ import '../highlight_core.dart';
 Mode diff(Highlight hljs) {
   return Mode(
     name: r'Diff',
-    aliases: [
-      r'patch',
-    ],
+    aliases: [r'patch'],
     contains: [
       Mode(
         scope: r'meta',
@@ -22,26 +20,12 @@ Mode diff(Highlight hljs) {
             begin: r'(?:Index: |^index|={3,}|^-{3}|^\*{3} |^\+{3}|^diff --git)',
             end: r'$',
           ),
-          Mode(
-            match: r'^\*{15}$',
-          ),
+          Mode(match: r'^\*{15}$'),
         ],
       ),
-      Mode(
-        scope: r'addition',
-        begin: r'^\+',
-        end: r'$',
-      ),
-      Mode(
-        scope: r'deletion',
-        begin: r'^-',
-        end: r'$',
-      ),
-      Mode(
-        scope: r'addition',
-        begin: r'^!',
-        end: r'$',
-      ),
+      Mode(scope: r'addition', begin: r'^\+', end: r'$'),
+      Mode(scope: r'deletion', begin: r'^-', end: r'$'),
+      Mode(scope: r'addition', begin: r'^!', end: r'$'),
     ],
   );
 }

@@ -28,33 +28,17 @@ Mode tap(Highlight hljs) {
       Mode(
         scope: r'meta',
         variants: [
-          Mode(
-            begin: r'^TAP version (\d+)$',
-          ),
-          Mode(
-            begin: r'^1\.\.(\d+)$',
-          ),
+          Mode(begin: r'^TAP version (\d+)$'),
+          Mode(begin: r'^1\.\.(\d+)$'),
         ],
       ),
-      Mode(
-        begin: r'---$',
-        end: r'\.\.\.$',
-        subLanguage: r'yaml',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'number',
-        begin: r' (\d+) ',
-      ),
+      Mode(begin: r'---$', end: r'\.\.\.$', subLanguage: r'yaml', relevance: 0),
+      Mode(scope: r'number', begin: r' (\d+) '),
       Mode(
         scope: r'symbol',
         variants: [
-          Mode(
-            begin: r'^ok',
-          ),
-          Mode(
-            begin: r'^not ok',
-          ),
+          Mode(begin: r'^ok'),
+          Mode(begin: r'^not ok'),
         ],
       ),
     ],

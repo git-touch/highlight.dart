@@ -8,10 +8,7 @@ Mode tcl(Highlight hljs) {
   final Mode _mode2 = Mode();
   final Mode _mode3 = Mode();
   _mode0.scope = r'number';
-  _mode0.variants = [
-    _mode1,
-    _mode2,
-  ];
+  _mode0.variants = [_mode1, _mode2];
   _mode1.scope = r'number';
   _mode1.begin = r'\b(0b[01]+)';
   _mode1.relevance = 0;
@@ -23,9 +20,7 @@ Mode tcl(Highlight hljs) {
   _mode3.relevance = 0;
   return Mode(
     name: r'Tcl',
-    aliases: [
-      r'tk',
-    ],
+    aliases: [r'tk'],
     keywords: [
       r'after',
       r'append',
@@ -207,26 +202,15 @@ Mode tcl(Highlight hljs) {
           Mode(
             begin: r'\$\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
             end: r'\}',
-            contains: [
-              _mode0,
-            ],
+            contains: [_mode0],
           ),
         ],
       ),
       Mode(
         scope: r'string',
-        contains: [
-          _mode3,
-        ],
+        contains: [_mode3],
         variants: [
-          Mode(
-            scope: r'string',
-            begin: r'"',
-            end: r'"',
-            contains: [
-              _mode3,
-            ],
-          ),
+          Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode3]),
         ],
       ),
       _mode0,

@@ -67,12 +67,7 @@ Mode ceylon(Highlight hljs) {
         r'nonempty',
       ],
       relevance: 10,
-      contains: [
-        _mode0,
-        _mode1,
-        _mode2,
-        _mode3,
-      ],
+      contains: [_mode0, _mode1, _mode2, _mode3],
     ),
   ];
   _mode2.scope = r'string';
@@ -144,14 +139,7 @@ Mode ceylon(Highlight hljs) {
         r'suppressWarnings',
         r'small',
       ],
-      r'meta': [
-        r'doc',
-        r'by',
-        r'license',
-        r'see',
-        r'throws',
-        r'tagged',
-      ],
+      r'meta': [r'doc', r'by', r'license', r'see', r'throws', r'tagged'],
     },
     illegal: r'\$[^01]|#[^0-9a-fA-F]',
     contains: [
@@ -192,10 +180,7 @@ Mode ceylon(Highlight hljs) {
           ),
         ],
       ),
-      Mode(
-        scope: r'meta',
-        begin: r'@[a-z]\w*(?::"[^"]*")?',
-      ),
+      Mode(scope: r'meta', begin: r'@[a-z]\w*(?::"[^"]*")?'),
       _mode0,
       _mode1,
       _mode2,

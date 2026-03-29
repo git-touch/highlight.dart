@@ -59,26 +59,14 @@ Mode avrasm(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(
-        scope: r'number',
-        begin: r'\b(0b[01]+)',
-        relevance: 0,
-      ),
-      Mode(
-        scope: r'number',
-        begin: r'\b(\$[a-zA-Z0-9]+|0o[0-7]+)',
-      ),
+      Mode(scope: r'number', begin: r'\b(0b[01]+)', relevance: 0),
+      Mode(scope: r'number', begin: r'\b(\$[a-zA-Z0-9]+|0o[0-7]+)'),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [
-          Mode(
-            begin: r'\\[\s\S]',
-            relevance: 0,
-          ),
-        ],
+        contains: [Mode(begin: r'\\[\s\S]', relevance: 0)],
       ),
       Mode(
         scope: r'string',
@@ -86,19 +74,9 @@ Mode avrasm(Highlight hljs) {
         end: r"[^\\]'",
         illegal: r"[^\\][^']",
       ),
-      Mode(
-        scope: r'symbol',
-        begin: r'^[A-Za-z0-9_.$]+:',
-      ),
-      Mode(
-        scope: r'meta',
-        begin: r'#',
-        end: r'$',
-      ),
-      Mode(
-        scope: r'subst',
-        begin: r'@[0-9]+',
-      ),
+      Mode(scope: r'symbol', begin: r'^[A-Za-z0-9_.$]+:'),
+      Mode(scope: r'meta', begin: r'#', end: r'$'),
+      Mode(scope: r'subst', begin: r'@[0-9]+'),
     ],
   );
 }

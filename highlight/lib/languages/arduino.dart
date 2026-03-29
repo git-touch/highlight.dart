@@ -139,27 +139,15 @@ Mode arduino(Highlight hljs) {
     r'keyword':
         r'if else elif endif define undef warning error line pragma _Pragma ifdef ifndef include',
   };
-  _mode1.contains = [
-    _mode2,
-    _mode3,
-    _mode8,
-    _mode9,
-    _mode13,
-  ];
+  _mode1.contains = [_mode2, _mode3, _mode8, _mode9, _mode13];
   _mode2.begin = r'\\\n';
   _mode2.relevance = 0;
   _mode3.scope = r'string';
-  _mode3.variants = [
-    _mode4,
-    _mode6,
-    _mode7,
-  ];
+  _mode3.variants = [_mode4, _mode6, _mode7];
   _mode4.begin = r'(u8?|U|L)?"';
   _mode4.end = r'"';
   _mode4.illegal = r'\n';
-  _mode4.contains = [
-    _mode5,
-  ];
+  _mode4.contains = [_mode5];
   _mode5.begin = r'\\[\s\S]';
   _mode5.relevance = 0;
   _mode6.begin =
@@ -173,11 +161,7 @@ Mode arduino(Highlight hljs) {
   _mode9.scope = r'comment';
   _mode9.begin = r'//';
   _mode9.end = r'$';
-  _mode9.contains = [
-    _mode10,
-    _mode11,
-    _mode12,
-  ];
+  _mode9.contains = [_mode10, _mode11, _mode12];
   _mode10.begin = r'\\\n';
   _mode11.scope = r'doctag';
   _mode11.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
@@ -189,10 +173,7 @@ Mode arduino(Highlight hljs) {
   _mode13.scope = r'comment';
   _mode13.begin = r'/\*';
   _mode13.end = r'\*/';
-  _mode13.contains = [
-    _mode14,
-    _mode15,
-  ];
+  _mode13.contains = [_mode14, _mode15];
   _mode14.scope = r'doctag';
   _mode14.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
   _mode14.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
@@ -203,26 +184,17 @@ Mode arduino(Highlight hljs) {
   _mode16.scope = r'type';
   _mode16.begin = r'\b[a-z\d_]*_t\b';
   _mode17.scope = r'number';
-  _mode17.variants = [
-    _mode18,
-    _mode19,
-  ];
+  _mode17.variants = [_mode18, _mode19];
   _mode17.relevance = 0;
   _mode18.begin =
       r"[+-]?(?:(?:[0-9](?:'?[0-9])*\.(?:[0-9](?:'?[0-9])*)?|\.[0-9](?:'?[0-9])*)(?:[Ee][+-]?[0-9](?:'?[0-9])*)?|[0-9](?:'?[0-9])*[Ee][+-]?[0-9](?:'?[0-9])*|0[Xx](?:[0-9A-Fa-f](?:'?[0-9A-Fa-f])*(?:\.(?:[0-9A-Fa-f](?:'?[0-9A-Fa-f])*)?)?|\.[0-9A-Fa-f](?:'?[0-9A-Fa-f])*)[Pp][+-]?[0-9](?:'?[0-9])*)(?:[Ff](?:16|32|64|128)?|(BF|bf)16|[Ll]|)";
   _mode19.begin =
       r"[+-]?\b(?:0[Bb][01](?:'?[01])*|0[Xx][0-9A-Fa-f](?:'?[0-9A-Fa-f])*|0(?:'?[0-7])*|[1-9](?:'?[0-9])*)(?:[Uu](?:LL?|ll?)|[Uu][Zz]?|(?:LL?|ll?)[Uu]?|[Zz][Uu]|)";
   _mode20.scope = r'string';
-  _mode20.variants = [
-    _mode4,
-    _mode6,
-    _mode7,
-  ];
+  _mode20.variants = [_mode4, _mode6, _mode7];
   return Mode(
     name: r'Arduino',
-    aliases: [
-      r'ino',
-    ],
+    aliases: [r'ino'],
     keywords: {
       r'type': [
         r'bool',
@@ -760,24 +732,13 @@ Mode arduino(Highlight hljs) {
       ],
     },
     illegal: r'</',
-    classNameAliases: {
-      r'function.dispatch': r'built_in',
-    },
+    classNameAliases: {r'function.dispatch': r'built_in'},
     contains: [
       Mode(
         variants: [
-          Mode(
-            begin: r'=',
-            end: r';',
-          ),
-          Mode(
-            begin: r'\(',
-            end: r'\)',
-          ),
-          Mode(
-            beginKeywords: r'new throw return else',
-            end: r';',
-          ),
+          Mode(begin: r'=', end: r';'),
+          Mode(begin: r'\(', end: r'\)'),
+          Mode(beginKeywords: r'new throw return else', end: r';'),
         ],
         keywords: {
           r'type': [
@@ -2974,22 +2935,9 @@ Mode arduino(Highlight hljs) {
             ],
             relevance: 0,
           ),
-          Mode(
-            begin: r'::',
-            relevance: 0,
-          ),
-          Mode(
-            begin: r':',
-            endsWithParent: true,
-            contains: [
-              _mode20,
-              _mode17,
-            ],
-          ),
-          Mode(
-            relevance: 0,
-            match: r',',
-          ),
+          Mode(begin: r'::', relevance: 0),
+          Mode(begin: r':', endsWithParent: true, contains: [_mode20, _mode17]),
+          Mode(relevance: 0, match: r','),
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -4077,14 +4025,7 @@ Mode arduino(Highlight hljs) {
                   ],
                 },
                 relevance: 0,
-                contains: [
-                  r'self',
-                  _mode9,
-                  _mode13,
-                  _mode20,
-                  _mode17,
-                  _mode16,
-                ],
+                contains: [r'self', _mode9, _mode13, _mode20, _mode17, _mode16],
               ),
             ],
           ),
@@ -4643,10 +4584,7 @@ Mode arduino(Highlight hljs) {
             r'put',
           ],
         },
-        contains: [
-          r'self',
-          _mode16,
-        ],
+        contains: [r'self', _mode16],
       ),
       Mode(
         begin: r'[a-zA-Z]\w*::',
@@ -5193,10 +5131,7 @@ Mode arduino(Highlight hljs) {
           r'\s+',
           r'\w+',
         ],
-        scope: {
-          1: r'keyword',
-          3: r'title.class',
-        },
+        scope: {1: r'keyword', 3: r'title.class'},
       ),
     ],
     supersetOf: r'cpp',
