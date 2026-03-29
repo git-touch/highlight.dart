@@ -8,7 +8,7 @@ homepage: https://github.com/pd4d10/highlight.dart
 repository: https://github.com/pd4d10/highlight.dart/tree/main/flutter_highlight
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.8.0
   flutter: ">=3.10.0"
 
 resolution: workspace
@@ -22,4 +22,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lints: ^5.1.1
+  lints: ^6.1.0
