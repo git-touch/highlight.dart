@@ -94,9 +94,17 @@ jobs:
       - name: Install workspace dependencies
         run: dart pub get
 
-      - name: Test highlight
+      - name: Test highlight smoke suite
         working-directory: highlight
-        run: dart test -r expanded
+        run: dart test -r expanded test/smoke_test.dart
+
+      - name: Test highlight markup fixtures
+        working-directory: highlight
+        run: dart test -r expanded test/integration/markup_test.dart
+
+      - name: Test highlight detect fixtures
+        working-directory: highlight
+        run: dart test -r expanded test/integration/detect_test.dart
 
       - name: Test flutter_highlight
         working-directory: flutter_highlight

@@ -26,9 +26,9 @@ void main() {
 
       test('markup/$language/$name', () {
         final input = inputFile.readAsStringSync();
-        final expected = expectFile.readAsStringSync().trimRight();
+        final expected = expectFile.readAsStringSync().trim();
         final result = hljs.highlight(input, language: language);
-        expect(result.value.trimRight(), equals(expected));
+        expect(result.value.trim(), equals(expected));
       });
     }
   }

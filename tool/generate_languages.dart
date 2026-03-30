@@ -33,6 +33,11 @@ const Set<String> _modeDetectionKeys = <String>{
   '__emitTokens',
 };
 
+final RegExp _requiresHeaderPattern = RegExp(
+  r'/\*.*?Requires: (.*?)\r?\n',
+  dotAll: true,
+);
+
 const String _nodeExtractorScript = r'''
 import fs from 'node:fs';
 import os from 'node:os';
@@ -284,7 +289,10 @@ Future<void> main(List<String> args) async {
   final allLanguagesFile = File(
     _joinAll(<String>[outputDir.path, '_all.dart']),
   );
-  final allLanguageNames = _existingLanguageNames(outputDir).toList()..sort();
+  final allLanguageNames = _orderedLanguageNames(
+    vendorRoot,
+    _existingLanguageNames(outputDir),
+  );
   allLanguagesFile.writeAsStringSync(_renderAllLanguagesFile(allLanguageNames));
   writtenFiles.add(allLanguagesFile.path);
 
@@ -513,6 +521,81 @@ Iterable<String> _existingLanguageNames(Directory outputDir) sync* {
     final basename = _basename(entity.path);
     if (!basename.endsWith('.dart') || basename == '_all.dart') continue;
     yield basename.substring(0, basename.length - 5).replaceAll('_', '-');
+  }
+}
+
+List<String> _orderedLanguageNames(
+  String vendorRoot,
+  Iterable<String> availableLanguages,
+) {
+  final available = availableLanguages.toSet();
+  final sourceDir = Directory(
+    _joinAll(<String>[vendorRoot, 'src', 'languages']),
+  );
+  final sourceFiles =
+      sourceDir
+          .listSync()
+          .whereType<File>()
+          .where((File file) => file.path.endsWith('.js'))
+          .toList()
+        ..sort((File a, File b) => a.path.compareTo(b.path));
+
+  final dependencies = <String, List<String>>{};
+  final orderedSourceNames = <String>[];
+
+  for (final file in sourceFiles) {
+    final languageName = _basename(file.path).replaceFirst('.js', '');
+    if (!available.contains(languageName)) continue;
+
+    orderedSourceNames.add(languageName);
+    dependencies[languageName] = _requiredLanguages(
+      file,
+    ).where(available.contains).toList(growable: false);
+  }
+
+  final ordered = <String>[];
+  final visiting = <String>{};
+  final visited = <String>{};
+
+  void visit(String languageName) {
+    if (!available.contains(languageName) || visited.contains(languageName)) {
+      return;
+    }
+    if (!visiting.add(languageName)) {
+      throw StateError('Circular language dependency involving $languageName');
+    }
+
+    for (final dependency in dependencies[languageName] ?? const <String>[]) {
+      visit(dependency);
+    }
+
+    visiting.remove(languageName);
+    visited.add(languageName);
+    ordered.add(languageName);
+  }
+
+  for (final languageName in orderedSourceNames) {
+    visit(languageName);
+  }
+
+  final remaining = available.difference(visited).toList()..sort();
+  for (final languageName in remaining) {
+    visit(languageName);
+  }
+
+  return ordered;
+}
+
+Iterable<String> _requiredLanguages(File file) sync* {
+  final match = _requiresHeaderPattern.firstMatch(file.readAsStringSync());
+  final rawDependencies = match?.group(1);
+  if (rawDependencies == null || rawDependencies.trim().isEmpty) return;
+
+  for (final dependency in rawDependencies.split(',')) {
+    final normalized = dependency.trim().replaceAll('.js', '');
+    if (normalized.isNotEmpty) {
+      yield normalized;
+    }
   }
 }
 
