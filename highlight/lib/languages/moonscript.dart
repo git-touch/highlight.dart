@@ -1,70 +1,72 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `moonscript`.
 Mode moonscript(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  mode0.scope = r'number';
+  mode0.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode0.relevance = 0;
-  _mode0.starts = _mode1;
-  _mode1.end = r'(\s*/)?';
-  _mode1.relevance = 0;
-  _mode2.scope = r'string';
-  _mode2.variants = [_mode3, _mode5];
-  _mode3.begin = r"'";
-  _mode3.end = r"'";
-  _mode3.contains = [_mode4];
-  _mode4.begin = r'\\[\s\S]';
-  _mode4.relevance = 0;
-  _mode5.begin = r'"';
-  _mode5.end = r'"';
-  _mode5.contains = [_mode4, _mode6];
-  _mode6.scope = r'subst';
-  _mode6.begin = r'#\{';
-  _mode6.end = r'\}';
-  _mode6.keywords = {
+  mode0.relevance = 0;
+  mode0.starts = mode1;
+  mode1.end = r'(\s*/)?';
+  mode1.relevance = 0;
+  mode2.scope = r'string';
+  mode2.variants = [mode3, mode5];
+  mode3.begin = r"'";
+  mode3.end = r"'";
+  mode3.contains = [mode4];
+  mode4.begin = r'\\[\s\S]';
+  mode4.relevance = 0;
+  mode5.begin = r'"';
+  mode5.end = r'"';
+  mode5.contains = [mode4, mode6];
+  mode6.scope = r'subst';
+  mode6.begin = r'#\{';
+  mode6.end = r'\}';
+  mode6.keywords = {
     r'keyword':
         r'if then not for in while do return else elseif break continue switch and or unless when class extends super local import export from using',
     r'literal': r'true false nil',
     r'built_in':
         r'_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table',
   };
-  _mode6.contains = [_mode0, _mode2, _mode7, _mode8, _mode9];
-  _mode7.scope = r'built_in';
-  _mode7.begin = r'@__[a-zA-Z]\w*';
-  _mode8.begin = r'@[a-zA-Z]\w*';
-  _mode9.begin = r'[a-zA-Z]\w*\\[a-zA-Z]\w*';
-  _mode10.scope = r'title';
-  _mode10.begin = r'[A-Za-z$_][0-9A-Za-z$_]*';
-  _mode10.relevance = 0;
-  _mode11.scope = r'params';
-  _mode11.begin = r'\([^\(]';
-  _mode11.returnBegin = true;
-  _mode11.contains = [_mode12];
-  _mode12.begin = r'\(';
-  _mode12.end = r'\)';
-  _mode12.keywords = {
+  mode6.contains = [mode0, mode2, mode7, mode8, mode9];
+  mode7.scope = r'built_in';
+  mode7.begin = r'@__[a-zA-Z]\w*';
+  mode8.begin = r'@[a-zA-Z]\w*';
+  mode9.begin = r'[a-zA-Z]\w*\\[a-zA-Z]\w*';
+  mode10.scope = r'title';
+  mode10.begin = r'[A-Za-z$_][0-9A-Za-z$_]*';
+  mode10.relevance = 0;
+  mode11.scope = r'params';
+  mode11.begin = r'\([^\(]';
+  mode11.returnBegin = true;
+  mode11.contains = [mode12];
+  mode12.begin = r'\(';
+  mode12.end = r'\)';
+  mode12.keywords = {
     r'keyword':
         r'if then not for in while do return else elseif break continue switch and or unless when class extends super local import export from using',
     r'literal': r'true false nil',
     r'built_in':
         r'_G _VERSION assert collectgarbage dofile error getfenv getmetatable ipairs load loadfile loadstring module next pairs pcall print rawequal rawget rawset require select setfenv setmetatable tonumber tostring type unpack xpcall coroutine debug io math os package string table',
   };
-  _mode12.contains = [r'self', _mode0, _mode2, _mode7, _mode8, _mode9];
+  mode12.contains = [r'self', mode0, mode2, mode7, mode8, mode9];
   return Mode(
     name: r'MoonScript',
     aliases: [r'moon'],
@@ -77,11 +79,11 @@ Mode moonscript(Highlight hljs) {
     },
     illegal: r'\/\*',
     contains: [
-      _mode0,
-      _mode2,
-      _mode7,
-      _mode8,
-      _mode9,
+      mode0,
+      mode2,
+      mode7,
+      mode8,
+      mode9,
       Mode(
         scope: r'comment',
         begin: r'--',
@@ -105,7 +107,7 @@ Mode moonscript(Highlight hljs) {
         begin: r'^\s*[A-Za-z$_][0-9A-Za-z$_]*\s*=\s*(\(.*\)\s*)?\B[-=]>',
         end: r'[-=]>',
         returnBegin: true,
-        contains: [_mode10, _mode11],
+        contains: [mode10, mode11],
       ),
       Mode(
         begin: r'[\(,:=]\s*',
@@ -116,7 +118,7 @@ Mode moonscript(Highlight hljs) {
             begin: r'(\(.*\)\s*)?\B[-=]>',
             end: r'[-=]>',
             returnBegin: true,
-            contains: [_mode11],
+            contains: [mode11],
           ),
         ],
       ),
@@ -130,9 +132,9 @@ Mode moonscript(Highlight hljs) {
             beginKeywords: r'extends',
             endsWithParent: true,
             illegal: r'[:="\[\]]',
-            contains: [_mode10],
+            contains: [mode10],
           ),
-          _mode10,
+          mode10,
         ],
       ),
       Mode(

@@ -1,11 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `step21`.
 Mode step21(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
+  final Mode mode0 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
   return Mode(
     name: r'STEP Part 21',
     aliases: [r'p21', r'step', r'stp'],
@@ -77,8 +79,8 @@ Mode step21(Highlight hljs) {
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
       ),
-      Mode(scope: r'string', begin: r"'", end: r"'", contains: [_mode0]),
-      Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
+      Mode(scope: r'string', begin: r"'", end: r"'", contains: [mode0]),
+      Mode(scope: r'string', begin: r'"', end: r'"', contains: [mode0]),
       Mode(scope: r'string', begin: r"'", end: r"'"),
       Mode(
         scope: r'symbol',

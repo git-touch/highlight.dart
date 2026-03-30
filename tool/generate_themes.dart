@@ -1,5 +1,9 @@
 import 'dart:io';
 
+const String _generatedHeader =
+    '// GENERATED CODE - DO NOT MODIFY BY HAND.\n'
+    '// ignore_for_file: file_names, non_constant_identifier_names\n\n';
+
 void main(List<String> args) {
   var formatOutput = true;
   final requestedArgs = <String>[];
@@ -147,10 +151,13 @@ String _renderThemeFile(String themePath, Map<String, _StyleBuilder> theme) {
       return a.compareTo(b);
     });
 
-  buffer.writeln(
-    "import 'package:highlight/highlight_core.dart' show HljsStyle;",
-  );
-  buffer.writeln();
+  buffer
+    ..write(_generatedHeader)
+    ..writeln("import 'package:highlight/highlight_core.dart' show HljsStyle;")
+    ..writeln()
+    ..writeln(
+      "/// Highlight.js theme map for the `${_escapeDocText(themePath)}` theme.",
+    );
   buffer.writeln('const $variableName = <String, HljsStyle>{');
   for (final key in keys) {
     buffer.writeln("  '$key': ${theme[key]!.toCode()},");
@@ -163,7 +170,7 @@ String _renderThemeFile(String themePath, Map<String, _StyleBuilder> theme) {
 String _renderAllExports(List<String> themePaths) {
   final exports = themePaths.toList()..sort();
 
-  final buffer = StringBuffer();
+  final buffer = StringBuffer()..write(_generatedHeader);
   for (final exportPath in exports) {
     buffer.writeln("export '$exportPath';");
   }
@@ -238,6 +245,9 @@ String _normalizeThemeArg(String value) {
   normalized = normalized.replaceAll('_', '-');
   return normalized;
 }
+
+String _escapeDocText(String value) =>
+    value.replaceAll(r'\', r'\\').replaceAll('`', r'\`');
 
 List<_CssRule> _parseCssRules(String source) {
   final cleaned = _stripComments(source);
@@ -866,6 +876,6 @@ final class _StyleBuilder {
     if (strikethrough == true) {
       args.add('strikethrough: true');
     }
-    return 'const HljsStyle(${args.join(', ')})';
+    return 'HljsStyle(${args.join(', ')})';
   }
 }

@@ -1,42 +1,44 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `css`.
 Mode css(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  _mode0.scope = r'comment';
-  _mode0.begin = r'/\*';
-  _mode0.end = r'\*/';
-  _mode0.contains = [_mode1, _mode2];
-  _mode1.scope = r'doctag';
-  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode1.excludeBegin = true;
-  _mode1.relevance = 0;
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  mode0.scope = r'comment';
+  mode0.begin = r'/\*';
+  mode0.end = r'\*/';
+  mode0.contains = [mode1, mode2];
+  mode1.scope = r'doctag';
+  mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode1.excludeBegin = true;
+  mode1.relevance = 0;
+  mode2.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode3.scope = r'number';
-  _mode3.begin =
+  mode3.scope = r'number';
+  mode3.begin =
       r'\b\d+(\.\d+)?(%|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?';
-  _mode3.relevance = 0;
-  _mode4.scope = r'string';
-  _mode4.begin = r"'";
-  _mode4.end = r"'";
-  _mode4.illegal = r'\n';
-  _mode4.contains = [_mode5];
-  _mode5.begin = r'\\[\s\S]';
-  _mode5.relevance = 0;
-  _mode6.scope = r'string';
-  _mode6.begin = r'"';
-  _mode6.end = r'"';
-  _mode6.illegal = r'\n';
-  _mode6.contains = [_mode5];
+  mode3.relevance = 0;
+  mode4.scope = r'string';
+  mode4.begin = r"'";
+  mode4.end = r"'";
+  mode4.illegal = r'\n';
+  mode4.contains = [mode5];
+  mode5.begin = r'\\[\s\S]';
+  mode5.relevance = 0;
+  mode6.scope = r'string';
+  mode6.begin = r'"';
+  mode6.end = r'"';
+  mode6.illegal = r'\n';
+  mode6.contains = [mode5];
   return Mode(
     name: r'CSS',
     caseInsensitive: true,
@@ -44,9 +46,9 @@ Mode css(Highlight hljs) {
     keywords: {r'keyframePosition': r'from to'},
     classNameAliases: {r'keyframePosition': r'selector-tag'},
     contains: [
-      _mode0,
+      mode0,
       Mode(begin: r'-(webkit|moz|ms|o)-(?=[a-z])'),
-      _mode3,
+      mode3,
       Mode(scope: r'selector-id', begin: r'#[A-Za-z0-9_-]+', relevance: 0),
       Mode(
         scope: r'selector-class',
@@ -58,7 +60,7 @@ Mode css(Highlight hljs) {
         begin: r'\[',
         end: r'\]',
         illegal: r'$',
-        contains: [_mode4, _mode6],
+        contains: [mode4, mode6],
       ),
       Mode(
         scope: r'selector-pseudo',
@@ -83,23 +85,23 @@ Mode css(Highlight hljs) {
         begin: r':',
         end: r'[;}{]',
         contains: [
-          _mode0,
+          mode0,
           Mode(
             scope: r'number',
             begin: r'#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b',
           ),
           Mode(scope: r'meta', begin: r'!important'),
-          _mode3,
-          _mode4,
-          _mode6,
+          mode3,
+          mode4,
+          mode6,
           Mode(
             begin: r'(url|data-uri)\(',
             end: r'\)',
             relevance: 0,
             keywords: {r'built_in': r'url data-uri'},
             contains: [
-              _mode4,
-              _mode6,
+              mode4,
+              mode6,
               Mode(
                 scope: r'string',
                 begin: r'[^)]',
@@ -131,9 +133,9 @@ Mode css(Highlight hljs) {
             },
             contains: [
               Mode(begin: r'[a-z-]+(?=:)', scope: r'attribute'),
-              _mode4,
-              _mode6,
-              _mode3,
+              mode4,
+              mode6,
+              mode3,
             ],
           ),
         ],

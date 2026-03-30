@@ -1,28 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `smalltalk`.
 Mode smalltalk(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r"'";
-  _mode0.end = r"'";
-  _mode0.illegal = r'\n';
-  _mode0.contains = [_mode1];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'number';
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r"'";
+  mode0.end = r"'";
+  mode0.illegal = r'\n';
+  mode0.contains = [mode1];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'number';
+  mode2.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode2.relevance = 0;
-  _mode3.scope = r'symbol';
-  _mode3.begin = r'#[a-zA-Z_]\w*';
-  _mode4.scope = r'string';
-  _mode4.begin = r'\$.{1}';
+  mode2.relevance = 0;
+  mode3.scope = r'symbol';
+  mode3.begin = r'#[a-zA-Z_]\w*';
+  mode4.scope = r'string';
+  mode4.begin = r'\$.{1}';
   return Mode(
     name: r'Smalltalk',
     aliases: [r'st'],
@@ -46,12 +48,12 @@ Mode smalltalk(Highlight hljs) {
           ),
         ],
       ),
-      _mode0,
+      mode0,
       Mode(scope: r'type', begin: r'\b[A-Z][A-Za-z0-9_]*', relevance: 0),
       Mode(begin: r'[a-z][a-zA-Z0-9_]*:', relevance: 0),
-      _mode2,
-      _mode3,
-      _mode4,
+      mode2,
+      mode3,
+      mode4,
       Mode(
         begin: r'\|[ ]*[a-z][a-zA-Z0-9_]*([ ]+[a-z][a-zA-Z0-9_]*)*[ ]*\|',
         returnBegin: true,
@@ -59,11 +61,7 @@ Mode smalltalk(Highlight hljs) {
         illegal: r'\S',
         contains: [Mode(begin: r'(\|[ ]*)?[a-z][a-zA-Z0-9_]*')],
       ),
-      Mode(
-        begin: r'#\(',
-        end: r'\)',
-        contains: [_mode0, _mode4, _mode2, _mode3],
-      ),
+      Mode(begin: r'#\(', end: r'\)', contains: [mode0, mode4, mode2, mode3]),
     ],
   );
 }

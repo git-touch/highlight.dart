@@ -1,20 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `profile`.
 Mode profile(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  mode0.scope = r'number';
+  mode0.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode0.relevance = 0;
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
+  mode0.relevance = 0;
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
   return Mode(
     name: r'Python profiler',
     contains: [
-      _mode0,
+      mode0,
       Mode(
         begin: r'[a-zA-Z_][\da-zA-Z_]+\.[\da-zA-Z_]{1,3}',
         end: r':',
@@ -29,7 +31,7 @@ Mode profile(Highlight hljs) {
       Mode(
         begin: r'function calls',
         end: r'$',
-        contains: [_mode0],
+        contains: [mode0],
         relevance: 10,
       ),
       Mode(
@@ -37,14 +39,14 @@ Mode profile(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [_mode1],
+        contains: [mode1],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode1],
+        contains: [mode1],
       ),
       Mode(
         scope: r'string',

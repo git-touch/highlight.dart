@@ -37,3 +37,35 @@ HighlightView(
   showLineNumbers: true,
 )
 ```
+
+## Changelog Generation
+
+This repo uses conventional-commit style subjects, so changelog sections can be
+generated from git history per package:
+
+```bash
+dart run tool/generate_changelog.dart \
+  --package highlight \
+  --version 0.7.1 \
+  --from v0.7.0
+```
+
+Add `--write` to update the package `CHANGELOG.md` in place:
+
+```bash
+dart run tool/generate_changelog.dart \
+  --package flutter_highlight \
+  --version 0.7.1 \
+  --from v0.7.0 \
+  --write
+```
+
+## Pub Score Checks
+
+CI validates the publishable package quality gates with `pana` plus `pub publish --dry-run`.
+Run the same score checks locally with:
+
+```bash
+dart pub global activate pana 0.23.12
+dart run tool/check_pub_score.dart
+```

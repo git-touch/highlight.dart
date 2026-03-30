@@ -1,23 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `scilab`.
 Mode scilab(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.scope = r'number';
+  mode0.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode0.relevance = 0;
-  _mode1.scope = r'string';
-  _mode1.begin = '\'|"';
-  _mode1.end = '\'|"';
-  _mode1.contains = [_mode2, _mode3];
-  _mode2.begin = r'\\[\s\S]';
-  _mode2.relevance = 0;
-  _mode3.begin = r"''";
+  mode0.relevance = 0;
+  mode1.scope = r'string';
+  mode1.begin = '\'|"';
+  mode1.end = '\'|"';
+  mode1.contains = [mode2, mode3];
+  mode2.begin = r'\\[\s\S]';
+  mode2.relevance = 0;
+  mode3.begin = r"''";
   return Mode(
     name: r'Scilab',
     aliases: [r'sci'],
@@ -45,7 +47,7 @@ Mode scilab(Highlight hljs) {
         begin: r'\[',
         end: r"\][\.']*",
         relevance: 0,
-        contains: [_mode0, _mode1],
+        contains: [mode0, mode1],
       ),
       Mode(
         scope: r'comment',
@@ -65,8 +67,8 @@ Mode scilab(Highlight hljs) {
           ),
         ],
       ),
-      _mode0,
-      _mode1,
+      mode0,
+      mode1,
     ],
   );
 }

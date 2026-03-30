@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'mode.dart';
 import 'token_tree.dart';
 import 'regex.dart' as regex;

@@ -1,13 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `xl`.
 Mode xl(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r'"';
-  _mode0.end = r'"';
-  _mode0.illegal = r'\n';
+  final Mode mode0 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r'"';
+  mode0.end = r'"';
+  mode0.illegal = r'\n';
   return Mode(
     name: r'XL',
     aliases: [r'tao'],
@@ -177,7 +179,7 @@ Mode xl(Highlight hljs) {
           ),
         ],
       ),
-      _mode0,
+      mode0,
       Mode(scope: r'string', begin: r"'", end: r"'", illegal: r'\n'),
       Mode(scope: r'string', begin: r'<<', end: r'>>'),
       Mode(
@@ -457,7 +459,7 @@ Mode xl(Highlight hljs) {
             r'Charts',
           ],
         },
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'number',

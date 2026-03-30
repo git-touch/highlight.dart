@@ -193,6 +193,7 @@ import 'xl.dart' as xl;
 import 'xquery.dart' as xquery;
 import 'zephir.dart' as zephir;
 
+/// Registers every generated language on [hljs].
 void registerAllLanguages(Highlight hljs) {
   hljs.registerLanguage('1c', lang_1c.lang_1c);
   hljs.registerLanguage('abnf', abnf.abnf);

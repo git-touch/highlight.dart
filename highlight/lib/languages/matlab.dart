@@ -1,13 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `matlab`.
 Mode matlab(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  _mode0.relevance = 0;
-  _mode0.contains = [_mode1];
-  _mode1.begin = r"('|\.')+";
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  mode0.relevance = 0;
+  mode0.contains = [mode1];
+  mode1.begin = r"('|\.')+";
   return Mode(
     name: r'Matlab',
     keywords: {
@@ -37,7 +39,7 @@ Mode matlab(Highlight hljs) {
         scope: r'built_in',
         begin: r'true|false',
         relevance: 0,
-        starts: _mode0,
+        starts: mode0,
       ),
       Mode(begin: r"[a-zA-Z][a-zA-Z_0-9]*('|\.')+", relevance: 0),
       Mode(
@@ -45,7 +47,7 @@ Mode matlab(Highlight hljs) {
         begin:
             r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
         relevance: 0,
-        starts: _mode0,
+        starts: mode0,
       ),
       Mode(
         scope: r'string',
@@ -53,13 +55,13 @@ Mode matlab(Highlight hljs) {
         end: r"'",
         contains: [Mode(begin: r"''")],
       ),
-      Mode(begin: r'\]|\}|\)', relevance: 0, starts: _mode0),
+      Mode(begin: r'\]|\}|\)', relevance: 0, starts: mode0),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         contains: [Mode(begin: r'""')],
-        starts: _mode0,
+        starts: mode0,
       ),
       Mode(
         scope: r'comment',

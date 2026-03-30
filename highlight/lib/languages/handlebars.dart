@@ -1,29 +1,31 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `handlebars`.
 Mode handlebars(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  mode0.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
-  _mode0.keywords = {
+  mode0.keywords = {
     r'$pattern': r'[\w.\/]+',
     r'built_in': [
       r'action',
@@ -57,53 +59,53 @@ Mode handlebars(Highlight hljs) {
       r'yield',
     ],
   };
-  _mode0.scope = r'name';
-  _mode0.starts = _mode1;
-  _mode1.contains = [_mode2, _mode3, _mode5, _mode6, _mode8, _mode11, _mode12];
-  _mode1.returnEnd = true;
-  _mode1.end = r'\}\}';
-  _mode2.scope = r'number';
-  _mode2.begin = r'\b\d+(\.\d+)?';
-  _mode2.relevance = 0;
-  _mode3.scope = r'string';
-  _mode3.begin = r'"';
-  _mode3.end = r'"';
-  _mode3.illegal = r'\n';
-  _mode3.contains = [_mode4];
-  _mode4.begin = r'\\[\s\S]';
-  _mode4.relevance = 0;
-  _mode5.scope = r'string';
-  _mode5.begin = r"'";
-  _mode5.end = r"'";
-  _mode5.illegal = r'\n';
-  _mode5.contains = [_mode4];
-  _mode6.begin = r'as\s+\|';
-  _mode6.keywords = {r'keyword': r'as'};
-  _mode6.end = r'\|';
-  _mode6.contains = [_mode7];
-  _mode7.begin = r'\w+';
-  _mode8.scope = r'attr';
-  _mode8.begin =
+  mode0.scope = r'name';
+  mode0.starts = mode1;
+  mode1.contains = [mode2, mode3, mode5, mode6, mode8, mode11, mode12];
+  mode1.returnEnd = true;
+  mode1.end = r'\}\}';
+  mode2.scope = r'number';
+  mode2.begin = r'\b\d+(\.\d+)?';
+  mode2.relevance = 0;
+  mode3.scope = r'string';
+  mode3.begin = r'"';
+  mode3.end = r'"';
+  mode3.illegal = r'\n';
+  mode3.contains = [mode4];
+  mode4.begin = r'\\[\s\S]';
+  mode4.relevance = 0;
+  mode5.scope = r'string';
+  mode5.begin = r"'";
+  mode5.end = r"'";
+  mode5.illegal = r'\n';
+  mode5.contains = [mode4];
+  mode6.begin = r'as\s+\|';
+  mode6.keywords = {r'keyword': r'as'};
+  mode6.end = r'\|';
+  mode6.contains = [mode7];
+  mode7.begin = r'\w+';
+  mode8.scope = r'attr';
+  mode8.begin =
       '(\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?==)';
-  _mode8.relevance = 0;
-  _mode8.starts = _mode9;
-  _mode9.begin = r'=';
-  _mode9.end = r'=';
-  _mode9.starts = _mode10;
-  _mode10.contains = [_mode2, _mode3, _mode5, _mode11, _mode12];
-  _mode11.begin =
+  mode8.relevance = 0;
+  mode8.starts = mode9;
+  mode9.begin = r'=';
+  mode9.end = r'=';
+  mode9.starts = mode10;
+  mode10.contains = [mode2, mode3, mode5, mode11, mode12];
+  mode11.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
-  _mode11.keywords = {
+  mode11.keywords = {
     r'$pattern': r'[\w.\/]+',
     r'literal': [r'true', r'false', r'undefined', r'null'],
   };
-  _mode12.begin = r'\(';
-  _mode12.end = r'\)';
-  _mode12.contains = [_mode13];
-  _mode13.begin =
+  mode12.begin = r'\(';
+  mode12.end = r'\)';
+  mode12.contains = [mode13];
+  mode13.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
-  _mode13.scope = r'name';
-  _mode13.keywords = {
+  mode13.scope = r'name';
+  mode13.keywords = {
     r'$pattern': r'[\w.\/]+',
     r'built_in': [
       r'action',
@@ -137,13 +139,13 @@ Mode handlebars(Highlight hljs) {
       r'yield',
     ],
   };
-  _mode13.starts = _mode14;
-  _mode14.contains = [_mode2, _mode3, _mode5, _mode6, _mode8, _mode11, _mode12];
-  _mode14.returnEnd = true;
-  _mode14.end = r'\)';
-  _mode15.begin =
+  mode13.starts = mode14;
+  mode14.contains = [mode2, mode3, mode5, mode6, mode8, mode11, mode12];
+  mode14.returnEnd = true;
+  mode14.end = r'\)';
+  mode15.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
-  _mode15.keywords = {
+  mode15.keywords = {
     r'$pattern': r'[\w.\/]+',
     r'built_in': [
       r'action',
@@ -177,11 +179,11 @@ Mode handlebars(Highlight hljs) {
       r'yield',
     ],
   };
-  _mode15.scope = r'name';
-  _mode16.begin =
+  mode15.scope = r'name';
+  mode16.begin =
       '(?:\\.|\\.\\/|\\/)?(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+)(?:(\\.|\\/)(?:""|"[^"]+"|\'\'|\'[^\']+\'|\\[\\]|\\[[^\\]]+\\]|[^\\s!"#%&\'()*+,.\\/;<=>@\\[\\\\\\]^`{|}~]+))*';
-  _mode16.scope = r'name';
-  _mode16.keywords = {
+  mode16.scope = r'name';
+  mode16.keywords = {
     r'$pattern': r'[\w.\/]+',
     r'built_in': [
       r'action',
@@ -215,10 +217,10 @@ Mode handlebars(Highlight hljs) {
       r'yield',
     ],
   };
-  _mode16.starts = _mode17;
-  _mode17.contains = [_mode2, _mode3, _mode5, _mode6, _mode8, _mode11, _mode12];
-  _mode17.returnEnd = true;
-  _mode17.end = r'\}\}';
+  mode16.starts = mode17;
+  mode17.contains = [mode2, mode3, mode5, mode6, mode8, mode11, mode12];
+  mode17.returnEnd = true;
+  mode17.end = r'\}\}';
   return Mode(
     name: r'Handlebars',
     aliases: [r'hbs', r'html.hbs', r'html.handlebars', r'htmlbars'],
@@ -267,20 +269,20 @@ Mode handlebars(Highlight hljs) {
         scope: r'template-tag',
         begin: r'\{\{\{\{(?!\/)',
         end: r'\}\}\}\}',
-        contains: [_mode0],
+        contains: [mode0],
         starts: Mode(end: r'\{\{\{\{\/', returnEnd: true, subLanguage: r'xml'),
       ),
       Mode(
         scope: r'template-tag',
         begin: r'\{\{\{\{\/',
         end: r'\}\}\}\}',
-        contains: [_mode15],
+        contains: [mode15],
       ),
       Mode(
         scope: r'template-tag',
         begin: r'\{\{#',
         end: r'\}\}',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'template-tag',
@@ -298,19 +300,19 @@ Mode handlebars(Highlight hljs) {
         scope: r'template-tag',
         begin: r'\{\{\/',
         end: r'\}\}',
-        contains: [_mode15],
+        contains: [mode15],
       ),
       Mode(
         scope: r'template-variable',
         begin: r'\{\{\{',
         end: r'\}\}\}',
-        contains: [_mode16],
+        contains: [mode16],
       ),
       Mode(
         scope: r'template-variable',
         begin: r'\{\{',
         end: r'\}\}',
-        contains: [_mode16],
+        contains: [mode16],
       ),
     ],
   );

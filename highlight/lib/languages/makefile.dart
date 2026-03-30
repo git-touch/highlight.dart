@@ -1,24 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `makefile`.
 Mode makefile(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  _mode0.scope = r'variable';
-  _mode0.variants = [_mode1, _mode3];
-  _mode1.begin = r'\$\([a-zA-Z_]\w*\)';
-  _mode1.contains = [_mode2];
-  _mode2.begin = r'\\[\s\S]';
-  _mode2.relevance = 0;
-  _mode3.begin = r'\$[@%<?\^\+\*]';
-  _mode4.scope = r'string';
-  _mode4.begin = r'"';
-  _mode4.end = r'"';
-  _mode4.contains = [_mode2, _mode0];
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  mode0.scope = r'variable';
+  mode0.variants = [mode1, mode3];
+  mode1.begin = r'\$\([a-zA-Z_]\w*\)';
+  mode1.contains = [mode2];
+  mode2.begin = r'\\[\s\S]';
+  mode2.relevance = 0;
+  mode3.begin = r'\$[@%<?\^\+\*]';
+  mode4.scope = r'string';
+  mode4.begin = r'"';
+  mode4.end = r'"';
+  mode4.contains = [mode2, mode0];
   return Mode(
     name: r'Makefile',
     aliases: [r'mk', r'mak', r'make'],
@@ -46,8 +48,8 @@ Mode makefile(Highlight hljs) {
           ),
         ],
       ),
-      _mode0,
-      _mode4,
+      mode0,
+      mode4,
       Mode(
         scope: r'variable',
         begin: r'\$\([\w-]+\s',
@@ -56,7 +58,7 @@ Mode makefile(Highlight hljs) {
           r'built_in':
               r'subst patsubst strip findstring filter filter-out sort word wordlist firstword lastword dir notdir suffix basename addsuffix addprefix join wildcard realpath abspath error warning shell origin flavor foreach if or and call eval file value',
         },
-        contains: [_mode0, _mode4],
+        contains: [mode0, mode4],
       ),
       Mode(begin: r'^[a-zA-Z_]\w*\s*(?=[:+?]?=)'),
       Mode(
@@ -65,12 +67,7 @@ Mode makefile(Highlight hljs) {
         end: r'$',
         keywords: {r'$pattern': r'[\.\w]+', r'keyword': r'.PHONY'},
       ),
-      Mode(
-        scope: r'section',
-        begin: r'^[^\s]+:',
-        end: r'$',
-        contains: [_mode0],
-      ),
+      Mode(scope: r'section', begin: r'^[^\s]+:', end: r'$', contains: [mode0]),
     ],
   );
 }

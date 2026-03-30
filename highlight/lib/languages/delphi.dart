@@ -1,82 +1,84 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `delphi`.
 Mode delphi(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  final Mode _mode18 = Mode();
-  final Mode _mode19 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r"'";
-  _mode0.end = r"'";
-  _mode0.contains = [_mode1];
-  _mode1.begin = r"''";
-  _mode2.scope = r'string';
-  _mode2.variants = [_mode3, _mode4, _mode5, _mode6];
-  _mode3.match = r'#\d[\d_]*';
-  _mode4.match = r'#\$[\dA-Fa-f][\dA-Fa-f_]*';
-  _mode5.match = r'#&[0-7][0-7_]*';
-  _mode6.match = r'#%[01][01_]*';
-  _mode7.scope = r'title';
-  _mode7.begin = r'[a-zA-Z]\w*';
-  _mode7.relevance = 0;
-  _mode8.scope = r'meta';
-  _mode8.variants = [_mode9, _mode10];
-  _mode9.begin = r'\{\$';
-  _mode9.end = r'\}';
-  _mode10.begin = r'\(\*\$';
-  _mode10.end = r'\*\)';
-  _mode11.scope = r'comment';
-  _mode11.begin = r'//';
-  _mode11.end = r'$';
-  _mode11.contains = [_mode12, _mode13];
-  _mode12.scope = r'doctag';
-  _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode12.excludeBegin = true;
-  _mode12.relevance = 0;
-  _mode13.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  final Mode mode18 = Mode();
+  final Mode mode19 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r"'";
+  mode0.end = r"'";
+  mode0.contains = [mode1];
+  mode1.begin = r"''";
+  mode2.scope = r'string';
+  mode2.variants = [mode3, mode4, mode5, mode6];
+  mode3.match = r'#\d[\d_]*';
+  mode4.match = r'#\$[\dA-Fa-f][\dA-Fa-f_]*';
+  mode5.match = r'#&[0-7][0-7_]*';
+  mode6.match = r'#%[01][01_]*';
+  mode7.scope = r'title';
+  mode7.begin = r'[a-zA-Z]\w*';
+  mode7.relevance = 0;
+  mode8.scope = r'meta';
+  mode8.variants = [mode9, mode10];
+  mode9.begin = r'\{\$';
+  mode9.end = r'\}';
+  mode10.begin = r'\(\*\$';
+  mode10.end = r'\*\)';
+  mode11.scope = r'comment';
+  mode11.begin = r'//';
+  mode11.end = r'$';
+  mode11.contains = [mode12, mode13];
+  mode12.scope = r'doctag';
+  mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode12.excludeBegin = true;
+  mode12.relevance = 0;
+  mode13.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode14.scope = r'comment';
-  _mode14.begin = r'\{';
-  _mode14.end = r'\}';
-  _mode14.contains = [_mode15, _mode16];
-  _mode14.relevance = 0;
-  _mode15.scope = r'doctag';
-  _mode15.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode15.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode15.excludeBegin = true;
-  _mode15.relevance = 0;
-  _mode16.begin =
+  mode14.scope = r'comment';
+  mode14.begin = r'\{';
+  mode14.end = r'\}';
+  mode14.contains = [mode15, mode16];
+  mode14.relevance = 0;
+  mode15.scope = r'doctag';
+  mode15.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode15.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode15.excludeBegin = true;
+  mode15.relevance = 0;
+  mode16.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode17.scope = r'comment';
-  _mode17.begin = r'\(\*';
-  _mode17.end = r'\*\)';
-  _mode17.contains = [_mode18, _mode19];
-  _mode17.relevance = 10;
-  _mode18.scope = r'doctag';
-  _mode18.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode18.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode18.excludeBegin = true;
-  _mode18.relevance = 0;
-  _mode19.begin =
+  mode17.scope = r'comment';
+  mode17.begin = r'\(\*';
+  mode17.end = r'\*\)';
+  mode17.contains = [mode18, mode19];
+  mode17.relevance = 10;
+  mode18.scope = r'doctag';
+  mode18.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode18.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode18.excludeBegin = true;
+  mode18.relevance = 0;
+  mode19.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'Delphi',
@@ -213,8 +215,8 @@ Mode delphi(Highlight hljs) {
     ],
     illegal: r'"|\$[G-Zg-z]|\/\*|<\/|\|',
     contains: [
-      _mode0,
-      _mode2,
+      mode0,
+      mode2,
       Mode(
         scope: r'number',
         relevance: 0,
@@ -230,7 +232,7 @@ Mode delphi(Highlight hljs) {
       Mode(
         begin: r'[a-zA-Z]\w*\s*=\s*class\s*\(',
         returnBegin: true,
-        contains: [_mode7],
+        contains: [mode7],
       ),
       Mode(
         scope: r'function',
@@ -238,7 +240,7 @@ Mode delphi(Highlight hljs) {
         end: r'[:;]',
         keywords: r'function constructor|10 destructor|10 procedure|10',
         contains: [
-          _mode7,
+          mode7,
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -372,18 +374,18 @@ Mode delphi(Highlight hljs) {
               r'unaligned',
               r'varargs',
             ],
-            contains: [_mode0, _mode2, _mode8, _mode11, _mode14, _mode17],
+            contains: [mode0, mode2, mode8, mode11, mode14, mode17],
           ),
-          _mode8,
-          _mode11,
-          _mode14,
-          _mode17,
+          mode8,
+          mode11,
+          mode14,
+          mode17,
         ],
       ),
-      _mode8,
-      _mode11,
-      _mode14,
-      _mode17,
+      mode8,
+      mode11,
+      mode14,
+      mode17,
     ],
   );
 }

@@ -1,50 +1,52 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `actionscript`.
 Mode actionscript(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r"'";
-  _mode0.end = r"'";
-  _mode0.illegal = r'\n';
-  _mode0.contains = [_mode1];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'string';
-  _mode2.begin = r'"';
-  _mode2.end = r'"';
-  _mode2.illegal = r'\n';
-  _mode2.contains = [_mode1];
-  _mode3.scope = r'comment';
-  _mode3.begin = r'//';
-  _mode3.end = r'$';
-  _mode3.contains = [_mode4, _mode5];
-  _mode4.scope = r'doctag';
-  _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode4.excludeBegin = true;
-  _mode4.relevance = 0;
-  _mode5.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r"'";
+  mode0.end = r"'";
+  mode0.illegal = r'\n';
+  mode0.contains = [mode1];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'string';
+  mode2.begin = r'"';
+  mode2.end = r'"';
+  mode2.illegal = r'\n';
+  mode2.contains = [mode1];
+  mode3.scope = r'comment';
+  mode3.begin = r'//';
+  mode3.end = r'$';
+  mode3.contains = [mode4, mode5];
+  mode4.scope = r'doctag';
+  mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode4.excludeBegin = true;
+  mode4.relevance = 0;
+  mode5.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode6.scope = r'comment';
-  _mode6.begin = r'/\*';
-  _mode6.end = r'\*/';
-  _mode6.contains = [_mode7, _mode8];
-  _mode7.scope = r'doctag';
-  _mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode7.excludeBegin = true;
-  _mode7.relevance = 0;
-  _mode8.begin =
+  mode6.scope = r'comment';
+  mode6.begin = r'/\*';
+  mode6.end = r'\*/';
+  mode6.contains = [mode7, mode8];
+  mode7.scope = r'doctag';
+  mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode7.excludeBegin = true;
+  mode7.relevance = 0;
+  mode8.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'ActionScript',
@@ -105,10 +107,10 @@ Mode actionscript(Highlight hljs) {
       r'literal': [r'true', r'false', r'null', r'undefined'],
     },
     contains: [
-      _mode0,
-      _mode2,
-      _mode3,
-      _mode6,
+      mode0,
+      mode2,
+      mode3,
+      mode6,
       Mode(
         scope: r'number',
         begin:
@@ -149,10 +151,10 @@ Mode actionscript(Highlight hljs) {
             begin: r'\(',
             end: r'\)',
             contains: [
-              _mode0,
-              _mode2,
-              _mode3,
-              _mode6,
+              mode0,
+              mode2,
+              mode3,
+              mode6,
               Mode(
                 scope: r'rest_arg',
                 begin: r'[.]{3}',

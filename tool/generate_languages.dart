@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 const String _generatedHeader =
-    '// GENERATED CODE - DO NOT MODIFY BY HAND.\n\n';
+    '// GENERATED CODE - DO NOT MODIFY BY HAND.\n'
+    '// ignore_for_file: file_names, non_constant_identifier_names\n\n';
 
 const Set<String> _modeDetectionKeys = <String>{
   'beforeMatch',
@@ -461,6 +462,9 @@ String _buildLanguageSource(String languageName, JsObject grammar) {
     ..write(_generatedHeader)
     ..writeln("import '../highlight_core.dart';")
     ..writeln()
+    ..writeln(
+      "/// Highlight.js language definition for `${_escapeDocText(languageName)}`.",
+    )
     ..writeln('Mode $functionName(Highlight hljs) {');
 
   for (final declaration in serializer.declarations()) {
@@ -621,6 +625,7 @@ String _renderAllLanguagesFile(List<String> languageNames) {
 
   buffer
     ..writeln()
+    ..writeln('/// Registers every generated language on [hljs].')
     ..writeln('void registerAllLanguages(Highlight hljs) {');
 
   for (final languageName in languageNames) {
@@ -684,6 +689,9 @@ String _escapeDartString(String value, String quote) {
   return buffer.toString();
 }
 
+String _escapeDocText(String value) =>
+    value.replaceAll(r'\', r'\\').replaceAll('`', r'\`');
+
 String _basename(String path) => path.replaceAll(r'\', '/').split('/').last;
 
 String _joinAll(List<String> segments) {
@@ -729,7 +737,7 @@ class _Serializer {
       <JsObject>{},
     );
     for (var index = 0; index < sharedModes.length; index++) {
-      modeNames[sharedModes[index]] = '_mode$index';
+      modeNames[sharedModes[index]] = 'mode$index';
     }
   }
 

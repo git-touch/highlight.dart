@@ -1,3 +1,6 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
+
 export '1c_light.dart';
 export 'a11y_dark.dart';
 export 'a11y_light.dart';

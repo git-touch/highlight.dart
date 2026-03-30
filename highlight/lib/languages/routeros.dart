@@ -1,32 +1,34 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `routeros`.
 Mode routeros(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r'"';
-  _mode0.end = r'"';
-  _mode0.contains = [_mode1, _mode2, _mode5];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'variable';
-  _mode2.variants = [_mode3, _mode4];
-  _mode3.begin = r'\$[\w\d#@][\w\d_]*';
-  _mode4.begin = r'\$\{(.*?)\}';
-  _mode5.scope = r'variable';
-  _mode5.begin = r'\$\(';
-  _mode5.end = r'\)';
-  _mode5.contains = [_mode1];
-  _mode6.scope = r'string';
-  _mode6.begin = r"'";
-  _mode6.end = r"'";
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r'"';
+  mode0.end = r'"';
+  mode0.contains = [mode1, mode2, mode5];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'variable';
+  mode2.variants = [mode3, mode4];
+  mode3.begin = r'\$[\w\d#@][\w\d_]*';
+  mode4.begin = r'\$\{(.*?)\}';
+  mode5.scope = r'variable';
+  mode5.begin = r'\$\(';
+  mode5.end = r'\)';
+  mode5.contains = [mode1];
+  mode6.scope = r'string';
+  mode6.begin = r"'";
+  mode6.end = r"'";
   return Mode(
     name: r'MikroTik RouterOS script',
     aliases: [r'mikrotik'],
@@ -64,9 +66,9 @@ Mode routeros(Highlight hljs) {
           ),
         ],
       ),
-      _mode0,
-      _mode6,
-      _mode2,
+      mode0,
+      mode6,
+      mode2,
       Mode(
         begin: r'[\w-]+=([^\s{}[\]()>]+)',
         relevance: 0,
@@ -78,9 +80,9 @@ Mode routeros(Highlight hljs) {
             endsWithParent: true,
             relevance: 0,
             contains: [
-              _mode0,
-              _mode6,
-              _mode2,
+              mode0,
+              mode6,
+              mode2,
               Mode(
                 scope: r'literal',
                 begin: r'\b(true|false|yes|no|nothing|nil|null)\b',

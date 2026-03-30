@@ -1,45 +1,47 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `arcade`.
 Mode arcade(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r"'";
-  _mode0.end = r"'";
-  _mode0.illegal = r'\n';
-  _mode0.contains = [_mode1];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'string';
-  _mode2.begin = r'"';
-  _mode2.end = r'"';
-  _mode2.illegal = r'\n';
-  _mode2.contains = [_mode1];
-  _mode3.scope = r'string';
-  _mode3.begin = r'`';
-  _mode3.end = r'`';
-  _mode3.contains = [_mode1, _mode4];
-  _mode4.scope = r'subst';
-  _mode4.begin = r'\$\{';
-  _mode4.end = r'\}';
-  _mode4.keywords = {
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r"'";
+  mode0.end = r"'";
+  mode0.illegal = r'\n';
+  mode0.contains = [mode1];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'string';
+  mode2.begin = r'"';
+  mode2.end = r'"';
+  mode2.illegal = r'\n';
+  mode2.contains = [mode1];
+  mode3.scope = r'string';
+  mode3.begin = r'`';
+  mode3.end = r'`';
+  mode3.contains = [mode1, mode4];
+  mode4.scope = r'subst';
+  mode4.begin = r'\$\{';
+  mode4.end = r'\}';
+  mode4.keywords = {
     r'keyword': [
       r'break',
       r'case',
@@ -290,43 +292,43 @@ Mode arcade(Highlight hljs) {
       r'Year|0',
     ],
   };
-  _mode4.contains = [_mode0, _mode2, _mode3, _mode5, _mode9];
-  _mode5.scope = r'number';
-  _mode5.variants = [_mode6, _mode7, _mode8];
-  _mode5.relevance = 0;
-  _mode6.begin = r'\b(0[bB][01]+)';
-  _mode7.begin = r'\b(0[oO][0-7]+)';
-  _mode8.begin =
+  mode4.contains = [mode0, mode2, mode3, mode5, mode9];
+  mode5.scope = r'number';
+  mode5.variants = [mode6, mode7, mode8];
+  mode5.relevance = 0;
+  mode6.begin = r'\b(0[bB][01]+)';
+  mode7.begin = r'\b(0[oO][0-7]+)';
+  mode8.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode9.scope = r'regexp';
-  _mode9.begin = r'\/(?=[^/\n]*\/)';
-  _mode9.end = r'\/[gimuy]*';
-  _mode9.contains = [_mode1, _mode10];
-  _mode10.begin = r'\[';
-  _mode10.end = r'\]';
-  _mode10.relevance = 0;
-  _mode10.contains = [_mode1];
-  _mode11.scope = r'comment';
-  _mode11.begin = r'//';
-  _mode11.end = r'$';
-  _mode11.contains = [_mode12, _mode13];
-  _mode12.scope = r'doctag';
-  _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode12.excludeBegin = true;
-  _mode12.relevance = 0;
-  _mode13.begin =
+  mode9.scope = r'regexp';
+  mode9.begin = r'\/(?=[^/\n]*\/)';
+  mode9.end = r'\/[gimuy]*';
+  mode9.contains = [mode1, mode10];
+  mode10.begin = r'\[';
+  mode10.end = r'\]';
+  mode10.relevance = 0;
+  mode10.contains = [mode1];
+  mode11.scope = r'comment';
+  mode11.begin = r'//';
+  mode11.end = r'$';
+  mode11.contains = [mode12, mode13];
+  mode12.scope = r'doctag';
+  mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode12.excludeBegin = true;
+  mode12.relevance = 0;
+  mode13.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode14.scope = r'comment';
-  _mode14.begin = r'/\*';
-  _mode14.end = r'\*/';
-  _mode14.contains = [_mode15, _mode16];
-  _mode15.scope = r'doctag';
-  _mode15.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode15.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode15.excludeBegin = true;
-  _mode15.relevance = 0;
-  _mode16.begin =
+  mode14.scope = r'comment';
+  mode14.begin = r'/\*';
+  mode14.end = r'\*/';
+  mode14.contains = [mode15, mode16];
+  mode15.scope = r'doctag';
+  mode15.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode15.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode15.excludeBegin = true;
+  mode15.relevance = 0;
+  mode16.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'ArcGIS Arcade',
@@ -583,17 +585,17 @@ Mode arcade(Highlight hljs) {
       ],
     },
     contains: [
-      _mode0,
-      _mode2,
-      _mode3,
-      _mode11,
-      _mode14,
+      mode0,
+      mode2,
+      mode3,
+      mode11,
+      mode14,
       Mode(
         scope: r'symbol',
         begin:
             r'\$(?:aggregatedFeatures|analytic|config|datapoint|datastore|editcontext|feature|featureSet|feedfeature|fencefeature|fencenotificationtype|graph|join|layer|locationupdate|map|measure|measure|originalFeature|record|reference|rowindex|sourcedatastore|sourcefeature|sourcelayer|target|targetdatastore|targetfeature|targetlayer|userInput|value|variables|view)',
       ),
-      _mode5,
+      mode5,
       Mode(
         begin: r'[{,]\s*',
         relevance: 0,
@@ -617,9 +619,9 @@ Mode arcade(Highlight hljs) {
             r'(!|!=|!==|%|%=|&|&&|&=|\*|\*=|\+|\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\?|\[|\{|\(|\^|\^=|\||\|=|\|\||~|\b(return)\b)\s*',
         keywords: r'return',
         contains: [
-          _mode11,
-          _mode14,
-          _mode9,
+          mode11,
+          mode14,
+          mode9,
           Mode(
             scope: r'function',
             begin: r'(\(.*?\)|[A-Za-z_][0-9A-Za-z_]*)\s*=>',
@@ -888,13 +890,13 @@ Mode arcade(Highlight hljs) {
                       ],
                     },
                     contains: [
-                      _mode0,
-                      _mode2,
-                      _mode3,
-                      _mode5,
-                      _mode9,
-                      _mode14,
-                      _mode11,
+                      mode0,
+                      mode2,
+                      mode3,
+                      mode5,
+                      mode9,
+                      mode14,
+                      mode11,
                     ],
                   ),
                 ],
@@ -920,15 +922,7 @@ Mode arcade(Highlight hljs) {
             end: r'\)',
             excludeBegin: true,
             excludeEnd: true,
-            contains: [
-              _mode0,
-              _mode2,
-              _mode3,
-              _mode5,
-              _mode9,
-              _mode14,
-              _mode11,
-            ],
+            contains: [mode0, mode2, mode3, mode5, mode9, mode14, mode11],
           ),
         ],
         illegal: r'\[|%',

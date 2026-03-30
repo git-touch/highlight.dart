@@ -1,34 +1,36 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `applescript`.
 Mode applescript(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r'"';
-  _mode0.end = r'"';
-  _mode0.contains = [_mode1];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'number';
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r'"';
+  mode0.end = r'"';
+  mode0.contains = [mode1];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'number';
+  mode2.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode2.relevance = 0;
-  _mode3.scope = r'comment';
-  _mode3.begin = r'--';
-  _mode3.end = r'$';
-  _mode3.contains = [_mode4, _mode5];
-  _mode4.scope = r'doctag';
-  _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode4.excludeBegin = true;
-  _mode4.relevance = 0;
-  _mode5.begin =
+  mode2.relevance = 0;
+  mode3.scope = r'comment';
+  mode3.begin = r'--';
+  mode3.end = r'$';
+  mode3.contains = [mode4, mode5];
+  mode4.scope = r'doctag';
+  mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode4.excludeBegin = true;
+  mode4.relevance = 0;
+  mode5.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'AppleScript',
@@ -42,8 +44,8 @@ Mode applescript(Highlight hljs) {
           r'alias application boolean class constant date file integer list number real record string text activate beep count delay launch log offset read round run say summarize write character characters contents day frontmost id item length month name|0 paragraph paragraphs rest reverse running time version weekday word words year',
     },
     contains: [
-      _mode0,
-      _mode2,
+      mode0,
+      mode2,
       Mode(
         scope: r'built_in',
         begin:
@@ -68,18 +70,18 @@ Mode applescript(Highlight hljs) {
             scope: r'params',
             begin: r'\(',
             end: r'\)',
-            contains: [r'self', _mode2, _mode0],
+            contains: [r'self', mode2, mode0],
           ),
         ],
       ),
-      _mode3,
+      mode3,
       Mode(
         scope: r'comment',
         begin: r'\(\*',
         end: r'\*\)',
         contains: [
           r'self',
-          _mode3,
+          mode3,
           Mode(
             scope: r'doctag',
             begin: r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',

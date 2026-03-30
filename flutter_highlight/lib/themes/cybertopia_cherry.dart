@@ -1,10 +1,14 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'package:highlight/highlight_core.dart' show HljsStyle;
 
+/// Highlight.js theme map for the `cybertopia-cherry` theme.
 const cybertopiaCherryTheme = <String, HljsStyle>{
-  'code': const HljsStyle(italic: true),
-  'comment': const HljsStyle(italic: true),
-  'emphasis': const HljsStyle(italic: true),
-  'link': const HljsStyle(underline: true),
-  'quote': const HljsStyle(italic: true),
-  'strong': const HljsStyle(bold: true),
+  'code': HljsStyle(italic: true),
+  'comment': HljsStyle(italic: true),
+  'emphasis': HljsStyle(italic: true),
+  'link': HljsStyle(underline: true),
+  'quote': HljsStyle(italic: true),
+  'strong': HljsStyle(bold: true),
 };

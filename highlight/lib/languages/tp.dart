@@ -1,24 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `tp`.
 Mode tp(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin = r'[1-9][0-9]*';
-  _mode0.relevance = 0;
-  _mode1.scope = r'symbol';
-  _mode1.begin = r':[^\]]+';
-  _mode2.scope = r'string';
-  _mode2.begin = r'"';
-  _mode2.end = r'"';
-  _mode2.illegal = r'\n';
-  _mode2.contains = [_mode3];
-  _mode3.begin = r'\\[\s\S]';
-  _mode3.relevance = 0;
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.scope = r'number';
+  mode0.begin = r'[1-9][0-9]*';
+  mode0.relevance = 0;
+  mode1.scope = r'symbol';
+  mode1.begin = r':[^\]]+';
+  mode2.scope = r'string';
+  mode2.begin = r'"';
+  mode2.end = r'"';
+  mode2.illegal = r'\n';
+  mode2.contains = [mode3];
+  mode3.begin = r'\\[\s\S]';
+  mode3.relevance = 0;
   return Mode(
     name: r'TP',
     keywords: {
@@ -111,13 +113,13 @@ Mode tp(Highlight hljs) {
         begin:
             r'(AR|P|PAYLOAD|PR|R|SR|RSR|LBL|VR|UALM|MESSAGE|UTOOL|UFRAME|TIMER|TIMER_OVERFLOW|JOINT_MAX_SPEED|RESUME_PROG|DIAG_REC)\[',
         end: r'\]',
-        contains: [r'self', _mode0, _mode1],
+        contains: [r'self', mode0, mode1],
       ),
       Mode(
         scope: r'built_in',
         begin: r'(AI|AO|DI|DO|F|RI|RO|UI|UO|GI|GO|SI|SO)\[',
         end: r'\]',
-        contains: [r'self', _mode0, _mode2, _mode1],
+        contains: [r'self', mode0, mode2, mode1],
       ),
       Mode(scope: r'keyword', begin: r'/(PROG|ATTR|MN|POS|END)\b'),
       Mode(scope: r'keyword', begin: r'(CALL|RUN|POINT_LOGIC|LBL)\b'),
@@ -184,7 +186,7 @@ Mode tp(Highlight hljs) {
           ),
         ],
       ),
-      _mode2,
+      mode2,
       Mode(scope: r'string', begin: r"'", end: r"'"),
       Mode(
         scope: r'number',

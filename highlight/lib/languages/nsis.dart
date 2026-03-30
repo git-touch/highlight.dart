@@ -1,18 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `nsis`.
 Mode nsis(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  _mode0.scope = r'variable';
-  _mode0.begin = r'\$+\{[\!\w.:-]+\}';
-  _mode1.scope = r'variable';
-  _mode1.begin = r'\$+\w[\w\.]*';
-  _mode1.illegal = r'\(\)\{\}';
-  _mode2.scope = r'variable';
-  _mode2.begin = r'\$+\([\w^.:!-]+\)';
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  mode0.scope = r'variable';
+  mode0.begin = r'\$+\{[\!\w.:-]+\}';
+  mode1.scope = r'variable';
+  mode1.begin = r'\$+\w[\w\.]*';
+  mode1.illegal = r'\(\)\{\}';
+  mode2.scope = r'variable';
+  mode2.begin = r'\$+\([\w^.:!-]+\)';
   return Mode(
     name: r'NSIS',
     caseInsensitive: true,
@@ -370,9 +372,9 @@ Mode nsis(Highlight hljs) {
             begin:
                 r'\$(?:ADMINTOOLS|APPDATA|CDBURN_AREA|CMDLINE|COMMONFILES32|COMMONFILES64|COMMONFILES|COOKIES|DESKTOP|DOCUMENTS|EXEDIR|EXEFILE|EXEPATH|FAVORITES|FONTS|HISTORY|HWNDPARENT|INSTDIR|INTERNET_CACHE|LANGUAGE|LOCALAPPDATA|MUSIC|NETHOOD|OUTDIR|PICTURES|PLUGINSDIR|PRINTHOOD|PROFILE|PROGRAMFILES32|PROGRAMFILES64|PROGRAMFILES|QUICKLAUNCH|RECENT|RESOURCES_LOCALIZED|RESOURCES|SENDTO|SMPROGRAMS|SMSTARTUP|STARTMENU|SYSDIR|TEMP|TEMPLATES|VIDEOS|WINDIR)',
           ),
-          _mode0,
-          _mode1,
-          _mode2,
+          mode0,
+          mode1,
+          mode2,
         ],
       ),
       Mode(
@@ -380,9 +382,9 @@ Mode nsis(Highlight hljs) {
         begin:
             r'!(?:addincludedir|addplugindir|appendfile|assert|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversion|gettlbversion|if|ifdef|ifmacrodef|ifmacrondef|ifndef|include|insertmacro|macro|macroend|makensis|packhdr|searchparse|searchreplace|system|tempfile|undef|uninstfinalize|verbose|warning)',
       ),
-      _mode0,
-      _mode1,
-      _mode2,
+      mode0,
+      mode1,
+      mode2,
       Mode(
         scope: r'params',
         begin:

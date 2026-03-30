@@ -1,22 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `cal`.
 Mode cal(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r"'";
-  _mode0.end = r"'";
-  _mode0.contains = [_mode1];
-  _mode1.begin = r"''";
-  _mode2.scope = r'string';
-  _mode2.begin = r'(#\d+)+';
-  _mode3.scope = r'number';
-  _mode3.begin = r'\b\d+(\.\d+)?';
-  _mode3.relevance = 0;
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r"'";
+  mode0.end = r"'";
+  mode0.contains = [mode1];
+  mode1.begin = r"''";
+  mode2.scope = r'string';
+  mode2.begin = r'(#\d+)+';
+  mode3.scope = r'number';
+  mode3.begin = r'\b\d+(\.\d+)?';
+  mode3.relevance = 0;
   return Mode(
     name: r'C/AL',
     caseInsensitive: true,
@@ -54,11 +56,11 @@ Mode cal(Highlight hljs) {
     illegal: r'\/\*',
     contains: [
       Mode(match: r'[\w]+(?=\=)', scope: r'attribute', relevance: 0),
-      _mode0,
-      _mode2,
+      mode0,
+      mode2,
       Mode(scope: r'number', begin: r'\b\d+(\.\d+)?(DT|D|T)', relevance: 0),
       Mode(scope: r'string', begin: r'"', end: r'"'),
-      _mode3,
+      mode3,
       Mode(
         match: [
           r'OBJECT',
@@ -109,7 +111,7 @@ Mode cal(Highlight hljs) {
               r'with',
               r'var',
             ],
-            contains: [_mode0, _mode2, _mode3],
+            contains: [mode0, mode2, mode3],
           ),
           Mode(
             scope: r'comment',

@@ -1,11 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `gradle`.
 Mode gradle(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
+  final Mode mode0 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
   return Mode(
     name: r'Gradle',
     caseInsensitive: true,
@@ -215,14 +217,14 @@ Mode gradle(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(scope: r'number', begin: r'\b\d+(\.\d+)?', relevance: 0),
       Mode(
@@ -230,8 +232,8 @@ Mode gradle(Highlight hljs) {
         begin: r'\/(?=[^/\n]*\/)',
         end: r'\/[gimuy]*',
         contains: [
-          _mode0,
-          Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [_mode0]),
+          mode0,
+          Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [mode0]),
         ],
       ),
     ],

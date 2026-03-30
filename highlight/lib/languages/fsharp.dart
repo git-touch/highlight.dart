@@ -1,49 +1,51 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `fsharp`.
 Mode fsharp(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  final Mode _mode18 = Mode();
-  final Mode _mode19 = Mode();
-  final Mode _mode20 = Mode();
-  final Mode _mode21 = Mode();
-  final Mode _mode22 = Mode();
-  final Mode _mode23 = Mode();
-  final Mode _mode24 = Mode();
-  final Mode _mode25 = Mode();
-  final Mode _mode26 = Mode();
-  final Mode _mode27 = Mode();
-  final Mode _mode28 = Mode();
-  final Mode _mode29 = Mode();
-  final Mode _mode30 = Mode();
-  final Mode _mode31 = Mode();
-  final Mode _mode32 = Mode();
-  final Mode _mode33 = Mode();
-  final Mode _mode34 = Mode();
-  _mode0.scope = r'keyword';
-  _mode0.match = r'\b(yield|return|let|do|match|use)!';
-  _mode1.scope = r'subst';
-  _mode1.begin = r'\{';
-  _mode1.end = r'\}';
-  _mode1.keywords = {
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  final Mode mode18 = Mode();
+  final Mode mode19 = Mode();
+  final Mode mode20 = Mode();
+  final Mode mode21 = Mode();
+  final Mode mode22 = Mode();
+  final Mode mode23 = Mode();
+  final Mode mode24 = Mode();
+  final Mode mode25 = Mode();
+  final Mode mode26 = Mode();
+  final Mode mode27 = Mode();
+  final Mode mode28 = Mode();
+  final Mode mode29 = Mode();
+  final Mode mode30 = Mode();
+  final Mode mode31 = Mode();
+  final Mode mode32 = Mode();
+  final Mode mode33 = Mode();
+  final Mode mode34 = Mode();
+  mode0.scope = r'keyword';
+  mode0.match = r'\b(yield|return|let|do|match|use)!';
+  mode1.scope = r'subst';
+  mode1.begin = r'\{';
+  mode1.end = r'\}';
+  mode1.keywords = {
     r'keyword': [
       r'abstract',
       r'and',
@@ -161,80 +163,80 @@ Mode fsharp(Highlight hljs) {
       r'__SOURCE_FILE__',
     ],
   };
-  _mode1.contains = [
-    _mode2,
-    _mode7,
-    _mode10,
-    _mode12,
-    _mode13,
-    _mode0,
-    _mode14,
-    _mode21,
-    _mode22,
-    _mode28,
-    _mode29,
-    _mode30,
-    _mode23,
-    _mode33,
+  mode1.contains = [
+    mode2,
+    mode7,
+    mode10,
+    mode12,
+    mode13,
+    mode0,
+    mode14,
+    mode21,
+    mode22,
+    mode28,
+    mode29,
+    mode30,
+    mode23,
+    mode33,
   ];
-  _mode2.scope = r'string';
-  _mode2.begin = r'(\$@|@\$)"';
-  _mode2.end = r'"';
-  _mode2.contains = [_mode3, _mode4, _mode5, _mode6, _mode1];
-  _mode3.match = r'\{\{';
-  _mode4.match = r'\}\}';
-  _mode5.match = r'""';
-  _mode6.begin = r'\\[\s\S]';
-  _mode6.relevance = 0;
-  _mode7.scope = r'string';
-  _mode7.begin = r'\$"';
-  _mode7.end = r'"';
-  _mode7.contains = [_mode8, _mode9, _mode6, _mode1];
-  _mode8.match = r'\{\{';
-  _mode9.match = r'\}\}';
-  _mode10.scope = r'string';
-  _mode10.begin = r'@"';
-  _mode10.end = r'"';
-  _mode10.contains = [_mode11, _mode6];
-  _mode11.match = r'""';
-  _mode12.scope = r'string';
-  _mode12.begin = r'"';
-  _mode12.end = r'"';
-  _mode12.contains = [_mode6];
-  _mode13.scope = r'string';
-  _mode13.match =
+  mode2.scope = r'string';
+  mode2.begin = r'(\$@|@\$)"';
+  mode2.end = r'"';
+  mode2.contains = [mode3, mode4, mode5, mode6, mode1];
+  mode3.match = r'\{\{';
+  mode4.match = r'\}\}';
+  mode5.match = r'""';
+  mode6.begin = r'\\[\s\S]';
+  mode6.relevance = 0;
+  mode7.scope = r'string';
+  mode7.begin = r'\$"';
+  mode7.end = r'"';
+  mode7.contains = [mode8, mode9, mode6, mode1];
+  mode8.match = r'\{\{';
+  mode9.match = r'\}\}';
+  mode10.scope = r'string';
+  mode10.begin = r'@"';
+  mode10.end = r'"';
+  mode10.contains = [mode11, mode6];
+  mode11.match = r'""';
+  mode12.scope = r'string';
+  mode12.begin = r'"';
+  mode12.end = r'"';
+  mode12.contains = [mode6];
+  mode13.scope = r'string';
+  mode13.match =
       r"'(?:[^\\']|\\(?:.|\d{3}|x[a-fA-F\d]{2}|u[a-fA-F\d]{4}|U[a-fA-F\d]{8}))'";
-  _mode14.variants = [_mode15, _mode18];
-  _mode15.scope = r'comment';
-  _mode15.begin = r'\(\*(?!\))';
-  _mode15.end = r'\*\)';
-  _mode15.contains = [r'self', _mode16, _mode17];
-  _mode16.scope = r'doctag';
-  _mode16.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode16.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode16.excludeBegin = true;
-  _mode16.relevance = 0;
-  _mode17.begin =
+  mode14.variants = [mode15, mode18];
+  mode15.scope = r'comment';
+  mode15.begin = r'\(\*(?!\))';
+  mode15.end = r'\*\)';
+  mode15.contains = [r'self', mode16, mode17];
+  mode16.scope = r'doctag';
+  mode16.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode16.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode16.excludeBegin = true;
+  mode16.relevance = 0;
+  mode17.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode18.scope = r'comment';
-  _mode18.begin = r'//';
-  _mode18.end = r'$';
-  _mode18.contains = [_mode19, _mode20];
-  _mode19.scope = r'doctag';
-  _mode19.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode19.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode19.excludeBegin = true;
-  _mode19.relevance = 0;
-  _mode20.begin =
+  mode18.scope = r'comment';
+  mode18.begin = r'//';
+  mode18.end = r'$';
+  mode18.contains = [mode19, mode20];
+  mode19.scope = r'doctag';
+  mode19.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode19.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode19.excludeBegin = true;
+  mode19.relevance = 0;
+  mode20.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode21.scope = r'variable';
-  _mode21.begin = r'``';
-  _mode21.end = r'``';
-  _mode22.begin = r":(?=\s*(?:\w|'|\^|#|``|\(|{\|))";
-  _mode22.beginScope = r'operator';
-  _mode22.end = r'(?=(?:\n|=))';
-  _mode22.relevance = 0;
-  _mode22.keywords = {
+  mode21.scope = r'variable';
+  mode21.begin = r'``';
+  mode21.end = r'``';
+  mode22.begin = r":(?=\s*(?:\w|'|\^|#|``|\(|{\|))";
+  mode22.beginScope = r'operator';
+  mode22.end = r'(?=(?:\n|=))';
+  mode22.relevance = 0;
+  mode22.keywords = {
     r'keyword': [
       r'abstract',
       r'and',
@@ -391,43 +393,43 @@ Mode fsharp(Highlight hljs) {
       r'Result',
     ],
   };
-  _mode22.contains = [_mode14, _mode23, _mode26, _mode27];
-  _mode23.scope = r'symbol';
-  _mode23.variants = [_mode24, _mode25];
-  _mode23.relevance = 0;
-  _mode24.match = r"\B('|\^)``.*?``";
-  _mode25.match = r"\B('|\^)[a-zA-Z_]\w*";
-  _mode26.begin = r'``';
-  _mode26.end = r'``';
-  _mode27.scope = r'operator';
-  _mode27.match =
+  mode22.contains = [mode14, mode23, mode26, mode27];
+  mode23.scope = r'symbol';
+  mode23.variants = [mode24, mode25];
+  mode23.relevance = 0;
+  mode24.match = r"\B('|\^)``.*?``";
+  mode25.match = r"\B('|\^)[a-zA-Z_]\w*";
+  mode26.begin = r'``';
+  mode26.end = r'``';
+  mode27.scope = r'operator';
+  mode27.match =
       r'(?:(?:(?:[!%&\*\+\-\/<>@\^\|~\?]|\.)(?=(?:[!%&\*\+\-\/<>@\^\|~\?]|\.))(?:[!%&\*\+\-\/<>@\^\|~\?]|\.)*|[!%&\*\+\-\/<>@\^\|~\?]+)|:\?>|:\?|:>|:=|::?|\$)';
-  _mode27.relevance = 0;
-  _mode28.scope = r'computation-expression';
-  _mode28.match = r'\b[_a-z]\w*(?=\s*\{)';
-  _mode29.begin = [
+  mode27.relevance = 0;
+  mode28.scope = r'computation-expression';
+  mode28.match = r'\b[_a-z]\w*(?=\s*\{)';
+  mode29.begin = [
     r'^\s*',
     r'#(?:if|else|endif|line|nowarn|light|r|i|I|load|time|help|quit)',
     r'\b',
   ];
-  _mode29.beginScope = {2: r'meta'};
-  _mode29.end = r'(?=\s|$)';
-  _mode30.variants = [_mode31, _mode32];
-  _mode31.scope = r'number';
-  _mode31.begin = r'\b(0b[01]+)';
-  _mode31.relevance = 0;
-  _mode32.scope = r'number';
-  _mode32.begin =
+  mode29.beginScope = {2: r'meta'};
+  mode29.end = r'(?=\s|$)';
+  mode30.variants = [mode31, mode32];
+  mode31.scope = r'number';
+  mode31.begin = r'\b(0b[01]+)';
+  mode31.relevance = 0;
+  mode32.scope = r'number';
+  mode32.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode32.relevance = 0;
-  _mode33.scope = r'operator';
-  _mode33.match =
+  mode32.relevance = 0;
+  mode33.scope = r'operator';
+  mode33.match =
       r'(?:(?:(?:[!%&\*\+\-\/<=>@\^\|~\?]|\.)(?=(?:[!%&\*\+\-\/<=>@\^\|~\?]|\.))(?:[!%&\*\+\-\/<=>@\^\|~\?]|\.)*|[!%&\*\+\-\/<=>@\^\|~\?]+)|:\?>|:\?|:>|:=|::?|\$)';
-  _mode33.relevance = 0;
-  _mode34.scope = r'string';
-  _mode34.begin = r'"""';
-  _mode34.end = r'"""';
-  _mode34.relevance = 2;
+  mode33.relevance = 0;
+  mode34.scope = r'string';
+  mode34.begin = r'"""';
+  mode34.end = r'"""';
+  mode34.relevance = 2;
   return Mode(
     name: r'F#',
     aliases: [r'fs', r'f#'],
@@ -552,7 +554,7 @@ Mode fsharp(Highlight hljs) {
     illegal: r'\/\*',
     classNameAliases: {r'computation-expression': r'keyword'},
     contains: [
-      _mode0,
+      mode0,
       Mode(
         variants: [
           Mode(
@@ -562,20 +564,20 @@ Mode fsharp(Highlight hljs) {
             contains: [
               Mode(match: r'\{\{'),
               Mode(match: r'\}\}'),
-              _mode1,
+              mode1,
             ],
             relevance: 2,
           ),
-          _mode2,
-          _mode7,
-          _mode34,
-          _mode10,
-          _mode12,
-          _mode13,
+          mode2,
+          mode7,
+          mode34,
+          mode10,
+          mode12,
+          mode13,
         ],
       ),
-      _mode14,
-      _mode21,
+      mode14,
+      mode21,
       Mode(
         begin: [r'(^|\s+)', r'type', r'\s+', r"[a-zA-Z_](\w|')*"],
         beginScope: {2: r'keyword', 4: r'title.class'},
@@ -699,11 +701,11 @@ Mode fsharp(Highlight hljs) {
           ],
         },
         contains: [
-          _mode14,
+          mode14,
           Mode(begin: r'``', end: r'``'),
-          _mode23,
+          mode23,
           Mode(scope: r'operator', match: r'<|>'),
-          _mode22,
+          mode22,
         ],
       ),
       Mode(
@@ -711,7 +713,7 @@ Mode fsharp(Highlight hljs) {
         begin: r'\[<',
         end: r'>\]',
         relevance: 2,
-        contains: [_mode21, _mode34, _mode10, _mode12, _mode13, _mode30],
+        contains: [mode21, mode34, mode10, mode12, mode13, mode30],
       ),
       Mode(
         begin: r"\bof\b(?=\s*(?:\w|'|\^|#|``|\(|{\|))",
@@ -876,18 +878,18 @@ Mode fsharp(Highlight hljs) {
           ],
         },
         contains: [
-          _mode14,
-          _mode23,
+          mode14,
+          mode23,
           Mode(begin: r'``', end: r'``'),
-          _mode27,
+          mode27,
         ],
       ),
-      _mode22,
-      _mode28,
-      _mode29,
-      _mode30,
-      _mode23,
-      _mode33,
+      mode22,
+      mode28,
+      mode29,
+      mode30,
+      mode23,
+      mode33,
     ],
   );
 }

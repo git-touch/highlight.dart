@@ -1,11 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `vhdl`.
 Mode vhdl(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
+  final Mode mode0 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
   return Mode(
     name: r'VHDL',
     caseInsensitive: true,
@@ -212,7 +214,7 @@ Mode vhdl(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'number',
@@ -223,12 +225,12 @@ Mode vhdl(Highlight hljs) {
       Mode(
         scope: r'string',
         begin: r"'(U|X|0|1|Z|W|L|H|-)'",
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'symbol',
         begin: r"'[A-Za-z](_?[A-Za-z0-9])*",
-        contains: [_mode0],
+        contains: [mode0],
       ),
     ],
   );

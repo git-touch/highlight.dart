@@ -2,9 +2,10 @@ name: highlight
 description: >-
   A faithful Dart port of highlight.js — syntax highlighting with language
   auto-detection. Supports 190+ languages.
-version: 0.7.0
+version: 0.7.1
 homepage: https://github.com/pd4d10/highlight.dart
-repository: https://github.com/pd4d10/highlight.dart/tree/main/highlight
+repository: https://github.com/pd4d10/highlight.dart
+issue_tracker: https://github.com/pd4d10/highlight.dart/issues
 
 environment:
   sdk: ^3.8.0

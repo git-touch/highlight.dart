@@ -1,83 +1,85 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `autoit`.
 Mode autoit(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  final Mode _mode18 = Mode();
-  _mode0.variants = [_mode1, _mode4, _mode7];
-  _mode1.scope = r'comment';
-  _mode1.begin = r';';
-  _mode1.end = r'$';
-  _mode1.contains = [_mode2, _mode3];
-  _mode1.relevance = 0;
-  _mode2.scope = r'doctag';
-  _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode2.excludeBegin = true;
-  _mode2.relevance = 0;
-  _mode3.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  final Mode mode18 = Mode();
+  mode0.variants = [mode1, mode4, mode7];
+  mode1.scope = r'comment';
+  mode1.begin = r';';
+  mode1.end = r'$';
+  mode1.contains = [mode2, mode3];
+  mode1.relevance = 0;
+  mode2.scope = r'doctag';
+  mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode2.excludeBegin = true;
+  mode2.relevance = 0;
+  mode3.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode4.scope = r'comment';
-  _mode4.begin = r'#cs';
-  _mode4.end = r'#ce';
-  _mode4.contains = [_mode5, _mode6];
-  _mode5.scope = r'doctag';
-  _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode5.excludeBegin = true;
-  _mode5.relevance = 0;
-  _mode6.begin =
+  mode4.scope = r'comment';
+  mode4.begin = r'#cs';
+  mode4.end = r'#ce';
+  mode4.contains = [mode5, mode6];
+  mode5.scope = r'doctag';
+  mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode5.excludeBegin = true;
+  mode5.relevance = 0;
+  mode6.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode7.scope = r'comment';
-  _mode7.begin = r'#comments-start';
-  _mode7.end = r'#comments-end';
-  _mode7.contains = [_mode8, _mode9];
-  _mode8.scope = r'doctag';
-  _mode8.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode8.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode8.excludeBegin = true;
-  _mode8.relevance = 0;
-  _mode9.begin =
+  mode7.scope = r'comment';
+  mode7.begin = r'#comments-start';
+  mode7.end = r'#comments-end';
+  mode7.contains = [mode8, mode9];
+  mode8.scope = r'doctag';
+  mode8.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode8.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode8.excludeBegin = true;
+  mode8.relevance = 0;
+  mode9.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode10.begin = r'\$[A-z0-9_]+';
-  _mode11.scope = r'string';
-  _mode11.variants = [_mode12, _mode14];
-  _mode12.begin = r'"';
-  _mode12.end = r'"';
-  _mode12.contains = [_mode13];
-  _mode13.begin = r'""';
-  _mode13.relevance = 0;
-  _mode14.begin = r"'";
-  _mode14.end = r"'";
-  _mode14.contains = [_mode15];
-  _mode15.begin = r"''";
-  _mode15.relevance = 0;
-  _mode16.variants = [_mode17, _mode18];
-  _mode17.scope = r'number';
-  _mode17.begin = r'\b(0b[01]+)';
-  _mode17.relevance = 0;
-  _mode18.scope = r'number';
-  _mode18.begin =
+  mode10.begin = r'\$[A-z0-9_]+';
+  mode11.scope = r'string';
+  mode11.variants = [mode12, mode14];
+  mode12.begin = r'"';
+  mode12.end = r'"';
+  mode12.contains = [mode13];
+  mode13.begin = r'""';
+  mode13.relevance = 0;
+  mode14.begin = r"'";
+  mode14.end = r"'";
+  mode14.contains = [mode15];
+  mode15.begin = r"''";
+  mode15.relevance = 0;
+  mode16.variants = [mode17, mode18];
+  mode17.scope = r'number';
+  mode17.begin = r'\b(0b[01]+)';
+  mode17.relevance = 0;
+  mode18.scope = r'number';
+  mode18.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode18.relevance = 0;
+  mode18.relevance = 0;
   return Mode(
     name: r'AutoIt',
     caseInsensitive: true,
@@ -90,10 +92,10 @@ Mode autoit(Highlight hljs) {
       r'literal': r'True False And Null Not Or Default',
     },
     contains: [
-      _mode0,
-      _mode10,
-      _mode11,
-      _mode16,
+      mode0,
+      mode10,
+      mode11,
+      mode16,
       Mode(
         scope: r'meta',
         begin: r'#',
@@ -123,7 +125,7 @@ Mode autoit(Highlight hljs) {
             keywords: {r'keyword': r'include'},
             end: r'$',
             contains: [
-              _mode11,
+              mode11,
               Mode(
                 scope: r'string',
                 variants: [
@@ -142,8 +144,8 @@ Mode autoit(Highlight hljs) {
               ),
             ],
           ),
-          _mode11,
-          _mode0,
+          mode11,
+          mode0,
         ],
       ),
       Mode(scope: r'symbol', begin: r'@[A-z0-9_]+'),
@@ -157,7 +159,7 @@ Mode autoit(Highlight hljs) {
             scope: r'params',
             begin: r'\(',
             end: r'\)',
-            contains: [_mode10, _mode11, _mode16],
+            contains: [mode10, mode11, mode16],
           ),
         ],
       ),

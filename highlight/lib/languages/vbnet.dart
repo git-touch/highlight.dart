@@ -1,26 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `vbnet`.
 Mode vbnet(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  _mode0.scope = r'comment';
-  _mode0.end = r'$';
-  _mode0.contains = [_mode1, _mode2];
-  _mode0.variants = [_mode3, _mode4];
-  _mode1.scope = r'doctag';
-  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode1.excludeBegin = true;
-  _mode1.relevance = 0;
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  mode0.scope = r'comment';
+  mode0.end = r'$';
+  mode0.contains = [mode1, mode2];
+  mode0.variants = [mode3, mode4];
+  mode1.scope = r'doctag';
+  mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode1.excludeBegin = true;
+  mode1.relevance = 0;
+  mode2.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode3.begin = r"'";
-  _mode4.begin = r'([\t ]|^)REM(?=\s)';
+  mode3.begin = r"'";
+  mode4.begin = r'([\t ]|^)REM(?=\s)';
   return Mode(
     name: r'Visual Basic .NET',
     aliases: [r'vb'],
@@ -93,7 +95,7 @@ Mode vbnet(Highlight hljs) {
           ),
         ],
       ),
-      _mode0,
+      mode0,
       Mode(
         scope: r'meta',
         begin:
@@ -103,7 +105,7 @@ Mode vbnet(Highlight hljs) {
           r'keyword':
               r'const disable else elseif enable end externalsource if region then',
         },
-        contains: [_mode0],
+        contains: [mode0],
       ),
     ],
   );

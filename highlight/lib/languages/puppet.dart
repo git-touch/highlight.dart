@@ -1,52 +1,54 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `puppet`.
 Mode puppet(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  _mode0.scope = r'comment';
-  _mode0.begin = r'#';
-  _mode0.end = r'$';
-  _mode0.contains = [_mode1, _mode2];
-  _mode1.scope = r'doctag';
-  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode1.excludeBegin = true;
-  _mode1.relevance = 0;
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  mode0.scope = r'comment';
+  mode0.begin = r'#';
+  mode0.end = r'$';
+  mode0.contains = [mode1, mode2];
+  mode1.scope = r'doctag';
+  mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode1.excludeBegin = true;
+  mode1.relevance = 0;
+  mode2.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode3.scope = r'variable';
-  _mode3.begin = r'\$([A-Za-z_]|::)(\w|::)*';
-  _mode4.scope = r'string';
-  _mode4.contains = [_mode5, _mode3];
-  _mode4.variants = [_mode6, _mode7];
-  _mode5.begin = r'\\[\s\S]';
-  _mode5.relevance = 0;
-  _mode6.begin = r"'";
-  _mode6.end = r"'";
-  _mode7.begin = r'"';
-  _mode7.end = r'"';
+  mode3.scope = r'variable';
+  mode3.begin = r'\$([A-Za-z_]|::)(\w|::)*';
+  mode4.scope = r'string';
+  mode4.contains = [mode5, mode3];
+  mode4.variants = [mode6, mode7];
+  mode5.begin = r'\\[\s\S]';
+  mode5.relevance = 0;
+  mode6.begin = r"'";
+  mode6.end = r"'";
+  mode7.begin = r'"';
+  mode7.end = r'"';
   return Mode(
     name: r'Puppet',
     aliases: [r'pp'],
     contains: [
-      _mode0,
-      _mode3,
-      _mode4,
+      mode0,
+      mode3,
+      mode4,
       Mode(
         beginKeywords: r'class',
         end: r'\{|;',
         illegal: r'=',
         contains: [
           Mode(scope: r'title', begin: r'([A-Za-z_]|::)(\w|::)*', relevance: 0),
-          _mode0,
+          mode0,
         ],
       ),
       Mode(
@@ -75,8 +77,8 @@ Mode puppet(Highlight hljs) {
             },
             relevance: 0,
             contains: [
-              _mode4,
-              _mode0,
+              mode4,
+              mode0,
               Mode(
                 begin: r'[a-zA-Z_]+\s*=>',
                 returnBegin: true,
@@ -89,7 +91,7 @@ Mode puppet(Highlight hljs) {
                     r'(\b0[0-7_]+)|(\b0x[0-9a-fA-F_]+)|(\b[1-9][0-9_]*(\.[0-9_]+)?)|[0_]\b',
                 relevance: 0,
               ),
-              _mode3,
+              mode3,
             ],
           ),
         ],

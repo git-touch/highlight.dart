@@ -1,51 +1,53 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `stylus`.
 Mode stylus(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r'"';
-  _mode0.end = r'"';
-  _mode0.illegal = r'\n';
-  _mode0.contains = [_mode1];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'string';
-  _mode2.begin = r"'";
-  _mode2.end = r"'";
-  _mode2.illegal = r'\n';
-  _mode2.contains = [_mode1];
-  _mode3.scope = r'comment';
-  _mode3.begin = r'/\*';
-  _mode3.end = r'\*/';
-  _mode3.contains = [_mode4, _mode5];
-  _mode4.scope = r'doctag';
-  _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode4.excludeBegin = true;
-  _mode4.relevance = 0;
-  _mode5.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r'"';
+  mode0.end = r'"';
+  mode0.illegal = r'\n';
+  mode0.contains = [mode1];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'string';
+  mode2.begin = r"'";
+  mode2.end = r"'";
+  mode2.illegal = r'\n';
+  mode2.contains = [mode1];
+  mode3.scope = r'comment';
+  mode3.begin = r'/\*';
+  mode3.end = r'\*/';
+  mode3.contains = [mode4, mode5];
+  mode4.scope = r'doctag';
+  mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode4.excludeBegin = true;
+  mode4.relevance = 0;
+  mode5.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode6.scope = r'number';
-  _mode6.begin = r'#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b';
-  _mode7.scope = r'number';
-  _mode7.begin =
+  mode6.scope = r'number';
+  mode6.begin = r'#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b';
+  mode7.scope = r'number';
+  mode7.begin =
       r'\b\d+(\.\d+)?(%|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?';
-  _mode7.relevance = 0;
-  _mode8.scope = r'variable';
-  _mode8.begin = r'\$[a-zA-Z]\w*';
-  _mode9.scope = r'built_in';
-  _mode9.begin = r'[\w-]+(?=\()';
+  mode7.relevance = 0;
+  mode8.scope = r'variable';
+  mode8.begin = r'\$[a-zA-Z]\w*';
+  mode9.scope = r'built_in';
+  mode9.begin = r'[\w-]+(?=\()';
   return Mode(
     name: r'Stylus',
     aliases: [r'styl'],
@@ -54,8 +56,8 @@ Mode stylus(Highlight hljs) {
     illegal:
         r'(\?|(\bReturn\b)|(\bEnd\b)|(\bend\b)|(\bdef\b)|;|#\s|\*\s|===\s|\||%)',
     contains: [
-      _mode0,
-      _mode2,
+      mode0,
+      mode2,
       Mode(
         scope: r'comment',
         begin: r'//',
@@ -74,8 +76,8 @@ Mode stylus(Highlight hljs) {
           ),
         ],
       ),
-      _mode3,
-      _mode6,
+      mode3,
+      mode6,
       Mode(
         begin: r'\.[a-zA-Z][a-zA-Z0-9_-]*(?=[.\s\n[:,(])',
         scope: r'selector-class',
@@ -104,7 +106,7 @@ Mode stylus(Highlight hljs) {
         begin: r'\[',
         end: r'\]',
         illegal: r'$',
-        contains: [_mode2, _mode0],
+        contains: [mode2, mode0],
       ),
       Mode(
         scope: r'keyword',
@@ -117,7 +119,7 @@ Mode stylus(Highlight hljs) {
             r'attribute':
                 r'width update scripting scan resolution prefers-reduced-transparency prefers-reduced-motion prefers-contrast prefers-color-scheme pointer overflow-inline overflow-block orientation monochrome min-width min-height max-width max-height inverted-colors hover height grid forced-colors display-mode device-width device-height device-aspect-ratio color-index color-gamut color aspect-ratio any-pointer any-hover',
           },
-          contains: [_mode7],
+          contains: [mode7],
         ),
       ),
       Mode(
@@ -125,8 +127,8 @@ Mode stylus(Highlight hljs) {
         begin:
             r'@((-(o|moz|ms|webkit)-)?(charset|css|debug|extend|font-face|for|import|include|keyframes|media|mixin|page|warn|while))\b',
       ),
-      _mode8,
-      _mode7,
+      mode8,
+      mode7,
       Mode(
         scope: r'function',
         begin: r'^[a-zA-Z][a-zA-Z0-9_-]*\(.*\)',
@@ -138,7 +140,7 @@ Mode stylus(Highlight hljs) {
             scope: r'params',
             begin: r'\(',
             end: r'\)',
-            contains: [_mode6, _mode8, _mode2, _mode7, _mode0],
+            contains: [mode6, mode8, mode2, mode7, mode0],
           ),
         ],
       ),
@@ -150,20 +152,20 @@ Mode stylus(Highlight hljs) {
         starts: Mode(
           end: r';|$',
           contains: [
-            _mode6,
-            _mode8,
-            _mode2,
-            _mode0,
-            _mode7,
-            _mode3,
+            mode6,
+            mode8,
+            mode2,
+            mode0,
+            mode7,
+            mode3,
             Mode(scope: r'meta', begin: r'!important'),
-            _mode9,
+            mode9,
           ],
           illegal: r'\.',
           relevance: 0,
         ),
       ),
-      _mode9,
+      mode9,
     ],
   );
 }

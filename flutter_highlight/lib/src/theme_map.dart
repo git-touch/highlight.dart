@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
 import 'package:highlight/highlight_core.dart' show HljsStyle, HljsTheme;
 
-/// Converts a [HljsTheme] (typed `Map<String, HljsStyle>`) into a resolved
+/// Converts a `HljsTheme` (typed `Map<String, HljsStyle>`) into a resolved
 /// `Map<String, TextStyle>` and provides cascade-based scope lookup.
 class ThemeMap {
   final Map<String, TextStyle> _styles;

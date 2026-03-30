@@ -1,40 +1,42 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `zephir`.
 Mode zephir(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
-  _mode1.scope = r'title';
-  _mode1.begin = r'[a-zA-Z_]\w*';
-  _mode1.relevance = 0;
-  _mode2.scope = r'string';
-  _mode2.contains = [_mode0];
-  _mode2.variants = [_mode3, _mode4];
-  _mode3.scope = r'string';
-  _mode3.begin = r"'";
-  _mode3.end = r"'";
-  _mode3.contains = [_mode0];
-  _mode4.scope = r'string';
-  _mode4.begin = r'"';
-  _mode4.end = r'"';
-  _mode4.contains = [_mode0];
-  _mode5.variants = [_mode6, _mode7];
-  _mode6.scope = r'number';
-  _mode6.begin = r'\b(0b[01]+)';
-  _mode6.relevance = 0;
-  _mode7.scope = r'number';
-  _mode7.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
+  mode1.scope = r'title';
+  mode1.begin = r'[a-zA-Z_]\w*';
+  mode1.relevance = 0;
+  mode2.scope = r'string';
+  mode2.contains = [mode0];
+  mode2.variants = [mode3, mode4];
+  mode3.scope = r'string';
+  mode3.begin = r"'";
+  mode3.end = r"'";
+  mode3.contains = [mode0];
+  mode4.scope = r'string';
+  mode4.begin = r'"';
+  mode4.end = r'"';
+  mode4.contains = [mode0];
+  mode5.variants = [mode6, mode7];
+  mode6.scope = r'number';
+  mode6.begin = r'\b(0b[01]+)';
+  mode6.relevance = 0;
+  mode7.scope = r'number';
+  mode7.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode7.relevance = 0;
+  mode7.relevance = 0;
   return Mode(
     name: r'Zephir',
     aliases: [r'zep'],
@@ -82,7 +84,7 @@ Mode zephir(Highlight hljs) {
         scope: r'string',
         begin: '<<<[\'"]?\\w+[\'"]?\$',
         end: r'^\w+;',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(begin: r'(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'),
       Mode(
@@ -92,7 +94,7 @@ Mode zephir(Highlight hljs) {
         excludeEnd: true,
         illegal: r'\$|\[|%',
         contains: [
-          _mode1,
+          mode1,
           Mode(
             scope: r'params',
             begin: r'\(',
@@ -119,8 +121,8 @@ Mode zephir(Highlight hljs) {
                   ),
                 ],
               ),
-              _mode2,
-              _mode5,
+              mode2,
+              mode5,
             ],
           ),
         ],
@@ -133,19 +135,19 @@ Mode zephir(Highlight hljs) {
         illegal: r'[:($"]',
         contains: [
           Mode(beginKeywords: r'extends implements'),
-          _mode1,
+          mode1,
         ],
       ),
       Mode(
         beginKeywords: r'namespace',
         end: r';',
         illegal: r"[.']",
-        contains: [_mode1],
+        contains: [mode1],
       ),
-      Mode(beginKeywords: r'use', end: r';', contains: [_mode1]),
+      Mode(beginKeywords: r'use', end: r';', contains: [mode1]),
       Mode(begin: r'=>'),
-      _mode2,
-      _mode5,
+      mode2,
+      mode5,
     ],
   );
 }

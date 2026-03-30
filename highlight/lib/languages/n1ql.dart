@@ -1,24 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `n1ql`.
 Mode n1ql(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
-  _mode1.scope = r'comment';
-  _mode1.begin = r'/\*';
-  _mode1.end = r'\*/';
-  _mode1.contains = [_mode2, _mode3];
-  _mode2.scope = r'doctag';
-  _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode2.excludeBegin = true;
-  _mode2.relevance = 0;
-  _mode3.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
+  mode1.scope = r'comment';
+  mode1.begin = r'/\*';
+  mode1.end = r'\*/';
+  mode1.contains = [mode2, mode3];
+  mode2.scope = r'doctag';
+  mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode2.excludeBegin = true;
+  mode2.relevance = 0;
+  mode3.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'N1QL',
@@ -335,19 +337,19 @@ Mode n1ql(Highlight hljs) {
           ],
         },
         contains: [
-          Mode(scope: r'string', begin: r"'", end: r"'", contains: [_mode0]),
-          Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
-          Mode(scope: r'symbol', begin: r'`', end: r'`', contains: [_mode0]),
+          Mode(scope: r'string', begin: r"'", end: r"'", contains: [mode0]),
+          Mode(scope: r'string', begin: r'"', end: r'"', contains: [mode0]),
+          Mode(scope: r'symbol', begin: r'`', end: r'`', contains: [mode0]),
           Mode(
             scope: r'number',
             begin:
                 r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)',
             relevance: 0,
           ),
-          _mode1,
+          mode1,
         ],
       ),
-      _mode1,
+      mode1,
     ],
   );
 }

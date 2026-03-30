@@ -1,22 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `twig`.
 Mode twig(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  _mode0.match = r'\|(?=[A-Za-z_]+:?)';
-  _mode0.beginScope = r'punctuation';
-  _mode0.relevance = 0;
-  _mode0.contains = [_mode1];
-  _mode1.match = r'[A-Za-z_]+:?';
-  _mode1.keywords = [
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  mode0.match = r'\|(?=[A-Za-z_]+:?)';
+  mode0.beginScope = r'punctuation';
+  mode0.relevance = 0;
+  mode0.contains = [mode1];
+  mode1.match = r'[A-Za-z_]+:?';
+  mode1.keywords = [
     r'abs',
     r'abbr_class',
     r'abbr_method',
@@ -87,9 +89,9 @@ Mode twig(Highlight hljs) {
     r'yaml_dump',
     r'yaml_encode',
   ];
-  _mode2.beginKeywords =
+  mode2.beginKeywords =
       r'absolute_url asset|0 asset_version attribute block constant controller|0 country_timezones csrf_token cycle date dump expression form|0 form_end form_errors form_help form_label form_rest form_row form_start form_widget html_classes include is_granted logout_path logout_url max min parent path|0 random range relative_path render render_esi source template_from_string url|0';
-  _mode2.keywords = {
+  mode2.keywords = {
     r'name': [
       r'absolute_url',
       r'asset|0',
@@ -132,21 +134,21 @@ Mode twig(Highlight hljs) {
       r'url|0',
     ],
   };
-  _mode2.relevance = 0;
-  _mode2.contains = [_mode3];
-  _mode3.begin = r'\(';
-  _mode3.end = r'\)';
-  _mode3.excludeBegin = true;
-  _mode3.excludeEnd = true;
-  _mode3.contains = [_mode4, _mode7];
-  _mode4.scope = r'string';
-  _mode4.variants = [_mode5, _mode6];
-  _mode5.begin = r"'";
-  _mode5.end = r"'";
-  _mode6.begin = r'"';
-  _mode6.end = r'"';
-  _mode7.scope = r'number';
-  _mode7.match = r'\d+';
+  mode2.relevance = 0;
+  mode2.contains = [mode3];
+  mode3.begin = r'\(';
+  mode3.end = r'\)';
+  mode3.excludeBegin = true;
+  mode3.excludeEnd = true;
+  mode3.contains = [mode4, mode7];
+  mode4.scope = r'string';
+  mode4.variants = [mode5, mode6];
+  mode5.begin = r"'";
+  mode5.end = r"'";
+  mode6.begin = r'"';
+  mode6.end = r'"';
+  mode7.scope = r'number';
+  mode7.match = r'\d+';
   return Mode(
     name: r'Twig',
     aliases: [r'craftcms'],
@@ -182,7 +184,7 @@ Mode twig(Highlight hljs) {
         ],
         end: r'%\}',
         keywords: r'in',
-        contains: [_mode0, _mode2, _mode4, _mode7],
+        contains: [mode0, mode2, mode4, mode7],
       ),
       Mode(
         beginScope: {1: r'template-tag', 3: r'name'},
@@ -191,13 +193,13 @@ Mode twig(Highlight hljs) {
         begin: [r'\{%', r'\s*', r'(?:[a-z_]+)'],
         end: r'%\}',
         keywords: r'in',
-        contains: [_mode0, _mode2, _mode4, _mode7],
+        contains: [mode0, mode2, mode4, mode7],
       ),
       Mode(
         scope: r'template-variable',
         begin: r'\{\{',
         end: r'\}\}',
-        contains: [r'self', _mode0, _mode2, _mode4, _mode7],
+        contains: [r'self', mode0, mode2, mode4, mode7],
       ),
     ],
   );

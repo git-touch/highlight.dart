@@ -1,122 +1,124 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `lasso`.
 Mode lasso(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  final Mode _mode18 = Mode();
-  final Mode _mode19 = Mode();
-  final Mode _mode20 = Mode();
-  final Mode _mode21 = Mode();
-  final Mode _mode22 = Mode();
-  final Mode _mode23 = Mode();
-  final Mode _mode24 = Mode();
-  final Mode _mode25 = Mode();
-  final Mode _mode26 = Mode();
-  final Mode _mode27 = Mode();
-  _mode0.scope = r'comment';
-  _mode0.begin = r'<!--';
-  _mode0.end = r'-->';
-  _mode0.contains = [_mode1, _mode2];
-  _mode0.relevance = 0;
-  _mode1.scope = r'doctag';
-  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode1.excludeBegin = true;
-  _mode1.relevance = 0;
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  final Mode mode18 = Mode();
+  final Mode mode19 = Mode();
+  final Mode mode20 = Mode();
+  final Mode mode21 = Mode();
+  final Mode mode22 = Mode();
+  final Mode mode23 = Mode();
+  final Mode mode24 = Mode();
+  final Mode mode25 = Mode();
+  final Mode mode26 = Mode();
+  final Mode mode27 = Mode();
+  mode0.scope = r'comment';
+  mode0.begin = r'<!--';
+  mode0.end = r'-->';
+  mode0.contains = [mode1, mode2];
+  mode0.relevance = 0;
+  mode1.scope = r'doctag';
+  mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode1.excludeBegin = true;
+  mode1.relevance = 0;
+  mode2.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode3.scope = r'meta';
-  _mode3.begin = r'\[noprocess\]';
-  _mode3.starts = _mode4;
-  _mode4.end = r'\[/noprocess\]';
-  _mode4.returnEnd = true;
-  _mode4.contains = [_mode0];
-  _mode5.scope = r'meta';
-  _mode5.begin = r'\[/noprocess|<\?(lasso(script)?|=)';
-  _mode6.scope = r'comment';
-  _mode6.begin = r'//';
-  _mode6.end = r'$';
-  _mode6.contains = [_mode7, _mode8];
-  _mode7.scope = r'doctag';
-  _mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode7.excludeBegin = true;
-  _mode7.relevance = 0;
-  _mode8.begin =
+  mode3.scope = r'meta';
+  mode3.begin = r'\[noprocess\]';
+  mode3.starts = mode4;
+  mode4.end = r'\[/noprocess\]';
+  mode4.returnEnd = true;
+  mode4.contains = [mode0];
+  mode5.scope = r'meta';
+  mode5.begin = r'\[/noprocess|<\?(lasso(script)?|=)';
+  mode6.scope = r'comment';
+  mode6.begin = r'//';
+  mode6.end = r'$';
+  mode6.contains = [mode7, mode8];
+  mode7.scope = r'doctag';
+  mode7.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode7.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode7.excludeBegin = true;
+  mode7.relevance = 0;
+  mode8.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode9.scope = r'comment';
-  _mode9.begin = r'/\*';
-  _mode9.end = r'\*/';
-  _mode9.contains = [_mode10, _mode11];
-  _mode10.scope = r'doctag';
-  _mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode10.excludeBegin = true;
-  _mode10.relevance = 0;
-  _mode11.begin =
+  mode9.scope = r'comment';
+  mode9.begin = r'/\*';
+  mode9.end = r'\*/';
+  mode9.contains = [mode10, mode11];
+  mode10.scope = r'doctag';
+  mode10.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode10.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode10.excludeBegin = true;
+  mode10.relevance = 0;
+  mode11.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode12.scope = r'number';
-  _mode12.begin =
+  mode12.scope = r'number';
+  mode12.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)|(-?infinity|NaN)\b';
-  _mode12.relevance = 0;
-  _mode13.scope = r'string';
-  _mode13.begin = r"'";
-  _mode13.end = r"'";
-  _mode13.contains = [_mode14];
-  _mode14.begin = r'\\[\s\S]';
-  _mode14.relevance = 0;
-  _mode15.scope = r'string';
-  _mode15.begin = r'"';
-  _mode15.end = r'"';
-  _mode15.contains = [_mode14];
-  _mode16.scope = r'string';
-  _mode16.begin = r'`';
-  _mode16.end = r'`';
-  _mode17.variants = [_mode18, _mode19];
-  _mode18.begin = r'[#$][a-zA-Z_][\w.]*';
-  _mode19.begin = r'#';
-  _mode19.end = r'\d+';
-  _mode19.illegal = r'\W';
-  _mode20.scope = r'type';
-  _mode20.begin = r'::\s*';
-  _mode20.end = r'[a-zA-Z_][\w.]*';
-  _mode20.illegal = r'\W';
-  _mode21.scope = r'params';
-  _mode21.variants = [_mode22, _mode23];
-  _mode22.begin = r'-(?!infinity)[a-zA-Z_][\w.]*';
-  _mode22.relevance = 0;
-  _mode23.begin = r'(\.\.\.)';
-  _mode24.begin = r'(->|\.)\s*';
-  _mode24.relevance = 0;
-  _mode24.contains = [_mode25];
-  _mode25.scope = r'symbol';
-  _mode25.begin = r"'[a-zA-Z_][\w.]*'";
-  _mode26.scope = r'class';
-  _mode26.beginKeywords = r'define';
-  _mode26.returnEnd = true;
-  _mode26.end = r'\(|=>';
-  _mode26.contains = [_mode27];
-  _mode27.scope = r'title';
-  _mode27.begin = r'[a-zA-Z_][\w.]*(=(?!>))?|[-+*/%](?!>)';
-  _mode27.relevance = 0;
+  mode12.relevance = 0;
+  mode13.scope = r'string';
+  mode13.begin = r"'";
+  mode13.end = r"'";
+  mode13.contains = [mode14];
+  mode14.begin = r'\\[\s\S]';
+  mode14.relevance = 0;
+  mode15.scope = r'string';
+  mode15.begin = r'"';
+  mode15.end = r'"';
+  mode15.contains = [mode14];
+  mode16.scope = r'string';
+  mode16.begin = r'`';
+  mode16.end = r'`';
+  mode17.variants = [mode18, mode19];
+  mode18.begin = r'[#$][a-zA-Z_][\w.]*';
+  mode19.begin = r'#';
+  mode19.end = r'\d+';
+  mode19.illegal = r'\W';
+  mode20.scope = r'type';
+  mode20.begin = r'::\s*';
+  mode20.end = r'[a-zA-Z_][\w.]*';
+  mode20.illegal = r'\W';
+  mode21.scope = r'params';
+  mode21.variants = [mode22, mode23];
+  mode22.begin = r'-(?!infinity)[a-zA-Z_][\w.]*';
+  mode22.relevance = 0;
+  mode23.begin = r'(\.\.\.)';
+  mode24.begin = r'(->|\.)\s*';
+  mode24.relevance = 0;
+  mode24.contains = [mode25];
+  mode25.scope = r'symbol';
+  mode25.begin = r"'[a-zA-Z_][\w.]*'";
+  mode26.scope = r'class';
+  mode26.beginKeywords = r'define';
+  mode26.returnEnd = true;
+  mode26.end = r'\(|=>';
+  mode26.contains = [mode27];
+  mode27.scope = r'title';
+  mode27.begin = r'[a-zA-Z_][\w.]*(=(?!>))?|[-+*/%](?!>)';
+  mode27.relevance = 0;
   return Mode(
     name: r'Lasso',
     aliases: [r'ls', r'lassoscript'],
@@ -139,11 +141,11 @@ Mode lasso(Highlight hljs) {
           end: r'\[|<\?(lasso(script)?|=)',
           returnEnd: true,
           relevance: 0,
-          contains: [_mode0],
+          contains: [mode0],
         ),
       ),
-      _mode3,
-      _mode5,
+      mode3,
+      mode5,
       Mode(
         scope: r'meta',
         begin: r'\[no_square_brackets',
@@ -166,38 +168,38 @@ Mode lasso(Highlight hljs) {
               starts: Mode(
                 end: r'\[noprocess\]|<\?(lasso(script)?|=)',
                 returnEnd: true,
-                contains: [_mode0],
+                contains: [mode0],
               ),
             ),
-            _mode3,
-            _mode5,
-            _mode6,
-            _mode9,
-            _mode12,
-            _mode13,
-            _mode15,
-            _mode16,
-            _mode17,
-            _mode20,
-            _mode21,
-            _mode24,
-            _mode26,
+            mode3,
+            mode5,
+            mode6,
+            mode9,
+            mode12,
+            mode13,
+            mode15,
+            mode16,
+            mode17,
+            mode20,
+            mode21,
+            mode24,
+            mode26,
           ],
         ),
       ),
       Mode(scope: r'meta', begin: r'\[', relevance: 0),
       Mode(scope: r'meta', begin: r'^#!', end: r'lasso9$', relevance: 10),
-      _mode6,
-      _mode9,
-      _mode12,
-      _mode13,
-      _mode15,
-      _mode16,
-      _mode17,
-      _mode20,
-      _mode21,
-      _mode24,
-      _mode26,
+      mode6,
+      mode9,
+      mode12,
+      mode13,
+      mode15,
+      mode16,
+      mode17,
+      mode20,
+      mode21,
+      mode24,
+      mode26,
     ],
   );
 }

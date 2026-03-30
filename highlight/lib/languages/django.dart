@@ -1,30 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `django`.
 Mode django(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.begin = r'\|[A-Za-z]+:?';
-  _mode0.keywords = {
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.begin = r'\|[A-Za-z]+:?';
+  mode0.keywords = {
     r'name':
         r'truncatewords removetags linebreaksbr yesno get_digit timesince random striptags filesizeformat escape linebreaks length_is ljust rjust cut urlize fix_ampersands title floatformat capfirst pprint divisibleby add make_list unordered_list urlencode timeuntil urlizetrunc wordcount stringformat linenumbers slice date dictsort dictsortreversed default_if_none pluralize lower join center default truncatewords_html upper length phone2numeric wordwrap time addslashes slugify first escapejs force_escape iriencode last safe safeseq truncatechars localize unlocalize localtime utc timezone',
   };
-  _mode0.contains = [_mode1, _mode3];
-  _mode1.scope = r'string';
-  _mode1.begin = r'"';
-  _mode1.end = r'"';
-  _mode1.illegal = r'\n';
-  _mode1.contains = [_mode2];
-  _mode2.begin = r'\\[\s\S]';
-  _mode2.relevance = 0;
-  _mode3.scope = r'string';
-  _mode3.begin = r"'";
-  _mode3.end = r"'";
-  _mode3.illegal = r'\n';
-  _mode3.contains = [_mode2];
+  mode0.contains = [mode1, mode3];
+  mode1.scope = r'string';
+  mode1.begin = r'"';
+  mode1.end = r'"';
+  mode1.illegal = r'\n';
+  mode1.contains = [mode2];
+  mode2.begin = r'\\[\s\S]';
+  mode2.relevance = 0;
+  mode3.scope = r'string';
+  mode3.begin = r"'";
+  mode3.end = r"'";
+  mode3.illegal = r'\n';
+  mode3.contains = [mode2];
   return Mode(
     name: r'Django',
     aliases: [r'jinja'],
@@ -82,7 +84,7 @@ Mode django(Highlight hljs) {
             starts: Mode(
               endsWithParent: true,
               keywords: r'in by as',
-              contains: [_mode0],
+              contains: [mode0],
               relevance: 0,
             ),
           ),
@@ -92,7 +94,7 @@ Mode django(Highlight hljs) {
         scope: r'template-variable',
         begin: r'\{\{',
         end: r'\}\}',
-        contains: [_mode0],
+        contains: [mode0],
       ),
     ],
   );

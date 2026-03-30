@@ -1,41 +1,43 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `julia`.
 Mode julia(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  mode0.scope = r'number';
+  mode0.begin =
       r'(\b0x[\d_]*(\.[\d_]*)?|0x\.\d[\d_]*)p[-+]?\d+|\b0[box][a-fA-F0-9][a-fA-F0-9_]*|(\b\d[\d_]*(\.[\d_]*)?|\.\d[\d_]*)([eEfF][-+]?\d+)?';
-  _mode0.relevance = 0;
-  _mode1.scope = r'string';
-  _mode1.begin = r"'(.|\\[xXuU][a-zA-Z0-9]+)'";
-  _mode2.scope = r'string';
-  _mode2.contains = [_mode3, _mode4, _mode6];
-  _mode2.variants = [_mode16, _mode17];
-  _mode3.begin = r'\\[\s\S]';
-  _mode3.relevance = 0;
-  _mode4.scope = r'subst';
-  _mode4.begin = r'\$\(';
-  _mode4.end = r'\)';
-  _mode4.keywords = {
+  mode0.relevance = 0;
+  mode1.scope = r'string';
+  mode1.begin = r"'(.|\\[xXuU][a-zA-Z0-9]+)'";
+  mode2.scope = r'string';
+  mode2.contains = [mode3, mode4, mode6];
+  mode2.variants = [mode16, mode17];
+  mode3.begin = r'\\[\s\S]';
+  mode3.relevance = 0;
+  mode4.scope = r'subst';
+  mode4.begin = r'\$\(';
+  mode4.end = r'\)';
+  mode4.keywords = {
     r'$pattern': r'[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*',
     r'keyword': [
       r'baremodule',
@@ -301,51 +303,51 @@ Mode julia(Highlight hljs) {
       r'WeakRef',
     ],
   };
-  _mode4.contains = [
-    _mode0,
-    _mode1,
-    _mode2,
-    _mode5,
-    _mode7,
-    _mode8,
-    _mode11,
-    _mode14,
-    _mode15,
+  mode4.contains = [
+    mode0,
+    mode1,
+    mode2,
+    mode5,
+    mode7,
+    mode8,
+    mode11,
+    mode14,
+    mode15,
   ];
-  _mode5.scope = r'string';
-  _mode5.contains = [_mode3, _mode4, _mode6];
-  _mode5.begin = r'`';
-  _mode5.end = r'`';
-  _mode6.scope = r'variable';
-  _mode6.begin = r'\$[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*';
-  _mode7.scope = r'meta';
-  _mode7.begin = r'@[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*';
-  _mode8.scope = r'comment';
-  _mode8.variants = [_mode9, _mode10];
-  _mode9.begin = r'#=';
-  _mode9.end = r'=#';
-  _mode9.relevance = 10;
-  _mode10.begin = r'#';
-  _mode10.end = r'$';
-  _mode11.scope = r'comment';
-  _mode11.begin = r'#';
-  _mode11.end = r'$';
-  _mode11.contains = [_mode12, _mode13];
-  _mode12.scope = r'doctag';
-  _mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode12.excludeBegin = true;
-  _mode12.relevance = 0;
-  _mode13.begin =
+  mode5.scope = r'string';
+  mode5.contains = [mode3, mode4, mode6];
+  mode5.begin = r'`';
+  mode5.end = r'`';
+  mode6.scope = r'variable';
+  mode6.begin = r'\$[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*';
+  mode7.scope = r'meta';
+  mode7.begin = r'@[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*';
+  mode8.scope = r'comment';
+  mode8.variants = [mode9, mode10];
+  mode9.begin = r'#=';
+  mode9.end = r'=#';
+  mode9.relevance = 10;
+  mode10.begin = r'#';
+  mode10.end = r'$';
+  mode11.scope = r'comment';
+  mode11.begin = r'#';
+  mode11.end = r'$';
+  mode11.contains = [mode12, mode13];
+  mode12.scope = r'doctag';
+  mode12.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode12.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode12.excludeBegin = true;
+  mode12.relevance = 0;
+  mode13.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode14.scope = r'keyword';
-  _mode14.begin = r'\b(((abstract|primitive)\s+)type|(mutable\s+)?struct)\b';
-  _mode15.begin = r'<:';
-  _mode16.begin = r'\w*"""';
-  _mode16.end = r'"""\w*';
-  _mode16.relevance = 10;
-  _mode17.begin = r'\w*"';
-  _mode17.end = r'"\w*';
+  mode14.scope = r'keyword';
+  mode14.begin = r'\b(((abstract|primitive)\s+)type|(mutable\s+)?struct)\b';
+  mode15.begin = r'<:';
+  mode16.begin = r'\w*"""';
+  mode16.end = r'"""\w*';
+  mode16.relevance = 10;
+  mode17.begin = r'\w*"';
+  mode17.end = r'"\w*';
   return Mode(
     keywords: {
       r'$pattern': r'[A-Za-z_\u00A1-\uFFFF][A-Za-z_0-9\u00A1-\uFFFF]*',
@@ -616,15 +618,15 @@ Mode julia(Highlight hljs) {
     illegal: r'<\/',
     name: r'Julia',
     contains: [
-      _mode0,
-      _mode1,
-      _mode2,
-      _mode5,
-      _mode7,
-      _mode8,
-      _mode11,
-      _mode14,
-      _mode15,
+      mode0,
+      mode1,
+      mode2,
+      mode5,
+      mode7,
+      mode8,
+      mode11,
+      mode14,
+      mode15,
     ],
   );
 }

@@ -20,7 +20,7 @@ class HighlightView extends StatelessWidget {
   final String? language;
 
   /// Theme for syntax highlighting. Keys are scope names, values are
-  /// [HljsStyle] instances with typed properties (color, bold, italic, etc.).
+  /// `HljsStyle` instances with typed properties (color, bold, italic, etc.).
   final HljsTheme theme;
 
   /// Base text style applied to all code text (font family, size, height).

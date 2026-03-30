@@ -1,20 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `ceylon`.
 Mode ceylon(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r'"""';
-  _mode0.end = r'"""';
-  _mode0.relevance = 10;
-  _mode1.scope = r'string';
-  _mode1.begin = r'"';
-  _mode1.end = r'"';
-  _mode1.contains = [
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r'"""';
+  mode0.end = r'"""';
+  mode0.relevance = 10;
+  mode1.scope = r'string';
+  mode1.begin = r'"';
+  mode1.end = r'"';
+  mode1.contains = [
     Mode(
       scope: r'subst',
       excludeBegin: true,
@@ -67,16 +69,16 @@ Mode ceylon(Highlight hljs) {
         r'nonempty',
       ],
       relevance: 10,
-      contains: [_mode0, _mode1, _mode2, _mode3],
+      contains: [mode0, mode1, mode2, mode3],
     ),
   ];
-  _mode2.scope = r'string';
-  _mode2.begin = r"'";
-  _mode2.end = r"'";
-  _mode3.scope = r'number';
-  _mode3.begin =
+  mode2.scope = r'string';
+  mode2.begin = r"'";
+  mode2.end = r"'";
+  mode3.scope = r'number';
+  mode3.begin =
       r'#[0-9a-fA-F_]+|\$[01_]+|[0-9_]+(?:\.[0-9_](?:[eE][+-]?\d+)?)?[kMGTPmunpf]?';
-  _mode3.relevance = 0;
+  mode3.relevance = 0;
   return Mode(
     name: r'Ceylon',
     keywords: {
@@ -181,10 +183,10 @@ Mode ceylon(Highlight hljs) {
         ],
       ),
       Mode(scope: r'meta', begin: r'@[a-z]\w*(?::"[^"]*")?'),
-      _mode0,
-      _mode1,
-      _mode2,
-      _mode3,
+      mode0,
+      mode1,
+      mode2,
+      mode3,
     ],
   );
 }

@@ -3,7 +3,7 @@ import 'package:highlight/highlight_core.dart' show DataNode;
 
 import 'theme_map.dart';
 
-/// Converts a [DataNode] token tree (produced by the highlight core engine)
+/// Converts a `DataNode` token tree (produced by the highlight core engine)
 /// into a Flutter [TextSpan] tree for native rendering.
 class TextSpanBuilder {
   final ThemeMap themeMap;
@@ -11,7 +11,7 @@ class TextSpanBuilder {
 
   const TextSpanBuilder({required this.themeMap, required this.baseStyle});
 
-  /// Build a [TextSpan] from the root [DataNode].
+  /// Build a [TextSpan] from the root `DataNode`.
   ///
   /// The returned span has [baseStyle] merged with the theme's root style,
   /// and recursively-built children matching the scope tree.

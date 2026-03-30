@@ -114,3 +114,35 @@ jobs:
           else
             echo "No tests in flutter_highlight; skipping."
           fi
+
+  pub_score:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install workspace dependencies
+        run: dart pub get
+
+      - name: Dry-run highlight publish
+        working-directory: highlight
+        run: dart pub publish --dry-run
+
+      - name: Dry-run flutter_highlight publish
+        working-directory: flutter_highlight
+        run: flutter pub publish --dry-run
+
+      - name: Activate pana
+        run: dart pub global activate pana 0.23.12
+
+      - name: Check pub.dev score gates
+        run: dart run tool/check_pub_score.dart

@@ -1,23 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `haml`.
 Mode haml(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  _mode0.scope = r'string';
-  _mode0.begin = r"'";
-  _mode0.end = r"'";
-  _mode0.illegal = r'\n';
-  _mode0.contains = [_mode1];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'string';
-  _mode2.begin = r'"';
-  _mode2.end = r'"';
-  _mode2.illegal = r'\n';
-  _mode2.contains = [_mode1];
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  mode0.scope = r'string';
+  mode0.begin = r"'";
+  mode0.end = r"'";
+  mode0.illegal = r'\n';
+  mode0.contains = [mode1];
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'string';
+  mode2.begin = r'"';
+  mode2.end = r'"';
+  mode2.illegal = r'\n';
+  mode2.contains = [mode1];
   return Mode(
     name: r'HAML',
     caseInsensitive: true,
@@ -70,8 +72,8 @@ Mode haml(Highlight hljs) {
                 endsWithParent: true,
                 contains: [
                   Mode(scope: r'attr', begin: r':\w+'),
-                  _mode0,
-                  _mode2,
+                  mode0,
+                  mode2,
                   Mode(begin: r'\w+', relevance: 0),
                 ],
               ),
@@ -89,8 +91,8 @@ Mode haml(Highlight hljs) {
                 endsWithParent: true,
                 contains: [
                   Mode(scope: r'attr', begin: r'\w+', relevance: 0),
-                  _mode0,
-                  _mode2,
+                  mode0,
+                  mode2,
                   Mode(begin: r'\w+', relevance: 0),
                 ],
               ),

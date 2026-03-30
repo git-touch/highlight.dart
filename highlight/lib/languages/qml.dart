@@ -1,38 +1,40 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `qml`.
 Mode qml(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
-  _mode1.scope = r'comment';
-  _mode1.begin = r'//';
-  _mode1.end = r'$';
-  _mode1.contains = [_mode2, _mode3];
-  _mode2.scope = r'doctag';
-  _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode2.excludeBegin = true;
-  _mode2.relevance = 0;
-  _mode3.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
+  mode1.scope = r'comment';
+  mode1.begin = r'//';
+  mode1.end = r'$';
+  mode1.contains = [mode2, mode3];
+  mode2.scope = r'doctag';
+  mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode2.excludeBegin = true;
+  mode2.relevance = 0;
+  mode3.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode4.scope = r'comment';
-  _mode4.begin = r'/\*';
-  _mode4.end = r'\*/';
-  _mode4.contains = [_mode5, _mode6];
-  _mode5.scope = r'doctag';
-  _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode5.excludeBegin = true;
-  _mode5.relevance = 0;
-  _mode6.begin =
+  mode4.scope = r'comment';
+  mode4.begin = r'/\*';
+  mode4.end = r'\*/';
+  mode4.contains = [mode5, mode6];
+  mode5.scope = r'doctag';
+  mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode5.excludeBegin = true;
+  mode5.relevance = 0;
+  mode6.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'QML',
@@ -52,26 +54,26 @@ Mode qml(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'string',
         begin: r'`',
         end: r'`',
         contains: [
-          _mode0,
+          mode0,
           Mode(scope: r'subst', begin: r'\$\{', end: r'\}'),
         ],
       ),
-      _mode1,
-      _mode4,
+      mode1,
+      mode4,
       Mode(
         scope: r'number',
         variants: [
@@ -89,15 +91,15 @@ Mode qml(Highlight hljs) {
             r'(!|!=|!==|%|%=|&|&&|&=|\*|\*=|\+|\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\?|\[|\{|\(|\^|\^=|\||\|=|\|\||~|\b(case|return|throw)\b)\s*',
         keywords: r'return throw case',
         contains: [
-          _mode1,
-          _mode4,
+          mode1,
+          mode4,
           Mode(
             scope: r'regexp',
             begin: r'\/(?=[^/\n]*\/)',
             end: r'\/[gimuy]*',
             contains: [
-              _mode0,
-              Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [_mode0]),
+              mode0,
+              Mode(begin: r'\[', end: r'\]', relevance: 0, contains: [mode0]),
             ],
           ),
           Mode(
@@ -144,7 +146,7 @@ Mode qml(Highlight hljs) {
             end: r'\)',
             excludeBegin: true,
             excludeEnd: true,
-            contains: [_mode1, _mode4],
+            contains: [mode1, mode4],
           ),
         ],
         illegal: r'\[|%',

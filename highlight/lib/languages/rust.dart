@@ -1,11 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `rust`.
 Mode rust(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
+  final Mode mode0 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
   return Mode(
     name: r'Rust',
     aliases: [r'rs'],
@@ -195,7 +197,7 @@ Mode rust(Highlight hljs) {
           ),
         ],
       ),
-      Mode(scope: r'string', begin: r'b?"', end: r'"', contains: [_mode0]),
+      Mode(scope: r'string', begin: r'b?"', end: r'"', contains: [mode0]),
       Mode(scope: r'symbol', begin: r"'[a-zA-Z_][a-zA-Z0-9_]*(?!')"),
       Mode(
         scope: r'string',
@@ -237,7 +239,7 @@ Mode rust(Highlight hljs) {
         begin: r'#!?\[',
         end: r'\]',
         contains: [
-          Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode0]),
+          Mode(scope: r'string', begin: r'"', end: r'"', contains: [mode0]),
         ],
       ),
       Mode(

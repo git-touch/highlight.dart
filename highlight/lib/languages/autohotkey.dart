@@ -1,10 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `autohotkey`.
 Mode autohotkey(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.begin = r'`[\s\S]';
+  final Mode mode0 = Mode();
+  mode0.begin = r'`[\s\S]';
   return Mode(
     name: r'AutoHotkey',
     caseInsensitive: true,
@@ -16,13 +18,13 @@ Mode autohotkey(Highlight hljs) {
       r'built_in': r'ComSpec Clipboard ClipboardAll ErrorLevel',
     },
     contains: [
-      _mode0,
+      mode0,
       Mode(
         scope: r'string',
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'comment',

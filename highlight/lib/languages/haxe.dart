@@ -1,15 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `haxe`.
 Mode haxe(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
-  _mode1.scope = r'title';
-  _mode1.begin = r'[a-zA-Z]\w*';
-  _mode1.relevance = 0;
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
+  mode1.scope = r'title';
+  mode1.begin = r'[a-zA-Z]\w*';
+  mode1.relevance = 0;
   return Mode(
     name: r'Haxe',
     aliases: [r'hx'],
@@ -25,7 +27,7 @@ Mode haxe(Highlight hljs) {
         begin: r"'",
         end: r"'",
         contains: [
-          _mode0,
+          mode0,
           Mode(scope: r'subst', begin: r'\$\{', end: r'\}'),
           Mode(scope: r'subst', begin: r'\$', end: r'\W\}'),
         ],
@@ -35,7 +37,7 @@ Mode haxe(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         scope: r'comment',
@@ -113,7 +115,7 @@ Mode haxe(Highlight hljs) {
         scope: r'title.class',
         beginKeywords: r'enum',
         end: r'\{',
-        contains: [_mode1],
+        contains: [mode1],
       ),
       Mode(
         scope: r'title.class',
@@ -141,7 +143,7 @@ Mode haxe(Highlight hljs) {
             excludeBegin: true,
             excludeEnd: true,
           ),
-          _mode1,
+          mode1,
         ],
         keywords: {r'keyword': r'abstract from to'},
       ),
@@ -160,7 +162,7 @@ Mode haxe(Highlight hljs) {
               Mode(scope: r'type', begin: r'[a-zA-Z]\w*', relevance: 0),
             ],
           ),
-          _mode1,
+          mode1,
         ],
       ),
       Mode(
@@ -169,7 +171,7 @@ Mode haxe(Highlight hljs) {
         end: r'\(',
         excludeEnd: true,
         illegal: r'\S',
-        contains: [_mode1],
+        contains: [mode1],
       ),
     ],
     illegal: r'<\/',

@@ -1,12 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `brainfuck`.
 Mode brainfuck(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.scope = r'literal';
-  _mode0.begin = r'[+-]+';
-  _mode0.relevance = 0;
+  final Mode mode0 = Mode();
+  mode0.scope = r'literal';
+  mode0.begin = r'[+-]+';
+  mode0.relevance = 0;
   return Mode(
     name: r'Brainfuck',
     aliases: [r'bf'],
@@ -34,8 +36,8 @@ Mode brainfuck(Highlight hljs) {
       ),
       Mode(scope: r'title', begin: r'[\[\]]', relevance: 0),
       Mode(scope: r'string', begin: r'[\.,]', relevance: 0),
-      Mode(begin: r'(?=\+\+|--)', contains: [_mode0]),
-      _mode0,
+      Mode(begin: r'(?=\+\+|--)', contains: [mode0]),
+      mode0,
     ],
   );
 }

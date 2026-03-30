@@ -12,6 +12,10 @@ dependencies:
   flutter_highlight:
     path: ../
   highlight:
+    version: ^0.7.1
+
+dependency_overrides:
+  highlight:
     path: ../../highlight
 
 dev_dependencies:

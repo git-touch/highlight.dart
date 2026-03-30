@@ -1,93 +1,95 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `python`.
 Mode python(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  final Mode _mode18 = Mode();
-  final Mode _mode19 = Mode();
-  final Mode _mode20 = Mode();
-  final Mode _mode21 = Mode();
-  final Mode _mode22 = Mode();
-  final Mode _mode23 = Mode();
-  final Mode _mode24 = Mode();
-  final Mode _mode25 = Mode();
-  final Mode _mode26 = Mode();
-  final Mode _mode27 = Mode();
-  final Mode _mode28 = Mode();
-  final Mode _mode29 = Mode();
-  final Mode _mode30 = Mode();
-  _mode0.scope = r'meta';
-  _mode0.begin = r'^(>>>|\.\.\.) ';
-  _mode1.scope = r'number';
-  _mode1.relevance = 0;
-  _mode1.variants = [_mode2, _mode3, _mode4, _mode5, _mode6, _mode7, _mode8];
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  final Mode mode18 = Mode();
+  final Mode mode19 = Mode();
+  final Mode mode20 = Mode();
+  final Mode mode21 = Mode();
+  final Mode mode22 = Mode();
+  final Mode mode23 = Mode();
+  final Mode mode24 = Mode();
+  final Mode mode25 = Mode();
+  final Mode mode26 = Mode();
+  final Mode mode27 = Mode();
+  final Mode mode28 = Mode();
+  final Mode mode29 = Mode();
+  final Mode mode30 = Mode();
+  mode0.scope = r'meta';
+  mode0.begin = r'^(>>>|\.\.\.) ';
+  mode1.scope = r'number';
+  mode1.relevance = 0;
+  mode1.variants = [mode2, mode3, mode4, mode5, mode6, mode7, mode8];
+  mode2.begin =
       r'(\b([0-9](_?[0-9])*)|((\b([0-9](_?[0-9])*))?\.([0-9](_?[0-9])*)|\b([0-9](_?[0-9])*)\.))[eE][+-]?([0-9](_?[0-9])*)[jJ]?(?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
-  _mode3.begin =
+  mode3.begin =
       r'((\b([0-9](_?[0-9])*))?\.([0-9](_?[0-9])*)|\b([0-9](_?[0-9])*)\.)[jJ]?';
-  _mode4.begin =
+  mode4.begin =
       r'\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?(?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
-  _mode5.begin =
+  mode5.begin =
       r'\b0[bB](_?[01])+[lL]?(?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
-  _mode6.begin =
+  mode6.begin =
       r'\b0[oO](_?[0-7])+[lL]?(?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
-  _mode7.begin =
+  mode7.begin =
       r'\b0[xX](_?[0-9a-fA-F])+[lL]?(?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
-  _mode8.begin =
+  mode8.begin =
       r'\b([0-9](_?[0-9])*)[jJ](?=\b|and|as|assert|async|await|break|case|class|continue|def|del|elif|else|except|finally|for|from|global|if|import|in|is|lambda|match|nonlocal|10|not|or|pass|raise|return|try|while|with|yield)';
-  _mode9.scope = r'string';
-  _mode9.contains = [_mode10];
-  _mode9.variants = [
-    _mode11,
-    _mode12,
-    _mode13,
-    _mode16,
-    _mode17,
-    _mode18,
-    _mode19,
-    _mode20,
-    _mode21,
-    _mode22,
-    _mode23,
-    _mode24,
+  mode9.scope = r'string';
+  mode9.contains = [mode10];
+  mode9.variants = [
+    mode11,
+    mode12,
+    mode13,
+    mode16,
+    mode17,
+    mode18,
+    mode19,
+    mode20,
+    mode21,
+    mode22,
+    mode23,
+    mode24,
   ];
-  _mode10.begin = r'\\[\s\S]';
-  _mode10.relevance = 0;
-  _mode11.begin = r"([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''";
-  _mode11.end = r"'''";
-  _mode11.contains = [_mode10, _mode0];
-  _mode11.relevance = 10;
-  _mode12.begin = r'([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""';
-  _mode12.end = r'"""';
-  _mode12.contains = [_mode10, _mode0];
-  _mode12.relevance = 10;
-  _mode13.begin = r"([fF][rR]|[rR][fF]|[fF])'''";
-  _mode13.end = r"'''";
-  _mode13.contains = [_mode10, _mode0, _mode14, _mode15];
-  _mode14.begin = r'\{\{';
-  _mode14.relevance = 0;
-  _mode15.scope = r'subst';
-  _mode15.begin = r'\{';
-  _mode15.end = r'\}';
-  _mode15.keywords = {
+  mode10.begin = r'\\[\s\S]';
+  mode10.relevance = 0;
+  mode11.begin = r"([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''";
+  mode11.end = r"'''";
+  mode11.contains = [mode10, mode0];
+  mode11.relevance = 10;
+  mode12.begin = r'([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""';
+  mode12.end = r'"""';
+  mode12.contains = [mode10, mode0];
+  mode12.relevance = 10;
+  mode13.begin = r"([fF][rR]|[rR][fF]|[fF])'''";
+  mode13.end = r"'''";
+  mode13.contains = [mode10, mode0, mode14, mode15];
+  mode14.begin = r'\{\{';
+  mode14.relevance = 0;
+  mode15.scope = r'subst';
+  mode15.begin = r'\{';
+  mode15.end = r'\}';
+  mode15.keywords = {
     r'$pattern': r'[A-Za-z]\w+|__\w+__',
     r'keyword': [
       r'and',
@@ -220,58 +222,58 @@ Mode python(Highlight hljs) {
       r'Union',
     ],
   };
-  _mode15.illegal = r'#';
-  _mode15.contains = [_mode9, _mode1, _mode0];
-  _mode16.begin = r'([fF][rR]|[rR][fF]|[fF])"""';
-  _mode16.end = r'"""';
-  _mode16.contains = [_mode10, _mode0, _mode14, _mode15];
-  _mode17.begin = r"([uU]|[rR])'";
-  _mode17.end = r"'";
-  _mode17.relevance = 10;
-  _mode18.begin = r'([uU]|[rR])"';
-  _mode18.end = r'"';
-  _mode18.relevance = 10;
-  _mode19.begin = r"([bB]|[bB][rR]|[rR][bB])'";
-  _mode19.end = r"'";
-  _mode20.begin = r'([bB]|[bB][rR]|[rR][bB])"';
-  _mode20.end = r'"';
-  _mode21.begin = r"([fF][rR]|[rR][fF]|[fF])'";
-  _mode21.end = r"'";
-  _mode21.contains = [_mode10, _mode14, _mode15];
-  _mode22.begin = r'([fF][rR]|[rR][fF]|[fF])"';
-  _mode22.end = r'"';
-  _mode22.contains = [_mode10, _mode14, _mode15];
-  _mode23.scope = r'string';
-  _mode23.begin = r"'";
-  _mode23.end = r"'";
-  _mode23.illegal = r'\n';
-  _mode23.contains = [_mode10];
-  _mode24.scope = r'string';
-  _mode24.begin = r'"';
-  _mode24.end = r'"';
-  _mode24.illegal = r'\n';
-  _mode24.contains = [_mode10];
-  _mode25.scope = r'comment';
-  _mode25.begin = r'#';
-  _mode25.end = r'$';
-  _mode25.contains = [_mode26, _mode27];
-  _mode26.scope = r'doctag';
-  _mode26.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode26.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode26.excludeBegin = true;
-  _mode26.relevance = 0;
-  _mode27.begin =
+  mode15.illegal = r'#';
+  mode15.contains = [mode9, mode1, mode0];
+  mode16.begin = r'([fF][rR]|[rR][fF]|[fF])"""';
+  mode16.end = r'"""';
+  mode16.contains = [mode10, mode0, mode14, mode15];
+  mode17.begin = r"([uU]|[rR])'";
+  mode17.end = r"'";
+  mode17.relevance = 10;
+  mode18.begin = r'([uU]|[rR])"';
+  mode18.end = r'"';
+  mode18.relevance = 10;
+  mode19.begin = r"([bB]|[bB][rR]|[rR][bB])'";
+  mode19.end = r"'";
+  mode20.begin = r'([bB]|[bB][rR]|[rR][bB])"';
+  mode20.end = r'"';
+  mode21.begin = r"([fF][rR]|[rR][fF]|[fF])'";
+  mode21.end = r"'";
+  mode21.contains = [mode10, mode14, mode15];
+  mode22.begin = r'([fF][rR]|[rR][fF]|[fF])"';
+  mode22.end = r'"';
+  mode22.contains = [mode10, mode14, mode15];
+  mode23.scope = r'string';
+  mode23.begin = r"'";
+  mode23.end = r"'";
+  mode23.illegal = r'\n';
+  mode23.contains = [mode10];
+  mode24.scope = r'string';
+  mode24.begin = r'"';
+  mode24.end = r'"';
+  mode24.illegal = r'\n';
+  mode24.contains = [mode10];
+  mode25.scope = r'comment';
+  mode25.begin = r'#';
+  mode25.end = r'$';
+  mode25.contains = [mode26, mode27];
+  mode26.scope = r'doctag';
+  mode26.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode26.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode26.excludeBegin = true;
+  mode26.relevance = 0;
+  mode27.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode28.scope = r'params';
-  _mode28.variants = [_mode29, _mode30];
-  _mode29.scope = r'';
-  _mode29.begin = r'\(\s*\)';
-  _mode29.skip = true;
-  _mode30.begin = r'\(';
-  _mode30.end = r'\)';
-  _mode30.excludeBegin = true;
-  _mode30.excludeEnd = true;
-  _mode30.keywords = {
+  mode28.scope = r'params';
+  mode28.variants = [mode29, mode30];
+  mode29.scope = r'';
+  mode29.begin = r'\(\s*\)';
+  mode29.skip = true;
+  mode30.begin = r'\(';
+  mode30.end = r'\)';
+  mode30.excludeBegin = true;
+  mode30.excludeEnd = true;
+  mode30.keywords = {
     r'$pattern': r'[A-Za-z]\w+|__\w+__',
     r'keyword': [
       r'and',
@@ -404,7 +406,7 @@ Mode python(Highlight hljs) {
       r'Union',
     ],
   };
-  _mode30.contains = [r'self', _mode0, _mode1, _mode9, _mode25];
+  mode30.contains = [r'self', mode0, mode1, mode9, mode25];
   return Mode(
     name: r'Python',
     aliases: [r'py', r'gyp', r'ipython'],
@@ -544,12 +546,12 @@ Mode python(Highlight hljs) {
     },
     illegal: r'(<\/|\?)|=>',
     contains: [
-      _mode0,
-      _mode1,
+      mode0,
+      mode1,
       Mode(scope: r'variable.language', match: r'\bself\b'),
       Mode(beginKeywords: r'if', relevance: 0),
       Mode(match: r'\bor\b', scope: r'keyword'),
-      _mode9,
+      mode9,
       Mode(
         scope: r'comment',
         begin: r'(?=# type:)',
@@ -692,11 +694,11 @@ Mode python(Highlight hljs) {
           Mode(begin: r'#', end: r'\b\B', endsWithParent: true),
         ],
       ),
-      _mode25,
+      mode25,
       Mode(
         match: [r'\bdef', r'\s+', r'[\p{XID_Start}_]\p{XID_Continue}*'],
         scope: {1: r'keyword', 3: r'title.function'},
-        contains: [_mode28],
+        contains: [mode28],
       ),
       Mode(
         variants: [
@@ -721,7 +723,7 @@ Mode python(Highlight hljs) {
         scope: r'meta',
         begin: r'^[\t ]*@',
         end: r'(?=#)|$',
-        contains: [_mode1, _mode28, _mode9],
+        contains: [mode1, mode28, mode9],
       ),
     ],
   );

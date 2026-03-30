@@ -1,39 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `ada`.
 Mode ada(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  _mode0.scope = r'comment';
-  _mode0.begin = r'--';
-  _mode0.end = r'$';
-  _mode0.contains = [_mode1, _mode2];
-  _mode1.scope = r'doctag';
-  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode1.excludeBegin = true;
-  _mode1.relevance = 0;
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  mode0.scope = r'comment';
+  mode0.begin = r'--';
+  mode0.end = r'$';
+  mode0.contains = [mode1, mode2];
+  mode1.scope = r'doctag';
+  mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode1.excludeBegin = true;
+  mode1.relevance = 0;
+  mode2.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode3.begin = r'\s+:\s+';
-  _mode3.end = r'\s*(:=|;|\)|=>|$)';
-  _mode3.illegal = '[]\\{\\}%#\'"';
-  _mode3.contains = [_mode4, _mode5, _mode6];
-  _mode4.beginKeywords = r'loop for declare others';
-  _mode4.endsParent = true;
-  _mode5.scope = r'keyword';
-  _mode5.beginKeywords =
+  mode3.begin = r'\s+:\s+';
+  mode3.end = r'\s*(:=|;|\)|=>|$)';
+  mode3.illegal = '[]\\{\\}%#\'"';
+  mode3.contains = [mode4, mode5, mode6];
+  mode4.beginKeywords = r'loop for declare others';
+  mode4.endsParent = true;
+  mode5.scope = r'keyword';
+  mode5.beginKeywords =
       r'not null constant access function procedure in out aliased exception';
-  _mode6.scope = r'type';
-  _mode6.begin = r'[A-Za-z](_?[A-Za-z0-9.])*';
-  _mode6.endsParent = true;
-  _mode6.relevance = 0;
+  mode6.scope = r'type';
+  mode6.begin = r'[A-Za-z](_?[A-Za-z0-9.])*';
+  mode6.endsParent = true;
+  mode6.relevance = 0;
   return Mode(
     name: r'Ada',
     caseInsensitive: true,
@@ -114,7 +116,7 @@ Mode ada(Highlight hljs) {
       r'literal': [r'True', r'False'],
     },
     contains: [
-      _mode0,
+      mode0,
       Mode(
         scope: r'string',
         begin: r'"',
@@ -144,7 +146,7 @@ Mode ada(Highlight hljs) {
         keywords: r'overriding function procedure with is renames return',
         returnBegin: true,
         contains: [
-          _mode0,
+          mode0,
           Mode(
             scope: r'title',
             begin: r'(\bwith\s+)?\b(function|procedure)\s+',
@@ -153,7 +155,7 @@ Mode ada(Highlight hljs) {
             excludeEnd: true,
             illegal: '[]\\{\\}%#\'"',
           ),
-          _mode3,
+          mode3,
           Mode(
             scope: r'type',
             begin: r'\breturn\s+',
@@ -174,7 +176,7 @@ Mode ada(Highlight hljs) {
         excludeBegin: true,
         illegal: '[]\\{\\}%#\'"',
       ),
-      _mode3,
+      mode3,
     ],
   );
 }

@@ -1,19 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `leaf`.
 Mode leaf(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.scope = r'params';
-  _mode0.begin = r'\(';
-  _mode0.end = r'\)(?=\:?)';
-  _mode0.endsParent = true;
-  _mode0.relevance = 7;
-  _mode0.contains = [
+  final Mode mode0 = Mode();
+  mode0.scope = r'params';
+  mode0.begin = r'\(';
+  mode0.end = r'\)(?=\:?)';
+  mode0.endsParent = true;
+  mode0.relevance = 7;
+  mode0.contains = [
     Mode(
       match: [r'([A-Za-z_][A-Za-z_0-9]*)?', r'(?=\()'],
       scope: {1: r'keyword'},
-      contains: [_mode0],
+      contains: [mode0],
     ),
     Mode(scope: r'string', begin: r'"', end: r'"'),
     Mode(scope: r'keyword', match: r'true|false|in'),
@@ -32,7 +34,7 @@ Mode leaf(Highlight hljs) {
         starts: Mode(
           contains: [Mode(match: r'\:', scope: r'punctuation')],
         ),
-        contains: [_mode0],
+        contains: [mode0],
       ),
       Mode(
         match: [r'#+', r'([A-Za-z_][A-Za-z_0-9]*)?', r':?'],

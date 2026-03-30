@@ -1,23 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `tcl`.
 Mode tcl(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  _mode0.scope = r'number';
-  _mode0.variants = [_mode1, _mode2];
-  _mode1.scope = r'number';
-  _mode1.begin = r'\b(0b[01]+)';
-  _mode1.relevance = 0;
-  _mode2.scope = r'number';
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  mode0.scope = r'number';
+  mode0.variants = [mode1, mode2];
+  mode1.scope = r'number';
+  mode1.begin = r'\b(0b[01]+)';
+  mode1.relevance = 0;
+  mode2.scope = r'number';
+  mode2.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode2.relevance = 0;
-  _mode3.begin = r'\\[\s\S]';
-  _mode3.relevance = 0;
+  mode2.relevance = 0;
+  mode3.begin = r'\\[\s\S]';
+  mode3.relevance = 0;
   return Mode(
     name: r'Tcl',
     aliases: [r'tk'],
@@ -202,18 +204,18 @@ Mode tcl(Highlight hljs) {
           Mode(
             begin: r'\$\{(::)?[a-zA-Z_]((::)?[a-zA-Z0-9_])*',
             end: r'\}',
-            contains: [_mode0],
+            contains: [mode0],
           ),
         ],
       ),
       Mode(
         scope: r'string',
-        contains: [_mode3],
+        contains: [mode3],
         variants: [
-          Mode(scope: r'string', begin: r'"', end: r'"', contains: [_mode3]),
+          Mode(scope: r'string', begin: r'"', end: r'"', contains: [mode3]),
         ],
       ),
-      _mode0,
+      mode0,
     ],
   );
 }

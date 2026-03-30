@@ -1,60 +1,62 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `aspectj`.
 Mode aspectj(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  _mode0.scope = r'comment';
-  _mode0.begin = r'//';
-  _mode0.end = r'$';
-  _mode0.contains = [_mode1, _mode2];
-  _mode1.scope = r'doctag';
-  _mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode1.excludeBegin = true;
-  _mode1.relevance = 0;
-  _mode2.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  mode0.scope = r'comment';
+  mode0.begin = r'//';
+  mode0.end = r'$';
+  mode0.contains = [mode1, mode2];
+  mode1.scope = r'doctag';
+  mode1.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode1.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode1.excludeBegin = true;
+  mode1.relevance = 0;
+  mode2.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode3.scope = r'comment';
-  _mode3.begin = r'/\*';
-  _mode3.end = r'\*/';
-  _mode3.contains = [_mode4, _mode5];
-  _mode4.scope = r'doctag';
-  _mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode4.excludeBegin = true;
-  _mode4.relevance = 0;
-  _mode5.begin =
+  mode3.scope = r'comment';
+  mode3.begin = r'/\*';
+  mode3.end = r'\*/';
+  mode3.contains = [mode4, mode5];
+  mode4.scope = r'doctag';
+  mode4.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode4.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode4.excludeBegin = true;
+  mode4.relevance = 0;
+  mode5.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode6.scope = r'string';
-  _mode6.begin = r"'";
-  _mode6.end = r"'";
-  _mode6.illegal = r'\n';
-  _mode6.contains = [_mode7];
-  _mode7.begin = r'\\[\s\S]';
-  _mode7.relevance = 0;
-  _mode8.scope = r'string';
-  _mode8.begin = r'"';
-  _mode8.end = r'"';
-  _mode8.illegal = r'\n';
-  _mode8.contains = [_mode7];
-  _mode9.scope = r'title';
-  _mode9.begin = r'[a-zA-Z_]\w*';
-  _mode9.relevance = 0;
-  _mode10.scope = r'number';
-  _mode10.begin =
+  mode6.scope = r'string';
+  mode6.begin = r"'";
+  mode6.end = r"'";
+  mode6.illegal = r'\n';
+  mode6.contains = [mode7];
+  mode7.begin = r'\\[\s\S]';
+  mode7.relevance = 0;
+  mode8.scope = r'string';
+  mode8.begin = r'"';
+  mode8.end = r'"';
+  mode8.illegal = r'\n';
+  mode8.contains = [mode7];
+  mode9.scope = r'title';
+  mode9.begin = r'[a-zA-Z_]\w*';
+  mode9.relevance = 0;
+  mode10.scope = r'number';
+  mode10.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode10.relevance = 0;
+  mode10.relevance = 0;
   return Mode(
     name: r'AspectJ',
     keywords: [
@@ -156,10 +158,10 @@ Mode aspectj(Highlight hljs) {
         ],
         relevance: 0,
       ),
-      _mode0,
-      _mode3,
-      _mode6,
-      _mode8,
+      mode0,
+      mode3,
+      mode6,
+      mode8,
       Mode(
         scope: r'class',
         beginKeywords: r'aspect',
@@ -171,7 +173,7 @@ Mode aspectj(Highlight hljs) {
             beginKeywords:
                 r'extends implements pertypewithin perthis pertarget percflowbelow percflow issingleton',
           ),
-          _mode9,
+          mode9,
           Mode(
             begin: r'\([^\)]*',
             end: r'[)]+',
@@ -269,7 +271,7 @@ Mode aspectj(Highlight hljs) {
         illegal: r'[:"\[\]]',
         contains: [
           Mode(beginKeywords: r'extends implements'),
-          _mode9,
+          mode9,
         ],
       ),
       Mode(
@@ -281,7 +283,7 @@ Mode aspectj(Highlight hljs) {
           Mode(
             begin: r'[a-zA-Z_]\w*\s*\(',
             returnBegin: true,
-            contains: [_mode9],
+            contains: [mode9],
           ),
         ],
       ),
@@ -453,7 +455,7 @@ Mode aspectj(Highlight hljs) {
             ],
             relevance: 0,
           ),
-          _mode8,
+          mode8,
         ],
       ),
       Mode(beginKeywords: r'new throw', relevance: 0),
@@ -544,7 +546,7 @@ Mode aspectj(Highlight hljs) {
             begin: r'[a-zA-Z_]\w*\s*\(',
             returnBegin: true,
             relevance: 0,
-            contains: [_mode9],
+            contains: [mode9],
           ),
           Mode(
             scope: r'params',
@@ -627,13 +629,13 @@ Mode aspectj(Highlight hljs) {
               r'precedence',
               r'thisAspectInstance',
             ],
-            contains: [_mode6, _mode8, _mode10, _mode3],
+            contains: [mode6, mode8, mode10, mode3],
           ),
-          _mode0,
-          _mode3,
+          mode0,
+          mode3,
         ],
       ),
-      _mode10,
+      mode10,
       Mode(scope: r'meta', begin: r'@[A-Za-z]+'),
     ],
   );

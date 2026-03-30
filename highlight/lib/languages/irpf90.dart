@@ -1,11 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `irpf90`.
 Mode irpf90(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  _mode0.begin = r'\\[\s\S]';
-  _mode0.relevance = 0;
+  final Mode mode0 = Mode();
+  mode0.begin = r'\\[\s\S]';
+  mode0.relevance = 0;
   return Mode(
     name: r'IRPF90',
     caseInsensitive: true,
@@ -23,7 +25,7 @@ Mode irpf90(Highlight hljs) {
         begin: r"'",
         end: r"'",
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
         relevance: 0,
       ),
       Mode(
@@ -31,7 +33,7 @@ Mode irpf90(Highlight hljs) {
         begin: r'"',
         end: r'"',
         illegal: r'\n',
-        contains: [_mode0],
+        contains: [mode0],
         relevance: 0,
       ),
       Mode(

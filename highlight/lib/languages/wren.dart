@@ -1,27 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `wren`.
 Mode wren(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  mode0.scope = r'number';
+  mode0.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode0.relevance = 0;
-  _mode1.scope = r'string';
-  _mode1.begin = r'"';
-  _mode1.end = r'"';
-  _mode1.contains = [
+  mode0.relevance = 0;
+  mode1.scope = r'string';
+  mode1.begin = r'"';
+  mode1.end = r'"';
+  mode1.contains = [
     Mode(
       scope: r'subst',
       begin: r'%\(',
       end: r'\)',
-      contains: [_mode0, _mode2, _mode3, _mode4, _mode5, _mode1],
+      contains: [mode0, mode2, mode3, mode4, mode5, mode1],
     ),
     Mode(
       scope: r'char.escape',
@@ -33,10 +35,10 @@ Mode wren(Highlight hljs) {
       ],
     ),
   ];
-  _mode2.relevance = 0;
-  _mode2.match = r'\b[A-Z]+[a-z]+([A-Z]+[a-z]+)*';
-  _mode2.scope = r'title.class';
-  _mode2.keywords = {
+  mode2.relevance = 0;
+  mode2.match = r'\b[A-Z]+[a-z]+([A-Z]+[a-z]+)*';
+  mode2.scope = r'title.class';
+  mode2.keywords = {
     r'_': [
       r'Bool',
       r'Class',
@@ -53,16 +55,16 @@ Mode wren(Highlight hljs) {
       r'System',
     ],
   };
-  _mode3.relevance = 0;
-  _mode3.match = r'\b(?!(if|while|for|else|super)\b)[a-zA-Z]\w*(?=\s*[({])';
-  _mode3.scope = r'title.function';
-  _mode4.relevance = 0;
-  _mode4.match = r'\b_[a-zA-Z]\w*';
-  _mode4.scope = r'variable';
-  _mode5.relevance = 0;
-  _mode5.match =
+  mode3.relevance = 0;
+  mode3.match = r'\b(?!(if|while|for|else|super)\b)[a-zA-Z]\w*(?=\s*[({])';
+  mode3.scope = r'title.function';
+  mode4.relevance = 0;
+  mode4.match = r'\b_[a-zA-Z]\w*';
+  mode4.scope = r'variable';
+  mode5.relevance = 0;
+  mode5.match =
       r'(?:-|~|\*|%|\.\.\.|\.\.|\+|<<|>>|>=|<=|<|>|\^|!=|!|\bis\b|==|&&|&|\|\||\||\?:|=)';
-  _mode5.scope = r'operator';
+  mode5.scope = r'operator';
   return Mode(
     name: r'Wren',
     keywords: {
@@ -103,8 +105,8 @@ Mode wren(Highlight hljs) {
           Mode(begin: [r'#!?', r'[A-Za-z_]+'], beginScope: {}, end: r'$'),
         ],
       ),
-      _mode0,
-      _mode1,
+      mode0,
+      mode1,
       Mode(scope: r'string', begin: r'"""', end: r'"""'),
       Mode(
         scope: r'comment',
@@ -162,7 +164,7 @@ Mode wren(Highlight hljs) {
           ),
         ],
       ),
-      _mode2,
+      mode2,
       Mode(
         variants: [
           Mode(
@@ -218,9 +220,9 @@ Mode wren(Highlight hljs) {
           ],
         ),
       ),
-      _mode3,
-      _mode5,
-      _mode4,
+      mode3,
+      mode5,
+      mode4,
       Mode(
         scope: r'property',
         begin: r'\.(?=[a-zA-Z]\w*)',

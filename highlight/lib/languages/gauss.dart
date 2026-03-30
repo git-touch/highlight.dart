@@ -1,118 +1,112 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `gauss`.
 Mode gauss(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  final Mode _mode12 = Mode();
-  final Mode _mode13 = Mode();
-  final Mode _mode14 = Mode();
-  final Mode _mode15 = Mode();
-  final Mode _mode16 = Mode();
-  final Mode _mode17 = Mode();
-  final Mode _mode18 = Mode();
-  final Mode _mode19 = Mode();
-  final Mode _mode20 = Mode();
-  final Mode _mode21 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  final Mode mode12 = Mode();
+  final Mode mode13 = Mode();
+  final Mode mode14 = Mode();
+  final Mode mode15 = Mode();
+  final Mode mode16 = Mode();
+  final Mode mode17 = Mode();
+  final Mode mode18 = Mode();
+  final Mode mode19 = Mode();
+  final Mode mode20 = Mode();
+  final Mode mode21 = Mode();
+  mode0.scope = r'number';
+  mode0.begin =
       r'(-?)(\b0[xX][a-fA-F0-9]+|(\b\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?)';
-  _mode0.relevance = 0;
-  _mode1.scope = r'comment';
-  _mode1.begin = r'//';
-  _mode1.end = r'$';
-  _mode1.contains = [_mode2, _mode3];
-  _mode2.scope = r'doctag';
-  _mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode2.excludeBegin = true;
-  _mode2.relevance = 0;
-  _mode3.begin =
+  mode0.relevance = 0;
+  mode1.scope = r'comment';
+  mode1.begin = r'//';
+  mode1.end = r'$';
+  mode1.contains = [mode2, mode3];
+  mode2.scope = r'doctag';
+  mode2.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode2.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode2.excludeBegin = true;
+  mode2.relevance = 0;
+  mode3.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode4.scope = r'comment';
-  _mode4.begin = r'/\*';
-  _mode4.end = r'\*/';
-  _mode4.contains = [_mode5, _mode6];
-  _mode5.scope = r'doctag';
-  _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode5.excludeBegin = true;
-  _mode5.relevance = 0;
-  _mode6.begin =
+  mode4.scope = r'comment';
+  mode4.begin = r'/\*';
+  mode4.end = r'\*/';
+  mode4.contains = [mode5, mode6];
+  mode5.scope = r'doctag';
+  mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode5.excludeBegin = true;
+  mode5.relevance = 0;
+  mode6.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode7.scope = r'comment';
-  _mode7.begin = r'@';
-  _mode7.end = r'@';
-  _mode7.contains = [_mode8, _mode9];
-  _mode8.scope = r'doctag';
-  _mode8.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode8.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode8.excludeBegin = true;
-  _mode8.relevance = 0;
-  _mode9.begin =
+  mode7.scope = r'comment';
+  mode7.begin = r'@';
+  mode7.end = r'@';
+  mode7.contains = [mode8, mode9];
+  mode8.scope = r'doctag';
+  mode8.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode8.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode8.excludeBegin = true;
+  mode8.relevance = 0;
+  mode9.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
-  _mode10.scope = r'string';
-  _mode10.begin = r'"';
-  _mode10.end = r'"';
-  _mode10.contains = [_mode11];
-  _mode10.relevance = 0;
-  _mode11.begin = r'\\[\s\S]';
-  _mode11.relevance = 0;
-  _mode12.scope = r'params';
-  _mode12.begin = r'\(';
-  _mode12.end = r'\)';
-  _mode12.excludeBegin = true;
-  _mode12.excludeEnd = true;
-  _mode12.endsWithParent = true;
-  _mode12.relevance = 0;
-  _mode12.contains = [_mode13, _mode0, _mode4, _mode7, _mode14];
-  _mode13.scope = r'literal';
-  _mode13.begin = r'\.\.\.';
-  _mode14.begin = r'\bstruct\s+';
-  _mode14.end = r'\s';
-  _mode14.keywords = r'struct';
-  _mode14.contains = [_mode15];
-  _mode15.scope = r'type';
-  _mode15.begin = r'[a-zA-Z_]\w*';
-  _mode15.relevance = 0;
-  _mode16.scope = r'title';
-  _mode16.begin = r'[a-zA-Z_]\w*';
-  _mode16.relevance = 0;
-  _mode17.begin = r'\(';
-  _mode17.end = r'\)';
-  _mode17.relevance = 0;
-  _mode17.keywords = {
+  mode10.scope = r'string';
+  mode10.begin = r'"';
+  mode10.end = r'"';
+  mode10.contains = [mode11];
+  mode10.relevance = 0;
+  mode11.begin = r'\\[\s\S]';
+  mode11.relevance = 0;
+  mode12.scope = r'params';
+  mode12.begin = r'\(';
+  mode12.end = r'\)';
+  mode12.excludeBegin = true;
+  mode12.excludeEnd = true;
+  mode12.endsWithParent = true;
+  mode12.relevance = 0;
+  mode12.contains = [mode13, mode0, mode4, mode7, mode14];
+  mode13.scope = r'literal';
+  mode13.begin = r'\.\.\.';
+  mode14.begin = r'\bstruct\s+';
+  mode14.end = r'\s';
+  mode14.keywords = r'struct';
+  mode14.contains = [mode15];
+  mode15.scope = r'type';
+  mode15.begin = r'[a-zA-Z_]\w*';
+  mode15.relevance = 0;
+  mode16.scope = r'title';
+  mode16.begin = r'[a-zA-Z_]\w*';
+  mode16.relevance = 0;
+  mode17.begin = r'\(';
+  mode17.end = r'\)';
+  mode17.relevance = 0;
+  mode17.keywords = {
     r'built_in':
         r'abs acf aconcat aeye amax amean AmericanBinomCall AmericanBinomCall_Greeks AmericanBinomCall_ImpVol AmericanBinomPut AmericanBinomPut_Greeks AmericanBinomPut_ImpVol AmericanBSCall AmericanBSCall_Greeks AmericanBSCall_ImpVol AmericanBSPut AmericanBSPut_Greeks AmericanBSPut_ImpVol amin amult annotationGetDefaults annotationSetBkd annotationSetFont annotationSetLineColor annotationSetLineStyle annotationSetLineThickness annualTradingDays arccos arcsin areshape arrayalloc arrayindex arrayinit arraytomat asciiload asclabel astd astds asum atan atan2 atranspose axmargin balance band bandchol bandcholsol bandltsol bandrv bandsolpd bar base10 begwind besselj bessely beta box boxcox cdfBeta cdfBetaInv cdfBinomial cdfBinomialInv cdfBvn cdfBvn2 cdfBvn2e cdfCauchy cdfCauchyInv cdfChic cdfChii cdfChinc cdfChincInv cdfExp cdfExpInv cdfFc cdfFnc cdfFncInv cdfGam cdfGenPareto cdfHyperGeo cdfLaplace cdfLaplaceInv cdfLogistic cdfLogisticInv cdfmControlCreate cdfMvn cdfMvn2e cdfMvnce cdfMvne cdfMvt2e cdfMvtce cdfMvte cdfN cdfN2 cdfNc cdfNegBinomial cdfNegBinomialInv cdfNi cdfPoisson cdfPoissonInv cdfRayleigh cdfRayleighInv cdfTc cdfTci cdfTnc cdfTvn cdfWeibull cdfWeibullInv cdir ceil ChangeDir chdir chiBarSquare chol choldn cholsol cholup chrs close code cols colsf combinate combinated complex con cond conj cons ConScore contour conv convertsatostr convertstrtosa corrm corrms corrvc corrx corrxs cos cosh counts countwts crossprd crout croutp csrcol csrlin csvReadM csvReadSA cumprodc cumsumc curve cvtos datacreate datacreatecomplex datalist dataload dataloop dataopen datasave date datestr datestring datestrymd dayinyr dayofweek dbAddDatabase dbClose dbCommit dbCreateQuery dbExecQuery dbGetConnectOptions dbGetDatabaseName dbGetDriverName dbGetDrivers dbGetHostName dbGetLastErrorNum dbGetLastErrorText dbGetNumericalPrecPolicy dbGetPassword dbGetPort dbGetTableHeaders dbGetTables dbGetUserName dbHasFeature dbIsDriverAvailable dbIsOpen dbIsOpenError dbOpen dbQueryBindValue dbQueryClear dbQueryCols dbQueryExecPrepared dbQueryFetchAllM dbQueryFetchAllSA dbQueryFetchOneM dbQueryFetchOneSA dbQueryFinish dbQueryGetBoundValue dbQueryGetBoundValues dbQueryGetField dbQueryGetLastErrorNum dbQueryGetLastErrorText dbQueryGetLastInsertID dbQueryGetLastQuery dbQueryGetPosition dbQueryIsActive dbQueryIsForwardOnly dbQueryIsNull dbQueryIsSelect dbQueryIsValid dbQueryPrepare dbQueryRows dbQuerySeek dbQuerySeekFirst dbQuerySeekLast dbQuerySeekNext dbQuerySeekPrevious dbQuerySetForwardOnly dbRemoveDatabase dbRollback dbSetConnectOptions dbSetDatabaseName dbSetHostName dbSetNumericalPrecPolicy dbSetPort dbSetUserName dbTransaction DeleteFile delif delrows denseToSp denseToSpRE denToZero design det detl dfft dffti diag diagrv digamma doswin DOSWinCloseall DOSWinOpen dotfeq dotfeqmt dotfge dotfgemt dotfgt dotfgtmt dotfle dotflemt dotflt dotfltmt dotfne dotfnemt draw drop dsCreate dstat dstatmt dstatmtControlCreate dtdate dtday dttime dttodtv dttostr dttoutc dtvnormal dtvtodt dtvtoutc dummy dummybr dummydn eig eigh eighv eigv elapsedTradingDays endwind envget eof eqSolve eqSolvemt eqSolvemtControlCreate eqSolvemtOutCreate eqSolveset erf erfc erfccplx erfcplx error etdays ethsec etstr EuropeanBinomCall EuropeanBinomCall_Greeks EuropeanBinomCall_ImpVol EuropeanBinomPut EuropeanBinomPut_Greeks EuropeanBinomPut_ImpVol EuropeanBSCall EuropeanBSCall_Greeks EuropeanBSCall_ImpVol EuropeanBSPut EuropeanBSPut_Greeks EuropeanBSPut_ImpVol exctsmpl exec execbg exp extern eye fcheckerr fclearerr feq feqmt fflush fft ffti fftm fftmi fftn fge fgemt fgets fgetsa fgetsat fgetst fgt fgtmt fileinfo filesa fle flemt floor flt fltmt fmod fne fnemt fonts fopen formatcv formatnv fputs fputst fseek fstrerror ftell ftocv ftos ftostrC gamma gammacplx gammaii gausset gdaAppend gdaCreate gdaDStat gdaDStatMat gdaGetIndex gdaGetName gdaGetNames gdaGetOrders gdaGetType gdaGetTypes gdaGetVarInfo gdaIsCplx gdaLoad gdaPack gdaRead gdaReadByIndex gdaReadSome gdaReadSparse gdaReadStruct gdaReportVarInfo gdaSave gdaUpdate gdaUpdateAndPack gdaVars gdaWrite gdaWrite32 gdaWriteSome getarray getdims getf getGAUSShome getmatrix getmatrix4D getname getnamef getNextTradingDay getNextWeekDay getnr getorders getpath getPreviousTradingDay getPreviousWeekDay getRow getscalar3D getscalar4D getTrRow getwind glm gradcplx gradMT gradMTm gradMTT gradMTTm gradp graphprt graphset hasimag header headermt hess hessMT hessMTg hessMTgw hessMTm hessMTmw hessMTT hessMTTg hessMTTgw hessMTTm hessMTw hessp hist histf histp hsec imag indcv indexcat indices indices2 indicesf indicesfn indnv indsav integrate1d integrateControlCreate intgrat2 intgrat3 inthp1 inthp2 inthp3 inthp4 inthpControlCreate intquad1 intquad2 intquad3 intrleav intrleavsa intrsect intsimp inv invpd invswp iscplx iscplxf isden isinfnanmiss ismiss key keyav keyw lag lag1 lagn lapEighb lapEighi lapEighvb lapEighvi lapgEig lapgEigh lapgEighv lapgEigv lapgSchur lapgSvdcst lapgSvds lapgSvdst lapSvdcusv lapSvds lapSvdusv ldlp ldlsol linSolve listwise ln lncdfbvn lncdfbvn2 lncdfmvn lncdfn lncdfn2 lncdfnc lnfact lngammacplx lnpdfmvn lnpdfmvt lnpdfn lnpdft loadd loadstruct loadwind loess loessmt loessmtControlCreate log loglog logx logy lower lowmat lowmat1 ltrisol lu lusol machEpsilon make makevars makewind margin matalloc matinit mattoarray maxbytes maxc maxindc maxv maxvec mbesselei mbesselei0 mbesselei1 mbesseli mbesseli0 mbesseli1 meanc median mergeby mergevar minc minindc minv miss missex missrv moment momentd movingave movingaveExpwgt movingaveWgt nextindex nextn nextnevn nextwind ntos null null1 numCombinations ols olsmt olsmtControlCreate olsqr olsqr2 olsqrmt ones optn optnevn orth outtyp pacf packedToSp packr parse pause pdfCauchy pdfChi pdfExp pdfGenPareto pdfHyperGeo pdfLaplace pdfLogistic pdfn pdfPoisson pdfRayleigh pdfWeibull pi pinv pinvmt plotAddArrow plotAddBar plotAddBox plotAddHist plotAddHistF plotAddHistP plotAddPolar plotAddScatter plotAddShape plotAddTextbox plotAddTS plotAddXY plotArea plotBar plotBox plotClearLayout plotContour plotCustomLayout plotGetDefaults plotHist plotHistF plotHistP plotLayout plotLogLog plotLogX plotLogY plotOpenWindow plotPolar plotSave plotScatter plotSetAxesPen plotSetBar plotSetBarFill plotSetBarStacked plotSetBkdColor plotSetFill plotSetGrid plotSetLegend plotSetLineColor plotSetLineStyle plotSetLineSymbol plotSetLineThickness plotSetNewWindow plotSetTitle plotSetWhichYAxis plotSetXAxisShow plotSetXLabel plotSetXRange plotSetXTicInterval plotSetXTicLabel plotSetYAxisShow plotSetYLabel plotSetYRange plotSetZAxisShow plotSetZLabel plotSurface plotTS plotXY polar polychar polyeval polygamma polyint polymake polymat polymroot polymult polyroot pqgwin previousindex princomp printfm printfmt prodc psi putarray putf putvals pvCreate pvGetIndex pvGetParNames pvGetParVector pvLength pvList pvPack pvPacki pvPackm pvPackmi pvPacks pvPacksi pvPacksm pvPacksmi pvPutParVector pvTest pvUnpack QNewton QNewtonmt QNewtonmtControlCreate QNewtonmtOutCreate QNewtonSet QProg QProgmt QProgmtInCreate qqr qqre qqrep qr qre qrep qrsol qrtsol qtyr qtyre qtyrep quantile quantiled qyr qyre qyrep qz rank rankindx readr real reclassify reclassifyCuts recode recserar recsercp recserrc rerun rescale reshape rets rev rfft rffti rfftip rfftn rfftnp rfftp rndBernoulli rndBeta rndBinomial rndCauchy rndChiSquare rndCon rndCreateState rndExp rndGamma rndGeo rndGumbel rndHyperGeo rndi rndKMbeta rndKMgam rndKMi rndKMn rndKMnb rndKMp rndKMu rndKMvm rndLaplace rndLCbeta rndLCgam rndLCi rndLCn rndLCnb rndLCp rndLCu rndLCvm rndLogNorm rndMTu rndMVn rndMVt rndn rndnb rndNegBinomial rndp rndPoisson rndRayleigh rndStateSkip rndu rndvm rndWeibull rndWishart rotater round rows rowsf rref sampleData satostrC saved saveStruct savewind scale scale3d scalerr scalinfnanmiss scalmiss schtoc schur searchsourcepath seekr select selif seqa seqm setdif setdifsa setvars setvwrmode setwind shell shiftr sin singleindex sinh sleep solpd sortc sortcc sortd sorthc sorthcc sortind sortindc sortmc sortr sortrc spBiconjGradSol spChol spConjGradSol spCreate spDenseSubmat spDiagRvMat spEigv spEye spLDL spline spLU spNumNZE spOnes spreadSheetReadM spreadSheetReadSA spreadSheetWrite spScale spSubmat spToDense spTrTDense spTScalar spZeros sqpSolve sqpSolveMT sqpSolveMTControlCreate sqpSolveMTlagrangeCreate sqpSolveMToutCreate sqpSolveSet sqrt statements stdc stdsc stocv stof strcombine strindx strlen strput strrindx strsect strsplit strsplitPad strtodt strtof strtofcplx strtriml strtrimr strtrunc strtruncl strtruncpad strtruncr submat subscat substute subvec sumc sumr surface svd svd1 svd2 svdcusv svds svdusv sysstate tab tan tanh tempname time timedt timestr timeutc title tkf2eps tkf2ps tocart todaydt toeplitz token topolar trapchk trigamma trimr trunc type typecv typef union unionsa uniqindx uniqindxsa unique uniquesa upmat upmat1 upper utctodt utctodtv utrisol vals varCovMS varCovXS varget vargetl varmall varmares varput varputl vartypef vcm vcms vcx vcxs vec vech vecr vector vget view viewxyz vlist vnamecv volume vput vread vtypecv wait waitc walkindex where window writer xlabel xlsGetSheetCount xlsGetSheetSize xlsGetSheetTypes xlsMakeRange xlsReadM xlsReadSA xlsWrite xlsWriteM xlsWriteSA xpnd xtics xy xyz ylabel ytics zeros zeta zlabel ztics cdfEmpirical dot h5create h5open h5read h5readAttribute h5write h5writeAttribute ldl plotAddErrorBar plotAddSurface plotCDFEmpirical plotSetColormap plotSetContourLabels plotSetLegendFont plotSetTextInterpreter plotSetXTicCount plotSetYTicCount plotSetZLevels powerm strjoin sylvester strtrim',
     r'literal':
         r'DB_AFTER_LAST_ROW DB_ALL_TABLES DB_BATCH_OPERATIONS DB_BEFORE_FIRST_ROW DB_BLOB DB_EVENT_NOTIFICATIONS DB_FINISH_QUERY DB_HIGH_PRECISION DB_LAST_INSERT_ID DB_LOW_PRECISION_DOUBLE DB_LOW_PRECISION_INT32 DB_LOW_PRECISION_INT64 DB_LOW_PRECISION_NUMBERS DB_MULTIPLE_RESULT_SETS DB_NAMED_PLACEHOLDERS DB_POSITIONAL_PLACEHOLDERS DB_PREPARED_QUERIES DB_QUERY_SIZE DB_SIMPLE_LOCKING DB_SYSTEM_TABLES DB_TABLES DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR',
   };
-  _mode17.contains = [
-    _mode0,
-    _mode4,
-    _mode7,
-    _mode18,
-    _mode19,
-    _mode10,
-    r'self',
-  ];
-  _mode18.scope = r'built_in';
-  _mode18.begin =
+  mode17.contains = [mode0, mode4, mode7, mode18, mode19, mode10, r'self'];
+  mode18.scope = r'built_in';
+  mode18.begin =
       r'\b(abs|acf|aconcat|aeye|amax|amean|AmericanBinomCall|AmericanBinomCall_Greeks|AmericanBinomCall_ImpVol|AmericanBinomPut|AmericanBinomPut_Greeks|AmericanBinomPut_ImpVol|AmericanBSCall|AmericanBSCall_Greeks|AmericanBSCall_ImpVol|AmericanBSPut|AmericanBSPut_Greeks|AmericanBSPut_ImpVol|amin|amult|annotationGetDefaults|annotationSetBkd|annotationSetFont|annotationSetLineColor|annotationSetLineStyle|annotationSetLineThickness|annualTradingDays|arccos|arcsin|areshape|arrayalloc|arrayindex|arrayinit|arraytomat|asciiload|asclabel|astd|astds|asum|atan|atan2|atranspose|axmargin|balance|band|bandchol|bandcholsol|bandltsol|bandrv|bandsolpd|bar|base10|begwind|besselj|bessely|beta|box|boxcox|cdfBeta|cdfBetaInv|cdfBinomial|cdfBinomialInv|cdfBvn|cdfBvn2|cdfBvn2e|cdfCauchy|cdfCauchyInv|cdfChic|cdfChii|cdfChinc|cdfChincInv|cdfExp|cdfExpInv|cdfFc|cdfFnc|cdfFncInv|cdfGam|cdfGenPareto|cdfHyperGeo|cdfLaplace|cdfLaplaceInv|cdfLogistic|cdfLogisticInv|cdfmControlCreate|cdfMvn|cdfMvn2e|cdfMvnce|cdfMvne|cdfMvt2e|cdfMvtce|cdfMvte|cdfN|cdfN2|cdfNc|cdfNegBinomial|cdfNegBinomialInv|cdfNi|cdfPoisson|cdfPoissonInv|cdfRayleigh|cdfRayleighInv|cdfTc|cdfTci|cdfTnc|cdfTvn|cdfWeibull|cdfWeibullInv|cdir|ceil|ChangeDir|chdir|chiBarSquare|chol|choldn|cholsol|cholup|chrs|close|code|cols|colsf|combinate|combinated|complex|con|cond|conj|cons|ConScore|contour|conv|convertsatostr|convertstrtosa|corrm|corrms|corrvc|corrx|corrxs|cos|cosh|counts|countwts|crossprd|crout|croutp|csrcol|csrlin|csvReadM|csvReadSA|cumprodc|cumsumc|curve|cvtos|datacreate|datacreatecomplex|datalist|dataload|dataloop|dataopen|datasave|date|datestr|datestring|datestrymd|dayinyr|dayofweek|dbAddDatabase|dbClose|dbCommit|dbCreateQuery|dbExecQuery|dbGetConnectOptions|dbGetDatabaseName|dbGetDriverName|dbGetDrivers|dbGetHostName|dbGetLastErrorNum|dbGetLastErrorText|dbGetNumericalPrecPolicy|dbGetPassword|dbGetPort|dbGetTableHeaders|dbGetTables|dbGetUserName|dbHasFeature|dbIsDriverAvailable|dbIsOpen|dbIsOpenError|dbOpen|dbQueryBindValue|dbQueryClear|dbQueryCols|dbQueryExecPrepared|dbQueryFetchAllM|dbQueryFetchAllSA|dbQueryFetchOneM|dbQueryFetchOneSA|dbQueryFinish|dbQueryGetBoundValue|dbQueryGetBoundValues|dbQueryGetField|dbQueryGetLastErrorNum|dbQueryGetLastErrorText|dbQueryGetLastInsertID|dbQueryGetLastQuery|dbQueryGetPosition|dbQueryIsActive|dbQueryIsForwardOnly|dbQueryIsNull|dbQueryIsSelect|dbQueryIsValid|dbQueryPrepare|dbQueryRows|dbQuerySeek|dbQuerySeekFirst|dbQuerySeekLast|dbQuerySeekNext|dbQuerySeekPrevious|dbQuerySetForwardOnly|dbRemoveDatabase|dbRollback|dbSetConnectOptions|dbSetDatabaseName|dbSetHostName|dbSetNumericalPrecPolicy|dbSetPort|dbSetUserName|dbTransaction|DeleteFile|delif|delrows|denseToSp|denseToSpRE|denToZero|design|det|detl|dfft|dffti|diag|diagrv|digamma|doswin|DOSWinCloseall|DOSWinOpen|dotfeq|dotfeqmt|dotfge|dotfgemt|dotfgt|dotfgtmt|dotfle|dotflemt|dotflt|dotfltmt|dotfne|dotfnemt|draw|drop|dsCreate|dstat|dstatmt|dstatmtControlCreate|dtdate|dtday|dttime|dttodtv|dttostr|dttoutc|dtvnormal|dtvtodt|dtvtoutc|dummy|dummybr|dummydn|eig|eigh|eighv|eigv|elapsedTradingDays|endwind|envget|eof|eqSolve|eqSolvemt|eqSolvemtControlCreate|eqSolvemtOutCreate|eqSolveset|erf|erfc|erfccplx|erfcplx|error|etdays|ethsec|etstr|EuropeanBinomCall|EuropeanBinomCall_Greeks|EuropeanBinomCall_ImpVol|EuropeanBinomPut|EuropeanBinomPut_Greeks|EuropeanBinomPut_ImpVol|EuropeanBSCall|EuropeanBSCall_Greeks|EuropeanBSCall_ImpVol|EuropeanBSPut|EuropeanBSPut_Greeks|EuropeanBSPut_ImpVol|exctsmpl|exec|execbg|exp|extern|eye|fcheckerr|fclearerr|feq|feqmt|fflush|fft|ffti|fftm|fftmi|fftn|fge|fgemt|fgets|fgetsa|fgetsat|fgetst|fgt|fgtmt|fileinfo|filesa|fle|flemt|floor|flt|fltmt|fmod|fne|fnemt|fonts|fopen|formatcv|formatnv|fputs|fputst|fseek|fstrerror|ftell|ftocv|ftos|ftostrC|gamma|gammacplx|gammaii|gausset|gdaAppend|gdaCreate|gdaDStat|gdaDStatMat|gdaGetIndex|gdaGetName|gdaGetNames|gdaGetOrders|gdaGetType|gdaGetTypes|gdaGetVarInfo|gdaIsCplx|gdaLoad|gdaPack|gdaRead|gdaReadByIndex|gdaReadSome|gdaReadSparse|gdaReadStruct|gdaReportVarInfo|gdaSave|gdaUpdate|gdaUpdateAndPack|gdaVars|gdaWrite|gdaWrite32|gdaWriteSome|getarray|getdims|getf|getGAUSShome|getmatrix|getmatrix4D|getname|getnamef|getNextTradingDay|getNextWeekDay|getnr|getorders|getpath|getPreviousTradingDay|getPreviousWeekDay|getRow|getscalar3D|getscalar4D|getTrRow|getwind|glm|gradcplx|gradMT|gradMTm|gradMTT|gradMTTm|gradp|graphprt|graphset|hasimag|header|headermt|hess|hessMT|hessMTg|hessMTgw|hessMTm|hessMTmw|hessMTT|hessMTTg|hessMTTgw|hessMTTm|hessMTw|hessp|hist|histf|histp|hsec|imag|indcv|indexcat|indices|indices2|indicesf|indicesfn|indnv|indsav|integrate1d|integrateControlCreate|intgrat2|intgrat3|inthp1|inthp2|inthp3|inthp4|inthpControlCreate|intquad1|intquad2|intquad3|intrleav|intrleavsa|intrsect|intsimp|inv|invpd|invswp|iscplx|iscplxf|isden|isinfnanmiss|ismiss|key|keyav|keyw|lag|lag1|lagn|lapEighb|lapEighi|lapEighvb|lapEighvi|lapgEig|lapgEigh|lapgEighv|lapgEigv|lapgSchur|lapgSvdcst|lapgSvds|lapgSvdst|lapSvdcusv|lapSvds|lapSvdusv|ldlp|ldlsol|linSolve|listwise|ln|lncdfbvn|lncdfbvn2|lncdfmvn|lncdfn|lncdfn2|lncdfnc|lnfact|lngammacplx|lnpdfmvn|lnpdfmvt|lnpdfn|lnpdft|loadd|loadstruct|loadwind|loess|loessmt|loessmtControlCreate|log|loglog|logx|logy|lower|lowmat|lowmat1|ltrisol|lu|lusol|machEpsilon|make|makevars|makewind|margin|matalloc|matinit|mattoarray|maxbytes|maxc|maxindc|maxv|maxvec|mbesselei|mbesselei0|mbesselei1|mbesseli|mbesseli0|mbesseli1|meanc|median|mergeby|mergevar|minc|minindc|minv|miss|missex|missrv|moment|momentd|movingave|movingaveExpwgt|movingaveWgt|nextindex|nextn|nextnevn|nextwind|ntos|null|null1|numCombinations|ols|olsmt|olsmtControlCreate|olsqr|olsqr2|olsqrmt|ones|optn|optnevn|orth|outtyp|pacf|packedToSp|packr|parse|pause|pdfCauchy|pdfChi|pdfExp|pdfGenPareto|pdfHyperGeo|pdfLaplace|pdfLogistic|pdfn|pdfPoisson|pdfRayleigh|pdfWeibull|pi|pinv|pinvmt|plotAddArrow|plotAddBar|plotAddBox|plotAddHist|plotAddHistF|plotAddHistP|plotAddPolar|plotAddScatter|plotAddShape|plotAddTextbox|plotAddTS|plotAddXY|plotArea|plotBar|plotBox|plotClearLayout|plotContour|plotCustomLayout|plotGetDefaults|plotHist|plotHistF|plotHistP|plotLayout|plotLogLog|plotLogX|plotLogY|plotOpenWindow|plotPolar|plotSave|plotScatter|plotSetAxesPen|plotSetBar|plotSetBarFill|plotSetBarStacked|plotSetBkdColor|plotSetFill|plotSetGrid|plotSetLegend|plotSetLineColor|plotSetLineStyle|plotSetLineSymbol|plotSetLineThickness|plotSetNewWindow|plotSetTitle|plotSetWhichYAxis|plotSetXAxisShow|plotSetXLabel|plotSetXRange|plotSetXTicInterval|plotSetXTicLabel|plotSetYAxisShow|plotSetYLabel|plotSetYRange|plotSetZAxisShow|plotSetZLabel|plotSurface|plotTS|plotXY|polar|polychar|polyeval|polygamma|polyint|polymake|polymat|polymroot|polymult|polyroot|pqgwin|previousindex|princomp|printfm|printfmt|prodc|psi|putarray|putf|putvals|pvCreate|pvGetIndex|pvGetParNames|pvGetParVector|pvLength|pvList|pvPack|pvPacki|pvPackm|pvPackmi|pvPacks|pvPacksi|pvPacksm|pvPacksmi|pvPutParVector|pvTest|pvUnpack|QNewton|QNewtonmt|QNewtonmtControlCreate|QNewtonmtOutCreate|QNewtonSet|QProg|QProgmt|QProgmtInCreate|qqr|qqre|qqrep|qr|qre|qrep|qrsol|qrtsol|qtyr|qtyre|qtyrep|quantile|quantiled|qyr|qyre|qyrep|qz|rank|rankindx|readr|real|reclassify|reclassifyCuts|recode|recserar|recsercp|recserrc|rerun|rescale|reshape|rets|rev|rfft|rffti|rfftip|rfftn|rfftnp|rfftp|rndBernoulli|rndBeta|rndBinomial|rndCauchy|rndChiSquare|rndCon|rndCreateState|rndExp|rndGamma|rndGeo|rndGumbel|rndHyperGeo|rndi|rndKMbeta|rndKMgam|rndKMi|rndKMn|rndKMnb|rndKMp|rndKMu|rndKMvm|rndLaplace|rndLCbeta|rndLCgam|rndLCi|rndLCn|rndLCnb|rndLCp|rndLCu|rndLCvm|rndLogNorm|rndMTu|rndMVn|rndMVt|rndn|rndnb|rndNegBinomial|rndp|rndPoisson|rndRayleigh|rndStateSkip|rndu|rndvm|rndWeibull|rndWishart|rotater|round|rows|rowsf|rref|sampleData|satostrC|saved|saveStruct|savewind|scale|scale3d|scalerr|scalinfnanmiss|scalmiss|schtoc|schur|searchsourcepath|seekr|select|selif|seqa|seqm|setdif|setdifsa|setvars|setvwrmode|setwind|shell|shiftr|sin|singleindex|sinh|sleep|solpd|sortc|sortcc|sortd|sorthc|sorthcc|sortind|sortindc|sortmc|sortr|sortrc|spBiconjGradSol|spChol|spConjGradSol|spCreate|spDenseSubmat|spDiagRvMat|spEigv|spEye|spLDL|spline|spLU|spNumNZE|spOnes|spreadSheetReadM|spreadSheetReadSA|spreadSheetWrite|spScale|spSubmat|spToDense|spTrTDense|spTScalar|spZeros|sqpSolve|sqpSolveMT|sqpSolveMTControlCreate|sqpSolveMTlagrangeCreate|sqpSolveMToutCreate|sqpSolveSet|sqrt|statements|stdc|stdsc|stocv|stof|strcombine|strindx|strlen|strput|strrindx|strsect|strsplit|strsplitPad|strtodt|strtof|strtofcplx|strtriml|strtrimr|strtrunc|strtruncl|strtruncpad|strtruncr|submat|subscat|substute|subvec|sumc|sumr|surface|svd|svd1|svd2|svdcusv|svds|svdusv|sysstate|tab|tan|tanh|tempname|time|timedt|timestr|timeutc|title|tkf2eps|tkf2ps|tocart|todaydt|toeplitz|token|topolar|trapchk|trigamma|trimr|trunc|type|typecv|typef|union|unionsa|uniqindx|uniqindxsa|unique|uniquesa|upmat|upmat1|upper|utctodt|utctodtv|utrisol|vals|varCovMS|varCovXS|varget|vargetl|varmall|varmares|varput|varputl|vartypef|vcm|vcms|vcx|vcxs|vec|vech|vecr|vector|vget|view|viewxyz|vlist|vnamecv|volume|vput|vread|vtypecv|wait|waitc|walkindex|where|window|writer|xlabel|xlsGetSheetCount|xlsGetSheetSize|xlsGetSheetTypes|xlsMakeRange|xlsReadM|xlsReadSA|xlsWrite|xlsWriteM|xlsWriteSA|xpnd|xtics|xy|xyz|ylabel|ytics|zeros|zeta|zlabel|ztics|cdfEmpirical|dot|h5create|h5open|h5read|h5readAttribute|h5write|h5writeAttribute|ldl|plotAddErrorBar|plotAddSurface|plotCDFEmpirical|plotSetColormap|plotSetContourLabels|plotSetLegendFont|plotSetTextInterpreter|plotSetXTicCount|plotSetYTicCount|plotSetZLevels|powerm|strjoin|sylvester|strtrim)\b';
-  _mode19.begin = r'[a-zA-Z_]\w*\s*\(';
-  _mode19.returnBegin = true;
-  _mode19.keywords = {
+  mode19.begin = r'[a-zA-Z_]\w*\s*\(';
+  mode19.returnBegin = true;
+  mode19.keywords = {
     r'keyword':
         r'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile continue create debug declare delete disable dlibrary dllcall do dos ed edit else elseif enable end endfor endif endp endo errorlog errorlogat expr external fn for format goto gosub graph if keyword let lib library line load loadarray loadexe loadf loadk loadm loadp loads loadx local locate loopnextindex lprint lpwidth lshow matrix msym ndpclex new open output outwidth plot plotsym pop prcsn print printdos proc push retp return rndcon rndmod rndmult rndseed run save saveall screen scroll setarray show sparse stop string struct system trace trap threadfor threadendfor threadbegin threadjoin threadstat threadend until use while winprint ne ge le gt lt and xor or not eq eqv',
     r'built_in':
@@ -120,13 +114,13 @@ Mode gauss(Highlight hljs) {
     r'literal':
         r'DB_AFTER_LAST_ROW DB_ALL_TABLES DB_BATCH_OPERATIONS DB_BEFORE_FIRST_ROW DB_BLOB DB_EVENT_NOTIFICATIONS DB_FINISH_QUERY DB_HIGH_PRECISION DB_LAST_INSERT_ID DB_LOW_PRECISION_DOUBLE DB_LOW_PRECISION_INT32 DB_LOW_PRECISION_INT64 DB_LOW_PRECISION_NUMBERS DB_MULTIPLE_RESULT_SETS DB_NAMED_PLACEHOLDERS DB_POSITIONAL_PLACEHOLDERS DB_PREPARED_QUERIES DB_QUERY_SIZE DB_SIMPLE_LOCKING DB_SYSTEM_TABLES DB_TABLES DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR',
   };
-  _mode19.relevance = 0;
-  _mode19.contains = [_mode20, _mode18, _mode21, _mode17];
-  _mode20.beginKeywords =
+  mode19.relevance = 0;
+  mode19.contains = [mode20, mode18, mode21, mode17];
+  mode20.beginKeywords =
       r'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile continue create debug declare delete disable dlibrary dllcall do dos ed edit else elseif enable end endfor endif endp endo errorlog errorlogat expr external fn for format goto gosub graph if keyword let lib library line load loadarray loadexe loadf loadk loadm loadp loads loadx local locate loopnextindex lprint lpwidth lshow matrix msym ndpclex new open output outwidth plot plotsym pop prcsn print printdos proc push retp return rndcon rndmod rndmult rndseed run save saveall screen scroll setarray show sparse stop string struct system trace trap threadfor threadendfor threadbegin threadjoin threadstat threadend until use while winprint ne ge le gt lt and xor or not eq eqv';
-  _mode21.scope = r'built_in';
-  _mode21.begin = r'[a-zA-Z_]\w*';
-  _mode21.relevance = 0;
+  mode21.scope = r'built_in';
+  mode21.begin = r'[a-zA-Z_]\w*';
+  mode21.relevance = 0;
   return Mode(
     name: r'GAUSS',
     aliases: [r'gss'],
@@ -141,11 +135,11 @@ Mode gauss(Highlight hljs) {
     },
     illegal: r'(\{[%#]|[%#]\}| <- )',
     contains: [
-      _mode0,
-      _mode1,
-      _mode4,
-      _mode7,
-      _mode10,
+      mode0,
+      mode1,
+      mode4,
+      mode7,
+      mode10,
       Mode(
         scope: r'meta',
         begin: r'#',
@@ -164,9 +158,9 @@ Mode gauss(Highlight hljs) {
               Mode(scope: r'string', begin: r'"', end: r'"', illegal: r'\n'),
             ],
           ),
-          _mode1,
-          _mode4,
-          _mode7,
+          mode1,
+          mode4,
+          mode7,
         ],
       ),
       Mode(
@@ -179,20 +173,20 @@ Mode gauss(Highlight hljs) {
         beginKeywords: r'proc keyword',
         end: r';',
         excludeEnd: true,
-        contains: [_mode12, _mode16, _mode0, _mode4, _mode7],
+        contains: [mode12, mode16, mode0, mode4, mode7],
       ),
       Mode(
         scope: r'function',
         beginKeywords: r'fn',
         end: r'=',
         excludeEnd: true,
-        contains: [_mode12, _mode16, _mode0, _mode4, _mode7],
+        contains: [mode12, mode16, mode0, mode4, mode7],
       ),
       Mode(
         beginKeywords: r'for threadfor',
         end: r';',
         relevance: 0,
-        contains: [_mode4, _mode7, _mode17],
+        contains: [mode4, mode7, mode17],
       ),
       Mode(
         variants: [
@@ -201,8 +195,8 @@ Mode gauss(Highlight hljs) {
         ],
         relevance: 0,
       ),
-      _mode19,
-      _mode14,
+      mode19,
+      mode14,
     ],
   );
 }

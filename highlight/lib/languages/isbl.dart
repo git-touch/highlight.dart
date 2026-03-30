@@ -1,22 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `isbl`.
 Mode isbl(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  final Mode _mode9 = Mode();
-  final Mode _mode10 = Mode();
-  final Mode _mode11 = Mode();
-  _mode0.begin = r'\.\s*[a-zA-Z_]\w*';
-  _mode0.keywords = {
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  final Mode mode9 = Mode();
+  final Mode mode10 = Mode();
+  final Mode mode11 = Mode();
+  mode0.begin = r'\.\s*[a-zA-Z_]\w*';
+  mode0.keywords = {
     r'$pattern': r'[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*',
     r'keyword':
         r'and и else иначе endexcept endfinally endforeach конецвсе endif конецесли endwhile конецпока except exitfor finally foreach все if если in в not не or или try while пока ',
@@ -26,9 +28,9 @@ Mode isbl(Highlight hljs) {
         r'AltState Application CallType ComponentTokens CreatedJobs CreatedNotices ControlState DialogResult Dialogs EDocuments EDocumentVersionSource Folders GlobalIDs Job Jobs InputValue LookUpReference LookUpRequisiteNames LookUpSearch Object ParentComponent Processes References Requisite ReportName Reports Result Scripts Searches SelectedAttachments SelectedItems SelectMode Sender ServerEvents ServiceFactory ShiftState SubTask SystemDialogs Tasks Wizard Wizards Work ВызовСпособ ИмяОтчета РеквЗнач ',
     r'literal': r'null true false nil ',
   };
-  _mode0.relevance = 0;
-  _mode1.scope = r'variable';
-  _mode1.keywords = {
+  mode0.relevance = 0;
+  mode1.scope = r'variable';
+  mode1.keywords = {
     r'$pattern': r'[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*',
     r'keyword':
         r'and и else иначе endexcept endfinally endforeach конецвсе endif конецесли endwhile конецпока except exitfor finally foreach все if если in в not не or или try while пока ',
@@ -38,39 +40,39 @@ Mode isbl(Highlight hljs) {
         r'AltState Application CallType ComponentTokens CreatedJobs CreatedNotices ControlState DialogResult Dialogs EDocuments EDocumentVersionSource Folders GlobalIDs Job Jobs InputValue LookUpReference LookUpRequisiteNames LookUpSearch Object ParentComponent Processes References Requisite ReportName Reports Result Scripts Searches SelectedAttachments SelectedItems SelectMode Sender ServerEvents ServiceFactory ShiftState SubTask SystemDialogs Tasks Wizard Wizards Work ВызовСпособ ИмяОтчета РеквЗнач ',
     r'literal': r'null true false nil ',
   };
-  _mode1.begin = r'[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*';
-  _mode1.relevance = 0;
-  _mode1.contains = [_mode2, _mode0];
-  _mode2.scope = r'type';
-  _mode2.begin =
+  mode1.begin = r'[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*';
+  mode1.relevance = 0;
+  mode1.contains = [mode2, mode0];
+  mode2.scope = r'type';
+  mode2.begin =
       r':[ \t]*(IApplication|IAccessRights|IAccountRepository|IAccountSelectionRestrictions|IAction|IActionList|IAdministrationHistoryDescription|IAnchors|IApplication|IArchiveInfo|IAttachment|IAttachmentList|ICheckListBox|ICheckPointedList|IColumn|IComponent|IComponentDescription|IComponentToken|IComponentTokenFactory|IComponentTokenInfo|ICompRecordInfo|IConnection|IContents|IControl|IControlJob|IControlJobInfo|IControlList|ICrypto|ICrypto2|ICustomJob|ICustomJobInfo|ICustomListBox|ICustomObjectWizardStep|ICustomWork|ICustomWorkInfo|IDataSet|IDataSetAccessInfo|IDataSigner|IDateCriterion|IDateRequisite|IDateRequisiteDescription|IDateValue|IDeaAccessRights|IDeaObjectInfo|IDevelopmentComponentLock|IDialog|IDialogFactory|IDialogPickRequisiteItems|IDialogsFactory|IDICSFactory|IDocRequisite|IDocumentInfo|IDualListDialog|IECertificate|IECertificateInfo|IECertificates|IEditControl|IEditorForm|IEdmsExplorer|IEdmsObject|IEdmsObjectDescription|IEdmsObjectFactory|IEdmsObjectInfo|IEDocument|IEDocumentAccessRights|IEDocumentDescription|IEDocumentEditor|IEDocumentFactory|IEDocumentInfo|IEDocumentStorage|IEDocumentVersion|IEDocumentVersionListDialog|IEDocumentVersionSource|IEDocumentWizardStep|IEDocVerSignature|IEDocVersionState|IEnabledMode|IEncodeProvider|IEncrypter|IEvent|IEventList|IException|IExternalEvents|IExternalHandler|IFactory|IField|IFileDialog|IFolder|IFolderDescription|IFolderDialog|IFolderFactory|IFolderInfo|IForEach|IForm|IFormTitle|IFormWizardStep|IGlobalIDFactory|IGlobalIDInfo|IGrid|IHasher|IHistoryDescription|IHyperLinkControl|IImageButton|IImageControl|IInnerPanel|IInplaceHint|IIntegerCriterion|IIntegerList|IIntegerRequisite|IIntegerValue|IISBLEditorForm|IJob|IJobDescription|IJobFactory|IJobForm|IJobInfo|ILabelControl|ILargeIntegerCriterion|ILargeIntegerRequisite|ILargeIntegerValue|ILicenseInfo|ILifeCycleStage|IList|IListBox|ILocalIDInfo|ILocalization|ILock|IMemoryDataSet|IMessagingFactory|IMetadataRepository|INotice|INoticeInfo|INumericCriterion|INumericRequisite|INumericValue|IObject|IObjectDescription|IObjectImporter|IObjectInfo|IObserver|IPanelGroup|IPickCriterion|IPickProperty|IPickRequisite|IPickRequisiteDescription|IPickRequisiteItem|IPickRequisiteItems|IPickValue|IPrivilege|IPrivilegeList|IProcess|IProcessFactory|IProcessMessage|IProgress|IProperty|IPropertyChangeEvent|IQuery|IReference|IReferenceCriterion|IReferenceEnabledMode|IReferenceFactory|IReferenceHistoryDescription|IReferenceInfo|IReferenceRecordCardWizardStep|IReferenceRequisiteDescription|IReferencesFactory|IReferenceValue|IRefRequisite|IReport|IReportFactory|IRequisite|IRequisiteDescription|IRequisiteDescriptionList|IRequisiteFactory|IRichEdit|IRouteStep|IRule|IRuleList|ISchemeBlock|IScript|IScriptFactory|ISearchCriteria|ISearchCriterion|ISearchDescription|ISearchFactory|ISearchFolderInfo|ISearchForObjectDescription|ISearchResultRestrictions|ISecuredContext|ISelectDialog|IServerEvent|IServerEventFactory|IServiceDialog|IServiceFactory|ISignature|ISignProvider|ISignProvider2|ISignProvider3|ISimpleCriterion|IStringCriterion|IStringList|IStringRequisite|IStringRequisiteDescription|IStringValue|ISystemDialogsFactory|ISystemInfo|ITabSheet|ITask|ITaskAbortReasonInfo|ITaskCardWizardStep|ITaskDescription|ITaskFactory|ITaskInfo|ITaskRoute|ITextCriterion|ITextRequisite|ITextValue|ITreeListSelectDialog|IUser|IUserList|IValue|IView|IWebBrowserControl|IWizard|IWizardAction|IWizardFactory|IWizardFormElement|IWizardParam|IWizardPickParam|IWizardReferenceParam|IWizardStep|IWorkAccessRights|IWorkDescription|IWorkflowAskableParam|IWorkflowAskableParams|IWorkflowBlock|IWorkflowBlockResult|IWorkflowEnabledMode|IWorkflowParam|IWorkflowPickParam|IWorkflowReferenceParam|IWorkState|IWorkTreeCustomNode|IWorkTreeJobNode|IWorkTreeTaskNode|IXMLEditorForm|SBCrypto)';
-  _mode2.end = r'[ \t]*=';
-  _mode2.excludeEnd = true;
-  _mode3.scope = r'string';
-  _mode3.variants = [_mode4, _mode5];
-  _mode4.begin = r'"';
-  _mode4.end = r'"';
-  _mode5.begin = r"'";
-  _mode5.end = r"'";
-  _mode6.scope = r'number';
-  _mode6.begin = r'\b\d+(\.\d+)?';
-  _mode6.relevance = 0;
-  _mode7.variants = [_mode8, _mode11];
-  _mode8.scope = r'comment';
-  _mode8.begin = r'//';
-  _mode8.end = r'$';
-  _mode8.relevance = 0;
-  _mode8.contains = [_mode9, _mode10];
-  _mode9.begin =
+  mode2.end = r'[ \t]*=';
+  mode2.excludeEnd = true;
+  mode3.scope = r'string';
+  mode3.variants = [mode4, mode5];
+  mode4.begin = r'"';
+  mode4.end = r'"';
+  mode5.begin = r"'";
+  mode5.end = r"'";
+  mode6.scope = r'number';
+  mode6.begin = r'\b\d+(\.\d+)?';
+  mode6.relevance = 0;
+  mode7.variants = [mode8, mode11];
+  mode8.scope = r'comment';
+  mode8.begin = r'//';
+  mode8.end = r'$';
+  mode8.relevance = 0;
+  mode8.contains = [mode9, mode10];
+  mode9.begin =
       r"\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b";
-  _mode10.scope = r'doctag';
-  _mode10.begin = r'\b(?:TODO|DONE|BEGIN|END|STUB|CHG|FIXME|NOTE|BUG|XXX)\b';
-  _mode10.relevance = 0;
-  _mode11.scope = r'comment';
-  _mode11.begin = r'/\*';
-  _mode11.end = r'\*/';
-  _mode11.relevance = 0;
-  _mode11.contains = [_mode9, _mode10];
+  mode10.scope = r'doctag';
+  mode10.begin = r'\b(?:TODO|DONE|BEGIN|END|STUB|CHG|FIXME|NOTE|BUG|XXX)\b';
+  mode10.relevance = 0;
+  mode11.scope = r'comment';
+  mode11.begin = r'/\*';
+  mode11.end = r'\*/';
+  mode11.relevance = 0;
+  mode11.contains = [mode9, mode10];
   return Mode(
     name: r'ISBL',
     caseInsensitive: true,
@@ -115,19 +117,19 @@ Mode isbl(Highlight hljs) {
             returnBegin: true,
             excludeEnd: true,
           ),
-          _mode0,
-          _mode1,
-          _mode3,
-          _mode6,
-          _mode7,
+          mode0,
+          mode1,
+          mode3,
+          mode6,
+          mode7,
         ],
       ),
-      _mode2,
-      _mode0,
-      _mode1,
-      _mode3,
-      _mode6,
-      _mode7,
+      mode2,
+      mode0,
+      mode1,
+      mode3,
+      mode6,
+      mode7,
     ],
   );
 }

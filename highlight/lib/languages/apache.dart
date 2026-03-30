@@ -1,14 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `apache`.
 Mode apache(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  _mode0.scope = r'number';
-  _mode0.begin = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?';
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  mode0.scope = r'number';
+  mode0.begin = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?';
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
   return Mode(
     name: r'Apache config',
     aliases: [r'apacheconf'],
@@ -37,14 +39,14 @@ Mode apache(Highlight hljs) {
         begin: r'<\/?',
         end: r'>',
         contains: [
-          _mode0,
+          mode0,
           Mode(scope: r'number', begin: r':\d{1,5}'),
           Mode(
             scope: r'string',
             begin: r'"',
             end: r'"',
             illegal: r'\n',
-            contains: [_mode1],
+            contains: [mode1],
             relevance: 0,
           ),
         ],
@@ -89,14 +91,14 @@ Mode apache(Highlight hljs) {
                 Mode(scope: r'number', begin: r'[$%]\d+'),
               ],
             ),
-            _mode0,
+            mode0,
             Mode(scope: r'number', begin: r'\b\d+'),
             Mode(
               scope: r'string',
               begin: r'"',
               end: r'"',
               illegal: r'\n',
-              contains: [_mode1],
+              contains: [mode1],
             ),
           ],
         ),

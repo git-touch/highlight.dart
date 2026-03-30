@@ -1,37 +1,39 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `roboconf`.
 Mode roboconf(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  _mode0.scope = r'attribute';
-  _mode0.begin = r'[a-zA-Z-_]+';
-  _mode0.end = r'\s*:';
-  _mode0.excludeEnd = true;
-  _mode0.starts = _mode1;
-  _mode1.end = r';';
-  _mode1.relevance = 0;
-  _mode1.contains = [_mode2, _mode3];
-  _mode2.scope = r'variable';
-  _mode2.begin = r'\.[a-zA-Z-_]+';
-  _mode3.scope = r'keyword';
-  _mode3.begin = r'\(optional\)';
-  _mode4.scope = r'comment';
-  _mode4.begin = r'#';
-  _mode4.end = r'$';
-  _mode4.contains = [_mode5, _mode6];
-  _mode5.scope = r'doctag';
-  _mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
-  _mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
-  _mode5.excludeBegin = true;
-  _mode5.relevance = 0;
-  _mode6.begin =
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  mode0.scope = r'attribute';
+  mode0.begin = r'[a-zA-Z-_]+';
+  mode0.end = r'\s*:';
+  mode0.excludeEnd = true;
+  mode0.starts = mode1;
+  mode1.end = r';';
+  mode1.relevance = 0;
+  mode1.contains = [mode2, mode3];
+  mode2.scope = r'variable';
+  mode2.begin = r'\.[a-zA-Z-_]+';
+  mode3.scope = r'keyword';
+  mode3.begin = r'\(optional\)';
+  mode4.scope = r'comment';
+  mode4.begin = r'#';
+  mode4.end = r'$';
+  mode4.contains = [mode5, mode6];
+  mode5.scope = r'doctag';
+  mode5.begin = r'[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)';
+  mode5.end = r'(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):';
+  mode5.excludeBegin = true;
+  mode5.relevance = 0;
+  mode6.begin =
       r"[ ]+((?:I|a|is|so|us|to|at|if|in|it|on|[A-Za-z]+['](d|ve|re|ll|t|s|n)|[A-Za-z]+[-][a-z]+|[A-Za-z][a-z]{2,})[.]?[:]?([.][ ]|[ ])){3}";
   return Mode(
     name: r'Roboconf',
@@ -43,7 +45,7 @@ Mode roboconf(Highlight hljs) {
         begin: r'^facet [a-zA-Z-_][^\n{]+\{',
         end: r'\}',
         keywords: r'facet',
-        contains: [_mode0, _mode4],
+        contains: [mode0, mode4],
       ),
       Mode(
         begin: r'^\s*instance of [a-zA-Z-_][^\n{]+\{',
@@ -51,14 +53,14 @@ Mode roboconf(Highlight hljs) {
         keywords:
             r'name count channels instance-data instance-state instance of',
         illegal: r'\S',
-        contains: [r'self', _mode0, _mode4],
+        contains: [r'self', mode0, mode4],
       ),
       Mode(
         begin: r'^[a-zA-Z-_][^\n{]+\{',
         end: r'\}',
-        contains: [_mode0, _mode4],
+        contains: [mode0, mode4],
       ),
-      _mode4,
+      mode4,
     ],
   );
 }

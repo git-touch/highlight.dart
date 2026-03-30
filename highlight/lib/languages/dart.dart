@@ -1,54 +1,56 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND.
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import '../highlight_core.dart';
 
+/// Highlight.js language definition for `dart`.
 Mode dart(Highlight hljs) {
-  final Mode _mode0 = Mode();
-  final Mode _mode1 = Mode();
-  final Mode _mode2 = Mode();
-  final Mode _mode3 = Mode();
-  final Mode _mode4 = Mode();
-  final Mode _mode5 = Mode();
-  final Mode _mode6 = Mode();
-  final Mode _mode7 = Mode();
-  final Mode _mode8 = Mode();
-  _mode0.scope = r'string';
-  _mode0.variants = [
+  final Mode mode0 = Mode();
+  final Mode mode1 = Mode();
+  final Mode mode2 = Mode();
+  final Mode mode3 = Mode();
+  final Mode mode4 = Mode();
+  final Mode mode5 = Mode();
+  final Mode mode6 = Mode();
+  final Mode mode7 = Mode();
+  final Mode mode8 = Mode();
+  mode0.scope = r'string';
+  mode0.variants = [
     Mode(begin: r"r'''", end: r"'''"),
     Mode(begin: r'r"""', end: r'"""'),
     Mode(begin: r"r'", end: r"'", illegal: r'\n'),
     Mode(begin: r'r"', end: r'"', illegal: r'\n'),
-    Mode(begin: r"'''", end: r"'''", contains: [_mode1, _mode2, _mode4]),
-    Mode(begin: r'"""', end: r'"""', contains: [_mode1, _mode2, _mode4]),
+    Mode(begin: r"'''", end: r"'''", contains: [mode1, mode2, mode4]),
+    Mode(begin: r'"""', end: r'"""', contains: [mode1, mode2, mode4]),
     Mode(
       begin: r"'",
       end: r"'",
       illegal: r'\n',
-      contains: [_mode1, _mode2, _mode4],
+      contains: [mode1, mode2, mode4],
     ),
     Mode(
       begin: r'"',
       end: r'"',
       illegal: r'\n',
-      contains: [_mode1, _mode2, _mode4],
+      contains: [mode1, mode2, mode4],
     ),
   ];
-  _mode1.begin = r'\\[\s\S]';
-  _mode1.relevance = 0;
-  _mode2.scope = r'subst';
-  _mode2.variants = [_mode3];
-  _mode3.begin = r'\$[A-Za-z0-9_]+';
-  _mode4.scope = r'subst';
-  _mode4.variants = [_mode5];
-  _mode4.keywords = r'true false null this is new super';
-  _mode4.contains = [_mode6, _mode0];
-  _mode5.begin = r'\$\{';
-  _mode5.end = r'\}';
-  _mode6.scope = r'number';
-  _mode6.relevance = 0;
-  _mode6.variants = [_mode7, _mode8];
-  _mode7.match = r'\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\b';
-  _mode8.match = r'\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\b';
+  mode1.begin = r'\\[\s\S]';
+  mode1.relevance = 0;
+  mode2.scope = r'subst';
+  mode2.variants = [mode3];
+  mode3.begin = r'\$[A-Za-z0-9_]+';
+  mode4.scope = r'subst';
+  mode4.variants = [mode5];
+  mode4.keywords = r'true false null this is new super';
+  mode4.contains = [mode6, mode0];
+  mode5.begin = r'\$\{';
+  mode5.end = r'\}';
+  mode6.scope = r'number';
+  mode6.relevance = 0;
+  mode6.variants = [mode7, mode8];
+  mode7.match = r'\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\b';
+  mode8.match = r'\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\b';
   return Mode(
     name: r'Dart',
     keywords: {
@@ -185,7 +187,7 @@ Mode dart(Highlight hljs) {
       r'$pattern': r'[A-Za-z][A-Za-z0-9_]*\??',
     },
     contains: [
-      _mode0,
+      mode0,
       Mode(
         scope: r'comment',
         begin: r'\/\*\*(?!\/)',
@@ -271,7 +273,7 @@ Mode dart(Highlight hljs) {
           Mode(scope: r'title', begin: r'[a-zA-Z_]\w*', relevance: 0),
         ],
       ),
-      _mode6,
+      mode6,
       Mode(scope: r'meta', begin: r'@[A-Za-z]+'),
       Mode(begin: r'=>'),
     ],
